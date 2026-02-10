@@ -130,6 +130,28 @@ class Dekanpro_Enqueue_Scripts {
 			true
 		);
 
+		// Enqueue Prism.js for syntax highlighting.
+		wp_enqueue_style(
+			'prism-theme',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css',
+			array(),
+			'1.29.0'
+		);
+		wp_enqueue_script(
+			'prism-core',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js',
+			array(),
+			'1.29.0',
+			true
+		);
+		wp_enqueue_script(
+			'prism-autoloader',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js',
+			array('prism-core'),
+			'1.29.0',
+			true
+		);
+
 		// Comment count used in localized strings.
 		$comment_count = get_comments_number();
 
