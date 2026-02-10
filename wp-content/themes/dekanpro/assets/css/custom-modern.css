@@ -280,9 +280,7 @@ article:hover .post-thumbnail img {
    ============================================ */
 .cat-links a,
 .entry-category a,
-.post-categories a,
-[class^="cat-"],
-a[class^="cat-"] {
+.post-categories a {
     background: transparent !important;
     color: inherit !important;
     padding: 0.5rem 1.25rem !important;
@@ -292,7 +290,7 @@ a[class^="cat-"] {
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
     border: 1px solid rgba(249, 103, 251, 0.25) !important;
-    box-shadow: 0 0 8px rgba(249, 103, 251, 0.15), inset 0 0 8px rgba(105, 88, 213, 0.1) !important;
+    box-shadow: 0 0 8px rgba(249, 103, 251, 0.15) !important;
     transition: all 0.3s ease !important;
     display: inline-block;
     text-decoration: none !important;
@@ -300,12 +298,17 @@ a[class^="cat-"] {
 
 .cat-links a:hover,
 .entry-category a:hover,
-.post-categories a:hover,
-[class^="cat-"]:hover,
-a[class^="cat-"]:hover {
+.post-categories a:hover {
     transform: translateY(-2px) !important;
     border-color: rgba(249, 103, 251, 0.5) !important;
     box-shadow: 0 0 15px rgba(249, 103, 251, 0.3), 0 0 30px rgba(105, 88, 213, 0.2) !important;
+    background: transparent !important;
+}
+
+/* Убираем стили с контейнера .cat-links, оставляем только на ссылках */
+.cat-links {
+    border: none !important;
+    box-shadow: none !important;
     background: transparent !important;
 }
 
