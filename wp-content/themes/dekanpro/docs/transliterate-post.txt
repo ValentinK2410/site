@@ -1,0 +1,112 @@
+<h2>Введение</h2>
+<p>В этой статье я расскажу, как создать простой WordPress плагин для автоматической транслитерации кириллических URL в латиницу. Это решает проблему нечитаемых ссылок вида <code>%D0%BA%D0%B0%D0%BA-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C</code>.</p>
+
+<h2>Проблема</h2>
+<p>По умолчанию WordPress создаёт URL из заголовка записи. Если заголовок на русском, URL будет содержать кириллицу, которая в браузере отображается как закодированные символы:</p>
+<ul>
+<li><strong>Было:</strong> <code>/как-сделать-липкий-сайдбар/</code> → <code>/%D0%BA%D0%B0%D0%BA-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C/</code></li>
+<li><strong>Стало:</strong> <code>/kak-sdelat-lipkiy-saydbar/</code></li>
+</ul>
+
+<h2>Решение — создаём плагин</h2>
+
+<h3>Шаг 1: Создаём папку плагина</h3>
+<p>Создаём папку <code>dekanpro-transliterate</code> в директории <code>/wp-content/plugins/</code></p>
+
+<h3>Шаг 2: Создаём главный файл плагина</h3>
+<p>Создаём файл <code>dekanpro-transliterate.php</code> в папке плагина:</p>
+
+<pre><code class="language-php">&lt;?php
+/**
+ * Plugin Name: DekanPro Transliterate
+ * Description: Транслитерация кириллических URL в латиницу
+ * Version: 1.0.0
+ * Author: DekanPro
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+class DekanPro_Transliterate {
+
+    // Таблица транслитерации
+    private static $table = array(
+        'а' =&gt; 'a',   'б' =&gt; 'b',   'в' =&gt; 'v',
+        'г' =&gt; 'g',   'д' =&gt; 'd',   'е' =&gt; 'e',
+        'ё' =&gt; 'yo',  'ж' =&gt; 'zh',  'з' =&gt; 'z',
+        'и' =&gt; 'i',   'й' =&gt; 'y',   'к' =&gt; 'k',
+        'л' =&gt; 'l',   'м' =&gt; 'm',   'н' =&gt; 'n',
+        'о' =&gt; 'o',   'п' =&gt; 'p',   'р' =&gt; 'r',
+        'с' =&gt; 's',   'т' =&gt; 't',   'у' =&gt; 'u',
+        'ф' =&gt; 'f',   'х' =&gt; 'h',   'ц' =&gt; 'ts',
+        'ч' =&gt; 'ch',  'ш' =&gt; 'sh',  'щ' =&gt; 'sch',
+        'ъ' =&gt; '',    'ы' =&gt; 'y',   'ь' =&gt; '',
+        'э' =&gt; 'e',   'ю' =&gt; 'yu',  'я' =&gt; 'ya',
+    );
+
+    public static function init() {
+        add_filter('sanitize_title', array(__CLASS__, 'transliterate'), 9);
+        add_filter('sanitize_file_name', array(__CLASS__, 'transliterate'), 9);
+    }
+
+    public static function transliterate($title) {
+        // Добавляем заглавные буквы
+        $table = self::$table;
+        foreach ($table as $cyr =&gt; $lat) {
+            $table[mb_strtoupper($cyr)] = ucfirst($lat);
+        }
+        
+        // Транслитерация
+        $title = strtr($title, $table);
+        
+        // Очистка
+        $title = preg_replace('/[^a-zA-Z0-9\-_.]/', '-', $title);
+        $title = preg_replace('/-+/', '-', $title);
+        $title = trim($title, '-');
+        $title = strtolower($title);
+        
+        return $title;
+    }
+}
+
+DekanPro_Transliterate::init();</code></pre>
+
+<h3>Шаг 3: Активируем плагин</h3>
+<p>Переходим в админку WordPress → Плагины → Находим "DekanPro Transliterate" → Нажимаем "Активировать"</p>
+
+<h2>Как это работает</h2>
+
+<h3>Фильтр sanitize_title</h3>
+<p>WordPress вызывает функцию <code>sanitize_title()</code> каждый раз, когда нужно создать slug из заголовка. Мы подключаемся к этому фильтру с приоритетом 9 (до стандартной обработки):</p>
+<pre><code class="language-php">add_filter('sanitize_title', array(__CLASS__, 'transliterate'), 9);</code></pre>
+
+<h3>Функция strtr()</h3>
+<p>PHP-функция <code>strtr()</code> заменяет символы по таблице соответствия. Это самый быстрый способ транслитерации:</p>
+<pre><code class="language-php">$title = strtr($title, $table);
+// "Привет" → "Privet"</code></pre>
+
+<h3>Очистка строки</h3>
+<p>После транслитерации убираем все символы кроме букв, цифр и дефисов:</p>
+<pre><code class="language-php">$title = preg_replace('/[^a-zA-Z0-9\-_.]/', '-', $title);</code></pre>
+
+<h2>Структура файлов</h2>
+<pre><code>wp-content/
+└── plugins/
+    └── dekanpro-transliterate/
+        └── dekanpro-transliterate.php</code></pre>
+
+<h2>Таблица транслитерации</h2>
+<p>Используется стандарт ГОСТ 7.79-2000:</p>
+<table>
+<tr><td>а→a</td><td>б→b</td><td>в→v</td><td>г→g</td><td>д→d</td></tr>
+<tr><td>е→e</td><td>ё→yo</td><td>ж→zh</td><td>з→z</td><td>и→i</td></tr>
+<tr><td>й→y</td><td>к→k</td><td>л→l</td><td>м→m</td><td>н→n</td></tr>
+<tr><td>о→o</td><td>п→p</td><td>р→r</td><td>с→s</td><td>т→t</td></tr>
+<tr><td>у→u</td><td>ф→f</td><td>х→h</td><td>ц→ts</td><td>ч→ch</td></tr>
+<tr><td>ш→sh</td><td>щ→sch</td><td>ы→y</td><td>э→e</td><td>ю→yu</td></tr>
+<tr><td>я→ya</td><td>ъ→</td><td>ь→</td><td></td><td></td></tr>
+</table>
+
+<h2>Заключение</h2>
+<p>Теперь все новые записи будут автоматически получать читаемые латинские URL. Плагин также транслитерирует имена загружаемых файлов.</p>
