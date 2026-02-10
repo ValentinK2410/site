@@ -214,8 +214,9 @@
 
             // Очистка и отрисовка
             this.ctx.clearRect(0, 0, this.width, this.height);
+            const wrapLogo = !this.linesFollowCursor;
             for (const tube of this.tubes) {
-                tube.update(targetX, targetY, speed, moveAngle, isIdle, this.globalTime);
+                tube.update(targetX, targetY, speed, moveAngle, isIdle, this.globalTime, wrapLogo);
                 tube.draw(this.ctx);
             }
 
@@ -246,7 +247,7 @@
             }
         }
 
-        update(targetX, targetY, moveSpeed, moveAngle, isIdle, globalTime) {
+        update(targetX, targetY, moveSpeed, moveAngle, isIdle, globalTime, wrapLogo = false) {
             // Расхождение зависит от скорости движения
             const targetSpread = Math.min(moveSpeed * 3, this.spreadDistance);
             this.currentSpread += (targetSpread - this.currentSpread) * 0.1;
@@ -258,8 +259,9 @@
             let offsetY = 0;
             
             if (isIdle) {
-                // Режим покоя - рисуем цветок из переплетающихся лент
-                const flowerRadius = 25 + Math.sin(globalTime * 0.5 + this.index) * 10;
+                // Режим покоя / обвивание лого — цветок из переплетающихся лент
+                const baseRadius = wrapLogo ? 70 : 25;  // Больше радиус при обвивании логотипа
+                const flowerRadius = baseRadius + Math.sin(globalTime * 0.5 + this.index) * (wrapLogo ? 20 : 10);
                 const petalCount = 5;
                 const petalPhase = globalTime * 1.2 + this.idlePhase;
                 
