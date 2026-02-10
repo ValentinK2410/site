@@ -24,14 +24,14 @@
         
         // Сохраняем оригинальные размеры и позицию сайдбара
         let sidebarWidth = 0;
-        let sidebarRight = 0;
+        let sidebarLeft = 0;
         let isSidebarSticky = false;
 
         function updateSidebarDimensions() {
             if (sidebar && !isSidebarSticky) {
                 const rect = sidebar.getBoundingClientRect();
                 sidebarWidth = rect.width;
-                sidebarRight = window.innerWidth - rect.right;
+                sidebarLeft = rect.left + window.pageXOffset;
             }
         }
 
@@ -51,7 +51,6 @@
             // Обновляем позицию для sticky сайдбара
             if (sidebar && isSidebarSticky) {
                 sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
-                sidebar.style.right = sidebarRight + 'px';
             }
         });
 
@@ -81,14 +80,12 @@
                     sidebar.classList.add('is-sticky');
                     sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
                     sidebar.style.width = sidebarWidth + 'px';
-                    sidebar.style.right = sidebarRight + 'px';
-                    sidebar.style.left = 'auto';
+                    sidebar.style.left = sidebarLeft + 'px';
                 } else if (scrollTop <= headerHeight && isSidebarSticky) {
                     isSidebarSticky = false;
                     sidebar.classList.remove('is-sticky');
                     sidebar.style.top = '';
                     sidebar.style.width = '';
-                    sidebar.style.right = '';
                     sidebar.style.left = '';
                 }
             }
