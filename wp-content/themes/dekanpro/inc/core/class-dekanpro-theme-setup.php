@@ -58,6 +58,7 @@ if ( ! class_exists( 'Dekanpro_Theme_Setup' ) ) :
 
 			// Убираем сообщение об ошибке Interactivity API из вывода.
 			add_action( 'template_redirect', array( $this, 'strip_directive_error' ), 0 );
+			add_action( 'wp_footer', array( $this, 'strip_directive_error_js' ), 999 );
 		}
 
 		/**
@@ -228,6 +229,33 @@ if ( ! class_exists( 'Dekanpro_Theme_Setup' ) ) :
 					return str_replace( '[an error occurred while processing the directive]', '', $html );
 				}
 			);
+		}
+
+		/**
+		 * Убирает сообщение об ошибке Interactivity API через JS (на случай клиентского рендеринга).
+		 *
+		 * @since 1.0.0
+		 */
+		public function strip_directive_error_js() {
+			?>
+			<script>
+			(function(){
+				var walk = function(node) {
+					if (node.nodeType === 3) {
+						if (node.textContent.indexOf('an error occurred while processing the directive') !== -1) {
+							node.textContent = node.textContent.replace(/\[?an error occurred while processing the directive\]?/g, '');
+						}
+						return;
+					}
+					for (var i = 0; i < node.childNodes.length; i++) {
+						walk(node.childNodes[i]);
+					}
+				};
+				if (document.body) walk(document.body);
+				document.addEventListener('DOMContentLoaded', function() { walk(document.body); });
+			})();
+			</script>
+			<?php
 		}
 	}
 
