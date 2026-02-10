@@ -112,6 +112,15 @@ class Dekanpro_Enqueue_Scripts {
 			true
 		);
 
+		// Enqueue Tubes Cursor effect (WebGL background).
+		wp_enqueue_script(
+			'dekanpro-tubes-cursor',
+			DEKANPRO_THEME_URI . '/assets/js/tubes-cursor.js',
+			array(),
+			DEKANPRO_THEME_VERSION,
+			true
+		);
+
 		// Comment count used in localized strings.
 		$comment_count = get_comments_number();
 
