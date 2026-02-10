@@ -95,6 +95,8 @@ article.page,
     border-radius: var(--dekanpro-radius) !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
     transition: var(--dekanpro-transition-primary) !important;
+    position: relative;
+    z-index: 2;
 }
 
 /* Основной контент */
@@ -102,6 +104,8 @@ article.page,
 .content-area,
 main.site-main {
     background: transparent !important;
+    position: relative;
+    z-index: 2;
 }
 
 /* Сайдбар */
@@ -109,6 +113,8 @@ main.site-main {
 .sidebar,
 aside.widget-area {
     background: transparent !important;
+    position: relative;
+    z-index: 2;
 }
 
 /* Футер */
@@ -119,14 +125,18 @@ footer.site-footer {
     backdrop-filter: blur(15px) !important;
     -webkit-backdrop-filter: blur(15px) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    position: relative;
+    z-index: 2;
 }
 
-/* Хедер уже есть, но усилим размытие */
+/* Хедер */
 #masthead,
 .site-header,
 #dekanpro-header {
     backdrop-filter: blur(15px) !important;
     -webkit-backdrop-filter: blur(15px) !important;
+    position: relative;
+    z-index: 100;
 }
 
 /* Карточки постов */
