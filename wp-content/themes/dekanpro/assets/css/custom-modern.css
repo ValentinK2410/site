@@ -140,17 +140,24 @@ h1, h2, h3, h4, h5, h6,
     bottom: -4px;
     left: 0;
     width: 100%;
-    height: 6px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 6'%3E%3Cpath d='M0 3 Q 5 0, 10 3 T 20 3' stroke='%23f967fb' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
-    background-size: 20px 6px;
+    height: 8px;
+    background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 8'%3E%3Cdefs%3E%3ClinearGradient id='waveGrad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23f967fb'/%3E%3Cstop offset='50%25' stop-color='%236958d5'/%3E%3Cstop offset='100%25' stop-color='%2353bc28'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 4 Q 5 1, 10 4 T 20 4' stroke='url(%23waveGrad)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E") repeat-x;
+    background-size: 40px 8px;
     opacity: 0;
     transition: all 0.3s ease;
-    animation: waveMove 1s linear infinite paused;
+    animation: waveMove 0.8s linear infinite paused, waveColorShift 3s ease-in-out infinite paused;
 }
 
 @keyframes waveMove {
     0% { background-position-x: 0; }
-    100% { background-position-x: 20px; }
+    100% { background-position-x: 40px; }
+}
+
+@keyframes waveColorShift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    33% { filter: hue-rotate(60deg); }
+    66% { filter: hue-rotate(-60deg); }
 }
 
 .dekanpro-nav > ul > li > a:hover::after,
