@@ -1579,19 +1579,12 @@ if ( ! class_exists( 'Dekanpro_Dynamic_Styles' ) ) :
 				return;
 			}
 
-			// Load file.php file.
-			require_once ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'file.php'; // phpcs:ignore
-
-			global $wp_filesystem;
-
-			// Check if the the global filesystem isn't setup yet.
-			if ( is_null( $wp_filesystem ) ) {
-				WP_Filesystem();
+			// Use direct filesystem to avoid FTP issues
+			if ( ! file_exists( $this->dynamic_css_path ) ) {
+				wp_mkdir_p( $this->dynamic_css_path );
 			}
-
-			$wp_filesystem->mkdir( $this->dynamic_css_path );
-
-			if ( $wp_filesystem->put_contents( $this->dynamic_css_path . 'dynamic-styles.css', $css ) ) {
+			
+			if ( @file_put_contents( $this->dynamic_css_path . 'dynamic-styles.css', $css ) ) {
 				$this->clean_cache();
 				set_transient( 'dekanpro_has_dynamic_css', true, 0 );
 				return true;
@@ -1606,18 +1599,11 @@ if ( ! class_exists( 'Dekanpro_Dynamic_Styles' ) ) :
 		 * @return void
 		 */
 		public function delete_dynamic_file() {
-
-			// Load file.php file.
-			require_once ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'file.php'; // phpcs:ignore
-
-			global $wp_filesystem;
-
-			// Check if the the global filesystem isn't setup yet.
-			if ( is_null( $wp_filesystem ) ) {
-				WP_Filesystem();
+			// Use direct filesystem to avoid FTP issues
+			$file = $this->dynamic_css_path . 'dynamic-styles.css';
+			if ( file_exists( $file ) ) {
+				@unlink( $file );
 			}
-
-			$wp_filesystem->delete( $this->dynamic_css_path . 'dynamic-styles.css' );
 
 			delete_transient( 'dekanpro_has_dynamic_css' );
 		}
