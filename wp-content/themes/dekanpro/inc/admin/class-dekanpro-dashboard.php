@@ -73,8 +73,8 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			 * Dashboard page.
 			 */
 			add_theme_page(
-				esc_html__( 'DekanPro Theme', 'dekanpro' ),
-				'DekanPro Theme',
+				esc_html__( 'Тема DekanPro', 'dekanpro' ),
+				'Тема DekanPro',
 				apply_filters( 'dekanpro_manage_cap', 'edit_theme_options' ),
 				'dekanpro-dashboard',
 				array( $this, 'render_dashboard' )
@@ -84,8 +84,8 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			 * Plugins page.
 			 */
 			add_theme_page(
-				esc_html__( 'Plugins', 'dekanpro' ),
-				'Plugins',
+				esc_html__( 'Плагины', 'dekanpro' ),
+				'Плагины',
 				apply_filters( 'dekanpro_manage_cap', 'edit_theme_options' ),
 				'dekanpro-plugins',
 				array( $this, 'render_plugins' )
@@ -110,18 +110,18 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			<div class="hester-container">
 
 				<div class="hester-section-title">
-					<h2 class="hester-section-title"><?php esc_html_e( 'Getting Started', 'dekanpro' ); ?></h2>
+					<h2 class="hester-section-title"><?php esc_html_e( 'Начало работы', 'dekanpro' ); ?></h2>
 				</div><!-- END .hester-section-title -->
 
 				<div class="hester-section hester-columns">
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-admin-plugins"></i><?php esc_html_e( 'Install Plugins', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Explore recommended plugins. These free plugins provide additional features and customization options.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-admin-plugins"></i><?php esc_html_e( 'Установить плагины', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Ознакомьтесь с рекомендуемыми плагинами. Эти бесплатные плагины добавляют дополнительные функции и возможности настройки.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
-								<a href="<?php echo esc_url( menu_page_url( 'dekanpro-plugins', false ) ); ?>" class="hester-btn secondary" role="button"><?php esc_html_e( 'Install Plugins', 'dekanpro' ); ?></a>
+								<a href="<?php echo esc_url( menu_page_url( 'dekanpro-plugins', false ) ); ?>" class="hester-btn secondary" role="button"><?php esc_html_e( 'Установить плагины', 'dekanpro' ); ?></a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>
@@ -141,41 +141,41 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-palmtree"></i><?php esc_html_e( 'Upload Your Logo', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Kick off branding your new site by uploading your logo. Simply upload your logo and customize as you need.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-palmtree"></i><?php esc_html_e( 'Загрузить логотип', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Начните с загрузки логотипа для оформления сайта. Просто загрузите логотип и настройте его.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
-								<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[control]=custom_logo' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Upload Logo', 'dekanpro' ); ?></a>
+								<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[control]=custom_logo' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Загрузить логотип', 'dekanpro' ); ?></a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-welcome-widgets-menus"></i><?php esc_html_e( 'Change Menus', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Customize menu links and choose what&rsquo;s displayed in available theme menu locations.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-welcome-widgets-menus"></i><?php esc_html_e( 'Изменить меню', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Настройте ссылки в меню и выберите, что отображается в доступных областях меню темы.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
-								<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Go to Menus', 'dekanpro' ); ?></a>
+								<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Перейти в Меню', 'dekanpro' ); ?></a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-art"></i><?php esc_html_e( 'Change Colors', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Replace the default theme colors and make your website color scheme match your brand design.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-art"></i><?php esc_html_e( 'Изменить цвета', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Замените цвета темы по умолчанию и подберите цветовую схему сайта под ваш бренд.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
-								<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=dekanpro_section_colors' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Change Colors', 'dekanpro' ); ?></a>
+								<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=dekanpro_section_colors' ) ); ?>" class="hester-btn secondary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Изменить цвета', 'dekanpro' ); ?></a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-editor-help"></i><?php esc_html_e( 'Need Help?', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Head over to our site to learn more about the DekanPro theme, read help articles and get support.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-editor-help"></i><?php esc_html_e( 'Нужна помощь?', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Перейдите на наш сайт, чтобы узнать больше о теме DekanPro, прочитать статьи и получить поддержку.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
 								<a href="https://dekan.pro/" target="_blank" rel="noopener noreferrer" class="hester-btn secondary"><?php esc_html_e( 'Сайт DekanPro', 'dekanpro' ); ?></a>
@@ -186,14 +186,14 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 
 				<div class="hester-section large-section">
 					<div class="hester-hero">
-						<img src="<?php echo esc_url( DEKANPRO_THEME_URI . '/assets/images/dekanpro-customize.svg' ); ?>" alt="<?php echo esc_html( 'Customize' ); ?>" />
+						<img src="<?php echo esc_url( DEKANPRO_THEME_URI . '/assets/images/dekanpro-customize.svg' ); ?>" alt="<?php esc_attr_e( 'Настройка', 'dekanpro' ); ?>" />
 					</div>
 
-					<h2><?php esc_html_e( 'Let‘s customize your website', 'dekanpro' ); ?></h2>
-					<p><?php esc_html_e( 'There are many changes you can make to customize your website. Explore DekanPro customization options and make it unique.', 'dekanpro' ); ?></p>
+					<h2><?php esc_html_e( 'Давайте настроим ваш сайт', 'dekanpro' ); ?></h2>
+					<p><?php esc_html_e( 'Вы можете внести множество изменений для настройки сайта. Изучите возможности DekanPro и сделайте его уникальным.', 'dekanpro' ); ?></p>
 
 					<div class="hester-buttons">
-						<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="hester-btn primary large-button"><?php esc_html_e( 'Start Customizing', 'dekanpro' ); ?></a>
+						<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="hester-btn primary large-button"><?php esc_html_e( 'Начать настройку', 'dekanpro' ); ?></a>
 					</div><!-- END .hester-buttons -->
 
 				</div><!-- END .hester-section -->
@@ -220,7 +220,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			<div class="hester-container">
 
 				<div class="hester-section-title">
-					<h2 class="hester-section-title"><?php esc_html_e( 'Recommended Plugins', 'dekanpro' ); ?></h2>
+					<h2 class="hester-section-title"><?php esc_html_e( 'Рекомендуемые плагины', 'dekanpro' ); ?></h2>
 				</div><!-- END .hester-section-title -->
 
 				<div class="hester-section hester-columns plugins">
@@ -232,17 +232,17 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 							// Check plugin status.
 							if ( dekanpro_plugin_utilities()->is_activated( $plugin['slug'] ) ) {
 								$btn_class = 'hester-btn secondary';
-								$btn_text  = esc_html__( 'Deactivate', 'dekanpro' );
+								$btn_text  = esc_html__( 'Деактивировать', 'dekanpro' );
 								$action    = 'deactivate';
-								$notice    = '<span class="hester-active-plugin"><span class="dashicons dashicons-yes"></span>' . esc_html__( 'Plugin activated', 'dekanpro' ) . '</span>';
+								$notice    = '<span class="hester-active-plugin"><span class="dashicons dashicons-yes"></span>' . esc_html__( 'Плагин активирован', 'dekanpro' ) . '</span>';
 							} elseif ( dekanpro_plugin_utilities()->is_installed( $plugin['slug'] ) ) {
 								$btn_class = 'hester-btn primary';
-								$btn_text  = esc_html__( 'Activate', 'dekanpro' );
+								$btn_text  = esc_html__( 'Активировать', 'dekanpro' );
 								$action    = 'activate';
 								$notice    = '';
 							} else {
 								$btn_class = 'hester-btn primary';
-								$btn_text  = esc_html__( 'Install & Activate', 'dekanpro' );
+								$btn_text  = esc_html__( 'Установить и активировать', 'dekanpro' );
 								$action    = 'install';
 								$notice    = '';
 							}
@@ -403,13 +403,13 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			$items = array(
 				'dashboard' => array(
 					'id'   => 'dashboard',
-					'name' => esc_html__( 'About', 'dekanpro' ),
+					'name' => esc_html__( 'О настройке', 'dekanpro' ),
 					'icon' => '',
 					'url'  => menu_page_url( 'dekanpro-dashboard', false ),
 				),
 				'plugins'   => array(
 					'id'   => 'plugins',
-					'name' => esc_html__( 'Recommended Plugins', 'dekanpro' ),
+					'name' => esc_html__( 'Рекомендуемые плагины', 'dekanpro' ),
 					'icon' => '',
 					'url'  => menu_page_url( 'dekanpro-plugins', false ),
 				),
@@ -432,7 +432,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			$plugin = isset( $_POST['plugin'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin'] ) ) : '';
 
 			if ( empty( $plugin ) ) {
-				wp_send_json_error( esc_html__( 'Missing plugin data', 'dekanpro' ) );
+				wp_send_json_error( esc_html__( 'Отсутствуют данные плагина', 'dekanpro' ) );
 			}
 
 			if ( $plugin ) {
@@ -446,7 +446,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 				wp_send_json_success();
 			}
 
-			wp_send_json_error( esc_html__( 'Failed to activate plugin. Missing plugin data.', 'dekanpro' ) );
+			wp_send_json_error( esc_html__( 'Не удалось активировать плагин. Отсутствуют данные.', 'dekanpro' ) );
 		}
 
 		/**
@@ -463,7 +463,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			$plugin = isset( $_POST['plugin'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin'] ) ) : '';
 
 			if ( empty( $plugin ) ) {
-				wp_send_json_error( esc_html__( 'Missing plugin data', 'dekanpro' ) );
+				wp_send_json_error( esc_html__( 'Отсутствуют данные плагина', 'dekanpro' ) );
 			}
 
 			if ( $plugin ) {
@@ -476,7 +476,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 				wp_send_json_success();
 			}
 
-			wp_send_json_error( esc_html__( 'Failed to deactivate plugin. Missing plugin data.', 'dekanpro' ) );
+			wp_send_json_error( esc_html__( 'Не удалось деактивировать плагин. Отсутствуют данные.', 'dekanpro' ) );
 		}
 
 		/**
