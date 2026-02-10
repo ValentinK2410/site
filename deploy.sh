@@ -14,6 +14,7 @@ echo "Источник: ${LOCAL_PATH}"
 echo ""
 
 rsync -avz --progress \
+  -e "ssh -i ~/.ssh/dekan_key" \
   --exclude '.git' \
   --exclude 'node_modules' \
   --exclude '.env' \
