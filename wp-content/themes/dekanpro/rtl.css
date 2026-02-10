@@ -1,0 +1,364 @@
+/*****************************************/
+/* Right-to-left language support
+ * https://codex.wordpress.org/Right-to-Left_Language_Support
+/*****************************************/
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+
+.rtl .screen-reader-text:focus {
+    left: auto;
+    right: 5px;
+}
+
+.rtl .dekanpro-entry .wp-block-quote, .rtl blockquote {
+    border-left-style: none;
+    border-right-style: solid;
+    padding-right: 3rem;
+    padding-left: 5rem;
+    background-position: 3% 90%;
+}
+
+.rtl .dekanpro-entry ol,
+.rtl .dekanpro-entry ul:not(.wp-block-latest-posts) {
+    margin-left: 0;
+    margin-right: 4rem;
+}
+
+.rtl .menu-item-custom-more i {
+    margin-right: .4rem;
+}
+
+.rtl #dekanpro-topbar .dekanpro-topbar-widget__text .dekanpro-icon {
+    margin: 0 0 0 0.7rem;
+}
+
+.rtl #dekanpro-header-inner .dekanpro-nav>ul>li {
+    margin-left: 1.6rem;
+}
+
+.rtl .dekanpro-nav>ul>li:first-child,
+.rtl .dekanpro-nav>ul>li:first-of-type {
+    margin-left: 1.6rem !important;
+}
+
+.rtl.dekanpro-header-layout-2 .dekanpro-header-container .dekanpro-logo {
+    margin-right: 0;
+    margin-left: 3.2rem;
+}
+
+.rtl.dekanpro-header-layout-2.dekanpro-is-mobile .dekanpro-header-container .dekanpro-logo,
+.rtl.dekanpro-header-layout-1 .dekanpro-header-container .dekanpro-logo,
+.rtl.dekanpro-header-layout-6 .dekanpro-logo-container .dekanpro-logo,
+.rtl.dekanpro-header-layout-4 .dekanpro-logo-container .dekanpro-logo {
+    margin-left: auto;
+    margin-right: unset;
+}
+
+.rtl.dekanpro-header-layout-6 #dekanpro-header-inner .dekanpro-nav>ul>li:last-child,
+.rtl.dekanpro-header-layout-4 #dekanpro-header-inner .dekanpro-nav>ul>li:last-child {
+    margin-left: 0 !important;
+}
+
+.rtl .dekanpro-social-nav.rounded>ul>li>a {
+    margin-right: 0.8rem;
+}
+
+.rtl .dekanpro-social-nav.rounded>ul>li:first-child>a {
+    margin-right: 0;
+}
+
+.rtl .dekanpro-social-nav.rounded-border>ul>li:first-of-type>a>span:not(.screen-reader-text),
+.rtl .dekanpro-social-nav.rounded-fill>ul>li:first-of-type>a>span:not(.screen-reader-text) {
+    margin-right: 0;
+}
+
+.rtl .dekanpro-header-element>.dekanpro-header-widget:first-child {
+    margin-left: 0;
+}
+
+.rtl .dekanpro-header-element>.dekanpro-header-widget.dekanpro-header-widget__image {
+    padding-left: 0;
+}
+
+.rtl.dekanpro-header-layout-6 .dekanpro-widget-location-right .dekanpro-header-widget:last-of-type,
+.rtl.dekanpro-header-layout-4 .dekanpro-widget-location-right .dekanpro-header-widget:last-of-type {
+    padding-left: 0;
+}
+
+.rtl.dekanpro-header-layout-6 .dekanpro-widget-location-left .dekanpro-header-widget:first-of-type {
+    padding-right: 0;
+}
+
+.rtl.dekanpro-header-layout-6 .dekanpro-nav-container .dekanpro-widget-location-left .dekanpro-header-widget:first-child,
+.rtl.dekanpro-header-layout-4 .dekanpro-nav-container .dekanpro-widget-location-left .dekanpro-header-widget:first-child {
+    padding-left: 0.4rem;
+}
+
+.rtl .ticker-slider-box {
+    padding: 5px;
+}
+
+.rtl .ticker-slider-controls.dekanpro-swiper-buttons {
+    flex-direction: row-reverse;
+}
+
+.rtl .author-avatar img {
+    margin-left: 0.8rem;
+    margin-right: 0;
+}
+
+.rtl .entry-meta .dekanpro-icon {
+    margin-left: 0.7rem;
+    margin-right: 0;
+}
+
+.rtl .entry-meta .entry-meta-elements>span:last-child {
+    padding-right: 1.1rem;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.rtl .entry-meta .entry-meta-elements>span:before {
+    right: -0.75rem;
+}
+
+.rtl.dekanpro-blog-horizontal .dekanpro-article .entry-meta .entry-meta-elements>span:first-child,
+.rtl.dekanpro-blog-layout-1 .dekanpro-article .entry-meta span:first-child {
+    padding-left: 0.5rem !important;
+    padding-right: 0 !important;
+}
+
+.rtl #pyml .dekanpro-card-items .dekanpro-swiper-buttons .swiper-button-prev,
+.rtl #pyml .dekanpro-card-items .dekanpro-swiper-buttons .swiper-button-next {
+    --swiper-navigation-sides-offset: -4rem;
+}
+
+.rtl.dekanpro-sidebar-style-2 #pyml .pyml-slider-items .widget-title::before {
+    right: 2rem;
+}
+
+.rtl.dekanpro-sidebar-style-2 #pyml .pyml-slider-items .widget-title::after {
+    right: 9rem;
+}
+
+.rtl .dekanpro-card-items .dekanpro-swiper-buttons {
+    float: left;
+    margin-left: 0;
+    margin-right: -100%;
+}
+
+.rtl #pyml .dekanpro-card-items .dekanpro-swiper-buttons {
+    padding-left: 0;
+    padding-right: 1.6rem;
+}
+
+.rtl .hester-posts-list-widget-init-s1 .hester-posts-list-widget-thumb {
+    margin-right: 0;
+    margin-left: 1.8rem;
+}
+
+.rtl .hester-posts-list-widget-categories .dekanpro-icon,
+.rtl .hester-posts-list-widget-meta .dekanpro-icon,
+.rtl .hester-posts-list-widget-categories .hester-icon,
+.rtl .hester-posts-list-widget-meta .hester-icon {
+    margin-right: 0;
+    margin-left: 0.6rem;
+}
+
+.rtl.is-footer-heading-init-s1 #colophon .wp-block-heading::before,
+.rtl.is-footer-heading-init-s1 #colophon .widget-title::before {
+    right: 0;
+    left: 0;
+}
+
+.rtl.is-footer-heading-init-s1 #colophon .wp-block-heading::after,
+.rtl.is-footer-heading-init-s1 #colophon .widget-title::after {
+    right: 7rem;
+    left: 0;
+}
+
+.rtl.is-section-heading-init-s3 .dekanpro-card-items .widget-title::after,
+.rtl.is-section-heading-init-s3 #secondary .wp-block-search .wp-block-search__label::after,
+.rtl.is-section-heading-init-s3 #secondary .wp-block-heading::after,
+.rtl.is-section-heading-init-s3 #secondary .widget-title::after,
+.rtl.is-footer-heading-init-s3 #colophon .wp-block-search .wp-block-search__label::after,
+.rtl.is-footer-heading-init-s3 #colophon .wp-block-heading::after,
+.rtl.is-footer-heading-init-s3 #colophon .widget-title::after {
+    right: 0;
+    left: unset;
+}
+
+.rtl.dekanpro-sidebar-style-2 .pyml-slider-items .widget-title::before,
+.rtl.dekanpro-sidebar-style-2 #secondary .wp-block-search .wp-block-search__label::before,
+.rtl.dekanpro-sidebar-style-2 #secondary .wp-block-heading::before,
+.rtl.dekanpro-sidebar-style-2 #secondary .widget-title::before {
+    right: 2.5rem;
+    left: 0;
+}
+
+.rtl.dekanpro-sidebar-style-2 .pyml-slider-items .widget-title::after,
+.rtl.dekanpro-sidebar-style-2 #secondary .wp-block-search .wp-block-search__label::after,
+.rtl.dekanpro-sidebar-style-2 #secondary .wp-block-heading::after,
+.rtl.dekanpro-sidebar-style-2 #secondary .widget-title::after {
+    right: 9.5rem;
+    left: 0;
+}
+
+.rtl .dekanpro-vertical-slider .dekanpro-entry-content-wrapper .dekanpro-btn.btn-text-1::after,
+.rtl .dekanpro-horizontal-slider .dekanpro-entry-content-wrapper .dekanpro-btn.btn-text-1::after {
+    margin-left: 0;
+    margin-right: 0.8rem;
+    margin-top: 0.1rem;
+    transform: rotate(180deg);
+}
+
+.rtl .navigation .nav-links .right-arrow svg {
+    transform: rotate(0deg);
+}
+
+.rtl .navigation .nav-links .left-arrow svg {
+    transform: rotate(180deg);
+}
+
+.rtl .dekanpro-header-widgets .dekanpro-search-simple {
+    right: unset;
+    left: -1.5rem;
+}
+
+.rtl .dekanpro-header-widgets .dekanpro-search-simple:after {
+    right: unset;
+    left: 1.6rem;
+}
+
+.rtl .dekanpro-header-widgets .dekanpro-search-simple .dekanpro-search-form input {
+    padding: 1.6rem 2rem 1.6rem 4.5rem;
+}
+
+.rtl .dekanpro-header-widgets .dekanpro-search-simple button:not(.dekanpro-search-close) {
+    right: unset;
+    left: 5.6rem;
+}
+
+.rtl .dekanpro-header-widgets .dekanpro-search-simple .dekanpro-search-close {
+    right: unset;
+    left: 1.6rem;
+}
+
+.rtl .widget.widget_block ul:not(.submenu-container, .wp-block-social-links, .wp-block-latest-posts__list)>li>a:hover::before,
+.rtl.using-keyboard .widget.widget_block ul:not(.submenu-container, .wp-block-social-links, .wp-block-latest-posts__list)>li>a:focus::before,
+.rtl .widget.widget_archive ul:not(.children)>li>a:hover::before,
+.rtl.using-keyboard .widget.widget_archive ul:not(.children)>li>a:focus::before,
+.rtl .widget.widget_categories ul:not(.children)>li>a:hover::before,
+.rtl.using-keyboard .widget.widget_categories ul:not(.children)>li>a:focus::before,
+.rtl .widget.widget.widget_pages ul:not(.sub-menu)>li>a:hover::before,
+.rtl.using-keyboard .widget.widget.widget_pages ul:not(.sub-menu)>li>a:focus::before,
+.rtl .widget.widget_nav_menu ul:not(.sub-menu)>li>a:hover::before,
+.rtl.using-keyboard .widget.widget_nav_menu ul:not(.sub-menu)>li>a:focus::before {
+    margin-right: 0;
+    margin-left: 1.2rem;
+}
+
+.rtl .dekanpro-nav .sub-menu a {
+    text-align: end;
+}
+
+.rtl .dekanpro-nav .menu-item-has-children>a>.dekanpro-icon,
+.rtl .dekanpro-nav .page_item_has_children>a>.dekanpro-icon {
+    margin-left: 0;
+    margin-right: 0.4rem;
+}
+
+@media screen and (max-width: 960px) {
+    .rtl .dekanpro-mobile-toggen .dekanpro-icon {
+        right: unset;
+        left: 0;
+    }
+    .rtl #dekanpro-header-inner .dekanpro-nav .menu-item-has-children>a > span,
+    .rtl #dekanpro-header-inner .dekanpro-nav .page_item_has_children>a > span {
+        border-right: none;
+        border-left: 1px solid rgba(185, 185, 185, 0.4);
+    }
+}
+
+@media only screen and (min-width: 869px) {
+    .rtl.dekanpro-blog-horizontal .dekanpro-article:not(.format-quote) .dekanpro-blog-entry-wrapper.dekanpro-thumb-right .entry-media {
+        margin-left: 0;
+        margin-right: 3rem;
+    }
+
+    .rtl.dekanpro-blog-horizontal .dekanpro-article:not(.format-quote) .dekanpro-blog-entry-wrapper.dekanpro-thumb-left .entry-media {
+        margin-right: 0;
+        margin-left: 3rem;
+    }
+
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap .dekanpro-blog-horizontal .dekanpro-article:not(.format-quote) .dekanpro-blog-entry-wrapper.dekanpro-thumb-left .entry-media,
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap.dekanpro-blog-horizontal .dekanpro-article:not(.format-quote) .dekanpro-blog-entry-wrapper.dekanpro-thumb-left .entry-media {
+        margin-left: 3rem;
+        margin-right: -6rem;
+    }
+
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap:not(.single-post) .dekanpro-blog-horizontal .dekanpro-article.format-video:not(.format-quote),
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap.dekanpro-blog-horizontal:not(.single-post) .dekanpro-article.format-video:not(.format-quote),
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap .dekanpro-blog-horizontal .dekanpro-article:not(.format-quote, .no-entry-media),
+    .rtl.dekanpro-layout__boxed-separated.dekanpro-blog-image-wrap.dekanpro-blog-horizontal .dekanpro-article:not(.format-quote, .no-entry-media) {
+        margin-left: 0;
+        margin-right: 3rem;
+    }
+
+    .rtl.bloglamp:not(.dekanpro-blog-horizontal-wrap) .dekanpro-article.has-post-thumbnail:not(.format-quote) .entry-media,
+    .rtl.bloglamp:not(.dekanpro-blog-horizontal-wrap) .dekanpro-article .entry-media {
+        border-radius: 0 var(--dekanpro-radius) var(--dekanpro-radius) 0;
+    }
+}
+
+@media only screen and (max-width: 868px) {
+    .rtl .dekanpro-mobile-nav {
+        margin-left: 0;
+        margin-right: 1.6rem;
+    }
+}
+
+@media (min-width: 36em) {
+    .rtl.dekanpro-blog-horizontal-wrap .dekanpro-article:not(.format-quote) .dekanpro-blog-entry-wrapper .entry-media {
+        margin-right: auto;
+    }
+}
+
+.rtl.dekanpro-layout__boxed-separated.dekanpro-sidebar-position__right-sidebar #primary {
+    padding-right: 0;
+    padding-left: 5rem;
+}
+
+.rtl.dekanpro-layout__boxed-separated.dekanpro-sidebar-position__right-sidebar.dekanpro-sidebar-style-2 #primary {
+    padding-right: 0;
+    padding-left: 3rem;
+}
+
+.rtl.dekanpro-layout__boxed-separated.dekanpro-sidebar-position__left-sidebar #primary {
+    padding-left: 0;
+    padding-right: 5rem;
+}
+
+.rtl.dekanpro-layout__boxed-separated.dekanpro-sidebar-position__left-sidebar.dekanpro-sidebar-style-2 #primary {
+    padding-left: 0;
+    padding-right: 3rem;
+}
+
+.rtl.dekanpro-has-comments-toggle #dekanpro-comments-toggle .dekanpro-icon {
+    margin-left: 0.8rem;
+    margin-right: 0;
+}
+
+.rtl #hero-search .search-form .search-submit,
+.rtl #colophon .search-form .search-submit,
+.rtl #main .search-form .search-submit {
+    left: 0.8rem;
+    right: unset;
+}
+
+.rtl .dekanpro-live-search-container .wrapper .close {
+    left: 10px;
+    right: unset;
+}
