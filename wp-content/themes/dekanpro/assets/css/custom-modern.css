@@ -67,6 +67,77 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ============================================
+   GLASSMORPHISM FOR ALL BLOCKS
+   Полупрозрачные блоки с размытием фона
+   ============================================ */
+.dekanpro-article,
+.dekanpro-post-item,
+.widget,
+.sidebar .widget,
+#secondary .widget,
+.dekanpro-blog-entry-wrapper,
+.entry-content-wrapper,
+.comment-body,
+.wp-block-group,
+.elementor-widget-container,
+.dekanpro-container > article,
+.hentry,
+article.post,
+article.page,
+.card,
+.dekanpro-card,
+.post-card {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: var(--dekanpro-radius) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+    transition: var(--dekanpro-transition-primary) !important;
+}
+
+/* Основной контент */
+#primary,
+.content-area,
+main.site-main {
+    background: transparent !important;
+}
+
+/* Сайдбар */
+#secondary,
+.sidebar,
+aside.widget-area {
+    background: transparent !important;
+}
+
+/* Футер */
+#dekanpro-footer,
+.site-footer,
+footer.site-footer {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Хедер уже есть, но усилим размытие */
+#masthead,
+.site-header,
+#dekanpro-header {
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* Карточки постов */
+.dekanpro-post-item:hover,
+.dekanpro-article:hover,
+article.post:hover {
+    background: rgba(255, 255, 255, 0.85) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
 /* Modern selection color */
 ::selection {
     background: var(--dekanpro-primary);
