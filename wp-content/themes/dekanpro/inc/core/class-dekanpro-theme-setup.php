@@ -55,6 +55,9 @@ if ( ! class_exists( 'Dekanpro_Theme_Setup' ) ) :
 
 			// Content width.
 			add_action( 'wp', array( $this, 'content_width' ) );
+
+			// Убираем сообщение об ошибке Interactivity API из вывода.
+			add_action( 'template_redirect', array( $this, 'strip_directive_error' ), 0 );
 		}
 
 		/**
@@ -212,6 +215,19 @@ if ( ! class_exists( 'Dekanpro_Theme_Setup' ) ) :
 			if ( ! isset( $content_width ) ) {
 				$content_width = apply_filters( 'dekanpro_content_width', intval( dekanpro_option( 'container_width' ) ) - 100 ); // phpcs:ignore
 			}
+		}
+
+		/**
+		 * Убирает сообщение об ошибке Interactivity API из HTML-вывода.
+		 *
+		 * @since 1.0.0
+		 */
+		public function strip_directive_error() {
+			ob_start(
+				function ( $html ) {
+					return str_replace( '[an error occurred while processing the directive]', '', $html );
+				}
+			);
 		}
 	}
 
