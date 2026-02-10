@@ -425,6 +425,13 @@ article:hover .post-thumbnail img {
     padding: 18px;
 }
 
+/* Без эффектов при наведении */
+.entry-content.dekanpro-entry:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+    background: inherit !important;
+}
+
 /* ============================================
    CATEGORIES & TAGS - Modern Pills
    ============================================ */
