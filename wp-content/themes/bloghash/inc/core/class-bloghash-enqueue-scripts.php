@@ -64,6 +64,15 @@ class Bloghash_Enqueue_Scripts {
 			'all'
 		);
 
+		// Enqueue custom modern styles.
+		wp_enqueue_style(
+			'bloghash-custom-modern',
+			BLOGHASH_THEME_URI . '/assets/css/custom-modern.css',
+			array( 'bloghash-styles' ),
+			BLOGHASH_THEME_VERSION,
+			'all'
+		);
+
 		// Register Bloghash slider.
 		wp_register_script(
 			'bloghash-slider',

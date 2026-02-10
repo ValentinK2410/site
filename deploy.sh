@@ -5,7 +5,7 @@
 # Использование: ./deploy.sh
 
 USER="root"
-HOST="dekan.pro"
+HOST="82.146.39.18"
 REMOTE_PATH="/var/www/www-root/data/www/dekan.pro"
 LOCAL_PATH="$(cd "$(dirname "$0")" && pwd)"
 

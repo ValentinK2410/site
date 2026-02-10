@@ -3,16 +3,16 @@
 :root {
     --bloghash-black: #000000;
     --bloghash-white: #ffffff;
-    --bloghash-gray: #c2c2c2;
-    --bloghash-primary: #F43676;
-    --bloghash-secondary: #111827;
-    --bloghash-gradient: linear-gradient(220deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0));
-    --bloghash-radius: 2rem;
-    --bloghash-full-radius: 10rem;
-    --bloghash-normal-radius: .8rem;
+    --bloghash-gray: #94a3b8;
+    --bloghash-primary: #6366f1;
+    --bloghash-secondary: #0f172a;
+    --bloghash-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --bloghash-radius: 1.5rem;
+    --bloghash-full-radius: 9999px;
+    --bloghash-normal-radius: 1rem;
     --bloghash-font-awesome: "Font Awesome 5 Free";
-    --bloghash-font-sans-serif: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    --bloghash-transition-primary: all .35s cubic-bezier(.645,.045,.355,1);
+    --bloghash-font-sans-serif: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --bloghash-transition-primary: all .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .page-links em,
