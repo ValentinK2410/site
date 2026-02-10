@@ -94,20 +94,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 			// Hide from admin navigation.
 			remove_submenu_page( 'themes.php', 'dekanpro-plugins' );
 
-			/**
-			 * Changelog page.
-			 */
-			add_theme_page(
-				esc_html__( 'Changelog', 'dekanpro' ),
-				'Changelog',
-				apply_filters( 'dekanpro_manage_cap', 'edit_theme_options' ),
-				'dekanpro-changelog',
-				array( $this, 'render_changelog' )
-			);
-
-			// Hide from admin navigation.
-			remove_submenu_page( 'themes.php', 'dekanpro-changelog' );
-		}
+			}
 
 		/**
 		 * Render dashboard page.
@@ -425,12 +412,6 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 					'name' => esc_html__( 'Recommended Plugins', 'dekanpro' ),
 					'icon' => '',
 					'url'  => menu_page_url( 'dekanpro-plugins', false ),
-				),
-				'changelog' => array(
-					'id'   => 'changelog',
-					'name' => esc_html__( 'Changelog', 'dekanpro' ),
-					'icon' => '',
-					'url'  => menu_page_url( 'dekanpro-changelog', false ),
 				),
 			);
 
