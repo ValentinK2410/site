@@ -1,0 +1,3194 @@
+# Translation of Themes - BlogHash in Ukrainian
+# This file is distributed under the same license as the Themes - BlogHash package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-01-28 08:26:28+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Themes - BlogHash\n"
+
+#. Theme Name of the theme
+#: style.css
+#, gp-priority: high
+msgid "BlogHash"
+msgstr "BlogHash"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "BlogHash is the perfect pick for bloggers seeking a lightweight, customizable theme that suits them just right. With plenty of options to adjust colors and typography, making your site unique is a breeze. It's SEO friendly and fully compatible with WPML, Gutenberg, Elementor, WooCommerce, and supports translation and RTL. Live preview: https://peregrine-themes.com/bloghash/#demos."
+msgstr "BlogHash - ідеальний вибір для блогерів, які шукають легку тему, що налаштовується, яка підходить саме їм. З великою кількістю опцій для налаштування кольорів і типографіки, зробити ваш сайт унікальним дуже просто. Вона зручна для SEO та повністю сумісна з WPML, Gutenberg, Elementor, WooCommerce, а також підтримує переклад і RTL. Попередній перегляд: https://peregrine-themes.com/bloghash/#demos."
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:90
+msgid "Glassmorphism"
+msgstr "Скломорфізм"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:84
+msgid "Body Animation"
+msgstr "Анімація тіла"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:85
+msgid "Choose Body Animation."
+msgstr "Виберіть Анімація тіла."
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:67
+msgctxt "pro feature"
+msgid "'Post Like ❤️' feature"
+msgstr "Функція \"Поставити лайк ❤️"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:74
+msgctxt "pro feature"
+msgid "Advance color scheme"
+msgstr "Заздалегідь продумана колірна гамма"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:61
+msgctxt "pro feature"
+msgid "Advance FrontPage slider layouts"
+msgstr "Удосконалені компонування слайдера домашньої сторінки"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:60
+msgctxt "pro feature"
+msgid "Advance header layout options"
+msgstr "Розширені можливості компонування хедеру"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:68
+msgctxt "pro feature"
+msgid "Ajax load more posts"
+msgstr "Ajax завантажує більше записів"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:59
+msgctxt "pro feature"
+msgid "All starter sites included"
+msgstr "Всі стартові сайти включені"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:87
+msgctxt "pro feature"
+msgid "AMP compatibility"
+msgstr "Сумісність з AMP"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:91
+msgctxt "pro feature"
+msgid "And much more..."
+msgstr "І багато іншого..."
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:73
+msgctxt "pro feature"
+msgid "Archive layout options"
+msgstr "Параметри компонування архіву"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:75
+msgctxt "pro feature"
+msgid "Author widgets"
+msgstr "Авторські віджети"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:71
+msgctxt "pro feature"
+msgid "Meta category options"
+msgstr "Параметри мета категорії"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:64
+msgctxt "pro feature"
+msgid "Body and H1 to H6 typography options"
+msgstr "Параметри типографіки основного тексту (тіла) та від H1 до H6"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:84
+msgctxt "pro feature"
+msgid "Parallax footer"
+msgstr "Паралакс футер"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:90
+msgctxt "pro feature"
+msgid "Quick support"
+msgstr "Швидка підтримка"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:86
+msgctxt "pro feature"
+msgid "SEO Meta"
+msgstr "Мета SEO"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:80
+msgctxt "pro feature"
+msgid "Footer advance features"
+msgstr "Функції розширення футера"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:81
+msgctxt "pro feature"
+msgid "Footer widgets options"
+msgstr "Параметри віджетів футера"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:78
+msgctxt "pro feature"
+msgid "Full width Post/Page options"
+msgstr "Параметри запису/сторінки на всю ширину"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:63
+msgctxt "pro feature"
+msgid "Option to ad AdSesne code in advertisement widget"
+msgstr "Можливість розміщення коду AdSesne в рекламному віджеті"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:89
+msgctxt "pro feature"
+msgid "Regular premium updates"
+msgstr "Регулярні оновлення преміум-класу"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:79
+msgctxt "pro feature"
+msgid "Single Post/Page layout options"
+msgstr "Параметри компонування для окремого запису/сторінки"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:72
+msgctxt "pro feature"
+msgid "Site layouts options e.g. Boxed, Framed etc"
+msgstr "Варіанти компонування сайту, наприклад, коробчатий, фреймворк і т.д."
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:85
+msgctxt "pro feature"
+msgid "Site pre-loader"
+msgstr "Попередній завантажувач сайту"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:83
+msgctxt "pro feature"
+msgid "Site width manage options"
+msgstr "Параметри керування шириною сайту"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:76
+msgctxt "pro feature"
+msgid "Title design settings"
+msgstr "Налаштування дизайну назви"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:62
+msgctxt "pro feature"
+msgid "Unlimited 'Advertisement' widgets"
+msgstr "Необмежена кількість віджетів Реклама"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:70
+msgctxt "pro feature"
+msgid "Unlimited 'Featured links' + some additional features"
+msgstr "Необмежена кількість \"Вибраних посилань\" + деякі додаткові функції"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:82
+msgctxt "pro feature"
+msgid "Call to action / Pre-Footer"
+msgstr "Заклик до дії /Pre-Footer"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:88
+msgctxt "pro feature"
+msgid "Coming soon/Maintenance mode option"
+msgstr "Опція: Незабаром/режим технічного обслуговування"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:69
+msgctxt "pro feature"
+msgid "Infinite load posts"
+msgstr "Нескінченне завантаження записів"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:66
+msgctxt "pro feature"
+msgid "Post advance features"
+msgstr "Функції попереднього запису"
+
+#: inc/template-tags.php:595
+msgid "%"
+msgstr "%"
+
+#. translators: %s: the number of cart items;
+#: woocommerce/cart/header-widget/header.php:21
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] "%s елемент"
+msgstr[1] "%s елементи"
+msgstr[2] "%s елементів"
+
+#: inc/template-tags.php:1227
+msgid "(Edit)"
+msgstr "(редагувати)"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:78
+#: inc/template-tags.php:595
+msgid "1"
+msgstr "1"
+
+#: template-parts/content/content-404.php:19
+msgid "404"
+msgstr "404"
+
+#: inc/breadcrumbs.php:334
+msgid "404 Not Found"
+msgstr "Не знайдено 404"
+
+#: inc/admin/class-bloghash-dashboard.php:278
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:113
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:133
+msgid "Activate"
+msgstr "Активувати"
+
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:175
+msgid "Activating "
+msgstr "Активується "
+
+#: inc/admin/class-bloghash-admin.php:144
+msgid "Activating..."
+msgstr "Активація..."
+
+#: inc/admin/class-bloghash-admin.php:146
+msgid "Active"
+msgstr "Діючий"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:464
+msgid "Add"
+msgstr "Додати"
+
+#: inc/template-tags.php:970
+msgid "Add Button Text"
+msgstr "Додати текст кнопки"
+
+#: inc/customizer/controls/widget/class-bloghash-customizer-control-widget.php:160
+msgid "Add Widget"
+msgstr "Додати віджет"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:61
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:131
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:127
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:326
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:199
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:814
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:117
+msgid "Advanced"
+msgstr "Розширене"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:32
+msgid "Advertisement"
+msgstr "Реклама"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:182
+msgid "After Comments"
+msgstr "Після коментарів"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:159
+msgid "After Content"
+msgstr "Після вмісту"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:166
+msgid "After Footer"
+msgstr "Після футеру"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:145
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:65
+msgid "After Header"
+msgstr "Після хедеру"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:110
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:558
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:743
+msgid "Angle"
+msgstr "Кут"
+
+#: inc/core/class-bloghash-fonts.php:228
+msgid "Arabic"
+msgstr "Арабський"
+
+#: inc/customizer/customizer-helpers.php:58
+msgid "Archive"
+msgstr "Архів"
+
+#: inc/breadcrumbs.php:335
+msgid "Archives"
+msgstr "Архіви"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:114
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:253
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:81
+msgid "Author"
+msgstr "Автор"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:208
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:403
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:893
+msgid "Auto"
+msgstr "Авто"
+
+#: woocommerce/cart/cart.php:75
+msgid "Available on backorder"
+msgstr "Доступно за замовленням"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:145
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:113
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:153
+msgid "Background"
+msgstr "Фон"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:215
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:410
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:900
+msgid "Background Attachment"
+msgstr "Вкладення фону"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:157
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:350
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:838
+msgid "Background Position"
+msgstr "Розміщення фону"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:199
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:394
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:884
+msgid "Background Size"
+msgstr "Розмір фону"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:663
+msgid "Background color"
+msgstr "Колір фону"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:46
+msgid "Base Colors"
+msgstr "Базові кольори"
+
+#: inc/customizer/settings/class-bloghash-customizer-typography.php:46
+msgid "Base Typography"
+msgstr "Базова типографія"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:181
+msgid "Before Comments"
+msgstr "Перед коментарями"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:158
+msgid "Before Content"
+msgstr "Перед вмістом"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:165
+msgid "Before Footer"
+msgstr "Перед футером"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:144
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:64
+msgid "Before Header"
+msgstr "Перед хедером"
+
+#: inc/core/class-bloghash-fonts.php:229
+msgid "Bengali"
+msgstr "Бенгальська"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:147
+msgid "Black 900"
+msgstr "Чорний 900"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:148
+msgid "Black 900 Italic"
+msgstr "Чорний 900 курсив"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:71
+msgid "Blog"
+msgstr "Блог"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:102
+msgid "Body Background"
+msgstr "Фон тіла"
+
+#: inc/customizer/settings/class-bloghash-customizer-typography.php:57
+msgid "Body Typography"
+msgstr "Типографіка тіла"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:143
+msgid "Bold 700"
+msgstr "Жирний 700"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:144
+msgid "Bold 700 Italic"
+msgstr "Жирний 700 курсив"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:205
+msgid "Border"
+msgstr "Межа"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:51
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:93
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:83
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:214
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:73
+msgid "Bottom"
+msgstr "Знизу"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:119
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:607
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:774
+msgid "Bottom Center"
+msgstr "Знизу по центру"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:50
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:120
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:608
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:775
+msgid "Bottom Left"
+msgstr "Знизу ліворуч"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:52
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:121
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:609
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:776
+msgid "Bottom Right"
+msgstr "Знизу праворуч"
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:46
+msgid "Breadcrumbs"
+msgstr "Навігаційні стежки"
+
+#: inc/breadcrumbs.php:332
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "Навігаційні стежки"
+
+#: inc/breadcrumbs.php:331
+msgid "Browse:"
+msgstr "Оглядати:"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:60
+msgid "Button"
+msgstr "Кнопка"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:84
+msgid "Button Text"
+msgstr "Текст кнопки"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:96
+msgid "Button URL"
+msgstr "URL кнопки"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:155
+msgid "Capitalize"
+msgstr "Заголовні букви"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-widget-cart.php:34
+msgid "Cart"
+msgstr "Кошик"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:218
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:134
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:84
+msgid "Categories"
+msgstr "Категорії"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:48
+msgid "Center"
+msgstr "По центру"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:113
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:601
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:768
+msgid "Center Center"
+msgstr "По центру в центрі"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:114
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:602
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:769
+msgid "Center Left"
+msgstr "По центру ліворуч"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:115
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:603
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:770
+msgid "Center Right"
+msgstr "По центру праворуч"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:72
+msgid "Centered"
+msgstr "По центру"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:464
+msgid "Change"
+msgstr "Змінити"
+
+#: inc/admin/class-bloghash-dashboard.php:101
+#: inc/admin/class-bloghash-dashboard.php:456
+msgid "Changelog"
+msgstr "Журнал змін"
+
+#: woocommerce/cart/header-widget/buttons.php:20
+msgid "Checkout"
+msgstr "Оформлення замовлення"
+
+#: inc/core/class-bloghash-fonts.php:230
+msgid "Chinese (Hong Kong)"
+msgstr "Китайська (Гонконг)"
+
+#: inc/core/class-bloghash-fonts.php:231
+msgid "Chinese (Simplified)"
+msgstr "Китайський (спрощений)"
+
+#: inc/core/class-bloghash-fonts.php:232
+msgid "Chinese (Traditional)"
+msgstr "Китайський (традиційний)"
+
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:57
+msgid "Choose Images"
+msgstr "Виберіть зображення"
+
+#: inc/core/class-bloghash-enqueue-scripts.php:115
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:1026
+msgid "Close"
+msgstr "Закрити"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:210
+msgid "Color"
+msgstr "Колір"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:68
+msgid "Column Layout"
+msgstr "Компонування колонки"
+
+#. Translators: %s is the page number.
+#: inc/breadcrumbs.php:341
+msgid "Comment Page %s"
+msgstr "Сторінка коментарів %s"
+
+#: comments.php:34
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:116
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:255
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:83
+msgid "Comments"
+msgstr "Коментарі"
+
+#: comments.php:73
+msgid "Comments are closed"
+msgstr "Коментування закрито"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-text.php:58
+msgid "Content"
+msgstr "Вміст"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:139
+msgid "Content Layout"
+msgstr "Компонування вмісту"
+
+#: inc/core/class-bloghash-options.php:637
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:220
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:285
+#: inc/helpers.php:1508
+msgid "Continue Reading"
+msgstr "Продовжити читання"
+
+#: woocommerce/cart/cart.php:147
+msgid "Continue Shopping"
+msgstr "Продовжити покупки"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:85
+msgid "Core"
+msgstr "Ядро"
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon code"
+msgstr "Код купону"
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon:"
+msgstr "Купон:"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:202
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:397
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:887
+msgid "Cover"
+msgstr "Обкладинка"
+
+#: inc/admin/class-bloghash-admin.php:227
+msgid "Customize"
+msgstr "Налаштувати"
+
+#: inc/core/class-bloghash-fonts.php:233
+msgid "Cyrillic"
+msgstr "Кирилиця"
+
+#: inc/core/class-bloghash-fonts.php:234
+msgid "Cyrillic Extended"
+msgstr "Кирилиця розширена"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:134
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:984
+msgid "Dashed"
+msgstr "Пунктир"
+
+#: inc/admin/class-bloghash-dashboard.php:273
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:128
+msgid "Deactivate"
+msgstr "Деактивувати"
+
+#: inc/admin/class-bloghash-admin.php:145
+msgid "Deactivating..."
+msgstr "Дезактивація..."
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:124
+msgid "Decoration"
+msgstr "Оформлення"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:374
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:391
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:53
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:78
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:96
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:114
+msgid "Default"
+msgstr "Початковий"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget.php:236
+msgid "Delete"
+msgstr "Видалити"
+
+#: inc/core/class-bloghash-fonts.php:235
+msgid "Devanagari"
+msgstr "Деванаґарі"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:166
+msgid "Disable"
+msgstr "Вимкнути"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:197
+msgid "Disable Featured Image"
+msgstr "Вимкнути головне зображення"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:169
+msgid "Disable Main Header"
+msgstr "Вимкнути головний хедер"
+
+#: inc/admin/helpers.php:53
+msgid "Dismiss"
+msgstr "Відхилити"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:99
+msgid "Display Tagline"
+msgstr "Відображати  ключову фразу"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget.php:239
+msgid "Done"
+msgstr "Готово"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:133
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:983
+msgid "Dotted"
+msgstr "Крапки"
+
+#: inc/template-tags.php:1271
+msgid "Edit"
+msgstr "Редагувати"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/entry/entry-meta.php:57
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Редагувати <span class=\"screen-reader-text\">%s</span>"
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:57
+msgid "Enable Breadcrumbs"
+msgstr "Увімкнути навігаційні стежки"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:57
+msgid "Enable Hero Section"
+msgstr "Увімкнути розділ Hero"
+
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:57
+msgid "Enable Page Header"
+msgstr "Увімкнути заголовок сторінки"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:93
+msgid "Enable Scroll Top Button"
+msgstr "Увімкнути кнопку Прокрутити вгору"
+
+#: inc/customizer/settings/class-bloghash-customizer-sticky-header.php:57
+msgid "Enable Sticky Header"
+msgstr "Увімкнути прикріплений хедер"
+
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:57
+msgid "Enable Top Bar"
+msgstr "Увімкнути верхню панель"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:130
+msgid "End"
+msgstr "Кінець"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:177
+msgid "Excerpt Length"
+msgstr "Довжина уривка"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:194
+msgid "Excerpt More"
+msgstr "Більше уривок"
+
+#: inc/breadcrumbs.php:858 inc/breadcrumbs.php:928 inc/breadcrumbs.php:1308
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: template-parts/entry/format/media.php:36
+msgid "Featured"
+msgstr "Вибрані"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:61
+msgid "Featured Image"
+msgstr "Головне зображення"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:174
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:142
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:182
+msgid "Font Color"
+msgstr "Колір шрифту"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:118
+msgid "Font Family"
+msgstr "Сімейство шрифтів"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:65
+msgid "Footer"
+msgstr "Футер"
+
+#: inc/widgets.php:42
+msgid "Footer 1"
+msgstr "Футер 1"
+
+#: inc/widgets.php:55
+msgid "Footer 2"
+msgstr "Футер 2"
+
+#: inc/widgets.php:68
+msgid "Footer 3"
+msgstr "Футер 3"
+
+#: inc/widgets.php:81
+msgid "Footer 4"
+msgstr "Футер 4"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:47
+msgid "General Options"
+msgstr "Загальні параметри"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:53
+msgid "General Settings"
+msgstr "Загальні налаштування"
+
+#: inc/admin/class-bloghash-dashboard.php:126
+msgid "Getting Started"
+msgstr "Початок роботи"
+
+#: inc/core/class-bloghash-fonts.php:424
+msgid "Google Fonts"
+msgstr "Шрифти Google"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:150
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:118
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:158
+msgid "Gradient"
+msgstr "Градієнт"
+
+#: inc/core/class-bloghash-fonts.php:236
+msgid "Greek"
+msgstr "Грецька"
+
+#: inc/core/class-bloghash-fonts.php:237
+msgid "Greek Extended"
+msgstr "Грецька розширена"
+
+#: inc/core/class-bloghash-fonts.php:238
+msgid "Gujarati"
+msgstr "Гуджараті"
+
+#: inc/core/class-bloghash-fonts.php:239
+msgid "Gurmukhi"
+msgstr "Ґурмухі"
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:59
+msgid "Header"
+msgstr "Хедер"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:57
+msgid "Header Layout"
+msgstr "Компонування хедера"
+
+#: inc/core/class-bloghash-fonts.php:240
+msgid "Hebrew"
+msgstr "Іврит"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:46
+msgid "Hero"
+msgstr "Hero"
+
+#: inc/core/class-bloghash-enqueue-scripts.php:127
+msgid "Hide Comments"
+msgstr "Сховати коментарі"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:78
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:134
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:118
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:104
+msgid "Hide on Mobile"
+msgstr "Приховати на мобільному"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:79
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:135
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:119
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:105
+msgid "Hide on Tablet"
+msgstr "Приховати на планшеті"
+
+#: inc/breadcrumbs.php:333 inc/helpers.php:115
+msgid "Home"
+msgstr "Домашня"
+
+#: inc/customizer/customizer-helpers.php:49
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:129
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:72
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:89
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:89
+msgid "Home Page"
+msgstr "Домашня сторінка"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:160
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:353
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:841
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:60
+msgid "Horizontal"
+msgstr "Горизонтально"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:98
+msgid "Image"
+msgstr "Зображення"
+
+#: inc/admin/class-bloghash-admin.php:151
+msgid "Import"
+msgstr "Імпорт"
+
+#: inc/admin/class-bloghash-admin.php:152
+msgid "Import Demo"
+msgstr "Імпорт демо"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:218
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:413
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:903
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:127
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:130
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:152
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:159
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:166
+msgid "Inherit"
+msgstr "Успадковано"
+
+#: inc/admin/class-bloghash-admin.php:142
+msgid "Install"
+msgstr "Встановити"
+
+#: inc/admin/class-bloghash-dashboard.php:283
+msgid "Install & Activate"
+msgstr "Встановити та активувати"
+
+#: inc/admin/class-bloghash-admin.php:308
+msgid "Install Now"
+msgstr "Встановити зараз"
+
+#: inc/admin/class-bloghash-dashboard.php:133
+#: inc/admin/class-bloghash-dashboard.php:137
+msgid "Install Plugins"
+msgstr "Встановити плагіни"
+
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:109
+msgid "Install and activate"
+msgstr "Встановити та активувати"
+
+#: inc/admin/class-bloghash-admin.php:143
+msgid "Installing..."
+msgstr "Встановлення…"
+
+#: template-parts/content/content-none.php:62
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Схоже, ми не можемо знайти те, що ви шукали. Можливо, пошук може допомогти."
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:168
+msgid "Italic"
+msgstr "Курсив"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:124
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:313
+msgid "Item"
+msgstr "Елемент"
+
+#: inc/core/class-bloghash-fonts.php:241
+msgid "Japanese"
+msgstr "Японський"
+
+#: inc/core/class-bloghash-fonts.php:242
+msgid "Kannada"
+msgstr "Каннада"
+
+#: inc/core/class-bloghash-fonts.php:243
+msgid "Khmer"
+msgstr "Кхмерська"
+
+#: inc/core/class-bloghash-fonts.php:244
+msgid "Korean"
+msgstr "Корейський"
+
+#: inc/core/class-bloghash-fonts.php:245
+msgid "Latin"
+msgstr "Латиниця"
+
+#: inc/core/class-bloghash-fonts.php:246
+msgid "Latin Extended"
+msgstr "Латиниця розширена"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:56
+#: inc/customizer/settings/class-bloghash-customizer-layout.php:46
+msgid "Layout"
+msgstr "Компонування"
+
+#: inc/customizer/controls/info/class-bloghash-customizer-control-info.php:103
+msgid "Learn More"
+msgstr "Дізнатись більше"
+
+#. translators: %s Comment count
+#: inc/core/class-bloghash-enqueue-scripts.php:126
+#: template-parts/entry/entry-show-comments.php:16
+msgid "Leave a Comment"
+msgstr "Залишити коментар"
+
+#: inc/admin/class-bloghash-admin.php:253
+msgid "Leave a Review"
+msgstr "Залиште огляд"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:47
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:84
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:113
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:99
+msgid "Left"
+msgstr "Ліворуч"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:131
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:376
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:393
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:62
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:80
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:98
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:116
+msgid "Left Sidebar"
+msgstr "Ліва бічна колонка"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:126
+msgid "Letter Spacing"
+msgstr "Інтервал між літерами"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:135
+msgid "Light 300"
+msgstr "Тонкий 300"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:136
+msgid "Light 300 Italic"
+msgstr "Тонкий 300 курсив"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:125
+msgid "Line Height"
+msgstr "Висота рядка"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:162
+msgid "Line Through"
+msgstr "Перекреслений"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:108
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:550
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:735
+msgid "Linear"
+msgstr "Лінійний"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:179
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:147
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:187
+msgid "Link Color"
+msgstr "Колір посилання"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:180
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:148
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:188
+msgid "Link Hover Color"
+msgstr "Колір посилання при наведенні"
+
+#: inc/customizer/controls/spacing/class-bloghash-customizer-control-spacing.php:45
+msgid "Link values"
+msgstr "Значення посилання"
+
+#: inc/compatibility/class-bloghash-jetpack.php:112
+msgid "Load More"
+msgstr "Завантажити ще"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:106
+msgid "Location"
+msgstr "Розміщення"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:50
+msgid "Logo Height"
+msgstr "Висота лого"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:75
+msgid "Logo Margin"
+msgstr "Зовнішній відступ лого"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:154
+msgid "Lowercase"
+msgstr "Нижній регістр"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:46
+msgid "Main Footer"
+msgstr "Головний футер"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:46
+msgid "Main Header"
+msgstr "Головний хедер"
+
+#: inc/core/class-bloghash-fonts.php:247
+msgid "Malayalam"
+msgstr "Малаялам"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:139
+msgid "Medium 500"
+msgstr "Середній 500"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:140
+msgid "Medium 500 Italic"
+msgstr "Середній 500 курсив"
+
+#: inc/template-tags.php:345
+msgid "Menu"
+msgstr "Меню"
+
+#. Translators: Minute archive title. %s is the minute time format.
+#: inc/breadcrumbs.php:343
+msgid "Minute %s"
+msgstr "Хвилина %s"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:46
+msgid "Misc Settings"
+msgstr "Різні налаштування"
+
+#: inc/customizer/controls/class-bloghash-customizer-control.php:64
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:237
+msgid "Mobile"
+msgstr "Мобільний"
+
+#: inc/core/class-bloghash-fonts.php:248
+msgid "Myanmar"
+msgstr "М'янма"
+
+#: woocommerce/single-product/meta.php:35
+msgid "N/A"
+msgstr "Н/Д"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-nav.php:41
+msgid "Navigation"
+msgstr "Навігація"
+
+#: inc/admin/class-bloghash-dashboard.php:215
+#: inc/customizer/settings/class-bloghash-customizer-buttons.php:63
+msgid "Need Help?"
+msgstr "Потрібна допомога?"
+
+#: comments.php:80
+msgid "Next"
+msgstr "Далі"
+
+#: template-parts/entry/entry-prev-next-post.php:42
+msgid "Next Post"
+msgstr "Наступний запис"
+
+#: inc/template-tags.php:383
+msgid "Next page"
+msgstr "Наступна сторінка"
+
+#: inc/template-tags.php:595
+msgid "No Comments"
+msgstr "Немає коментарів"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:147
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:340
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:828
+msgid "No Repeat"
+msgstr "Не повторювати"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:130
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:375
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:392
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:61
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:79
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:97
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:115
+msgid "No Sidebar"
+msgstr "Без бічної колонки"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:59
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:120
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:125
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:314
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:197
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:802
+msgid "No image selected"
+msgstr "Зображення не вибрано"
+
+#: woocommerce/cart/header-widget/empty.php:16
+msgid "No products in the cart."
+msgstr "У кошику немає товарів."
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:156
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:163
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:89
+msgid "None"
+msgstr "Немає"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:167
+msgid "Normal"
+msgstr "Звичайний"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:137
+msgid "Normal 400"
+msgstr "Звичайний 400"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:138
+msgid "Normal 400 Italic"
+msgstr "Звичайний 400 курсив"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:169
+msgid "Oblique"
+msgstr "Похилий"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:128
+msgid "Options"
+msgstr "Параметри"
+
+#: inc/core/class-bloghash-fonts.php:249
+msgid "Oriya"
+msgstr "Орія"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:161
+msgid "Overline"
+msgstr "Надрядковий"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:92
+msgid "Page"
+msgstr "Сторінка"
+
+#. Translators: %s is the page number.
+#: inc/breadcrumbs.php:339
+msgid "Page %s"
+msgstr "Сторінка %s"
+
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:46
+msgid "Page Header"
+msgstr "Заголовок сторінки"
+
+#: inc/template-tags.php:403
+msgid "Pages"
+msgstr "Сторінки"
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:820
+msgid "Payment"
+msgstr "Оплата"
+
+#: inc/admin/class-bloghash-dashboard.php:87
+msgid "Plugins"
+msgstr "Плагіни"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:111
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:580
+msgid "Position"
+msgstr "Розташування"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:62
+msgid "Post Categories"
+msgstr "Категорії запису"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:214
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:130
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:57
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:185
+msgid "Post Elements"
+msgstr "Елементи запису"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:117
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:165
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:112
+msgid "Post Settings"
+msgstr "Налаштування запису"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:63
+msgid "Post Tags"
+msgstr "Позначки запису"
+
+#: template-parts/entry/entry-prev-next-post.php:26
+msgid "Post navigation"
+msgstr "Навігація по запису"
+
+#: inc/template-tags.php:498
+msgid "Posted by"
+msgstr "Опубліковано"
+
+#: inc/template-tags.php:651
+msgid "Posted in"
+msgstr "Опубліковано у"
+
+#: comments.php:79
+msgid "Previous"
+msgstr "Попередній"
+
+#: template-parts/entry/entry-prev-next-post.php:32
+msgid "Previous Post"
+msgstr "Попередній запис"
+
+#: inc/template-tags.php:382
+msgid "Previous page"
+msgstr "Попередня сторінка"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:162
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:80
+msgid "Price"
+msgstr "Ціна"
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:605
+msgid "Product Sidebar"
+msgstr "Бічна колонка товару"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:115
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:254
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:82
+msgid "Publish Date"
+msgstr "Дата публікації"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:86
+msgid "Quantity"
+msgstr "Кількість"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:109
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:551
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:736
+msgid "Radial"
+msgstr "Радіальний"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:161
+msgid "Ratings"
+msgstr "Рейтинги"
+
+#: inc/core/class-bloghash-options.php:742
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:99
+msgid "Read More"
+msgstr "Читати далі"
+
+#: template-parts/entry/format/media-quote.php:32
+msgid "Read more"
+msgstr "Читати далі"
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/content-none.php:24
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Готові опублікувати свій перший запис? <a href=\"%1$s\">Почніть звідси</a>."
+
+#: inc/admin/class-bloghash-dashboard.php:261
+#: inc/admin/class-bloghash-dashboard.php:450
+msgid "Recommended Plugins"
+msgstr "Рекомендовані плагіни"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:220
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:944
+msgid "Related Products"
+msgstr "Супутні товари"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:233
+msgid "Related Products Columns"
+msgstr "Колонки супутніх товарів"
+
+#: inc/core/class-bloghash-options.php:726
+msgid "Related posts"
+msgstr "Пов’язані записи"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:125
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:321
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:54
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:463
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:483
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:809
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:1024
+#: woocommerce/cart/cart.php:114
+msgid "Remove"
+msgstr "Видалити"
+
+#. translators: %s is cart item title.
+#: woocommerce/cart/header-widget/content.php:59
+#: woocommerce/cart/header-widget/content.php:62
+msgid "Remove %s from cart"
+msgstr "Видалити %s з кошика"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:149
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:342
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:830
+msgid "Repeat Horizontally"
+msgstr "Повторювати горизонтально"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:150
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:343
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:831
+msgid "Repeat Vertically"
+msgstr "Повторювати вертикально"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:49
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:82
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:114
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:100
+msgid "Right"
+msgstr "Праворуч"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:132
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:377
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:394
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:63
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:81
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:99
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:117
+msgid "Right Sidebar"
+msgstr "Права бічна колонка"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:124
+msgid "Rounded"
+msgstr "Закруглений"
+
+#: woocommerce/single-product/meta.php:35
+msgid "SKU:"
+msgstr "Артикул:"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:53
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:138
+msgid "Sale!"
+msgstr "Розпродаж!"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:57
+msgid "Schema Markup"
+msgstr "Розмітка Schema"
+
+#: template-parts/misc/back-to-top.php:12
+#: template-parts/misc/back-to-top.php:17
+msgid "Scroll to Top"
+msgstr "Прокрутка до верху"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:1048
+#: inc/customizer/customizer-helpers.php:55
+#: inc/customizer/widgets/class-bloghash-customizer-widget-search.php:51
+#: searchform.php:26 searchform.php:30
+#: template-parts/header/widgets/search.php:25
+msgid "Search"
+msgstr "Пошук"
+
+#: searchform.php:17 template-parts/header/widgets/search.php:32
+msgid "Search for:"
+msgstr "Пошук для:"
+
+#. Translators: %s is the search query.
+#. translators: 1: search string
+#: inc/breadcrumbs.php:337 inc/helpers.php:125
+msgid "Search results for: %s"
+msgstr "Результати пошуку: %s"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:62
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:128
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:200
+msgid "Select Image"
+msgstr "Виберіть зображення"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:811
+msgid "Select image"
+msgstr "Виберіть зображення"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:141
+msgid "Semi-Bold 600"
+msgstr "Напівжирний 600"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:142
+msgid "Semi-Bold 600 Italic"
+msgstr "Напівжирний 600 курсив"
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:835
+msgid "Shipping"
+msgstr "Доставка"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:125
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:47
+msgid "Sidebar"
+msgstr "Бічна колонка"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:140
+msgid "Sidebar Width"
+msgstr "Ширина бічної колонки"
+
+#: inc/customizer/customizer-helpers.php:65
+msgid "Single Page"
+msgstr "Окрема сторінка"
+
+#: inc/customizer/customizer-helpers.php:62
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:74
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:46
+msgid "Single Post"
+msgstr "Окремий запис"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:170
+msgid "Single Product"
+msgstr "Окремий товар"
+
+#: inc/core/class-bloghash-fonts.php:250
+msgid "Sinhala"
+msgstr "Сингальська"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:118
+msgid "Site Identity"
+msgstr "Ідентичність сайту"
+
+#: inc/customizer/settings/class-bloghash-customizer-layout.php:58
+msgid "Site Layout"
+msgstr "Компонування сайту"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:151
+msgid "Site Title Font Size"
+msgstr "Розмір шрифту назви сайту"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:121
+#: inc/customizer/widgets/class-bloghash-customizer-widget-socials.php:93
+msgid "Size"
+msgstr "Розмір"
+
+#: header.php:27
+msgid "Skip to content"
+msgstr "Перейти до вмісту"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-socials.php:53
+msgid "Social Links"
+msgstr "Посилання на соцмережі"
+
+#: inc/compatibility/woocommerce/woocommerce-functions.php:101
+msgid "Sold Out"
+msgstr "Продано"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:132
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:982
+msgid "Solid"
+msgstr "Суцільний"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:149
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:117
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:157
+msgid "Solid Color"
+msgstr "Суцільний колір"
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:88
+msgid "Spacing"
+msgstr "Відступ"
+
+#: inc/core/class-bloghash-fonts.php:414
+msgid "Standard"
+msgstr "Стандартний"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:129
+msgid "Start"
+msgstr "Почати"
+
+#: inc/admin/class-bloghash-dashboard.php:234
+msgid "Start Customizing"
+msgstr "Почати персоналізацію"
+
+#: inc/customizer/settings/class-bloghash-customizer-sticky-header.php:46
+msgid "Sticky Header"
+msgstr "Прикріплений хедер"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:163
+msgid "Sticky Sidebar"
+msgstr "Прикріплена бічна колонка"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-widget-cart.php:59
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:122
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:196
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:209
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:112
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:138
+#: inc/customizer/widgets/class-bloghash-customizer-widget-darkmode.php:70
+#: inc/customizer/widgets/class-bloghash-customizer-widget-search.php:70
+#: inc/customizer/widgets/class-bloghash-customizer-widget-socials.php:74
+msgid "Style"
+msgstr "Стиль"
+
+#: woocommerce/cart/cart.php:108
+msgid "Subtotal"
+msgstr "Проміжний підсумок"
+
+#: inc/core/class-bloghash-fonts.php:419
+msgid "System Fonts"
+msgstr "Системні шрифти"
+
+#: inc/customizer/controls/class-bloghash-customizer-control.php:60
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:233
+msgid "Tablet"
+msgstr "Планшет"
+
+#: woocommerce/single-product/meta.php:41
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] "Позначка:"
+msgstr[1] "Позначки:"
+msgstr[2] "Позначок:"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:117
+msgid "Tags"
+msgstr "Позначки"
+
+#: inc/template-tags.php:699
+msgid "Tags:"
+msgstr "Позначки:"
+
+#: inc/core/class-bloghash-fonts.php:251
+msgid "Tamil"
+msgstr "Тамільська"
+
+#: inc/core/class-bloghash-fonts.php:252
+msgid "Telugu"
+msgstr "Телугу"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:77
+#: inc/customizer/widgets/class-bloghash-customizer-widget-text.php:32
+msgid "Text"
+msgstr "Текст"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:178
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:146
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:186
+msgid "Text Color"
+msgstr "Колір тексту"
+
+#: inc/core/class-bloghash-fonts.php:253
+msgid "Thai"
+msgstr "Тайський"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:131
+msgid "Thin 100"
+msgstr "Тонкий 100"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:132
+msgid "Thin 100 Italic"
+msgstr "Тонкий 100 курсив"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:160
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:68
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:67
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:67
+msgid "Title"
+msgstr "Назва"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:45
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:92
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:81
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:213
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:72
+msgid "Top"
+msgstr "Зверху"
+
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:46
+msgid "Top Bar"
+msgstr "Верхня панель"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:116
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:604
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:771
+msgid "Top Center"
+msgstr "Зверху по центру"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:44
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:117
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:605
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:772
+msgid "Top Left"
+msgstr "Зверху ліворуч"
+
+#: inc/customizer/controls/alignment/class-bloghash-customizer-control-alignment.php:46
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:118
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:606
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:773
+msgid "Top Right"
+msgstr "Зверху праворуч"
+
+#: inc/core/class-bloghash-options.php:695
+msgid "Top Stories"
+msgstr "Головні історії"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:123
+msgid "Transform"
+msgstr "Перетворити"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:102
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:107
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:95
+msgid "Type"
+msgstr "Тип"
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:132
+msgid "Typography"
+msgstr "Типографія"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:94
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:89
+msgid "URL"
+msgstr "URL"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:160
+msgid "Underline"
+msgstr "Підкреслений"
+
+#: inc/customizer/settings/class-bloghash-customizer-buttons.php:50
+msgid "Upgrade to pro"
+msgstr "Оновитися до Pro"
+
+#: inc/admin/class-bloghash-dashboard.php:186
+msgid "Upload Logo"
+msgstr "Завантажити лого"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:153
+msgid "Uppercase"
+msgstr "Верхній регістр"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:178
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:372
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:861
+msgid "Vertical"
+msgstr "Вертикально"
+
+#: inc/core/class-bloghash-fonts.php:254
+msgid "Vietnamese"
+msgstr "В'єтнамський"
+
+#: template-parts/entry/entry-author-posts-button.php:13
+msgid "View All Posts"
+msgstr "Переглянути усі записи"
+
+#: woocommerce/cart/header-widget/buttons.php:16
+msgid "View Cart"
+msgstr "Переглянути кошик"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:45
+msgid "View Pro Features"
+msgstr "Переглянути функції Pro"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget.php:215
+msgid "Visibility"
+msgstr "Видимість"
+
+#. Translators: Weekly archive title. %s is the week date format.
+#: inc/breadcrumbs.php:345
+msgid "Week %s"
+msgstr "Тиждень %s"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:120
+msgid "Weight"
+msgstr "Товщина"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:181
+msgid "Widget Title Color"
+msgstr "Колір назви віджета"
+
+#: inc/helpers.php:107
+msgid "Wishlist"
+msgstr "Перелік бажань"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:370
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:589
+msgid "WooCommerce Sidebar"
+msgstr "Бічна колонка WooCommerce"
+
+#: inc/breadcrumbs.php:857 inc/breadcrumbs.php:887 inc/breadcrumbs.php:927
+#: inc/breadcrumbs.php:955 inc/breadcrumbs.php:1305
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: woocommerce/checkout/form-checkout.php:28
+msgid "You must be logged in to checkout."
+msgstr "Ви повинні увійти, щоб оформити замовлення."
+
+#: inc/template-tags.php:1299
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш коментар очікує на схвалення."
+
+#: woocommerce/checkout/form-checkout.php:49
+msgid "Your order"
+msgstr "Ваше замовлення"
+
+#: inc/breadcrumbs.php:840
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "H"
+
+#: inc/breadcrumbs.php:804
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "H:i"
+
+#: inc/breadcrumbs.php:822
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: inc/breadcrumbs.php:859 inc/breadcrumbs.php:1311
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:221
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:416
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:906
+msgid "Scroll"
+msgstr "Прокрутка"
+
+#: inc/customizer/settings/class-bloghash-customizer-category-colors.php:59
+msgid "%1$s Color"
+msgstr "%1$s Колір"
+
+#. translators: %s Comment number
+#: comments.php:37
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] "%s коментар"
+msgstr[1] "%s коментаря"
+msgstr[2] "%s коментарів"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-nav.php:66
+msgctxt "Widget"
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; Обрати &mdash;"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:74
+msgid "1/3 + 1/3 + 1/3"
+msgstr "1/3 + 1/3 + 1/3"
+
+#: inc/template-tags.php:1246
+msgctxt "Post author badge on comments"
+msgid "A"
+msgstr "A"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:61
+msgid "A button with custom link."
+msgstr "Кнопка з власним посиланням."
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:106
+msgid "A cursor dot effect show on desktop size mode only with work on mouse."
+msgstr "Ефект крапки курсору показується в режимі розміру пк тільки при роботі з мишею."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-darkmode.php:52
+msgid "A dark mode for your site."
+msgstr "Темний режим для сайту."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:129
+msgid "A list of categories the post belongs to. Displayed above post title."
+msgstr "Перелік категорій, до яких належить запис. Відображається над заголовком запису."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-search.php:52
+msgid "A search form for your site."
+msgstr "Пошукова форма для сайту."
+
+#. translators: %s is category count
+#: inc/compatibility/woocommerce/woocommerce-functions.php:267
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] "%s товар"
+msgstr[1] "%s товари"
+msgstr[2] "%s товарів"
+
+#: woocommerce/single-product/rating.php:41
+msgid "%s review"
+msgid_plural "%s reviews"
+msgstr[0] "%s огляд"
+msgstr[1] "%s огляди"
+msgstr[2] "%s оглядів"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:94
+msgid "A sticky button that allows users to easily return to the top of a page."
+msgstr "Прикріплена кнопка, яка дозволяє користувачам легко повернутися на початок сторінки."
+
+#: inc/customizer/class-bloghash-customizer.php:183
+msgid "A tagline is a short phrase, or sentence, used to convey the essence of the site."
+msgstr "Ключова фраза - це коротка фраза або речення, що використовується для передачі суті сайту."
+
+#: inc/admin/class-bloghash-dashboard.php:152
+msgid "Activate Hester Core"
+msgstr "Активуйте Hester Core"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-nav.php:42
+msgid "Add a navigation menu."
+msgstr "Додати меню навігації."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:137
+msgid "Add custom text for the product sale badge."
+msgstr "Додайте власний текст для бейджа продажу товару."
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:88
+msgid "Add new Feature"
+msgstr "Додати нову особливість"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:190
+msgid "Add new item"
+msgstr "Додати новий елемент"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:58
+msgid "Add structured data to your content."
+msgstr "Додайте структуровані дані до вашого вмісту."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:154
+msgid "Additional class"
+msgstr "Додатковий клас"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:56
+msgid "Advertisement Widgets"
+msgstr "Рекламні віджети"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:46
+msgid "Advertisements"
+msgstr "Реклама"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:71
+msgid "After footer"
+msgstr "Після футеру"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:152
+msgid "After Main"
+msgstr "Після головної"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:69
+msgid "After post content"
+msgstr "Після вмісту запису"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:173
+msgid "After Sidebar"
+msgstr "Після бічної колонки"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:184
+msgid "After Single Content"
+msgstr "Після окремого вмісту"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:180
+msgid "After Singular"
+msgstr "Після окремоі"
+
+#. Template Name of the theme
+msgid "Bloghash Fullwidth"
+msgstr "BlogHash на всю ширину"
+
+#: inc/customizer/controls/pro/class-bloghash-customizer-control-pro.php:68
+msgid "BlogHash Pro"
+msgstr "BlogHash Pro"
+
+#: inc/customizer/controls/pro/class-bloghash-customizer-control-pro.php:72
+msgid "BlogHash Pro Features"
+msgstr "Особливості BlogHash Pro"
+
+#: inc/admin/class-bloghash-admin.php:184
+#: inc/admin/class-bloghash-dashboard.php:76
+msgid "BlogHash Theme"
+msgstr "Тема BlogHash"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:71
+#: inc/customizer/widgets/class-bloghash-customizer-widget-darkmode.php:51
+msgid "Dark mode"
+msgstr "Темний режим"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:129
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:143
+msgid "Default (from Customizer)"
+msgstr "Початковий (з налаштовувача)"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:58
+msgid "Default Position"
+msgstr "Початкова позиція"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:128
+msgid "Default System Font"
+msgstr "Стандартний системний шрифт"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:127
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:95
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:135
+msgid "Design Options"
+msgstr "Параметри дизайну"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:188
+msgid "Disable Breadcrumbs"
+msgstr "Вимкнути навігаційні стежки"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:216
+msgid "Disable Copyright Bar"
+msgstr "Вимкнути рядок авторських прав"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:206
+msgid "Disable Main Footer"
+msgstr "Вимкнути основний футер"
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:68
+msgid "Disable On: "
+msgstr "Вимкнути: "
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:178
+msgid "Disable Page Title"
+msgstr "Вимкнути назву сторінки"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:160
+msgid "Disable Top Bar"
+msgstr "Вимкнути верхню панель"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:335
+msgid "Display linked cross-sell products on cart page."
+msgstr "Відображати пов'язані товари перехресних продажів на сторінці кошика."
+
+#: inc/admin/class-bloghash-dashboard.php:444
+#: template-parts/entry/entry-about-author.php:33
+msgid "About"
+msgstr "Про нас"
+
+#: woocommerce/single-product/meta.php:39
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] "Категорія:"
+msgstr[1] "Категорії:"
+msgstr[2] "Категорій:"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:205
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:400
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:890
+msgid "Contain"
+msgstr "Вмістити"
+
+#: inc/customizer/controls/class-bloghash-customizer-control.php:56
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:229
+msgid "Desktop"
+msgstr "Комп'ютер"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:221
+msgid "Display related products."
+msgstr "Відображення супутніх товарів."
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:123
+msgid "Minimal"
+msgstr "Мінімальний"
+
+#: inc/core/class-bloghash-enqueue-scripts.php:116 inc/helpers.php:197
+msgid "No results found"
+msgstr "Нічого не знайдено"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:29
+msgid "Proceed to Checkout"
+msgstr "Перейти до оформлення замовлення"
+
+#: inc/admin/class-bloghash-admin.php:147
+msgid "Retry"
+msgstr "Повторити"
+
+#: inc/customizer/class-bloghash-customizer.php:550
+msgid "Select a category"
+msgstr "Оберіть категорію"
+
+#: woocommerce/cart/cart.php:33
+msgid "Total"
+msgstr "Загалом"
+
+#: woocommerce/cart/cart.php:142
+msgid "Apply Coupon"
+msgstr "Застосувати купон"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-text.php:33
+msgid "Arbitrary text."
+msgstr "Довільний текст."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:110
+msgid "Archives & Search"
+msgstr "Архіви та пошук"
+
+#: inc/template-tags.php:846 inc/template-tags.php:1070
+msgid "Assign a menu"
+msgstr "Призначити меню"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:648
+msgid "Background type"
+msgstr "Тип фону"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:101
+msgid "Banner URL"
+msgstr "URL банера"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:70
+msgid "Before footer"
+msgstr "Перед футером"
+
+#: inc/admin/class-bloghash-dashboard.php:162
+msgid "Browse Demos"
+msgstr "Переглянути демо-версії"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:103
+msgid "Center Widget Content"
+msgstr "Центрувати вміст віджету"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:92
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:111
+msgid "Copyright Bar Widgets"
+msgstr "Віджети панелі авторського права"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:44
+msgid "Copyright Bar"
+msgstr "Панель авторського права"
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:67
+msgid "Copyright Layout"
+msgstr "Компонування авторського права"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget.php:161
+msgid "Edit widget:"
+msgstr "Редагувати віджет:"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:105
+msgid "Effect for product image on hover"
+msgstr "Ефект для зображення товару при наведенні"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:1052
+msgid "Font Awesome"
+msgstr "Font Awesome"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:64
+msgid "Header 1"
+msgstr "Хедер 1"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:76
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:89
+msgid "Header Widgets"
+msgstr "Віджети хедера"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:60
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:126
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:198
+msgid "Less Settings"
+msgstr "Менше налаштувань"
+
+#: inc/admin/class-bloghash-dashboard.php:230
+msgid "Let‘s customize your website"
+msgstr "Налаштуємо ваш сайт"
+
+#: comments.php:90
+msgid "Log out?"
+msgstr "Вийти?"
+
+#: comments.php:90
+msgid "Logged in as"
+msgstr "Ви увійшли як"
+
+#: inc/template-tags.php:843 inc/template-tags.php:1067
+msgid "Menu not assigned"
+msgstr "Меню не призначено"
+
+#: inc/customizer/customizer-helpers.php:106
+msgid "Hide On Mobile"
+msgstr "Сховати на мобільному"
+
+#: inc/customizer/customizer-helpers.php:103
+msgid "Hide On Tablet"
+msgstr "Сховати на планшеті"
+
+#: comments.php:90
+msgid "Log out of this account"
+msgstr "Вийти з цього аккаунта"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:107
+msgid "No Effect"
+msgstr "Без ефекту"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:211
+msgid "Width (px)"
+msgstr "Ширина (px)"
+
+#. translators: %1$s opening anchor tag, %2$s closing anchor tag
+#: comments.php:89
+msgid "You must be %1$slogged in%2$s to post a comment."
+msgstr "Ви повинні %1$sввійти%2$s щоб опублікувати коментар."
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:104
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:490
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:676
+msgid "Color 1"
+msgstr "Колір 1"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:105
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:518
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:704
+msgid "Color 2"
+msgstr "Колір 2"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:496
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:525
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:683
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:711
+msgid "Color location"
+msgstr "Розміщення кольорів"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:172
+msgid "Before Sidebar"
+msgstr "Перед бічною колонкою"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:145
+msgid "Extra-Bold 800"
+msgstr "Дуже жирний 800"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:224
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:419
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:909
+msgid "Fixed"
+msgstr "Фіксовано"
+
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:427
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:917
+msgid "Overlay Color"
+msgstr "Колір накладення"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:111
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:250
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:77
+msgid "Post Meta"
+msgstr "Мета запису"
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:148
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:341
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:829
+msgid "Repeat All"
+msgstr "Повторіть все"
+
+#: comments.php:63
+msgid "Reply"
+msgstr "Відповіcти"
+
+#: template-parts/header/navigation.php:12
+msgid "Site Navigation"
+msgstr "Навігація по сайту"
+
+#. translators: %1$s Author
+#: inc/template-tags.php:507
+msgid "View all posts by %1$s"
+msgstr "Переглянути всі записи від %1$s"
+
+#: inc/breadcrumbs.php:888
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: inc/admin/class-bloghash-admin.php:149
+msgid "Importing... Please Wait..."
+msgstr "Імпорт... Будь ласка, зачекайте..."
+
+#: inc/admin/class-bloghash-admin.php:154
+msgid "Import Complete!"
+msgstr "Імпорт завершено!"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-widget-cart.php:35
+msgid "Displays WooCommerce cart."
+msgstr "Відображає кошик WooCommerce."
+
+#: inc/admin/class-bloghash-dashboard.php:145
+msgid "Don&rsquo;t want to start from scratch? Import a pre-built demo website in 1-click and get a head start."
+msgstr "Не хочете починати з нуля? Імпортуйте готовий демо-сайт в 1 клік і почніть роботу."
+
+#: inc/admin/class-bloghash-dashboard.php:197
+msgid "Go to Menus"
+msgstr "Перейдіть до меню"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:547
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:732
+msgid "Gradient type"
+msgstr "Тип градієнта"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:764
+msgid "Gradient position"
+msgstr "Позиція градієнта"
+
+#: inc/admin/class-bloghash-dashboard.php:216
+msgid "Head over to our site to learn more about the BlogHash theme, read help articles and get support."
+msgstr "Відвідайте наш сайт, щоб дізнатися більше про тему BlogHash, прочитати довідкові статті та отримати підтримку."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:123
+msgid "Hide badge"
+msgstr "Сховати бейдж"
+
+#: inc/customizer/customizer-helpers.php:100
+msgid "Hide On Desktop"
+msgstr "Сховати на комп'ютері"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:80
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:136
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:120
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:106
+msgid "Hide on Mobile and Tablet"
+msgstr "Сховати на мобільному та планшеті"
+
+#: inc/admin/class-bloghash-dashboard.php:157
+msgid "Install Hester Core"
+msgstr "Встановіть Hester Core"
+
+#: inc/customizer/ui/plugin-install-helper/class-bloghash-customizer-plugin-install-helper.php:133
+msgid "Jetpack Portfolio"
+msgstr "Портфоліо Jetpack"
+
+#: inc/admin/class-bloghash-admin.php:252
+msgid "Join Facebook Group"
+msgstr "Приєднуйтесь до групи у Facebook"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:119
+msgid "Languages"
+msgstr "Мови"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:64
+msgid "Last Updated Date"
+msgstr "Дата останнього оновлення"
+
+#: inc/template-tags.php:529
+msgid "Last updated on"
+msgstr "Останнє оновлення на"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-socials.php:54
+msgid "Links to your social media profiles."
+msgstr "Посилання на ваші профілі в соцмережах."
+
+#: inc/customizer/class-bloghash-customizer.php:158
+msgid "Logos &amp; Site Title"
+msgstr "Лого та назва сайту"
+
+#: searchform.php:26
+msgid "Enter search keywords"
+msgstr "Введіть ключові слова для пошуку"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:182
+msgid "Enable zoom effect when hovering product gallery."
+msgstr "Увімкнути ефект масштабування при наведенні на галерею товарів."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:133
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:128
+msgid "New Tab"
+msgstr "Нова вкладка"
+
+#: comments.php:49
+msgid "No comments yet. Why don&rsquo;t you start the discussion?"
+msgstr "Поки що немає коментарів. Чому б вам не розпочати обговорення?"
+
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:55
+msgid "No images selected"
+msgstr "Зображення не вибрані"
+
+#. Translators: %1$s - anchor tag start. %2$s anchor tag end.
+#: inc/customizer/widgets/class-bloghash-customizer-widget-nav.php:82
+msgid "No menus found: %1$sCreate a new menu?%2$s"
+msgstr "Меню не знайдено: %1$sСтворити нове меню?%2$s"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:157
+msgid "Product details"
+msgstr "Деталі товару"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:104
+msgid "Product image hover"
+msgstr "Зображення товару при наведенні"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:120
+msgid "Product sale badge"
+msgstr "Бейдж розпродажу товару"
+
+#: woocommerce/cart/cart.php:121
+msgid "Remove this item"
+msgstr "Видалити цей елемент"
+
+#: template-parts/content/content-404.php:29
+msgid "Return to Home"
+msgstr "Повернутися на домашню"
+
+#: inc/compatibility/woocommerce/woocommerce-functions.php:193
+msgid "Return to Shop"
+msgstr "Повернутися до магазину"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:119
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:114
+msgid "Same Tab"
+msgstr "В цій вкладці"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:106
+msgid "Rounded Fill"
+msgstr "Закруглене заповнення"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:107
+msgid "Rounded Border"
+msgstr "Закруглена межа"
+
+#: inc/customizer/settings/class-bloghash-customizer-buttons.php:65
+msgid "See the Articles"
+msgstr "Дивіться статті"
+
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:409
+msgid "Select Link"
+msgstr "Оберіть посилання"
+
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:51
+msgid "Select Images"
+msgstr "Виберіть зображення"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-nav.php:62
+msgctxt "Widget"
+msgid "Select Menu:"
+msgstr "Виберіть меню:"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:215
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:131
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:186
+msgid "Set order and visibility for post elements."
+msgstr "Налаштуйте порядок і видимість елементів запису."
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:219
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:135
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:190
+msgid "Post Details"
+msgstr "Деталі запису"
+
+#: inc/admin/class-bloghash-admin.php:155
+msgid "Visit site."
+msgstr "Відвідати сайт."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget.php:187
+msgid "Widget Location"
+msgstr "Розміщення віджету"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:387
+msgid "WooCommerce - Single Product"
+msgstr "WooCommerce - окремий товар"
+
+#: comments.php:92
+msgid "Write a comment&hellip;"
+msgstr "Написати коментар"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:87
+msgid "[live_title]"
+msgstr "[live_title]"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:108
+msgid "Image Swap"
+msgstr "Заміна зображення"
+
+#: inc/admin/class-bloghash-dashboard.php:351
+msgid "BlogHash Theme Changelog"
+msgstr "Журнал змін теми BlogHash"
+
+#. translators: %1$s <strong> tag, %2$s </strong> tag
+#: inc/admin/class-bloghash-admin.php:297
+msgid "BlogHash theme recommends the following plugins: %1$s."
+msgstr "Тема BlogHash рекомендує такі плагіни: %1$s."
+
+#. translators: %s WordPress version
+#: inc/compatibility/back-compat.php:46 inc/compatibility/back-compat.php:74
+msgid "BlogHash theme requires at least WordPress version 5.4. You are running version %s. Please upgrade and try again."
+msgstr "Тема BlogHash потребує WordPress принаймні версії 5.4. Ви використовуєте версію %s. Будь ласка, оновіть і спробуйте ще раз."
+
+#. translators: %s WordPress version
+#: inc/compatibility/back-compat.php:59
+msgid "BlogHash theme requires at least WordPress version 5.4. You are running version %s. Please upgrade your WordPress and try again."
+msgstr "Тема BlogHash потребує WordPress принаймні версії 5.4. Ви використовуєте версію %s. Будь ласка, оновіть ваш WordPress і спробуйте ще раз."
+
+#: inc/admin/class-bloghash-dashboard.php:204
+#: inc/admin/class-bloghash-dashboard.php:208
+msgid "Change Colors"
+msgstr "Змінити кольори"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:151
+msgid "Before Main"
+msgstr "Перед головним"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:68
+msgid "Before post content"
+msgstr "Перед вмістом запису"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:183
+msgid "Before Single Content"
+msgstr "Перед окремим вмістом"
+
+#: inc/admin/class-bloghash-dashboard.php:193
+msgid "Change Menus"
+msgstr "Змінити меню"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:100
+msgid "Change Read More Text."
+msgstr "Змінити текст Читати далі."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:141
+msgid "Change your sidebar width."
+msgstr "Змініть ширину бічної колонки."
+
+#: inc/admin/class-bloghash-dashboard.php:332
+msgid "Changelog file not found."
+msgstr "Файл журналу змін не знайдено."
+
+#: inc/admin/class-bloghash-dashboard.php:334
+msgid "Changelog file not readable."
+msgstr "Файл журналу змін не читається."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:57
+msgid "Choose blog layout."
+msgstr "Виберіть компонування блогу."
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:96
+msgid "Choose hero style type."
+msgstr "Виберіть тип стилю Hero."
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:125
+msgid "Choose on which pages you want to enable Featured links. "
+msgstr "Виберіть, на яких сторінках ви хочете ввімкнути вибрані посилання. "
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:68
+msgid "Choose on which pages you want to enable Hero. "
+msgstr "Виберіть, на яких сторінках ви хочете увімкнути Hero. "
+
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:85
+msgid "Choose on which pages you want to enable Posts You Might Like. "
+msgstr "Виберіть, на яких сторінках ви хочете ввімкнути записи, які можуть вам сподобатися. "
+
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:85
+msgid "Choose on which pages you want to enable Ticker News. "
+msgstr "Виберіть, на яких сторінках ви хочете ввімкнути біжучу стрічку новин. "
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:121
+msgid "Choose what to display on the product sale badge."
+msgstr "Виберіть, що відображати на бейджі продажу товару."
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:68
+msgid "Choose your site&rsquo;s copyright widgets layout."
+msgstr "Виберіть компонування віджетів авторського права сайту."
+
+#: inc/admin/class-bloghash-admin.php:150
+msgid "Currently processing: "
+msgstr "Наразі обробляю: "
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:70
+msgid "Custom design for checkboxes and radio buttons."
+msgstr "Власний дизайн для чекбоксів і перемикачів."
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:69
+msgid "Custom Form Styles"
+msgstr "Власні стилі форм"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:278
+msgid "Display linked upsell products."
+msgstr "Відображати пов'язані товари для допродажу."
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:170
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:218
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:159
+msgid "Display posts from selected category only. Leave empty to include all."
+msgstr "Показувати записи лише з обраної категорії. Залиште поле порожнім, щоб відобразити всі."
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:55
+msgid "Enable Copyright Bar"
+msgstr "Увімкнути панель авторських прав"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:105
+msgid "Enable Cursor Dot"
+msgstr "Увімкнути крапку курсору"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:72
+msgid "Enable dark mode."
+msgstr "Увімкнути темний режим."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:208
+msgid "Enable left and right arrows on product gallery slider."
+msgstr "Увімкнути стрілки вліво та вправо на слайдері галереї товару."
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:57
+msgid "Enable Main Footer"
+msgstr "Увімкнути основний футер"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:124
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:67
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:84
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:84
+msgid "Enable On: "
+msgstr "Увімкнути: "
+
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:56
+msgid "Enable Posts You Might Like Section"
+msgstr "Увімкнути розділ Запист, які вам можуть сподобатися"
+
+#: inc/customizer/class-bloghash-customizer.php:178
+msgid "Enter the name of your site here."
+msgstr "Введіть тут назву вашого сайту."
+
+#: inc/admin/class-bloghash-dashboard.php:134
+msgid "Explore recommended plugins. These free plugins provide additional features and customization options."
+msgstr "Ознайомтеся з рекомендованими плагінами. Ці безкоштовні плагіни надають додаткові функції та можливості налаштування."
+
+#: inc/customizer/settings/class-bloghash-customizer-sections.php:78
+msgid "Extra Options"
+msgstr "Додаткові параметри"
+
+#: inc/admin/class-bloghash-dashboard.php:493
+msgid "Failed to activate plugin. Missing plugin data."
+msgstr "Не вдалося активувати плагін. Відсутні дані плагіна."
+
+#: inc/admin/class-bloghash-dashboard.php:523
+msgid "Failed to deactivate plugin. Missing plugin data."
+msgstr "Не вдалося деактивувати плагін. Відсутні дані плагіна."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:86
+msgid "Featured Image Size"
+msgstr "Розмір головного зображення"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:194
+msgid "Gallery Lightbox"
+msgstr "Галерея Лайтбокс"
+
+#: inc/admin/class-bloghash-admin.php:228
+#: inc/admin/class-bloghash-admin.php:251
+#: inc/admin/class-bloghash-dashboard.php:219
+msgid "Help Articles"
+msgstr "Довідкові статті"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:234
+msgid "How many related products should be shown per row?"
+msgstr "Скільки супутніх товарів слід показувати в одному рядку?"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:348
+msgid "How many rows of cross-sell products should be shown?"
+msgstr "Скільки рядків перехресних товарів слід показувати?"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:256
+msgid "How many rows of related products should be shown?"
+msgstr "Скільки рядків пов'язаних товарів слід показувати?"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:313
+msgid "How many rows of up-sell products should be shown?"
+msgstr "Скільки рядів товарів, що продаються, слід показувати?"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:291
+msgid "How many up-sell products should be shown per row?"
+msgstr "Скільки товарів, що продаються, слід показувати в одному рядку?"
+
+#: inc/admin/helpers.php:251
+msgid "How to use"
+msgstr "Як користуватися"
+
+#: inc/customizer/controls/pro/class-bloghash-customizer-control-pro.php:85
+msgid "If you Like our Products , Please Rate us 5 star on %1$sWordPress.org%2$s.  We'd really appreciate it! </br></br>  Thank You"
+msgstr "Якщо вам подобаються наші продукти, будь ласка, оцініть нас 5 зірок на %1$sWordPress.org%2$s.  Ми були б дуже вдячні! </br></br> Дякую"
+
+#: inc/admin/class-bloghash-dashboard.php:183
+msgid "Kick off branding your new site by uploading your logo. Simply upload your logo and customize as you need."
+msgstr "Почніть брендування вашого нового сайту з завантаження логотипу. Просто завантажте логотип і налаштуйте його так, як вам потрібно."
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:51
+msgid "Maximum logo image height."
+msgstr "Макс. висота зображення лого."
+
+#: inc/admin/class-bloghash-dashboard.php:479
+#: inc/admin/class-bloghash-dashboard.php:510
+msgid "Missing plugin data"
+msgstr "Відсутні дані плагіна"
+
+#: inc/utilities/class-bloghash-plugin-utilities.php:98
+#: inc/utilities/class-bloghash-plugin-utilities.php:152
+msgid "Missing plugin data."
+msgstr "Відсутні дані плагіна."
+
+#: inc/core/class-bloghash-enqueue-scripts.php:117
+msgid "More results"
+msgstr "Більше результатів"
+
+#: inc/customizer/settings/class-bloghash-customizer-buttons.php:48
+msgid "Need more features?"
+msgstr "Потрібно більше функцій?"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:66
+msgid "Next/Prev Post Links"
+msgstr "Посилання запису Наступн./Поперед."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:178
+msgid "Number of words displayed in the excerpt."
+msgstr "Кількість слів, що відображаються в уривку."
+
+#: template-parts/content/content-404.php:20
+msgid "Oops! Page not found."
+msgstr "Ой! Сторінку не знайдено."
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:106
+#: inc/customizer/widgets/class-bloghash-customizer-widget-button.php:101
+msgid "Open link in"
+msgstr "Відкрити посилання в"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:195
+msgid "Open product gallery images in lightbox."
+msgstr "Відкрити зображення галереї товарів у лайтбоксі."
+
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:68
+msgid "Page Title Spacing"
+msgstr "Інтервал між назвами сторінок"
+
+#: inc/template-tags.php:1227
+msgid "Pingback: "
+msgstr "Сповіщення: "
+
+#: inc/admin/class-bloghash-admin.php:148
+msgid "Please Wait..."
+msgstr "Зачекайте…"
+
+#. translators: %s is plugin name.
+#: inc/utilities/class-bloghash-plugin-utilities.php:167
+msgid "Plugin %s is not active."
+msgstr "Плагін %s не активний."
+
+#. translators: %s is plugin name.
+#: inc/utilities/class-bloghash-plugin-utilities.php:113
+msgid "Plugin %s is not installed."
+msgstr "Плагін %s не встановлено."
+
+#: inc/admin/class-bloghash-dashboard.php:275
+msgid "Plugin activated"
+msgstr "Плагін активовано"
+
+#: inc/customizer/settings/class-bloghash-customizer-category-colors.php:46
+msgid "Post Category Colors"
+msgstr "Кольори категорії записів"
+
+#: inc/helpers.php:131
+msgid "Posts by"
+msgstr "Записи від"
+
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:45
+msgid "Posts You Might Like"
+msgstr "Записи, які вам можуть сподобатися"
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:58
+msgid "Pre-defined positions of header elements, such as logo and navigation."
+msgstr "Попередньо визначені позиції елементів хедера, таких як лого та навігація."
+
+#: inc/compatibility/class-bloghash-jetpack.php:101
+msgid "Proudly powered by WordPress"
+msgstr "З гордістю працює на WordPress"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:67
+msgid "Random post archives"
+msgstr "Випадкові архіви запису"
+
+#: woocommerce/cart/cross-sells.php:28
+msgid "You may be interested in"
+msgstr "Вас може зацікавити"
+
+#: inc/core/class-bloghash-options.php:672
+msgid "You May Have Missed"
+msgstr "Ви, мабуть, пропустили"
+
+#: inc/template-tags.php:1134 sidebar.php:41
+msgid "Click here to assign a widget."
+msgstr "Натисніть тут, щоб призначити віджет."
+
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:77
+msgid "Click the \"Add Widget\" button to add available widgets to your Header. Click the down arrow icon to expand widget options."
+msgstr "Натисніть кнопку \"Додати віджет\", щоб додати доступні віджети до вашого хедера. Натисніть на іконку зі стрілкою вниз, щоб розгорнути опції віджету."
+
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:93
+msgid "Click the Add Widget button to add available widgets to your Copyright Bar."
+msgstr "Натисніть кнопку Додати віджет, щоб додати доступні віджети до панелі авторських прав."
+
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:70
+msgid "Click the Add Widget button to add available widgets to your Top Bar."
+msgstr "Натисніть кнопку Додати віджет, щоб додати доступні віджети до верхньої панелі."
+
+#: inc/utilities/class-bloghash-plugin-utilities.php:90
+#: inc/utilities/class-bloghash-plugin-utilities.php:144
+msgid "Current user can't activate plugins"
+msgstr "Поточний користувач не може активувати плагіни"
+
+#: inc/customizer/customizer-helpers.php:59
+msgid "Dynamic pages such as categories, tags, custom taxonomies..."
+msgstr "Динамічні сторінки, такі як категорії, теги, власні таксономії..."
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:81
+msgid "Enable Page Preloader"
+msgstr "Увімкнути попередній завантажувач сторінок"
+
+#: inc/admin/class-bloghash-dashboard.php:205
+msgid "Replace the default theme colors and make your website color scheme match your brand design."
+msgstr "Замініть початкові кольори теми і зробіть так, щоб колірна схема вашого сайту відповідала дизайну вашого бренду."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:136
+msgid "Sale badge text"
+msgstr "Текст бейджа розпродажу"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:93
+msgid "Select feature link"
+msgstr "Виберіть посилання на функцію"
+
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:56
+msgid "Select Gallery Images"
+msgstr "Виберіть зображення галереї"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:158
+msgid "Set order and visibility for product details."
+msgstr "Налаштуйте порядок і видимість деталей товару."
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:136
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:184
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:131
+msgid "Set the number of visible posts."
+msgstr "Налаштуйте кількість видимих дописів."
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:58
+msgid "Set visibility of post elements."
+msgstr "Налаштувати видимість елементів запису."
+
+#. translators: %1$s is opening anchor tag, %2$s is a closing anchor tag.
+#: inc/customizer/widgets/class-bloghash-customizer-widget-text.php:65
+msgid "Shortcodes and basic html elements allowed."
+msgstr "Допускаються шорткоди та основні елементи html."
+
+#. translators: %s Comment count
+#. translators: %s is comment count
+#: inc/core/class-bloghash-enqueue-scripts.php:126
+#: template-parts/entry/entry-show-comments.php:20
+msgid "Show %s Comment"
+msgid_plural "Show %s Comments"
+msgstr[0] "Показати %s коментар"
+msgstr[1] "Показати %s коментаря"
+msgstr[2] "Показати %s коментарів"
+
+#: inc/customizer/settings/class-bloghash-customizer-misc.php:82
+msgid "Show animation until page is fully loaded."
+msgstr "Показувати анімацію до повного завантаження сторінки."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:166
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:96
+msgid "Show avatar and icons in post meta"
+msgstr "Показувати аватарку та іконки в мета запису"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:77
+#: inc/customizer/settings/class-bloghash-customizer-copyright-settings.php:133
+#: inc/customizer/settings/class-bloghash-customizer-main-header.php:117
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:103
+msgid "Show on All Devices"
+msgstr "Показати на всіх пристроях"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:142
+msgid "Show on:"
+msgstr "Показувати на:"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:124
+msgid "Show percentage"
+msgstr "Показати відсоток"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:128
+msgid "Show Post Categories"
+msgstr "Показувати категорії запису"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:147
+msgid "Show Read More Button"
+msgstr "Показати кнопку Читати далі"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:125
+msgid "Show text"
+msgstr "Показати текст"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:106
+msgid "Show Toggle Comments"
+msgstr "Показати перемикання коментарів"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:207
+msgid "Slider Arrows"
+msgstr "Стрілки слайдера"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:98
+msgid "Slider Horizontal"
+msgstr "Слайдер горизонтальний"
+
+#: template-parts/content/content-none.php:37
+msgid "Sorry, no results were found. Please try again with different keywords."
+msgstr "Результатів не знайдено. Будь ласка, спробуйте ще раз з іншими ключовими словами."
+
+#: inc/customizer/settings/class-bloghash-customizer-layout.php:59
+msgid "Choose your site&rsquo;s main layout."
+msgstr "Виберіть основне компонування сайту."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:112
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:251
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:78
+msgid "Set order and visibility for post meta details."
+msgstr "Налаштуйте порядок і видимість метаданих запису."
+
+#: inc/admin/class-bloghash-dashboard.php:144
+msgid "Start with a Template"
+msgstr "Почніть з шаблону"
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:164
+msgid "Stick sidebar when scrolling."
+msgstr "Прилипання бічної колонки при прокручуванні."
+
+#. translators: %s is the cart subtotal.
+#: woocommerce/cart/header-widget/header.php:28
+msgid "Subtotal: %s"
+msgstr "Проміжний підсумок: %s"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-text.php:38
+msgid "Text widget content goes here..."
+msgstr "Вміст текстового віджета тут..."
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:58
+msgid "The accent color is used subtly throughout your site, to call attention to key elements."
+msgstr "Акцентний колір тонко використовується на всьому сайті, щоб привернути увагу до ключових елементів."
+
+#: inc/admin/class-bloghash-admin.php:155
+msgid "The demo has been imported."
+msgstr "Демо-версію імпортовано."
+
+#: inc/admin/class-bloghash-admin.php:153
+msgid "The demo importer is still working. Closing this window may result in failed import."
+msgstr "Демонстраційний імпортер все ще працює. Закриття цього вікна може призвести до невдалого імпорту."
+
+#: inc/template-tags.php:1246
+msgid "The post author"
+msgstr "Автор запису"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:228
+msgid "Theme Page Options"
+msgstr "Параметри сторінки теми"
+
+#: inc/admin/class-bloghash-dashboard.php:231
+msgid "There are many changes you can make to customize your website. Explore BlogHash customization options and make it unique."
+msgstr "Існує багато змін, які ви можете зробити, щоб налаштувати свій сайт. Вивчіть можливості налаштування BlogHash і зробіть його унікальним."
+
+#: template-parts/content/content-none.php:44
+msgid "There aren&rsquo;t any posts currently published in this category."
+msgstr "В цій категорії немає опублікованих записів."
+
+#: inc/helpers.php:121
+msgid "This page doesn&rsquo;t seem to exist."
+msgstr "Здається, цієї сторінки не існує."
+
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:45
+msgid "Ticker News"
+msgstr "Біжуча стрічка новин"
+
+#: inc/core/class-bloghash-options.php:643
+msgid "Today Best Trending Topics"
+msgstr "Найкращі трендові теми сьогодні"
+
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:58
+msgid "Top Bar is a section with widgets located above Main Header area."
+msgstr "Верхня панель - це розділ з віджетами, розташованими над областю головного хедера."
+
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:69
+#: inc/customizer/settings/class-bloghash-customizer-top-bar.php:88
+msgid "Top Bar Widgets"
+msgstr "Віджети верхньої панелі"
+
+#: woocommerce/cart/cart.php:149
+msgid "Update Cart"
+msgstr "Оновити кошик"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:90
+msgid "Upgrade to <a target=\"_blank\" href=\"https://peregrine-themes.com/bloghash/\">BlogHash Pro</a> to be able to add more items and unlock other premium features!"
+msgstr "Оновіть версію <a target=\"_blank\" href=\"https://peregrine-themes.com/bloghash/\">BlogHash Pro</a>, щоб мати можливість додавати більше елементів і розблокувати інші преміум-функції!"
+
+#: inc/customizer/controls/pro/class-bloghash-customizer-control-pro.php:64
+#: inc/customizer/controls/pro/class-bloghash-customizer-control-pro.php:80
+msgid "Upgrade to BlogHash Pro"
+msgstr "Оновлення до BlogHash Pro"
+
+#: inc/customizer/widgets/class-bloghash-customizer-widget-advertisements.php:79
+msgid "Upload Banner"
+msgstr "Завантажити банер"
+
+#: inc/admin/class-bloghash-dashboard.php:182
+msgid "Upload Your Logo"
+msgstr "Завантажити свій лого"
+
+#: inc/customizer/class-bloghash-customizer.php:161
+msgid "Upload your logo image here."
+msgstr "Завантажте зображення вашого лого тут."
+
+#: inc/customizer/controls/background/class-bloghash-customizer-control-background.php:63
+#: inc/customizer/controls/design-options/class-bloghash-customizer-control-design-options.php:129
+#: inc/customizer/controls/repeater/class-bloghash-customizer-control-repeater.php:201
+msgid "Use This Image"
+msgstr "Використовуйте це зображення"
+
+#: template-parts/content/content-404.php:24
+msgid "We couldn&rsquo;t find the page you are looking for. Perhaps you can try searching:"
+msgstr "Ми не змогли знайти сторінку, яку ви шукаєте. Можливо, ви можете спробувати скористатися пошуком:"
+
+#: inc/widgets.php:83
+msgid "Widgets in this area are displayed in the fourth footer column."
+msgstr "Віджети в цій області відображаються в четвертій колонці футера."
+
+#. Translators: %1$s: <a> tag. %2$s: </a>.
+#: template-parts/entry/entry-about-author.php:53
+msgid "You haven&rsquo;t entered your Biographical Information yet. %1$sEdit your Profile%2$s now."
+msgstr "Ви ще не ввели свою біографічну інформацію. %1$sРедагуйте свій обліковий запис%2$s зараз."
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:607
+msgid "Widgets in this area are displayed on WooCommerce Product pages."
+msgstr "Віджети в цій області відображаються на сторінках товару WooCommerce."
+
+#: inc/compatibility/woocommerce/class-bloghash-woocommerce.php:591
+msgid "Widgets in this area are displayed on WooCommerce pages except Product pages."
+msgstr "Віджети в цій області відображаються на всіх сторінках WooCommerce, крім сторінок товару."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:371
+msgid "Choose default sidebar position for cart, checkout and catalog pages. You can change this setting per page via metabox settings."
+msgstr "Виберіть позицію бічної колонки за замовчуванням для сторінок кошика, оформлення замовлення та каталогу. Ви можете змінити цей параметр для кожної сторінки в налаштуваннях метабокса."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:111
+msgid "Choose default sidebar position layout for archives and search results."
+msgstr "Виберіть стандартне розташування бічної колонки для архівів та результатів пошуку."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:93
+msgid "Choose default sidebar position layout for pages. You can change this setting per page via metabox settings."
+msgstr "Виберіть макет розташування бічної колонки для сторінок за замовчуванням. Ви можете змінити цей параметр для кожної сторінки за допомогою налаштувань metabox."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:388
+msgid "Choose default sidebar position layout for product pages. You can change this setting per product via metabox settings."
+msgstr "Виберіть макет бічної колонки за замовчуванням для сторінок товару. Ви можете змінити цей параметр для кожного товару в налаштуваннях metabox."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:75
+msgid "Choose default sidebar position layout for single posts. You can change this setting per post via metabox settings."
+msgstr "Виберіть макет бічної колонки за замовчуванням для окремих записів. Ви можете змінити цей параметр для кожного запису за допомогою налаштувань метабоксу."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:59
+msgid "Choose default sidebar position layout. You can change this setting per page via metabox settings."
+msgstr "Виберіть макет позиції бічної колонки за замовчуванням. Ви можете змінити цей параметр для кожної сторінки за допомогою налаштувань metabox."
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:57
+msgid "Enable featured items section"
+msgstr "Увімкнути розділ з вибраними елементами"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:86
+msgid "Featured Link"
+msgstr "Вибране посилання"
+
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:46
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:84
+msgid "Featured Items"
+msgstr "Вибраних елемент"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:145
+#: inc/customizer/settings/class-bloghash-customizer-layout.php:62
+msgid "Full Width: Stretched"
+msgstr "На всю ширину: розтягнута"
+
+#: template-parts/content/content-none.php:50
+msgid "There aren&rsquo;t any posts currently published under this taxonomy."
+msgstr "Зараз немає опублікованих записів з цією таксономією."
+
+#: template-parts/content/content-none.php:56
+msgid "There aren&rsquo;t any posts currently published under this tag."
+msgstr "Зараз немає опублікованих записів з цією позначкою."
+
+#: template-parts/entry/entry-summary.php:26
+msgid "This content is password protected. To view it please go to the post page and enter the password."
+msgstr "Цей вміст захищено паролем. Щоб переглянути його, перейдіть на сторінку запису та введіть пароль."
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:195
+msgid "What to append to excerpt if the text is cut."
+msgstr "Що додати до уривку, якщо текст вирізано."
+
+#: inc/widgets.php:31
+msgid "Widgets in this area are displayed in the left or right sidebar area based on your Default Sidebar Position settings."
+msgstr "Віджети в цій області відображаються в лівій або правій частині бічної колонки залежно від налаштувань положення бічної колонки за замовчуванням."
+
+#. Translators: $s number of found results.
+#: inc/helpers.php:195
+msgid "%s result found"
+msgid_plural "%s results found"
+msgstr[0] "Знайдено %s результат."
+msgstr[1] "Знайдено %d результати."
+msgstr[2] "Знайдено %d результатів."
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:65
+msgid "About Author Box"
+msgstr "Блок Про автора"
+
+#: inc/customizer/settings/class-bloghash-customizer-advertisement.php:66
+msgid "Before post archive"
+msgstr "Перед архівом запису"
+
+#: inc/compatibility/class-bloghash-beaver-themer.php:179
+msgid "Before Singular"
+msgstr "Перед одниною"
+
+#: inc/customizer/customizer-helpers.php:52
+#: inc/customizer/settings/class-bloghash-customizer-featured-links.php:132
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:75
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:92
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:92
+msgid "Blog / Posts Page"
+msgstr "Сторінка блогу/записів"
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:286
+msgid "Change Continue Reading Text."
+msgstr "Змінити текст для продовження читання."
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:69
+msgid "Choose on which pages you want to disable breadcrumbs. "
+msgstr "Виберіть, на яких сторінках потрібно вимкнути навігаційні стежки. "
+
+#: inc/customizer/settings/class-bloghash-customizer-main-footer.php:69
+msgid "Choose your site&rsquo;s footer column layout."
+msgstr "Виберіть компонування колонки футера сайту."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:347
+msgid "Cross-Sell Products Rows"
+msgstr "Рядки для перехресних продажів"
+
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:56
+msgid "Enable Ticker News Section"
+msgstr "Увімкнути рубрику Біжуча стрічка новин"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:146
+msgid "Extra-Bold 800 Italic"
+msgstr "Дуже жирний 800 курсив"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:133
+msgid "Extra-Thin 200"
+msgstr "Дуже тонкий 200"
+
+#: inc/customizer/controls/typography/class-bloghash-customizer-control-typography.php:134
+msgid "Extra-Thin 200 Italic"
+msgstr "Дуже тонкий 200 курсив"
+
+#: inc/admin/metabox/class-bloghash-meta-boxes.php:144
+#: inc/customizer/settings/class-bloghash-customizer-layout.php:61
+msgid "Full Width: Contained"
+msgstr "На всю ширину: обмежений"
+
+#: inc/customizer/settings/class-bloghash-customizer-single-post.php:107
+msgid "Hide comments and comment form behind a toggle button. "
+msgstr "Сховати коментарі та форму коментарів за кнопкою-перемикачем. "
+
+#: inc/customizer/controls/gallery/class-bloghash-customizer-control-gallery.php:52
+msgid "Modify Gallery"
+msgstr "Змінити галерею"
+
+#: inc/customizer/settings/class-bloghash-customizer-pro-features.php:65
+msgctxt "pro feature"
+msgid "Primary, seconday and text buttons color and typography options"
+msgstr "Параметри кольору та типографіки основних, додаткових і текстових кнопок"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:255
+msgid "Related Products Rows"
+msgstr "Рядки супутніх товарів"
+
+#: inc/compatibility/socialsnap/socialsnap-functions.php:26
+msgid "Share"
+msgid_plural "Shares"
+msgstr[0] "Поширити"
+msgstr[1] "Поширити"
+msgstr[2] "Поширити"
+
+#: inc/customizer/settings/class-bloghash-customizer-page-header.php:69
+msgid "Specify Page Title top and bottom padding."
+msgstr "Вкажіть верхній і нижній внутрішній відступ для назви сторінки."
+
+#: inc/customizer/settings/class-bloghash-customizer-logo.php:76
+msgid "Specify spacing around logo. Negative values are allowed."
+msgstr "Вкажіть інтервал навколо лого. Допускаються від'ємні значення."
+
+#: inc/customizer/settings/class-bloghash-customizer-breadcrumbs.php:89
+msgid "Specify top and bottom padding."
+msgstr "Вкажіть верхній та нижній внутрішній відступ."
+
+#: inc/customizer/settings/class-bloghash-customizer-sidebar.php:167
+msgid "Stick first widget"
+msgstr "Прикріпіть перший віджет"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:277
+msgid "Up-Sell Products"
+msgstr "Товари додаткових продажів"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:290
+msgid "Up-Sell Products Columns"
+msgstr "Колонки товарів додаткових продажів"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:312
+msgid "Up-Sell Products Rows"
+msgstr "Рядки товарів додаткових продажів"
+
+#: inc/widgets.php:44
+msgid "Widgets in this area are displayed in the first footer column."
+msgstr "Віджети в цій області відображаються в першій колонці футера."
+
+#: inc/widgets.php:57
+msgid "Widgets in this area are displayed in the second footer column."
+msgstr "Віджети в цій області відображаються у другій колонці футера."
+
+#: inc/widgets.php:70
+msgid "Widgets in this area are displayed in the third footer column."
+msgstr "Віджети в цій області відображаються у третій колонці футера."
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:163
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:169
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:217
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:158
+msgid "Category"
+msgstr "Категорія"
+
+#: inc/admin/class-bloghash-dashboard.php:194
+msgid "Customize menu links and choose what&rsquo;s displayed in available theme menu locations."
+msgstr "Налаштуйте посилання меню і виберіть, що відображатиметься в доступних місцях меню теми."
+
+#: inc/customizer/settings/class-bloghash-customizer-hero.php:135
+#: inc/customizer/settings/class-bloghash-customizer-pyml.php:183
+#: inc/customizer/settings/class-bloghash-customizer-ticker.php:130
+msgid "Post Number"
+msgstr "Номер запису"
+
+#: woocommerce/cart/cart.php:30 woocommerce/cart/cart.php:50
+msgid "Product"
+msgstr "Товар"
+
+#: inc/compatibility/socialsnap/class-bloghash-socialsnap.php:67
+#: inc/compatibility/socialsnap/class-bloghash-socialsnap.php:69
+msgid "Shares"
+msgstr "Поширити"
+
+#: inc/core/class-bloghash-theme-setup.php:119
+msgid "Primary Navigation"
+msgstr "Основна навігація"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:181
+msgid "Gallery Zoom"
+msgstr "Масштабування галереї"
+
+#: inc/customizer/settings/class-bloghash-customizer-colors.php:57
+msgid "Accent Color"
+msgstr "Колір акценту"
+
+#: inc/widgets.php:29
+msgid "Default Sidebar"
+msgstr "Початкова бічна колонка"
+
+#: inc/compatibility/woocommerce/class-bloghash-customizer-woocommerce.php:334
+msgid "Cross-Sell Products"
+msgstr "Товари перехресних продажів"
+
+#: inc/customizer/settings/class-bloghash-customizer-blog-page.php:46
+msgid "Blog Page / Archive"
+msgstr "Блог сторінка/архів"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://peregrine-themes.com/"
+msgstr "https://peregrine-themes.com/"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://peregrine-themes.com/bloghash"
+msgstr "https://peregrine-themes.com/bloghash"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "Peregrine themes"
+msgstr "Peregrine themes"

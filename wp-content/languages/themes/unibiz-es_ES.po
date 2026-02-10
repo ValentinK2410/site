@@ -1,0 +1,508 @@
+# Translation of Themes - Unibiz in Spanish (Spain)
+# This file is distributed under the same license as the Themes - Unibiz package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-12-14 18:21:13+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: es\n"
+"Project-Id-Version: Themes - Unibiz\n"
+
+#. Description of the theme
+#: style.css inc/class/class-init.php:1174
+#, gp-priority: high
+msgid "Unibiz is a versatile modern WordPress theme designed for any niche with seamless Full Site Editing support and advanced customization, the first multipurpose theme fully compatible with FSE."
+msgstr "Unibiz es un tema moderno y versátil de WordPress diseñado para cualquier nicho con soporte de edición completa del sitio (FSE) y personalización avanzada, el primer tema multipropósito totalmente compatible con FSE."
+
+#. Theme Name of the theme
+#: style.css inc/class/class-init.php:1173
+#, gp-priority: high
+msgid "Unibiz"
+msgstr "Unibiz"
+
+#: inc/patterns/unibiz-core-footer-alternate.php:6
+msgid "Unibiz Core Footer Alternate"
+msgstr "Pie de página principal alternativo de Unibiz"
+
+#: inc/class/class-plugin-notice.php:367
+msgid "Install Recommended Plugins"
+msgstr "Instalar los plugins recomendados"
+
+#: inc/class/class-plugin-notice.php:364
+msgid "Activate it to explore exclusive extensions, ready-to-use demo templates, and powerful features that make building your site easier and more enjoyable."
+msgstr "Actívala para explorar extensiones exclusivas, plantillas de demostración listas para usar y potentes características que hacen que maquetar tu sitio sea más fácil y agradable."
+
+#: inc/class/class-plugin-notice.php:362
+msgid "Unlock the full potential of your website with the recommended plugins."
+msgstr "Libera todo el potencial de tu sitio web con los plugins recomendados."
+
+#: inc/class/class-plugin-notice.php:360
+msgid "Thankyou For Installing Unibiz Theme"
+msgstr "¡Gracias por instalar el tema Unibiz!"
+
+#: inc/class/class-plugin-notice.php:351
+msgid "Install Failed, Try Again"
+msgstr "Error de instalación, inténtalo de nuevo"
+
+#: inc/class/class-plugin-notice.php:322
+msgid "Installing..."
+msgstr "Instalando…"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page With Sidebar"
+msgstr "Página con barra lateral"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr "Enorme"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Mini"
+msgstr "Mini"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Little"
+msgstr "Pequeño"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Tiny"
+msgstr "Diminuto"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Normal"
+msgstr "Normal"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Standard"
+msgstr "Estándar"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Big"
+msgstr "Grande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Largest"
+msgstr "Más grande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Jumbo"
+msgstr "Jumbo"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Mega"
+msgstr "Mega"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Gigantic"
+msgstr "Gigante"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Massive"
+msgstr "Massive"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr "Extragrande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr "Grande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr "Medio"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr "Pequeño"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Host Grotesk"
+msgstr "Host Grotesk"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr "Negro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Border Input"
+msgstr "Entrada de borde oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Border"
+msgstr "Borde oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Background Tertiary"
+msgstr "Terciario del fondo oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Background Secondary"
+msgstr "Secundario del fondo oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Background Primary"
+msgstr "Principal del fondo oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Accent Hover"
+msgstr "Énfasis oscuro al pasar el cursor"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Accent"
+msgstr "Énfasis oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Text Placeholder"
+msgstr "Marcador de posición de texto oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Text Secondary"
+msgstr "Texto secundario oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Text Primary"
+msgstr "Texto principal oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Secondary"
+msgstr "Secundario oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Primary"
+msgstr "Principal oscuro"
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr "Blanco"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border Input"
+msgstr "Borde de la entrada"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border"
+msgstr "Borde"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background Tertiary"
+msgstr "Terciario del fondo"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background Secondary"
+msgstr "Secundario del fondo"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background Primary"
+msgstr "Principal del fondo"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Hover"
+msgstr "Énfasis al pasar el cursor"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr "Énfasis"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text Placeholder"
+msgstr "Marcador de posición de texto"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text Secondary"
+msgstr "Texto secundario"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text Primary"
+msgstr "Texto principal"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr "Secundario"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr "Principal"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blank Canvas"
+msgstr "Lienzo en blanco"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page No Sidebar"
+msgstr "Página sin barra lateral"
+
+#: inc/patterns/unibiz-single-gutenverse-hero.php:6
+msgid "Unibiz Single Gutenverse Hero"
+msgstr "Sección destacada Gutenverse individual para Unibiz"
+
+#: inc/patterns/unibiz-single-gutenverse-content.php:6
+msgid "Unibiz Single Gutenverse Content"
+msgstr "Contenido Gutenverse individual para Unibiz"
+
+#: inc/patterns/unibiz-single-core-hero.php:6
+msgid "Unibiz Single Core Hero"
+msgstr "Sección destacada básica individual de Unibiz"
+
+#: inc/patterns/unibiz-single-core-content.php:6
+msgid "Unibiz Single Core Content"
+msgstr "Contenido básico individual de Unibiz"
+
+#: inc/patterns/unibiz-search-gutenverse-search.php:6
+msgid "Unibiz Search Gutenverse Search"
+msgstr "Búsqueda Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-search-gutenverse-hero.php:6
+msgid "Unibiz Search Gutenverse Hero"
+msgstr "Sección destacada Gutenverse de búsqueda de Unibiz"
+
+#: inc/patterns/unibiz-search-core-search.php:6
+msgid "Unibiz Search Core Search"
+msgstr "Búsqueda básica de Unibiz"
+
+#: inc/patterns/unibiz-search-core-hero.php:6
+msgid "Unibiz Search Core Hero"
+msgstr "Sección destacada básica de búsqueda de Unibiz"
+
+#: inc/patterns/unibiz-page-no-sidebar-gutenverse-hero.php:6
+msgid "Unibiz Page No Sidebar Gutenverse Hero"
+msgstr "Sección destacada Gutenverse sin barra lateral de página de Unibiz"
+
+#: inc/patterns/unibiz-page-no-sidebar-gutenverse-content.php:6
+msgid "Unibiz Page No Sidebar Gutenverse Content"
+msgstr "Contenido Gutenverse sin barra lateral de página de Unibiz"
+
+#: inc/patterns/unibiz-page-no-sidebar-core-hero.php:6
+msgid "Unibiz Page No Sidebar Core Hero"
+msgstr "Sección destacada básica sin barra lateral de página de Unibiz"
+
+#: inc/patterns/unibiz-page-no-sidebar-core-content.php:6
+msgid "Unibiz Page No Sidebar Core Content"
+msgstr "Contenido básico sin barra lateral de página de Unibiz"
+
+#: inc/patterns/unibiz-page-gutenverse-hero.php:6
+msgid "Unibiz Page Gutenverse Hero"
+msgstr "Sección destacada de Gutenverse para página de Unibiz"
+
+#: inc/patterns/unibiz-page-gutenverse-content.php:6
+msgid "Unibiz Page Gutenverse Content"
+msgstr "Contenido de Gutenverse para página de Unibiz"
+
+#: inc/patterns/unibiz-page-core-hero.php:6
+msgid "Unibiz Page Core Hero"
+msgstr "Sección destacada básica de página de Unibiz"
+
+#: inc/patterns/unibiz-page-core-content.php:6
+msgid "Unibiz Page Core Content"
+msgstr "Contenido básico de la página de Unibiz"
+
+#: inc/patterns/unibiz-index-gutenverse-hero.php:6
+msgid "Unibiz Index Gutenverse Hero"
+msgstr "Sección destacada de Gutenverse de índice para Unibiz"
+
+#: inc/patterns/unibiz-index-core-hero.php:6
+msgid "Unibiz Index Core Hero"
+msgstr "Sección destacada básica de índice de Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-post-block.php:6
+msgid "Unibiz Gutenverse Post Block"
+msgstr "Bloque de entradas de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-testimonials.php:6
+msgid "Unibiz Gutenverse Home Testimonials"
+msgstr "Recomendaciones de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-services.php:6
+msgid "Unibiz Gutenverse Home Services"
+msgstr "Servicios de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-hero.php:6
+msgid "Unibiz Gutenverse Home Hero"
+msgstr "Sección destacada de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-clients.php:6
+msgid "Unibiz Gutenverse Home Clients"
+msgstr "Clientes de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-blog.php:6
+msgid "Unibiz Gutenverse Home Blog"
+msgstr "Blog de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-benefits.php:6
+msgid "Unibiz Gutenverse Home Benefits"
+msgstr "Ventajas de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-authority.php:6
+msgid "Unibiz Gutenverse Home Authority"
+msgstr "Autoridad de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-home-about.php:6
+msgid "Unibiz Gutenverse Home About"
+msgstr "«Acerca de» de la página de inicio de Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-header.php:6
+msgid "Unibiz Gutenverse Header"
+msgstr "Cabecera Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-header-alternate.php:6
+msgid "Unibiz Gutenverse Header Alternate"
+msgstr "Cabecera alternativa Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-footer.php:6
+msgid "Unibiz Gutenverse Footer"
+msgstr "Pie de página Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-footer-alternate.php:6
+msgid "Unibiz Gutenverse Footer Alternate"
+msgstr "Pie de página alternativo Gutenverse para Unibiz"
+
+#: inc/patterns/unibiz-gutenverse-404.php:6
+msgid "Unibiz Gutenverse 404"
+msgstr "Página Gutenverse 404 para Unibiz"
+
+#: inc/patterns/unibiz-core-post-block.php:6
+msgid "Unibiz Core Post Block"
+msgstr "Bloque de entradas básico de Unibiz"
+
+#: inc/patterns/unibiz-core-home-testimonials.php:6
+msgid "Unibiz Core Home Testimonials"
+msgstr "Recomendaciones de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-services.php:6
+msgid "Unibiz Core Home Services"
+msgstr "Servicios de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-hero.php:6
+msgid "Unibiz Core Home Hero"
+msgstr "Sección destacada de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-clients.php:6
+msgid "Unibiz Core Home Clients"
+msgstr "Clientes de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-blog.php:6
+msgid "Unibiz Core Home Blog"
+msgstr "Blog de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-benefits.php:6
+msgid "Unibiz Core Home Benefits"
+msgstr "Ventajas de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-authority.php:6
+msgid "Unibiz Core Home Authority"
+msgstr "Autoridad de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-home-about.php:6
+msgid "Unibiz Core Home About"
+msgstr "«Acerca de» de la página de inicio básica de Unibiz"
+
+#: inc/patterns/unibiz-core-404.php:6
+msgid "Unibiz Core 404"
+msgstr "404 básica de Unibiz"
+
+#: inc/patterns/unibiz-archive-gutenverse-hero.php:6
+msgid "Unibiz Archive Gutenverse Hero"
+msgstr "Sección destacada Gutenverse del archivo de Unibiz"
+
+#: inc/patterns/unibiz-archive-core-hero.php:6
+msgid "Unibiz Archive Core Hero"
+msgstr "Sección destacada básica del archivo de Unibiz"
+
+#: inc/class/class-init.php:1184
+msgid "Gutenverse Plugin Installed"
+msgstr "El plugin Gutenverse está instalado"
+
+#: inc/class/class-init.php:1183
+msgid "Activate Gutenverse Plugin"
+msgstr "Activar el plugin Gutenverse"
+
+#: inc/class/class-init.php:1182
+msgid "Install Gutenverse Plugin"
+msgstr "Instalar el plugin Gutenverse"
+
+#: inc/class/class-init.php:1176
+msgid "This theme require some plugins. Please make sure all the plugin below are installed and activated."
+msgstr "Este tema necesita algunos plugins. Por favor, asegúrate de que todos los plugins a continuación estén instalados y activados."
+
+#: inc/class/class-init.php:1175
+msgid "Plugin Requirement"
+msgstr "Requisitos del plugin"
+
+#: inc/class/class-block-patterns.php:62
+msgid "Unibiz Gutenverse PRO Patterns"
+msgstr "Patrones de Gutenverse PRO para Unibiz"
+
+#: inc/class/class-block-patterns.php:61
+msgid "Unibiz Gutenverse Patterns"
+msgstr "Patrones de Gutenverse para Unibiz"
+
+#: inc/class/class-block-patterns.php:57
+msgid "Unibiz Core Patterns"
+msgstr "Patrones básicos de Unibiz"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://gutenverse.com"
+msgstr "https://gutenverse.com"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "Jegstudio"
+msgstr "Jegstudio"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://gutenverse.com/unibiz/"
+msgstr "https://gutenverse.com/unibiz/"
