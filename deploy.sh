@@ -1,0 +1,33 @@
+#!/bin/bash
+# Деплой файлов из Git на сервер dekan.pro
+# Копирует локальные файлы (из репозитория) на удалённый сервер
+#
+# Использование: ./deploy.sh
+
+USER="root"
+HOST="dekan.pro"
+REMOTE_PATH="/var/www/www-root/data/www/dekan.pro"
+LOCAL_PATH="$(cd "$(dirname "$0")" && pwd)"
+
+echo "Деплой на ${USER}@${HOST}:${REMOTE_PATH}"
+echo "Источник: ${LOCAL_PATH}"
+echo ""
+
+rsync -avz --progress \
+  --exclude '.git' \
+  --exclude 'node_modules' \
+  --exclude '.env' \
+  "${LOCAL_PATH}/" "${USER}@${HOST}:${REMOTE_PATH}/"
+
+if [ $? -eq 0 ]; then
+  echo ""
+  echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
+else
+  echo ""
+  echo "✗ Ошибка. Проверьте:"
+  echo "  1. SSH-ключ или пароль"
+  echo "  2. Имя пользователя (USER)"
+  echo "  3. Хост (HOST)"
+  echo "  4. Доступность сервера: ssh ${USER}@${HOST}"
+  exit 1
+fi
