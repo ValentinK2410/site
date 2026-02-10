@@ -220,7 +220,7 @@ if ( ! class_exists( 'Dekanpro_Admin' ) ) :
 				<div class="hester-container">
 
 					<a href="<?php echo esc_url( admin_url( 'admin.php?page=dekanpro-dashboard' ) ); ?>" class="hester-logo">
-						<img src="<?php echo esc_url( DEKANPRO_THEME_URI . '/assets/images/dekanpro-logo.svg' ); ?>" alt="<?php echo esc_html( 'Dekanpro' ); ?>" />
+						<img src="<?php echo esc_url( DEKANPRO_THEME_URI . '/assets/images/dekanpro-logo.png' ); ?>" alt="<?php echo esc_html( 'DekanPro' ); ?>" style="max-height: 40px;" />
 					</a>
 
 					<span class="hester-header-action">
