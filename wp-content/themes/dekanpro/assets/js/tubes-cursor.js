@@ -115,7 +115,7 @@
                     this.height / 2,
                     this.colors[i % this.colors.length],
                     0.06 + i * 0.01,  // Скорость следования
-                    3 + i * 0.5,      // Толщина линии
+                    6 + i * 1.5,      // Толщина линии (увеличена)
                     50 + i * 5,       // Длина следа
                     angle,            // Угол смещения
                     30 + i * 10,      // Максимальное расстояние расхождения
@@ -341,14 +341,37 @@
             gradient.addColorStop(0.6, baseColor + '0.4)');
             gradient.addColorStop(1, baseColor + '0)');
 
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = this.thickness;
-            ctx.stroke();
-
-            // Яркое неоновое свечение
+            // Рассеянные края - несколько слоёв с разной толщиной и прозрачностью
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            // Внешний рассеянный слой (самый размытый)
             ctx.shadowColor = this.color;
-            ctx.shadowBlur = 15;
+            ctx.shadowBlur = 25;
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = this.thickness * 2;
+            ctx.globalAlpha = 0.3;
             ctx.stroke();
+            
+            // Средний слой
+            ctx.shadowBlur = 15;
+            ctx.lineWidth = this.thickness * 1.5;
+            ctx.globalAlpha = 0.5;
+            ctx.stroke();
+            
+            // Основная линия
+            ctx.shadowBlur = 8;
+            ctx.lineWidth = this.thickness;
+            ctx.globalAlpha = 1;
+            ctx.stroke();
+            
+            // Яркая сердцевина
+            ctx.shadowBlur = 0;
+            ctx.lineWidth = this.thickness * 0.4;
+            ctx.globalAlpha = 0.8;
+            ctx.stroke();
+            
+            ctx.globalAlpha = 1;
             ctx.shadowBlur = 0;
         }
     }
