@@ -2,7 +2,7 @@
  * Tubes Cursor Effect for DekanPro Theme
  * Smooth flowing tubes that follow cursor movement
  * Lines spread apart while moving and form flower pattern when idle
- * Click on site-title to toggle effect on/off
+ * Click on logo-inner to toggle: lines wrap logo / lines follow cursor
  */
 
 (function() {
@@ -22,7 +22,8 @@
             this.idleTime = 0;           // Время без движения
             this.isIdle = false;         // Флаг покоя
             this.globalTime = 0;         // Глобальное время для анимации
-            this.effectEnabled = true;   // Эффект включён/выключен
+            this.linesFollowCursor = true;  // true = полоски за курсором, false = обвивают логотип
+            this.logoInner = null;
             // Яркие неоновые цвета как в оригинале
             this.colors = [
                 'rgba(249, 103, 251, 1)',    // Яркий розовый/маджента
@@ -31,18 +32,8 @@
                 'rgba(254, 138, 46, 1)',     // Оранжевый
                 'rgba(255, 0, 138, 1)'       // Розовый
             ];
-            // Цвета для градиента текста (без альфа)
-            this.textColors = [
-                '#f967fb',    // Розовый/маджента
-                '#53bc28',    // Зелёный
-                '#6958d5',    // Фиолетовый
-                '#fe8a2e',    // Оранжевый
-                '#ff008a'     // Розовый
-            ];
             this.animationId = null;
             this.isRunning = false;
-            this.siteTitle = null;
-            this.gradientStyleId = 'dekanpro-title-gradient-style';
             
             this.init();
         }
@@ -52,7 +43,7 @@
             this.resize();
             this.initTubes();
             this.bindEvents();
-            this.setupTitleToggle();
+            this.setupLogoInnerToggle();
             this.start();
         }
 
@@ -73,71 +64,26 @@
             this.ctx = this.canvas.getContext('2d');
         }
 
-        setupTitleToggle() {
-            this.siteTitle = document.querySelector('.site-title');
-            if (this.siteTitle) {
-                this.siteTitle.style.cursor = 'pointer';
-                this.siteTitle.style.transition = 'all 0.3s ease';
+        setupLogoInnerToggle() {
+            this.logoInner = document.querySelector('.logo-inner');
+            if (this.logoInner) {
+                this.logoInner.style.cursor = 'pointer';
                 
-                this.siteTitle.addEventListener('click', (e) => {
+                this.logoInner.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.toggleEffect();
+                    e.stopPropagation();
+                    this.linesFollowCursor = !this.linesFollowCursor;
                 });
             }
-            
-            // Создаём стиль для градиентного текста
-            this.createGradientStyle();
         }
         
-        createGradientStyle() {
-            let style = document.getElementById(this.gradientStyleId);
-            if (!style) {
-                style = document.createElement('style');
-                style.id = this.gradientStyleId;
-                document.head.appendChild(style);
-            }
-            
-            style.textContent = `
-                .site-title.rainbow-text,
-                .site-title.rainbow-text a {
-                    background: linear-gradient(
-                        90deg,
-                        ${this.textColors[0]} 0%,
-                        ${this.textColors[1]} 25%,
-                        ${this.textColors[2]} 50%,
-                        ${this.textColors[3]} 75%,
-                        ${this.textColors[4]} 100%
-                    );
-                    background-size: 200% auto;
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    animation: rainbow-shift 3s linear infinite;
-                }
-                
-                @keyframes rainbow-shift {
-                    0% { background-position: 0% center; }
-                    100% { background-position: 200% center; }
-                }
-            `;
-        }
-        
-        toggleEffect() {
-            this.effectEnabled = !this.effectEnabled;
-            
-            if (this.effectEnabled) {
-                // Включаем эффект - убираем градиент с названия
-                this.canvas.style.opacity = '1';
-                if (this.siteTitle) {
-                    this.siteTitle.classList.remove('rainbow-text');
-                }
-            } else {
-                // Выключаем эффект - добавляем градиент на название
-                this.canvas.style.opacity = '0';
-                if (this.siteTitle) {
-                    this.siteTitle.classList.add('rainbow-text');
-                }
-            }
+        getLogoCenter() {
+            if (!this.logoInner) return null;
+            const rect = this.logoInner.getBoundingClientRect();
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2
+            };
         }
 
         resize() {
@@ -228,38 +174,49 @@
 
             this.globalTime += 0.016; // ~60fps
 
-            // Сохраняем предыдущую позицию
-            this.prevMouse.x = this.mouse.x;
-            this.prevMouse.y = this.mouse.y;
-
-            // Плавное следование за мышью
-            this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.15;
-            this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.15;
-
-            // Вычисляем скорость и направление движения
-            const dx = this.mouse.x - this.prevMouse.x;
-            const dy = this.mouse.y - this.prevMouse.y;
-            const speed = Math.sqrt(dx * dx + dy * dy);
-            const moveAngle = Math.atan2(dy, dx);
-
-            // Увеличиваем счётчик покоя если скорость низкая
-            if (speed < 0.5) {
-                this.idleTime += 0.016;
-                if (this.idleTime > 0.5) { // После 0.5 секунды покоя
-                    this.isIdle = true;
+            let targetX, targetY, speed, moveAngle, isIdle;
+            
+            if (this.linesFollowCursor) {
+                // Режим следования за курсором
+                this.prevMouse.x = this.mouse.x;
+                this.prevMouse.y = this.mouse.y;
+                this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.15;
+                this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.15;
+                const dx = this.mouse.x - this.prevMouse.x;
+                const dy = this.mouse.y - this.prevMouse.y;
+                speed = Math.sqrt(dx * dx + dy * dy);
+                moveAngle = Math.atan2(dy, dx);
+                if (speed < 0.5) {
+                    this.idleTime += 0.016;
+                    isIdle = this.idleTime > 0.5;
+                } else {
+                    this.idleTime = 0;
+                    isIdle = false;
                 }
+                targetX = this.mouse.x;
+                targetY = this.mouse.y;
+            } else {
+                // Режим обвивания логотипа — полоски вокруг лого
+                const logoCenter = this.getLogoCenter();
+                if (logoCenter) {
+                    targetX = logoCenter.x;
+                    targetY = logoCenter.y;
+                    this.mouse.x = targetX;
+                    this.mouse.y = targetY;
+                } else {
+                    targetX = this.width / 2;
+                    targetY = this.height / 2;
+                }
+                speed = 0;
+                moveAngle = 0;
+                isIdle = true; // Всегда цветочный паттерн вокруг лого
             }
 
-            // Очистка с прозрачным фоном
+            // Очистка и отрисовка
             this.ctx.clearRect(0, 0, this.width, this.height);
-
-            // Рисуем только если эффект включён
-            if (this.effectEnabled) {
-                // Обновляем и рисуем трубки
-                for (const tube of this.tubes) {
-                    tube.update(this.mouse.x, this.mouse.y, speed, moveAngle, this.isIdle, this.globalTime);
-                    tube.draw(this.ctx);
-                }
+            for (const tube of this.tubes) {
+                tube.update(targetX, targetY, speed, moveAngle, isIdle, this.globalTime);
+                tube.draw(this.ctx);
             }
 
             this.animationId = requestAnimationFrame(() => this.animate());
