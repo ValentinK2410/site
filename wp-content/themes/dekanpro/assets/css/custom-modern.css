@@ -421,6 +421,10 @@ article:hover .post-thumbnail img {
     padding: 2rem !important;
 }
 
+.entry-content.dekanpro-entry {
+    padding: 18px;
+}
+
 /* ============================================
    CATEGORIES & TAGS - Modern Pills
    ============================================ */
