@@ -1,6 +1,8 @@
 /**
  * Tubes Cursor Effect for DekanPro Theme
  * Smooth flowing tubes that follow cursor movement
+ * Lines spread apart while moving and form flower pattern when idle
+ * Click on site-title to toggle effect on/off
  */
 
 (function() {
@@ -14,18 +16,33 @@
             this.height = 0;
             this.mouse = { x: 0, y: 0 };
             this.targetMouse = { x: 0, y: 0 };
+            this.prevMouse = { x: 0, y: 0 };
             this.tubes = [];
-            this.tubeCount = 6;
+            this.tubeCount = 5;
+            this.idleTime = 0;           // Время без движения
+            this.isIdle = false;         // Флаг покоя
+            this.globalTime = 0;         // Глобальное время для анимации
+            this.effectEnabled = true;   // Эффект включён/выключен
+            // Яркие неоновые цвета как в оригинале
             this.colors = [
-                'rgba(99, 102, 241, 0.8)',   // Indigo - ярче
-                'rgba(139, 92, 246, 0.8)',   // Violet
-                'rgba(168, 85, 247, 0.8)',   // Purple
-                'rgba(96, 165, 250, 0.7)',   // Blue
-                'rgba(236, 72, 153, 0.7)',   // Pink
-                'rgba(34, 211, 238, 0.7)'    // Cyan
+                'rgba(249, 103, 251, 1)',    // Яркий розовый/маджента
+                'rgba(83, 188, 40, 1)',      // Яркий зелёный
+                'rgba(105, 88, 213, 1)',     // Фиолетовый
+                'rgba(254, 138, 46, 1)',     // Оранжевый
+                'rgba(255, 0, 138, 1)'       // Розовый
+            ];
+            // Цвета для градиента текста (без альфа)
+            this.textColors = [
+                '#f967fb',    // Розовый/маджента
+                '#53bc28',    // Зелёный
+                '#6958d5',    // Фиолетовый
+                '#fe8a2e',    // Оранжевый
+                '#ff008a'     // Розовый
             ];
             this.animationId = null;
             this.isRunning = false;
+            this.siteTitle = null;
+            this.gradientStyleId = 'dekanpro-title-gradient-style';
             
             this.init();
         }
@@ -35,6 +52,7 @@
             this.resize();
             this.initTubes();
             this.bindEvents();
+            this.setupTitleToggle();
             this.start();
         }
 
@@ -55,6 +73,73 @@
             this.ctx = this.canvas.getContext('2d');
         }
 
+        setupTitleToggle() {
+            this.siteTitle = document.querySelector('.site-title');
+            if (this.siteTitle) {
+                this.siteTitle.style.cursor = 'pointer';
+                this.siteTitle.style.transition = 'all 0.3s ease';
+                
+                this.siteTitle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggleEffect();
+                });
+            }
+            
+            // Создаём стиль для градиентного текста
+            this.createGradientStyle();
+        }
+        
+        createGradientStyle() {
+            let style = document.getElementById(this.gradientStyleId);
+            if (!style) {
+                style = document.createElement('style');
+                style.id = this.gradientStyleId;
+                document.head.appendChild(style);
+            }
+            
+            style.textContent = `
+                .site-title.rainbow-text,
+                .site-title.rainbow-text a {
+                    background: linear-gradient(
+                        90deg,
+                        ${this.textColors[0]} 0%,
+                        ${this.textColors[1]} 25%,
+                        ${this.textColors[2]} 50%,
+                        ${this.textColors[3]} 75%,
+                        ${this.textColors[4]} 100%
+                    );
+                    background-size: 200% auto;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    animation: rainbow-shift 3s linear infinite;
+                }
+                
+                @keyframes rainbow-shift {
+                    0% { background-position: 0% center; }
+                    100% { background-position: 200% center; }
+                }
+            `;
+        }
+        
+        toggleEffect() {
+            this.effectEnabled = !this.effectEnabled;
+            
+            if (this.effectEnabled) {
+                // Включаем эффект - убираем градиент с названия
+                this.canvas.style.opacity = '1';
+                if (this.siteTitle) {
+                    this.siteTitle.classList.remove('rainbow-text');
+                }
+            } else {
+                // Выключаем эффект - добавляем градиент на название
+                this.canvas.style.opacity = '0';
+                if (this.siteTitle) {
+                    this.siteTitle.classList.add('rainbow-text');
+                }
+            }
+        }
+
         resize() {
             this.width = window.innerWidth;
             this.height = window.innerHeight;
@@ -67,19 +152,28 @@
                 this.mouse.y = this.height / 2;
                 this.targetMouse.x = this.width / 2;
                 this.targetMouse.y = this.height / 2;
+                this.prevMouse.x = this.width / 2;
+                this.prevMouse.y = this.height / 2;
             }
         }
 
         initTubes() {
             this.tubes = [];
+            const angleStep = (Math.PI * 2) / this.tubeCount;
+            
             for (let i = 0; i < this.tubeCount; i++) {
+                // Каждая трубка имеет свой угол смещения
+                const angle = angleStep * i;
                 this.tubes.push(new Tube(
                     this.width / 2,
                     this.height / 2,
                     this.colors[i % this.colors.length],
-                    0.03 + i * 0.02, // Разная скорость следования (медленнее для более плавного эффекта)
-                    8 + i * 4,       // Разная толщина
-                    80 + i * 15      // Разная длина истории (длиннее для более выраженного следа)
+                    0.06 + i * 0.01,  // Скорость следования
+                    3 + i * 0.5,      // Толщина линии
+                    50 + i * 5,       // Длина следа
+                    angle,            // Угол смещения
+                    30 + i * 10,      // Максимальное расстояние расхождения
+                    i                 // Индекс для уникальной анимации
                 ));
             }
         }
@@ -92,12 +186,16 @@
             document.addEventListener('mousemove', (e) => {
                 this.targetMouse.x = e.clientX;
                 this.targetMouse.y = e.clientY;
+                this.idleTime = 0;  // Сбрасываем счётчик покоя
+                this.isIdle = false;
             });
 
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     this.targetMouse.x = e.touches[0].clientX;
                     this.targetMouse.y = e.touches[0].clientY;
+                    this.idleTime = 0;
+                    this.isIdle = false;
                 }
             }, { passive: true });
 
@@ -128,17 +226,40 @@
         animate() {
             if (!this.isRunning) return;
 
+            this.globalTime += 0.016; // ~60fps
+
+            // Сохраняем предыдущую позицию
+            this.prevMouse.x = this.mouse.x;
+            this.prevMouse.y = this.mouse.y;
+
             // Плавное следование за мышью
             this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.15;
             this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.15;
 
+            // Вычисляем скорость и направление движения
+            const dx = this.mouse.x - this.prevMouse.x;
+            const dy = this.mouse.y - this.prevMouse.y;
+            const speed = Math.sqrt(dx * dx + dy * dy);
+            const moveAngle = Math.atan2(dy, dx);
+
+            // Увеличиваем счётчик покоя если скорость низкая
+            if (speed < 0.5) {
+                this.idleTime += 0.016;
+                if (this.idleTime > 0.5) { // После 0.5 секунды покоя
+                    this.isIdle = true;
+                }
+            }
+
             // Очистка с прозрачным фоном
             this.ctx.clearRect(0, 0, this.width, this.height);
 
-            // Обновляем и рисуем трубки
-            for (const tube of this.tubes) {
-                tube.update(this.mouse.x, this.mouse.y);
-                tube.draw(this.ctx);
+            // Рисуем только если эффект включён
+            if (this.effectEnabled) {
+                // Обновляем и рисуем трубки
+                for (const tube of this.tubes) {
+                    tube.update(this.mouse.x, this.mouse.y, speed, moveAngle, this.isIdle, this.globalTime);
+                    tube.draw(this.ctx);
+                }
             }
 
             this.animationId = requestAnimationFrame(() => this.animate());
@@ -146,13 +267,20 @@
     }
 
     class Tube {
-        constructor(x, y, color, speed, thickness, historyLength) {
+        constructor(x, y, color, speed, thickness, historyLength, angle, spreadDistance, index) {
             this.x = x;
             this.y = y;
             this.color = color;
             this.speed = speed;
             this.thickness = thickness;
             this.historyLength = historyLength;
+            this.angle = angle;              // Угол смещения этой трубки
+            this.spreadDistance = spreadDistance; // Максимальное расстояние расхождения
+            this.currentSpread = 0;          // Текущее расхождение
+            this.twistAngle = 0;             // Угол завихрения
+            this.twistSpeed = 0.08 + Math.random() * 0.04; // Скорость вращения
+            this.index = index;              // Индекс для уникальной анимации
+            this.idlePhase = Math.random() * Math.PI * 2; // Случайная начальная фаза
             this.history = [];
             
             // Инициализируем историю
@@ -161,10 +289,57 @@
             }
         }
 
-        update(targetX, targetY) {
-            // Плавное движение к цели
-            this.x += (targetX - this.x) * this.speed;
-            this.y += (targetY - this.y) * this.speed;
+        update(targetX, targetY, moveSpeed, moveAngle, isIdle, globalTime) {
+            // Расхождение зависит от скорости движения
+            const targetSpread = Math.min(moveSpeed * 3, this.spreadDistance);
+            this.currentSpread += (targetSpread - this.currentSpread) * 0.1;
+            
+            // Завихрение - угол постоянно вращается
+            this.twistAngle += this.twistSpeed;
+            
+            let offsetX = 0;
+            let offsetY = 0;
+            
+            if (isIdle) {
+                // Режим покоя - рисуем цветок из переплетающихся лент
+                const flowerRadius = 25 + Math.sin(globalTime * 0.5 + this.index) * 10;
+                const petalCount = 5;
+                const petalPhase = globalTime * 1.2 + this.idlePhase;
+                
+                // Создаём лепесток - движение по фигуре Лиссажу для эффекта плетения
+                const a = 3; // Частота по X
+                const b = 2; // Частота по Y
+                const delta = (Math.PI * 2 / this.tubes?.length || 5) * this.index;
+                
+                // Фигура Лиссажу создаёт красивое переплетение
+                const lissajousX = Math.sin(a * petalPhase + delta) * flowerRadius;
+                const lissajousY = Math.sin(b * petalPhase) * flowerRadius;
+                
+                // Добавляем вращение всего цветка
+                const rotationAngle = globalTime * 0.3;
+                offsetX = lissajousX * Math.cos(rotationAngle) - lissajousY * Math.sin(rotationAngle);
+                offsetY = lissajousX * Math.sin(rotationAngle) + lissajousY * Math.cos(rotationAngle);
+                
+                // Добавляем небольшое "дыхание" - пульсацию
+                const breathe = 1 + Math.sin(globalTime * 2) * 0.1;
+                offsetX *= breathe;
+                offsetY *= breathe;
+                
+            } else {
+                // Режим движения - расхождение и завихрение
+                const twistStrength = Math.min(moveSpeed * 0.8, 15);
+                const perpAngle = moveAngle + Math.PI / 2 + this.angle;
+                
+                const twistOffsetX = Math.cos(this.twistAngle) * twistStrength;
+                const twistOffsetY = Math.sin(this.twistAngle) * twistStrength;
+                
+                offsetX = Math.cos(perpAngle) * this.currentSpread + twistOffsetX;
+                offsetY = Math.sin(perpAngle) * this.currentSpread + twistOffsetY;
+            }
+            
+            // Плавное движение к смещённой цели
+            this.x += (targetX + offsetX - this.x) * this.speed;
+            this.y += (targetY + offsetY - this.y) * this.speed;
 
             // Добавляем новую позицию в начало
             this.history.unshift({ x: this.x, y: this.y });
@@ -200,20 +375,20 @@
                 this.history[this.history.length - 1].y
             );
             
-            // Парсим цвет для градиента
+            // Яркий градиент с плавным затуханием
             const baseColor = this.color.replace(/[\d.]+\)$/, '');
             gradient.addColorStop(0, baseColor + '1)');
-            gradient.addColorStop(0.3, baseColor + '0.7)');
-            gradient.addColorStop(0.7, baseColor + '0.3)');
+            gradient.addColorStop(0.3, baseColor + '0.8)');
+            gradient.addColorStop(0.6, baseColor + '0.4)');
             gradient.addColorStop(1, baseColor + '0)');
 
             ctx.strokeStyle = gradient;
             ctx.lineWidth = this.thickness;
             ctx.stroke();
 
-            // Добавляем свечение
+            // Яркое неоновое свечение
             ctx.shadowColor = this.color;
-            ctx.shadowBlur = 25;
+            ctx.shadowBlur = 15;
             ctx.stroke();
             ctx.shadowBlur = 0;
         }
