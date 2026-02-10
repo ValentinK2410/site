@@ -610,3 +610,29 @@ html {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================
+   CATEGORY 116 - Special Styling
+   ============================================ */
+.cat-116,
+a.cat-116 {
+    background: linear-gradient(135deg, #f967fb 0%, #6958d5 50%, #53bc28 100%) !important;
+    color: white !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 2rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    box-shadow: 0 4px 15px rgba(105, 88, 213, 0.4) !important;
+    transition: all 0.3s ease !important;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+.cat-116:hover,
+a.cat-116:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(249, 103, 251, 0.5) !important;
+    background: linear-gradient(135deg, #ff8afc 0%, #8b7ae8 50%, #6ed44a 100%) !important;
+}
