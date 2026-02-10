@@ -425,15 +425,27 @@ article:hover .post-thumbnail img {
     padding: 2rem !important;
 }
 
+/* Убираем обводку и вложенность внутренних блоков в карточках статей */
+.dekanpro-article .dekanpro-blog-entry-wrapper,
+.dekanpro-article .dekanpro-entry-content-wrapper,
+.dekanpro-article .dekanpro-blog-entry-content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
 .entry-content.dekanpro-entry {
     padding: 18px;
 }
 
 .entry-summary.dekanpro-entry {
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-    width: 92%;
+    padding: 0.5rem 0;
+    margin: 0;
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* Без эффектов при наведении */
