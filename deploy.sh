@@ -18,9 +18,13 @@ rsync -avz --progress \
   --exclude '.git' \
   --exclude 'node_modules' \
   --exclude '.env' \
+  --exclude 'wp-content/uploads' \
   "${LOCAL_PATH}/" "${USER}@${HOST}:${REMOTE_PATH}/"
 
 if [ $? -eq 0 ]; then
+  echo ""
+  echo "Восстановление прав на uploads..."
+  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "chown -R www-data:www-data ${REMOTE_PATH}/wp-content/uploads 2>/dev/null || true"
   echo ""
   echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
 else
