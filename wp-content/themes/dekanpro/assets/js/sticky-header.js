@@ -21,6 +21,22 @@
         let headerHeight = header.offsetHeight;
         let dekanproHeaderHeight = dekanproHeader ? dekanproHeader.offsetHeight : headerHeight;
         let isHeaderSticky = false;
+        
+        // Сохраняем оригинальные размеры и позицию сайдбара
+        let sidebarWidth = 0;
+        let sidebarRight = 0;
+        let isSidebarSticky = false;
+
+        function updateSidebarDimensions() {
+            if (sidebar && !isSidebarSticky) {
+                const rect = sidebar.getBoundingClientRect();
+                sidebarWidth = rect.width;
+                sidebarRight = window.innerWidth - rect.right;
+            }
+        }
+
+        // Обновляем размеры при загрузке
+        updateSidebarDimensions();
 
         // Обновляем высоту при ресайзе
         window.addEventListener('resize', function() {
@@ -28,9 +44,14 @@
                 headerHeight = header.offsetHeight;
                 dekanproHeaderHeight = dekanproHeader ? dekanproHeader.offsetHeight : headerHeight;
             }
-            // Обновляем top для сайдбара
-            if (sidebar && sidebar.classList.contains('is-sticky')) {
+            // Обновляем размеры сайдбара если он не sticky
+            if (!isSidebarSticky) {
+                updateSidebarDimensions();
+            }
+            // Обновляем позицию для sticky сайдбара
+            if (sidebar && isSidebarSticky) {
                 sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
+                sidebar.style.right = sidebarRight + 'px';
             }
         });
 
@@ -53,12 +74,22 @@
 
             // Sticky Sidebar
             if (sidebar) {
-                if (scrollTop > headerHeight) {
+                if (scrollTop > headerHeight && !isSidebarSticky) {
+                    // Сохраняем размеры перед фиксацией
+                    updateSidebarDimensions();
+                    isSidebarSticky = true;
                     sidebar.classList.add('is-sticky');
                     sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
-                } else {
+                    sidebar.style.width = sidebarWidth + 'px';
+                    sidebar.style.right = sidebarRight + 'px';
+                    sidebar.style.left = 'auto';
+                } else if (scrollTop <= headerHeight && isSidebarSticky) {
+                    isSidebarSticky = false;
                     sidebar.classList.remove('is-sticky');
                     sidebar.style.top = '';
+                    sidebar.style.width = '';
+                    sidebar.style.right = '';
+                    sidebar.style.left = '';
                 }
             }
         }

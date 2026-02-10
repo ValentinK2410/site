@@ -123,8 +123,8 @@ aside.widget-area {
     position: fixed !important;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
-    width: inherit;
     transition: top 0.3s ease !important;
+    /* Ширина задаётся через JS */
 }
 
 /* Скрываем скроллбар сайдбара но оставляем прокрутку */
