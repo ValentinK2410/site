@@ -1,0 +1,109 @@
+<h2>Введение</h2>
+<p>В этой статье я расскажу, как реализовать "умный" липкий сайдбар, который прилипает к хедеру при прокрутке страницы и возвращается на место при возврате наверх.</p>
+
+<h2>Что мы реализуем</h2>
+<ul>
+<li>При прокрутке — сайдбар прилипает к нижней части хедера с отступом 20px</li>
+<li>При возврате наверх — сайдбар возвращается на своё место</li>
+<li>Если сайдбар длинный — добавлена прокрутка внутри него с красивым тонким скроллбаром</li>
+<li>Максимальная высота — ограничена, чтобы не выходить за пределы экрана</li>
+</ul>
+
+<h2>JavaScript код</h2>
+<p>Создаём файл <code>sticky-header.js</code> в папке с JS-файлами темы:</p>
+
+<pre><code class="language-javascript">(function() {
+    'use strict';
+
+    function initStickyElements() {
+        const header = document.getElementById('masthead');
+        const sidebar = document.getElementById('secondary');
+        
+        if (!header) return;
+
+        let headerHeight = header.offsetHeight;
+        let sidebarWidth = 0;
+        let sidebarLeft = 0;
+        let isSidebarSticky = false;
+
+        function updateSidebarDimensions() {
+            if (sidebar && !isSidebarSticky) {
+                const rect = sidebar.getBoundingClientRect();
+                sidebarWidth = rect.width;
+                sidebarLeft = rect.left + window.pageXOffset;
+            }
+        }
+
+        updateSidebarDimensions();
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset;
+
+            if (sidebar) {
+                if (scrollTop > headerHeight && !isSidebarSticky) {
+                    updateSidebarDimensions();
+                    isSidebarSticky = true;
+                    sidebar.classList.add('is-sticky');
+                    sidebar.style.top = headerHeight + 20 + 'px';
+                    sidebar.style.width = sidebarWidth + 'px';
+                    sidebar.style.left = sidebarLeft + 'px';
+                } else if (scrollTop <= headerHeight && isSidebarSticky) {
+                    isSidebarSticky = false;
+                    sidebar.classList.remove('is-sticky');
+                    sidebar.style.cssText = '';
+                }
+            }
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        handleScroll();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStickyElements);
+    } else {
+        initStickyElements();
+    }
+})();</code></pre>
+
+<h2>CSS стили</h2>
+<p>Добавляем стили для sticky сайдбара:</p>
+
+<pre><code class="language-css">#secondary.is-sticky {
+    position: fixed !important;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    transition: top 0.3s ease;
+}
+
+#secondary.is-sticky::-webkit-scrollbar {
+    width: 4px;
+}
+
+#secondary.is-sticky::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+}</code></pre>
+
+<h2>Как это работает</h2>
+<h3>1. Инициализация</h3>
+<p>Скрипт находит хедер и сайдбар по их ID. Сохраняются оригинальные размеры и позиция сайдбара.</p>
+
+<h3>2. Обработка скролла</h3>
+<p>При каждом скролле проверяется позиция страницы. Если прокрутили больше высоты хедера — добавляем класс <code>is-sticky</code> и устанавливаем фиксированную позицию.</p>
+
+<h3>3. Оптимизация</h3>
+<p>Используется <code>requestAnimationFrame</code> для оптимизации — обработчик вызывается не чаще 60 раз в секунду.</p>
+
+<h2>Заключение</h2>
+<p>Такой подход обеспечивает плавную работу без "дёрганий", высокую производительность и адаптивность под разные размеры экрана.</p>
