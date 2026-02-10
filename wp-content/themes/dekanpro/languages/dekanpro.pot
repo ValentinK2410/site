@@ -1952,7 +1952,7 @@ msgid "Add new Feature"
 msgstr ""
 
 #: inc/customizer/settings/class-dekanpro-customizer-featured-links.php:90
-msgid "Upgrade to <a target=\"_blank\" href=\"https://peregrine-themes.com/dekanpro/\">DekanPro Pro</a> to be able to add more items and unlock other premium features!"
+msgid "Свяжитесь с <a target=\"_blank\" href=\"https://dekan.pro/\">DekanPro</a> для добавления дополнительных функций!"
 msgstr ""
 
 #: inc/customizer/settings/class-dekanpro-customizer-featured-links.php:93

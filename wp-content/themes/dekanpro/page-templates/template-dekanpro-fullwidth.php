@@ -5,7 +5,7 @@
  * 100% wide page template without vertical spacing.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

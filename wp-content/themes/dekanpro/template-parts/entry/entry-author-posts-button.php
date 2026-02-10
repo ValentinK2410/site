@@ -3,7 +3,7 @@
  * Template part for displaying more posts button in author box.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

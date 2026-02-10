@@ -1,5 +1,5 @@
 === DekanPro ===
-Contributors: Peregrinethemes
+Contributors: DekanPro
 Tags: two-columns, right-sidebar, left-sidebar, footer-widgets, blog, news, entertainment, custom-background, custom-menu, custom-logo, post-formats, sticky-post, editor-style, threaded-comments, translation-ready, custom-colors, featured-images, full-width-template, microformats, theme-options, flexible-header, wide-blocks
 Requires at least: 5.4
 Tested up to: 6.9
@@ -11,7 +11,7 @@ Stable tag: 1.0.27
 A lightweight and highly customizable multi-purpose theme that makes it easy for anyone to create their perfect website.
 
 == Description ==
-DekanPro is the perfect pick for bloggers seeking a lightweight, customizable theme that suits them just right. With plenty of options to adjust colors and typography, making your site unique is a breeze. It's SEO friendly and fully compatible with WPML, Gutenberg, Elementor, WooCommerce, and supports translation and RTL. Live preview: https://peregrine-themes.com/dekanpro/#demos.
+DekanPro - современная и стильная тема для сайта dekan.pro. Легкая, настраиваемая, SEO-оптимизированная тема с поддержкой WooCommerce, Elementor и Gutenberg. Полностью совместима с WPML, поддерживает перевод и RTL.
 
 == Frequently Asked Questions ==
 

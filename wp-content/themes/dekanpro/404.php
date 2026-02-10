@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

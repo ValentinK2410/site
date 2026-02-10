@@ -5,7 +5,7 @@
  * This class ties together all admin classes.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Dekanpro_Admin' ) ) :
 			 * Only do this if we are on one of our plugin pages.
 			 */
 			if ( dekanpro_is_admin_page( $base ) ) {
-				return apply_filters( 'dekanpro_footer_version', esc_html__( 'DekanPro Theme', 'dekanpro' ) . ' ' . DEKANPRO_THEME_VERSION . '<br/><a href="' . esc_url( 'https://twitter.com/peregrine-themes' ) . '" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a><a href="' . esc_url( 'https://facebook.com/peregrine-themes' ) . '" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a>' );
+				return apply_filters( 'dekanpro_footer_version', esc_html__( 'DekanPro Theme', 'dekanpro' ) . ' ' . DEKANPRO_THEME_VERSION );
 			} else {
 				return $text;
 			}
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Dekanpro_Admin' ) ) :
 
 					<span class="hester-header-action">
 						<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Customize', 'dekanpro' ); ?></a>
-						<a href="<?php echo esc_url( 'http://docs.peregrine-themes.com/' ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Help Articles', 'dekanpro' ); ?></a>
+						<a href="<?php echo esc_url( 'https://dekan.pro/' ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Сайт', 'dekanpro' ); ?></a>
 					</span>
 
 				</div>
@@ -248,8 +248,7 @@ if ( ! class_exists( 'Dekanpro_Admin' ) ) :
 			?>
 			<div id="hester-footer">
 			<ul>
-				<li><a href="<?php echo esc_url( 'http://docs.peregrine-themes.com/' ); ?>" target="_blank" rel="noopener noreferrer"><span><?php esc_html_e( 'Help Articles', 'dekanpro' ); ?></span></span></a></li>
-				<li><a href="<?php echo esc_url( 'https://www.facebook.com/groups/peregrine-themes/' ); ?>" target="_blank" rel="noopener noreferrer"><span><?php esc_html_e( 'Join Facebook Group', 'dekanpro' ); ?></span></span></a></li>
+				<li><a href="<?php echo esc_url( 'https://dekan.pro/' ); ?>" target="_blank" rel="noopener noreferrer"><span><?php esc_html_e( 'Сайт DekanPro', 'dekanpro' ); ?></span></span></a></li>
 				<li><a href="<?php echo esc_url( 'https://wordpress.org/support/theme/dekanpro/reviews/#new-post' ); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-heart" aria-hidden="true"></span><span><?php esc_html_e( 'Leave a Review', 'dekanpro' ); ?></span></a></li>
 			</ul>
 			</div><!-- END #hester-footer -->

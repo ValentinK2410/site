@@ -5,7 +5,7 @@
  * @see https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

@@ -3,7 +3,7 @@
  * The template for displaying scroll to top button.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

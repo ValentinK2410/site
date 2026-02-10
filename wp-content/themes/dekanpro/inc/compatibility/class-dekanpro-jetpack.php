@@ -3,7 +3,7 @@
  * Jetpack compatibility class.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Dekanpro_Jetpack' ) ) :
 		 * @since 1.0.0
 		 */
 		public function tweak_credits_link() {
-			return '<a href="https://wordpress.org/" rel="noopener noreferrer" target="_blank">' . esc_html__( 'Proudly powered by WordPress', 'dekanpro' ) . '</a> | <a href="https://peregrine-themes.com/" rel="noopener noreferrer" target="_blank">Peregrine Themes</a>';
+			return '<a href="https://wordpress.org/" rel="noopener noreferrer" target="_blank">' . esc_html__( 'Proudly powered by WordPress', 'dekanpro' ) . '</a> | <a href="https://dekan.pro/" rel="noopener noreferrer" target="_blank">DekanPro</a>';
 		}
 
 		/**

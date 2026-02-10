@@ -3,7 +3,7 @@
  * Buttons section in Customizer » General Settings.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Buttons' ) ) :
 			$options['section']['dekanpro_section_upsell_button'] = array(
 				'class'    => 'Dekanpro_Customizer_Control_Section_Pro',
 				'title'    => esc_html__( 'Need more features?', 'dekanpro' ),
-				'pro_url'  => sprintf( esc_url_raw( 'https://peregrine-themes.com/%s' ), strtolower( $theme->name ) ),
+				'pro_url'  => esc_url_raw( 'https://dekan.pro/' ),
 				'pro_text' => esc_html__( 'Upgrade to pro', 'dekanpro' ),
 				'priority' => 200,
 			);
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Buttons' ) ) :
 			$options['section']['dekanpro_section_docs_button'] = array(
 				'class'    => 'Dekanpro_Customizer_Control_Section_Pro',
 				'title'    => esc_html__( 'Need Help?', 'dekanpro' ),
-				'pro_url'  => esc_url_raw( 'http://docs.peregrine-themes.com/' ),
+				'pro_url'  => esc_url_raw( 'https://dekan.pro/' ),
 				'pro_text' => esc_html__( 'See the Articles', 'dekanpro' ),
 				'priority' => 200,
 			);

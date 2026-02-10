@@ -3,7 +3,7 @@
  * The template for displaying page preloader layout 1.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

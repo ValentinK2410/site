@@ -3,7 +3,7 @@
  * WooCommerce Compatibility File.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

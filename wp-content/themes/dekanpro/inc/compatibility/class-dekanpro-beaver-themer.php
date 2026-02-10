@@ -3,7 +3,7 @@
  * Dekanpro compatibility class for Beaver Themer.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

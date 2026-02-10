@@ -7,7 +7,7 @@
  * relies on many newer functions and markup changes introduced in 5.4.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

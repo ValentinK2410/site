@@ -3,7 +3,7 @@
  * Template part for displaying about author box.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

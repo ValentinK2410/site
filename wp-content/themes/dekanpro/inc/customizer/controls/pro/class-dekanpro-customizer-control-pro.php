@@ -61,7 +61,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Control_Pro' ) ) :
 		public function content_template() {?>
 
 			<div class="upsell-btn" style="text-align: center;border-bottom: 3px solid #ddd;">                 
-				<a style="margin: 0 auto 5px;display: inline-block;" href="https://www.peregrine-themes.com/dekanpro/?utm_medium=customizer&utm_source=button&utm_campaign=profeatures" target="blank" class="btn btn-success"><?php esc_html_e( 'Upgrade to DekanPro Pro', 'dekanpro' ); ?></a>
+				<a style="margin: 0 auto 5px;display: inline-block;" href="https://dekan.pro/" target="blank" class="btn btn-success"><?php esc_html_e( 'Upgrade to DekanPro Pro', 'dekanpro' ); ?></a>
 			</div>
 			<# if ( data.screenshot ) {   #>
 			<div style="padding: 1rem;background: #e6e6e6;">
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Control_Pro' ) ) :
 				</ul>
 			</div>
 			<div class="upsell-btn" style="text-align: center;padding: 10px;background: #fff;">                 
-				<a style="margin: 0 auto 5px;display: inline-block;" href="https://www.peregrine-themes.com/dekanpro/?utm_medium=customizer&utm_source=button&utm_campaign=profeatures" target="blank" class="btn btn-success"><?php esc_html_e( 'Upgrade to DekanPro Pro', 'dekanpro' ); ?></a>
+				<a style="margin: 0 auto 5px;display: inline-block;" href="https://dekan.pro/" target="blank" class="btn btn-success"><?php esc_html_e( 'Upgrade to DekanPro Pro', 'dekanpro' ); ?></a>
 			</div>
 		   
 			<p style="padding: 10px;background: #fff; margin-top: 0;">

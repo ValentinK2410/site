@@ -5,7 +5,7 @@
  * This class has functions to install, activate & deactivate plugins.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

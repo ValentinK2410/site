@@ -3,7 +3,7 @@
  * Dekanpro Customizer custom heading control class.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

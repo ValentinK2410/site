@@ -3,7 +3,7 @@
  * Dekanpro compatibility class for Header Footer Elementor plugin.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

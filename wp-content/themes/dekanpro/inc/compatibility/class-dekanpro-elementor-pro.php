@@ -3,7 +3,7 @@
  * Dekanpro compatibility class for Elementor Pro.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

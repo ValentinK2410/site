@@ -3,7 +3,7 @@
  * Dekanpro Customizer custom spacing control class.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

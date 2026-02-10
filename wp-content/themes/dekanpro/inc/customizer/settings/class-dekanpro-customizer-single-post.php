@@ -3,7 +3,7 @@
  * Dekanpro Blog - Single Post section in Customizer.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

@@ -3,7 +3,7 @@
  * Dekanpro Customizer custom toggle control class.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

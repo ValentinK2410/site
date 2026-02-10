@@ -3,7 +3,7 @@
  * Dekanpro Featured Links Section Settings section in Customizer.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Featured_Links' ) ) :
 					'title_format' => esc_html__( '[live_title]', 'dekanpro' ), // [live_title]
 					'add_text'     => esc_html__( 'Add new Feature', 'dekanpro' ),
 					'max_item'     => 3, // 3 Maximum item can add,
-					'limited_msg'  => wp_kses_post( __( 'Upgrade to <a target="_blank" href="https://peregrine-themes.com/dekanpro/">DekanPro Pro</a> to be able to add more items and unlock other premium features!', 'dekanpro' ) ),
+					'limited_msg'  => wp_kses_post( __( 'Свяжитесь с <a target="_blank" href="https://dekan.pro/">DekanPro</a> для добавления дополнительных функций!', 'dekanpro' ) ),
 					'fields'       => array(
 						'link'  => array(
 							'title' => esc_html__( 'Select feature link', 'dekanpro' ),

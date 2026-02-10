@@ -3,7 +3,7 @@
  * Dekanpro Customizer widgets class.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Dekanpro_Customizer_Widget_Text' ) ) :
 						sprintf(
 							/* translators: %1$s is opening anchor tag, %2$s is a closing anchor tag. */
 							__( 'Shortcodes and basic html elements allowed.', 'dekanpro' ),
-							'<a href="' . esc_url( 'http://docs.peregrine-themes.com/dekanpro-dynamic-strings/' ) . '" target="_blank" rel="noopener noreferrer">',
+							'<a href="' . esc_url( 'https://dekan.pro/' ) . '" target="_blank" rel="noopener noreferrer">',
 							'</a>'
 						)
 					);

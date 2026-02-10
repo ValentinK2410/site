@@ -3,7 +3,7 @@
  * Helper class for font settings.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

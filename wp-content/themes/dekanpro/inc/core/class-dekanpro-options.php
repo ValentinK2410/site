@@ -4,7 +4,7 @@
  * Dekanpro Options Class.
  *
  * @package  Dekanpro
- * @author   Peregrine Themes
+ * @author   DekanPro
  * @since    1.0.0
  */
 

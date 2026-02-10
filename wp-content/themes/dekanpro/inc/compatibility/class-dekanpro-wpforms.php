@@ -3,7 +3,7 @@
  * WP Forms compatibility class.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

@@ -4,7 +4,7 @@
  * Frontend helper functions used throught the theme.
  *
  * @package DekanPro
- * @author  Peregrine Themes
+ * @author  DekanPro
  * @since   1.0.0
  */
 

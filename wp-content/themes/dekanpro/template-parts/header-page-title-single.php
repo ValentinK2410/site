@@ -3,7 +3,7 @@
  * Template part for displaying page header for single post.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

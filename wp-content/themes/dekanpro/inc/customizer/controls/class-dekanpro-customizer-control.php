@@ -3,7 +3,7 @@
  * Dekanpro Customizer custom control class. To be extended in other controls.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

@@ -3,7 +3,7 @@
  * Dekanpro Sidebar section in Customizer.
  *
  * @package DekanPro
- * @author Peregrine Themes
+ * @author DekanPro
  * @since   1.0.0
  */
 

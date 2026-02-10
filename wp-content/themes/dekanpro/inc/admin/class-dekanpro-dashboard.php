@@ -3,7 +3,7 @@
  * Dekanpro About page class.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 							<p><?php esc_html_e( 'Head over to our site to learn more about the DekanPro theme, read help articles and get support.', 'dekanpro' ); ?></p>
 
 							<div class="hester-buttons">
-								<a href="http://docs.peregrine-themes.com/" target="_blank" rel="noopener noreferrer" class="hester-btn secondary"><?php esc_html_e( 'Help Articles', 'dekanpro' ); ?></a>
+								<a href="https://dekan.pro/" target="_blank" rel="noopener noreferrer" class="hester-btn secondary"><?php esc_html_e( 'Сайт DekanPro', 'dekanpro' ); ?></a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>

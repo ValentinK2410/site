@@ -3,7 +3,7 @@
  * The template for displaying theme copyright bar.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @since       1.0.0
  */
 

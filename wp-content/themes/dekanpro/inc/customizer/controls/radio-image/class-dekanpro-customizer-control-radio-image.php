@@ -3,7 +3,7 @@
  * Dekanpro Customizer radio image control class.
  *
  * @package     Dekanpro
- * @author      Peregrine Themes
+ * @author      DekanPro
  * @see         https://github.com/aristath/kirki
  * @since       1.0.0
  */
