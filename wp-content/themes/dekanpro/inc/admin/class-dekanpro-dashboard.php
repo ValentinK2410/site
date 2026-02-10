@@ -141,38 +141,13 @@ if ( ! class_exists( 'Dekanpro_Dashboard' ) ) :
 
 					<div class="hester-column">
 						<div class="hester-box">
-							<h4><i class="dashicons dashicons-layout"></i><?php esc_html_e( 'Start with a Template', 'dekanpro' ); ?></h4>
-							<p><?php esc_html_e( 'Don&rsquo;t want to start from scratch? Import a pre-built demo website in 1-click and get a head start.', 'dekanpro' ); ?></p>
+							<h4><i class="dashicons dashicons-admin-customizer"></i><?php esc_html_e( 'Настройка темы', 'dekanpro' ); ?></h4>
+							<p><?php esc_html_e( 'Настройте внешний вид сайта через Customizer — цвета, шрифты, шапку и подвал.', 'dekanpro' ); ?></p>
 
-							<div class="hester-buttons plugins">
-
-								<?php
-								if ( file_exists( WP_PLUGIN_DIR . '/hester-core/hester-core.php' ) && is_plugin_inactive( 'hester-core/hester-core.php' ) ) {
-									$class       = 'hester-btn secondary';
-									$button_text = __( 'Activate Hester Core', 'dekanpro' );
-									$link        = '#';
-									$data        = ' data-plugin="hester-core" data-action="activate" data-redirect="' . esc_url( admin_url( 'admin.php?page=dekanpro-demo-library' ) ) . '"';
-								} elseif ( ! file_exists( WP_PLUGIN_DIR . '/hester-core/hester-core.php' ) ) {
-									$class       = 'hester-btn secondary';
-									$button_text = __( 'Install Hester Core', 'dekanpro' );
-									$link        = '#';
-									$data        = ' data-plugin="hester-core" data-action="install" data-redirect="' . esc_url( admin_url( 'admin.php?page=dekanpro-demo-library' ) ) . '"';
-								} else {
-									$class       = 'hester-btn secondary active';
-									$button_text = __( 'Browse Demos', 'dekanpro' );
-									$link        = admin_url( 'admin.php?page=dekanpro-demo-library' );
-									$data        = '';
-								}
-
-								printf(
-									'<a class="%1$s" %2$s %3$s role="button"> %4$s </a>',
-									esc_attr( $class ),
-									isset( $link ) ? 'href="' . esc_url( $link ) . '"' : '',
-									$data, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-									esc_html( $button_text )
-								);
-								?>
-
+							<div class="hester-buttons">
+								<a class="hester-btn secondary" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" role="button">
+									<?php esc_html_e( 'Открыть Customizer', 'dekanpro' ); ?>
+								</a>
 							</div><!-- END .hester-buttons -->
 						</div>
 					</div>

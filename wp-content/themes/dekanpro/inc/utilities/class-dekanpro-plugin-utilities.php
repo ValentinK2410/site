@@ -265,14 +265,7 @@ class Dekanpro_Plugin_Utilities {
 	 */
 	public function get_recommended_plugins() {
 
-		$plugins = array(
-			'hester-core' => array(
-				'name'  => 'Hester Core',
-				'slug'  => 'hester-core',
-				'desc'  => 'The Hester Core plugin adds extra functionality to DekanPro theme, such as Demo Library, widgets, custom blocks and more.',
-				'thumb' => 'https://ps.w.org/hester-core/assets/icon-256x256.png'
-			)
-		);
+		$plugins = array();
 
 		return apply_filters( 'dekanpro_recommended_plugins', $plugins );
 	}
