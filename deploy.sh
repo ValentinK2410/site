@@ -23,8 +23,8 @@ rsync -avz --progress \
 
 if [ $? -eq 0 ]; then
   echo ""
-  echo "Восстановление прав на uploads..."
-  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "chown -R www-data:www-data ${REMOTE_PATH}/wp-content/uploads 2>/dev/null || true"
+  echo "Восстановление прав на uploads (www-root — пользователь PHP-FPM)..."
+  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "chown -R www-root:www-root ${REMOTE_PATH}/wp-content/uploads 2>/dev/null || true"
   echo ""
   echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
 else
