@@ -117,6 +117,34 @@ aside.widget-area {
     z-index: 2;
 }
 
+/* Sticky Sidebar */
+#secondary.is-sticky,
+.dekanpro-sidebar-container.is-sticky {
+    position: fixed !important;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    width: inherit;
+    transition: top 0.3s ease !important;
+}
+
+/* Скрываем скроллбар сайдбара но оставляем прокрутку */
+#secondary.is-sticky::-webkit-scrollbar {
+    width: 4px;
+}
+
+#secondary.is-sticky::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#secondary.is-sticky::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+}
+
+#secondary.is-sticky::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+}
+
 /* Футер */
 #dekanpro-footer,
 .site-footer,

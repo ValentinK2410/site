@@ -1,28 +1,36 @@
 /**
- * Smart Sticky Header for DekanPro Theme
- * Хедер становится фиксированным только после прокрутки на его высоту
+ * Smart Sticky Header & Sidebar for DekanPro Theme
+ * Хедер и сайдбар становятся фиксированными при прокрутке
  */
 
 (function() {
     'use strict';
 
-    function initStickyHeader() {
+    function initStickyElements() {
         const header = document.getElementById('masthead') || document.querySelector('.site-header');
+        const dekanproHeader = document.getElementById('dekanpro-header');
+        const sidebar = document.getElementById('secondary') || document.querySelector('.dekanpro-sidebar-container');
         
         if (!header) return;
 
-        // Создаём плейсхолдер для компенсации высоты
+        // Создаём плейсхолдер для компенсации высоты хедера
         const placeholder = document.createElement('div');
         placeholder.className = 'header-placeholder';
         header.parentNode.insertBefore(placeholder, header.nextSibling);
 
         let headerHeight = header.offsetHeight;
-        let isSticky = false;
+        let dekanproHeaderHeight = dekanproHeader ? dekanproHeader.offsetHeight : headerHeight;
+        let isHeaderSticky = false;
 
         // Обновляем высоту при ресайзе
         window.addEventListener('resize', function() {
-            if (!isSticky) {
+            if (!isHeaderSticky) {
                 headerHeight = header.offsetHeight;
+                dekanproHeaderHeight = dekanproHeader ? dekanproHeader.offsetHeight : headerHeight;
+            }
+            // Обновляем top для сайдбара
+            if (sidebar && sidebar.classList.contains('is-sticky')) {
+                sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
             }
         });
 
@@ -30,18 +38,28 @@
         function handleScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > headerHeight && !isSticky) {
-                // Прокрутили больше высоты хедера — фиксируем
-                isSticky = true;
+            // Sticky Header
+            if (scrollTop > headerHeight && !isHeaderSticky) {
+                isHeaderSticky = true;
                 header.classList.add('is-sticky');
                 placeholder.classList.add('is-active');
                 placeholder.style.height = headerHeight + 'px';
-            } else if (scrollTop <= headerHeight && isSticky) {
-                // Вернулись наверх — открепляем
-                isSticky = false;
+            } else if (scrollTop <= headerHeight && isHeaderSticky) {
+                isHeaderSticky = false;
                 header.classList.remove('is-sticky');
                 placeholder.classList.remove('is-active');
                 placeholder.style.height = '0';
+            }
+
+            // Sticky Sidebar
+            if (sidebar) {
+                if (scrollTop > headerHeight) {
+                    sidebar.classList.add('is-sticky');
+                    sidebar.style.top = dekanproHeaderHeight + 20 + 'px';
+                } else {
+                    sidebar.classList.remove('is-sticky');
+                    sidebar.style.top = '';
+                }
             }
         }
 
@@ -63,8 +81,8 @@
 
     // Запускаем после загрузки DOM
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initStickyHeader);
+        document.addEventListener('DOMContentLoaded', initStickyElements);
     } else {
-        initStickyHeader();
+        initStickyElements();
     }
 })();
