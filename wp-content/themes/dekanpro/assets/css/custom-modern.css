@@ -184,33 +184,37 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ============================================
-   HEADER - Glassmorphism Effect + Sticky
+   HEADER - Glassmorphism Effect + Smart Sticky
    ============================================ */
 #masthead,
 .site-header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
     background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: var(--dekanpro-shadow);
     z-index: 1000 !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Отступ для контента под фиксированным хедером */
-body {
-    padding-top: 80px !important;
+/* Когда хедер становится фиксированным */
+#masthead.is-sticky,
+.site-header.is-sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Адаптивный отступ для мобильных */
-@media (max-width: 768px) {
-    body {
-        padding-top: 70px !important;
-    }
+/* Плейсхолдер для компенсации высоты при фиксации */
+.header-placeholder {
+    display: none;
+}
+
+.header-placeholder.is-active {
+    display: block;
 }
 
 #dekanpro-header-inner {

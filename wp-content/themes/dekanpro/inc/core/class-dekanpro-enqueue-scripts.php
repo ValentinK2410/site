@@ -121,6 +121,15 @@ class Dekanpro_Enqueue_Scripts {
 			true
 		);
 
+		// Enqueue Smart Sticky Header.
+		wp_enqueue_script(
+			'dekanpro-sticky-header',
+			DEKANPRO_THEME_URI . '/assets/js/sticky-header.js',
+			array(),
+			DEKANPRO_THEME_VERSION,
+			true
+		);
+
 		// Comment count used in localized strings.
 		$comment_count = get_comments_number();
 
