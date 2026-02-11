@@ -94,10 +94,10 @@ final class Glossary_Tooltips {
 	 */
 	public function add_help_submenu() {
 		add_submenu_page(
-			'edit.php?post_type=glossary_term',
+			'tools.php',
 			'Как пользоваться глоссарием',
-			'Справка',
-			'edit_posts',
+			'Глоссарий: Справка',
+			'read',
 			'glossary-tooltips-help',
 			array( $this, 'render_help_page' )
 		);
@@ -393,7 +393,7 @@ final class Glossary_Tooltips {
 		if ( ! $screen ) {
 			return;
 		}
-		$help_url = admin_url( 'edit.php?post_type=glossary_term&page=glossary-tooltips-help' );
+		$help_url = admin_url( 'tools.php?page=glossary-tooltips-help' );
 		$screen->add_help_tab( array(
 			'id'      => 'glossary-tooltips-help',
 			'title'   => __( 'Как пользоваться', 'glossary-tooltips' ),
