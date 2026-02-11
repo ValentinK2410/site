@@ -1,0 +1,161 @@
+/**
+ * Glossary Tooltips — стили терминов и popup
+ */
+
+/* Термин в тексте — подчёркнут пунктиром, курсор pointer */
+.entry-content .glossary-term,
+.entry-content .glossary-term,
+.dekanpro-entry .glossary-term {
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 2px;
+	color: inherit;
+	transition: color 0.2s, background-color 0.2s;
+}
+
+.entry-content .glossary-term:hover,
+.dekanpro-entry .glossary-term:hover {
+	color: var(--dekanpro-primary, #6366f1);
+}
+
+.entry-content .glossary-term:focus,
+.dekanpro-entry .glossary-term:focus {
+	outline: 2px solid var(--dekanpro-primary, #6366f1);
+	outline-offset: 2px;
+}
+
+.entry-content .glossary-term-active,
+.dekanpro-entry .glossary-term-active {
+	color: var(--dekanpro-primary, #6366f1);
+	background-color: rgba(99, 102, 241, 0.08);
+}
+
+/* Popup */
+.glossary-popup {
+	position: fixed;
+	z-index: 999999;
+	max-width: 380px;
+	padding: 1.25rem 1.5rem;
+	background: #fff;
+	border-radius: 0.75rem;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.08);
+	font-size: 0.95rem;
+	line-height: 1.5;
+	animation: glossary-popup-in 0.2s ease-out;
+}
+
+@keyframes glossary-popup-in {
+	from {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.glossary-popup-close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: none;
+	background: transparent;
+	color: #64748b;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: color 0.15s;
+}
+
+.glossary-popup-close:hover {
+	color: #1e293b;
+}
+
+.glossary-popup-term {
+	margin: 0 0 0.75rem;
+	padding-right: 2rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.glossary-popup-section {
+	margin-bottom: 1rem;
+}
+
+.glossary-popup-section:last-child {
+	margin-bottom: 0;
+}
+
+.glossary-popup-label {
+	margin: 0 0 0.35rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #64748b;
+}
+
+.glossary-popup-section p {
+	margin: 0 0 0.5rem;
+	color: #475569;
+}
+
+.glossary-popup-section p:last-child {
+	margin-bottom: 0;
+}
+
+.glossary-popup-section ul {
+	margin: 0.35rem 0 0;
+	padding-left: 1.25rem;
+}
+
+.glossary-popup-section li {
+	margin-bottom: 0.35rem;
+	color: #475569;
+}
+
+.glossary-popup-section li:last-child {
+	margin-bottom: 0;
+}
+
+/* Dark mode (если тема поддерживает) */
+@media (prefers-color-scheme: dark) {
+	body.dekanpro-dark-mode .glossary-popup,
+	.dark-mode .glossary-popup {
+		background: #1e293b;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+	}
+
+	body.dekanpro-dark-mode .glossary-popup-term,
+	.dark-mode .glossary-popup .glossary-popup-term {
+		color: #f1f5f9;
+	}
+
+	body.dekanpro-dark-mode .glossary-popup-close,
+	.dark-mode .glossary-popup .glossary-popup-close {
+		color: #94a3b8;
+	}
+
+	body.dekanpro-dark-mode .glossary-popup-close:hover,
+	.dark-mode .glossary-popup .glossary-popup-close:hover {
+		color: #f1f5f9;
+	}
+
+	body.dekanpro-dark-mode .glossary-popup-label,
+	.dark-mode .glossary-popup .glossary-popup-label {
+		color: #94a3b8;
+	}
+
+	body.dekanpro-dark-mode .glossary-popup-section p,
+	body.dekanpro-dark-mode .glossary-popup-section li,
+	.dark-mode .glossary-popup .glossary-popup-section p,
+	.dark-mode .glossary-popup .glossary-popup-section li {
+		color: #cbd5e1;
+	}
+}
