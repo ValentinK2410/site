@@ -28,28 +28,29 @@
 				closePopup();
 			}
 		} );
-		$( document ).on( 'keydown.glossary', function ( e ) {
-			if ( e.key === 'Escape' ) {
-				closePopup();
-			}
-		} );
 
 		return $popup;
 	}
 
 	function showPopup( $term ) {
 		$activeTerm = $term;
-		const def = $term.data( 'definition' ) || '';
-		const ex  = $term.data( 'examples' ) || '';
-		const cases = $term.data( 'use-cases' ) || '';
+		const def = $term.attr( 'data-definition' ) || '';
+		const ex  = $term.attr( 'data-examples' ) || '';
+		const cases = $term.attr( 'data-use-cases' ) || '';
 
 		$popup = createPopup();
 		$popup.find( '.glossary-popup-term' ).text( $term.text().trim() );
-		$popup.find( '.glossary-popup-definition' ).html( formatText( def ) ).toggle( !! def );
+		$popup.find( '.glossary-popup-definition' ).html( def ? '<p class="glossary-popup-label">Пояснение:</p><p>' + formatText( def ) + '</p>' : '' ).toggle( !! def );
 		$popup.find( '.glossary-popup-examples' ).html( formatExamples( ex ) ).toggle( !! ex );
 		$popup.find( '.glossary-popup-cases' ).html( formatCases( cases ) ).toggle( !! cases );
 
-		$popup.removeAttr( 'hidden' ).show();
+		$popup.removeAttr( 'hidden' ).css( { display: 'block', visibility: 'visible' } ).show();
+
+		$( document ).off( 'keydown.glossary' ).on( 'keydown.glossary', function ( e ) {
+			if ( e.key === 'Escape' ) {
+				closePopup();
+			}
+		} );
 
 		positionPopup( $term );
 		$term.addClass( 'glossary-term-active' );
@@ -105,26 +106,30 @@
 
 	function positionPopup( $term ) {
 		const termOffset = $term.offset();
+		const termW      = $term.outerWidth();
 		const termH      = $term.outerHeight();
 		const popupW     = $popup.outerWidth();
 		const popupH     = $popup.outerHeight();
 		const winW       = $( window ).width();
 		const winH       = $( window ).height();
 		const scrollTop  = $( window ).scrollTop();
+		const scrollLeft = $( window ).scrollLeft();
+		const termTopVp  = termOffset.top - scrollTop;
+		const termLeftVp = termOffset.left - scrollLeft;
 
-		let left = termOffset.left + ( $term.outerWidth() / 2 ) - ( popupW / 2 );
-		let top  = termOffset.top - popupH - 10;
+		let left = termLeftVp + ( termW / 2 ) - ( popupW / 2 );
+		let top  = termTopVp - popupH - 10;
 
 		if ( left < 10 ) left = 10;
 		if ( left + popupW > winW - 10 ) left = winW - popupW - 10;
-		if ( top < scrollTop + 10 ) {
-			top = termOffset.top + termH + 10;
+		if ( top < 10 ) {
+			top = termTopVp + termH + 10;
 			$popup.addClass( 'glossary-popup-below' );
 		} else {
 			$popup.removeClass( 'glossary-popup-below' );
 		}
-		if ( top + popupH > scrollTop + winH - 10 ) {
-			top = scrollTop + winH - popupH - 10;
+		if ( top + popupH > winH - 10 ) {
+			top = winH - popupH - 10;
 		}
 
 		$popup.css( { left: left + 'px', top: top + 'px' } );
@@ -143,6 +148,7 @@
 
 	$( document ).on( 'click', '.glossary-term', function ( e ) {
 		e.preventDefault();
+		e.stopPropagation();
 		const $term = $( this );
 		if ( $popup && $popup.is( ':visible' ) && $term.is( $activeTerm ) ) {
 			closePopup();
