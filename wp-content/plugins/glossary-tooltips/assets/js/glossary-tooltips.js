@@ -86,7 +86,8 @@
 			return lb - la;
 		} );
 		sorted.forEach( function ( t ) {
-			const variants = t.variants || [ t.term ].filter( Boolean );
+			const raw = t.variants || t.term;
+			const variants = Array.isArray( raw ) ? raw : ( raw ? [ raw ] : [] );
 			const skip = excludeTerm && variants.some( function ( v ) {
 				return v.toLowerCase() === String( excludeTerm ).toLowerCase();
 			} );

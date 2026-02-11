@@ -583,9 +583,10 @@ final class Glossary_Tooltips {
 
 		$terms_for_popup = array();
 		foreach ( $this->get_terms_for_content() as $t ) {
+			$variants = isset( $t['variants'] ) && is_array( $t['variants'] ) ? $t['variants'] : ( ! empty( $t['term'] ) ? array( $t['term'] ) : array() );
 			$terms_for_popup[] = array(
 				'term'       => $t['term'],
-				'variants'   => $t['variants'],
+				'variants'   => $variants,
 				'definition' => $t['definition'],
 				'examples'   => $t['examples'],
 				'use_cases'  => $t['use_cases'],
