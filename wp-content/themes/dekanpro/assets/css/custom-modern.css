@@ -864,7 +864,7 @@ html {
 
 /* Заголовки в статье */
 .entry-content h2 {
-    font-size: 1.75rem;
+    font-size: 24px;
     font-weight: 800;
     margin: 2.5rem 0 1.25rem;
     padding-bottom: 0.75rem;
@@ -891,7 +891,7 @@ html {
 
 /* Параграфы */
 .entry-content p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.8;
     margin-bottom: 1.25rem;
     color: var(--dekanpro-gray-700);
