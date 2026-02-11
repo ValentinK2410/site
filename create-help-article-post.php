@@ -1,0 +1,137 @@
+<?php
+/**
+ * Одноразовый скрипт: создаёт запись «Как добавить справочную страницу в раздел Инструменты WordPress».
+ * Запуск: php create-help-article-post.php (из корня WordPress)
+ * После успешного создания — удалите этот файл.
+ */
+
+if ( php_sapi_name() !== 'cli' ) {
+	die( 'Запускайте только из командной строки: php create-help-article-post.php' );
+}
+
+$wp_load = __DIR__ . '/wp-load.php';
+if ( ! file_exists( $wp_load ) ) {
+	die( 'Запустите скрипт из корня WordPress' );
+}
+
+require_once $wp_load;
+
+$title   = 'Как добавить справочную страницу в раздел «Инструменты» WordPress';
+$content = '<h2>Введение</h2>
+<p>В админке WordPress раздел <strong>«Инструменты»</strong> (Tools) удобен для размещения справочной информации, инструкций и вспомогательных страниц. В этой статье подробно описано, как добавить свою страницу справки в этот раздел на примере плагина Glossary Tooltips.</p>
+
+<h2>Что нужно знать</h2>
+<p>Для добавления страницы в админку WordPress используются функции:</p>
+<ul>
+    <li><strong>add_menu_page()</strong> — добавляет пункт в главное меню администратора</li>
+    <li><strong>add_submenu_page()</strong> — добавляет подпункт к существующему меню</li>
+</ul>
+<p>Раздел «Инструменты» в WordPress имеет идентификатор (slug) <code>tools.php</code>. Чтобы добавить страницу именно в этот раздел, мы используем <code>add_submenu_page()</code> с родительским меню <code>tools.php</code>.</p>
+
+<h2>Пошаговая реализация</h2>
+
+<h3>Шаг 1: Подключение к хуку admin_menu</h3>
+<p>WordPress вызывает хук <strong>admin_menu</strong> во время формирования меню админки. Нужно «подписаться» на этот хук и в callback-функции вызвать <code>add_submenu_page()</code>.</p>
+
+<pre><code class="language-php">add_action( \'admin_menu\', array( $this, \'add_help_submenu\' ), 25 );</code></pre>
+
+<p>Число <code>25</code> — приоритет выполнения: чем больше число, тем позже выполнится наша функция относительно других подписчиков на этот же хук.</p>
+
+<h3>Шаг 2: Регистрация страницы через add_submenu_page</h3>
+<p>Функция <code>add_submenu_page()</code> принимает несколько аргументов:</p>
+
+<pre><code class="language-php">add_submenu_page(
+    \'tools.php\',                    // родительское меню (Инструменты)
+    \'Как пользоваться глоссарием\',  // заголовок вкладки браузера
+    \'Глоссарий: Справка\',           // текст пункта в меню
+    \'read\',                         // право доступа (capability)
+    \'glossary-tooltips-help\',       // уникальный slug страницы
+    array( $this, \'render_help_page\' )  // функция, которая выводит содержимое
+);</code></pre>
+
+<p><strong>Важные моменты:</strong></p>
+<ul>
+    <li><strong>Право доступа (capability)</strong> — определяет, кто может видеть и открывать страницу. Значение <code>read</code> доступно любому авторизованному пользователю. Для страницы только для администраторов используют <code>manage_options</code>.</li>
+    <li><strong>Slug</strong> — уникальный идентификатор. URL страницы будет: <code>/wp-admin/tools.php?page=glossary-tooltips-help</code>.</li>
+    <li><strong>Callback</strong> — функция, которая выводит HTML-содержимое страницы. Она вызывается, когда пользователь открывает наш пункт меню.</li>
+</ul>
+
+<h3>Шаг 3: Функция вывода содержимого</h3>
+<p>Callback-функция <code>render_help_page</code> просто выводит HTML. Важно обернуть контент в <code>&lt;div class="wrap"&gt;</code>, чтобы оформление соответствовало стилю админки WordPress.</p>
+
+<pre><code class="language-php">public function render_help_page() {
+    ?&gt;
+    &lt;div class="wrap"&gt;
+        &lt;h1&gt;Как пользоваться глоссарием&lt;/h1&gt;
+        &lt;p&gt;Текст справки...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;?php
+}</code></pre>
+
+<h2>Добавление вкладки «Справка» на экранах редактирования</h2>
+<p>Кроме отдельной страницы, можно добавить встроенную справку — вкладку в правом верхнем углу экрана. Для этого используется метод <code>add_help_tab()</code> у объекта экрана.</p>
+
+<h3>Когда показывать вкладку</h3>
+<p>Вкладка должна появляться только на нужных экранах: список терминов глоссария, создание и редактирование термина. Подключаемся к хукам загрузки этих страниц:</p>
+
+<pre><code class="language-php">add_action( \'load-edit.php\', array( $this, \'add_help_tab_on_list\' ) );
+add_action( \'load-post.php\', array( $this, \'add_help_tab_on_edit\' ) );
+add_action( \'load-post-new.php\', array( $this, \'add_help_tab_on_edit\' ) );</code></pre>
+
+<p>Хуки <strong>load-edit.php</strong>, <strong>load-post.php</strong> и <strong>load-post-new.php</strong> срабатывают до вывода страницы, когда уже известен тип записи (post type) и можно проверить, находимся ли мы в разделе глоссария.</p>
+
+<h3>Получение объекта экрана и добавление вкладки</h3>
+<pre><code class="language-php">$screen = get_current_screen();
+if ( $screen ) {
+    $screen->add_help_tab( array(
+        \'id\'      => \'glossary-tooltips-help\',
+        \'title\'   => \'Как пользоваться\',
+        \'content\' => \'&lt;p&gt;Краткая справка...&lt;/p&gt;\'
+    ) );
+}</code></pre>
+
+<p>Функция <code>get_current_screen()</code> возвращает объект текущего экрана админки. У него есть метод <code>add_help_tab()</code>, который добавляет вкладку в контекстную справку (правый верхний угол).</p>
+
+<h2>Почему «не разрешено просматривать страницу»</h2>
+<p>Если при открытии страницы появляется сообщение «Извините, вам не разрешено просматривать эту страницу», причина в <strong>правах доступа (capability)</strong>.</p>
+<ul>
+    <li>Убедитесь, что указано минимально необходимое право. Для справки достаточно <code>read</code> (есть у всех авторизованных).</li>
+    <li>Родительское меню должно быть доступно: <code>tools.php</code> доступен всем, кто может войти в админку.</li>
+    <li>При использовании Custom Post Type в качестве родителя (<code>edit.php?post_type=xxx</code>) проверьте, что у пользователя есть право на редактирование этого типа записей.</li>
+</ul>
+
+<h2>Итог</h2>
+<p>Чтобы добавить справочную страницу в раздел «Инструменты»:</p>
+<ol>
+    <li>Подключитесь к хуку <code>admin_menu</code></li>
+    <li>Вызовите <code>add_submenu_page( \'tools.php\', ... )</code> с нужными параметрами</li>
+    <li>Реализуйте callback-функцию, которая выводит HTML справки</li>
+    <li>При необходимости добавьте вкладку помощи через <code>add_help_tab()</code> на экранах редактирования</li>
+</ol>';
+
+global $wpdb;
+$existing_id = $wpdb->get_var( $wpdb->prepare(
+	"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'post' AND post_title = %s AND post_status != 'trash' LIMIT 1",
+	$title
+) );
+if ( $existing_id ) {
+	echo "Запись с таким заголовком уже существует (ID: $existing_id)\n";
+	exit( 0 );
+}
+
+$post_id = wp_insert_post( array(
+	'post_title'   => $title,
+	'post_content' => $content,
+	'post_status'  => 'publish',
+	'post_type'    => 'post',
+	'post_author'  => 1,
+) );
+
+if ( is_wp_error( $post_id ) ) {
+	echo "Ошибка: " . $post_id->get_error_message() . "\n";
+	exit( 1 );
+}
+
+$url = get_permalink( $post_id );
+echo "Запись создана. ID: $post_id\n";
+echo "URL: $url\n";

@@ -104,12 +104,190 @@ final class Glossary_Tooltips {
 	}
 
 	/**
+	 * Обработка импорта справочных терминов по запросу.
+	 */
+	private function maybe_import_default_terms() {
+		if ( ! current_user_can( 'edit_posts' ) || ! isset( $_POST['glossary_action'] ) || 'import_defaults' !== $_POST['glossary_action'] ) {
+			return;
+		}
+		if ( ! isset( $_POST['glossary_import_nonce'] ) || ! wp_verify_nonce( $_POST['glossary_import_nonce'], 'glossary_import_defaults' ) ) {
+			return;
+		}
+		$created = $this->create_default_glossary_terms();
+		add_action( 'admin_notices', function () use ( $created ) {
+			echo '<div class="notice notice-success is-dismissible"><p>' . esc_html( sprintf( __( 'Добавлено терминов: %d.', 'glossary-tooltips' ), $created ) ) . '</p></div>';
+		} );
+	}
+
+	/**
+	 * Список справочных терминов для импорта.
+	 */
+	private function get_default_glossary_terms() {
+		return array(
+			array(
+				'title'      => 'add_submenu_page',
+				'definition' => 'Функция WordPress, которая добавляет подпункт в существующее меню админки. Используется, когда нужно создать новую страницу внутри раздела (например, «Инструменты», «Настройки»).',
+				'examples'   => "Добавление страницы справки в «Инструменты»: add_submenu_page( 'tools.php', 'Справка', 'Справка', 'read', 'my-help', 'my_help_callback' );" . "\n" . "Добавление подпункта в «Настройки»: add_submenu_page( 'options-general.php', 'Мои настройки', 'Мои настройки', 'manage_options', 'my-settings', 'my_settings_callback' );",
+				'use_cases'  => "Когда нужна страница справки, настроек плагина или утилиты внутри стандартного раздела WordPress." . "\n" . "Когда не хотите создавать отдельный пункт в главном меню, а предпочитаете разместить страницу в «Инструменты» или «Настройки».",
+				'aliases'    => 'add_submenu_page, add submenu page',
+			),
+			array(
+				'title'      => 'add_menu_page',
+				'definition' => 'Функция WordPress, которая добавляет новый пункт в главное меню админки (слева). Создаёт отдельный раздел с собственной иконкой.',
+				'examples'   => "add_menu_page( 'Мой раздел', 'Мой раздел', 'manage_options', 'my-plugin', 'my_callback', 'dashicons-admin-generic', 30 );" . "\n" . "Параметры: заголовок, текст в меню, права доступа, slug, функция вывода, иконка, позиция.",
+				'use_cases'  => "Когда плагин или тема создают отдельный раздел с несколькими подстраницами." . "\n" . "Для панелей управления, кабинетов, отчётов и т.п.",
+				'aliases'    => 'add_menu_page, add menu page',
+			),
+			array(
+				'title'      => 'capability',
+				'definition' => 'Право доступа в WordPress. Определяет, какие действия разрешены пользователю (редактировать записи, управлять настройками и т.д.). Страницы и меню показываются только тем, у кого есть нужное право.',
+				'examples'   => "read — минимальное право, есть у всех авторизованных пользователей." . "\n" . "edit_posts — редактирование своих записей (авторы, редакторы, администраторы)." . "\n" . "manage_options — только администраторы, для страниц настроек." . "\n" . "В add_submenu_page: add_submenu_page( 'tools.php', 'Справка', 'Справка', 'read', ... );",
+				'use_cases'  => "При добавлении страниц в админку — указать, кто может её видеть." . "\n" . "Чтобы скрыть чувствительные настройки от обычных редакторов, используйте manage_options.",
+				'aliases'    => 'capability, права доступа, capability type',
+			),
+			array(
+				'title'      => 'Custom Post Type',
+				'definition' => 'Пользовательский тип записей в WordPress. Помимо стандартных «Записей» и «Страниц» можно создавать свои типы: портфолио, товары, термины глоссария и др. Каждый тип имеет свои экраны в админке.',
+				'examples'   => "Регистрация: register_post_type( 'glossary_term', array( 'labels' => ..., 'public' => false, 'show_ui' => true, 'show_in_menu' => 'tools.php' ) );" . "\n" . "Тип «glossary_term» — для терминов глоссария, отображается в «Инструменты».",
+				'use_cases'  => "Когда нужна структура данных, отличная от записей и страниц." . "\n" . "Для каталогов, справочников, событий, отзывов и т.п.",
+				'aliases'    => 'CPT, Custom Post Type, пользовательский тип записей',
+			),
+			array(
+				'title'      => 'slug',
+				'definition' => 'Короткий идентификатор в URL. В WordPress используется для страниц, категорий, пунктов меню. Должен быть уникальным в рамках контекста. Обычно латиница, цифры и дефисы.',
+				'examples'   => "Страница справки: glossary-tooltips-help → URL: /wp-admin/tools.php?page=glossary-tooltips-help" . "\n" . "Страница сайта: o-nas → URL: https://site.ru/o-nas/" . "\n" . "Категория: wordpress → URL: https://site.ru/category/wordpress/",
+				'use_cases'   => "При создании страниц, категорий, типов записей — задать уникальный slug." . "\n" . "Slug влияет на URL, поэтому его лучше задавать сразу и не менять.",
+				'aliases'    => 'slug, слаг',
+			),
+			array(
+				'title'      => 'хук',
+				'definition' => 'Точка «подключения» в WordPress. В определённый момент работы системы WordPress вызывает все функции, «подписанные» на этот хук. Позволяет расширять поведение без изменения ядра.',
+				'examples'   => "add_action( 'admin_menu', 'my_function' ) — выполнит my_function при формировании меню админки." . "\n" . "add_action( 'init', 'my_function' ) — при инициализации WordPress." . "\n" . "add_filter( 'the_content', 'my_function' ) — изменить контент перед выводом.",
+				'use_cases'  => "Чтобы выполнить свой код в нужный момент (при загрузке, сохранении, выводе и т.д.)." . "\n" . "Плагины и темы почти всегда используют хуки для интеграции с WordPress.",
+				'aliases'    => 'хук, hook, add_action, add_filter',
+			),
+			array(
+				'title'      => 'callback',
+				'definition' => 'Функция, которая вызывается «позже» — когда произойдёт событие или по запросу. В WordPress передаётся как аргумент в add_action, add_submenu_page и аналогичные функции.',
+				'examples'   => "add_submenu_page( 'tools.php', 'Справка', 'Справка', 'read', 'help', 'render_help_page' ); — render_help_page вызовется при открытии страницы." . "\n" . "add_action( 'admin_menu', array( $this, 'add_menu' ) ); — метод add_menu вызовется при событии admin_menu.",
+				'use_cases'  => "Когда нужно указать, какую функцию выполнить при наступлении события." . "\n" . "Используется везде: хуки, регистрация страниц, кнопки, AJAX.",
+				'aliases'    => 'callback, колбэк, функция обратного вызова',
+			),
+			array(
+				'title'      => 'add_help_tab',
+				'definition' => 'Метод объекта экрана WordPress, который добавляет вкладку в контекстную справку (правый верхний угол экрана). Позволяет показать подсказку прямо на странице редактирования.',
+				'examples'   => "\$screen = get_current_screen();" . "\n" . "\$screen->add_help_tab( array( 'id' => 'my-help', 'title' => 'Справка', 'content' => '<p>Текст подсказки</p>' ) );" . "\n" . "Вкладка появится рядом с «Помощь» в правом верхнем углу.",
+				'use_cases'  => "Чтобы пользователь видел инструкцию без перехода на отдельную страницу." . "\n" . "На экранах создания и редактирования записей, настроек плагинов.",
+				'aliases'    => 'add_help_tab, вкладка справки, help tab',
+			),
+			array(
+				'title'      => 'get_current_screen',
+				'definition' => 'Функция WordPress, возвращающая объект текущего экрана админки. Содержит информацию о странице: тип записи, id экрана и т.д. Используется для условной логики и добавления вкладок справки.',
+				'examples'   => "\$screen = get_current_screen();" . "\n" . "if ( \$screen && 'glossary_term' === \$screen->post_type ) { /* мы на странице глоссария */ }" . "\n" . "\$screen->add_help_tab( ... );",
+				'use_cases'  => "Когда нужно выполнить код только на определённых экранах админки." . "\n" . "Для добавления справки, скриптов или стилей точечно.",
+				'aliases'    => 'get_current_screen, get current screen',
+			),
+			array(
+				'title'      => 'add_action',
+				'definition' => 'Функция WordPress для «подписки» на хук. Указывает: при каком событии и какую функцию вызвать. Основа расширения WordPress без изменения ядра.',
+				'examples'   => "add_action( 'init', 'my_init' ); — вызвать my_init при инициализации." . "\n" . "add_action( 'admin_menu', 'my_menu', 25 ); — вызвать my_menu при формировании меню, приоритет 25." . "\n" . "add_action( 'save_post', 'my_save', 10, 2 ); — при сохранении записи, 2 аргумента.",
+				'use_cases'  => "Чтобы ваш код выполнился в нужный момент." . "\n" . "Используется в каждом плагине и во многих темах.",
+				'aliases'    => 'add_action, add_filter',
+			),
+			array(
+				'title'      => 'add_filter',
+				'definition' => 'Функция WordPress для «подписки» на фильтр. Похожа на add_action, но используется когда нужно изменить значение (контент, заголовок и т.д.) перед выводом или использованием. Функция должна вернуть изменённое значение.',
+				'examples'   => "add_filter( 'the_content', 'my_content_filter' ); — изменить контент записи перед выводом." . "\n" . "add_filter( 'the_title', function( \$title ) { return \$title . ' — '; }, 10, 2 ); — добавить текст к заголовку.",
+				'use_cases'  => "Когда нужно изменить данные (текст, HTML, массив) перед их использованием." . "\n" . "Для подсветки терминов в тексте, добавления виджетов, изменения ссылок и т.п.",
+				'aliases'    => 'add_filter',
+			),
+			array(
+				'title'      => 'admin_menu',
+				'definition' => 'Хук WordPress, который срабатывает при формировании меню админки. Используется для добавления своих пунктов и подпунктов в левое меню wp-admin.',
+				'examples'   => "add_action( 'admin_menu', 'register_my_pages' );" . "\n" . "function register_my_pages() {" . "\n" . "    add_submenu_page( 'tools.php', 'Моя страница', 'Моя страница', 'read', 'my-page', 'my_page_callback' );" . "\n" . "}",
+				'use_cases'  => "Когда нужно добавить страницу в админку." . "\n" . "Практически обязателен для плагинов с настройками или справкой.",
+				'aliases'    => 'admin_menu',
+			),
+			array(
+				'title'      => 'post type',
+				'definition' => 'Тип контента в WordPress. Стандартные: post (записи), page (страницы), attachment (вложения). Можно создавать свои типы через register_post_type — портфолио, товары, термины и т.д.',
+				'examples'   => "post — записи блога, отображаются в «Записи»." . "\n" . "page — статические страницы (О сайте, Контакты)." . "\n" . "glossary_term — пользовательский тип для терминов глоссария.",
+				'use_cases'  => "Когда говорим о том, какой вид контента обрабатываем." . "\n" . "В коде: get_posts( array( 'post_type' => 'glossary_term' ) ) — получить записи типа glossary_term.",
+				'aliases'    => 'post type, тип записи',
+			),
+			array(
+				'title'      => 'wp-admin',
+				'definition' => 'Папка и URL админ-панели WordPress. По адресу /wp-admin/ открывается интерфейс управления сайтом: создание записей, настройки, плагины и т.д. Доступен только авторизованным пользователям.',
+				'examples'   => "https://site.ru/wp-admin/ — вход в админку." . "\n" . "https://site.ru/wp-admin/tools.php — раздел «Инструменты»." . "\n" . "admin_url( 'tools.php' ) — получить полный URL в коде.",
+				'use_cases'  => "Когда нужна ссылка на раздел админки." . "\n" . "В плагинах: редирект после активации, ссылки «Перейти в настройки».",
+				'aliases'    => 'wp-admin, админка, админ-панель',
+			),
+			array(
+				'title'      => 'nonce',
+				'definition' => 'Одноразовый токен безопасности в WordPress. Проверяет, что запрос (форма, ссылка) сформирован вашим сайтом и не подделан. Защита от CSRF-атак.',
+				'examples'   => "В форме: wp_nonce_field( 'my_action', 'my_nonce' );" . "\n" . "При проверке: wp_verify_nonce( \$_POST['my_nonce'], 'my_action' );" . "\n" . "В ссылке: wp_nonce_url( admin_url( 'admin.php?action=delete' ), 'delete_item' );",
+				'use_cases'  => "Для всех форм и действий, изменяющих данные." . "\n" . "Обязательно при удалении, импорте, сохранении настроек из админки.",
+				'aliases'    => 'nonce, нонс, wp_nonce_field, wp_verify_nonce',
+			),
+		);
+	}
+
+	/**
+	 * Создание справочных терминов в глоссарии.
+	 */
+	private function create_default_glossary_terms() {
+		$terms  = $this->get_default_glossary_terms();
+		$created = 0;
+
+		foreach ( $terms as $term_data ) {
+			global $wpdb;
+			$exists = $wpdb->get_var( $wpdb->prepare(
+				"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'glossary_term' AND post_title = %s AND post_status != 'trash' LIMIT 1",
+				$term_data['title']
+			) );
+			if ( $exists ) {
+				continue;
+			}
+			$post_id = wp_insert_post( array(
+				'post_type'   => 'glossary_term',
+				'post_title'  => $term_data['title'],
+				'post_status' => 'publish',
+			) );
+			if ( $post_id && ! is_wp_error( $post_id ) ) {
+				update_post_meta( $post_id, '_glossary_definition', $term_data['definition'] );
+				update_post_meta( $post_id, '_glossary_examples', $term_data['examples'] );
+				update_post_meta( $post_id, '_glossary_use_cases', $term_data['use_cases'] );
+				update_post_meta( $post_id, '_glossary_aliases', $term_data['aliases'] ?? '' );
+				$created++;
+			}
+		}
+
+		if ( $created > 0 ) {
+			self::clear_cache();
+		}
+		return $created;
+	}
+
+	/**
 	 * Отображение страницы справки.
 	 */
 	public function render_help_page() {
+		$this->maybe_import_default_terms();
+
 		?>
 		<div class="wrap glossary-help-wrap" style="max-width: 720px;">
 			<h1><?php esc_html_e( 'Как пользоваться глоссарием', 'glossary-tooltips' ); ?></h1>
+
+			<?php if ( current_user_can( 'edit_posts' ) ) : ?>
+			<p>
+				<form method="post" style="display:inline;">
+					<?php wp_nonce_field( 'glossary_import_defaults', 'glossary_import_nonce' ); ?>
+					<input type="hidden" name="glossary_action" value="import_defaults" />
+					<button type="submit" class="button button-secondary"><?php esc_html_e( 'Добавить справочные термины из статьи', 'glossary-tooltips' ); ?></button>
+				</form>
+				<span class="description"><?php esc_html_e( 'Создаст в глоссарии технические термины (add_submenu_page, хук, callback и др.) с пояснениями и примерами.', 'glossary-tooltips' ); ?></span>
+			</p>
+			<?php endif; ?>
 
 			<div class="glossary-help-content" style="line-height: 1.7;">
 				<h2><?php esc_html_e( 'Что это?', 'glossary-tooltips' ); ?></h2>
