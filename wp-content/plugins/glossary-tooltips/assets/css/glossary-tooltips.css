@@ -234,6 +234,16 @@
 	margin-bottom: 0;
 }
 
+/* Мобильная версия — окно на всю ширину экрана */
+@media screen and (max-width: 768px) {
+	.glossary-popup {
+		left: 0.5rem !important;
+		right: 0.5rem !important;
+		width: auto !important;
+		max-width: none !important;
+	}
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
 	body.dekanpro-dark-mode .glossary-popup,

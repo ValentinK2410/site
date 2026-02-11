@@ -825,6 +825,15 @@ article {
     .widget {
         padding: 1.5rem !important;
     }
+
+    /* Размеры шрифтов в контенте на мобильных */
+    .entry-content p {
+        font-size: 16px !important;
+    }
+
+    .entry-content pre code {
+        font-size: 12px !important;
+    }
 }
 
 /* ============================================
