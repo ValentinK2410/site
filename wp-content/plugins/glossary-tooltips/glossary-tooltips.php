@@ -3,7 +3,7 @@
  * Plugin Name: Glossary Tooltips
  * Plugin URI: https://dekan.pro/
  * Description: Справочная система: технические термины в статьях раскрываются по клику с пояснениями и примерами.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: DekanPro
  * Text Domain: glossary-tooltips
  * Domain Path: /languages
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GLOSSARY_TOOLTIPS_VERSION', '1.0.1' );
+define( 'GLOSSARY_TOOLTIPS_VERSION', '1.0.2' );
 define( 'GLOSSARY_TOOLTIPS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GLOSSARY_TOOLTIPS_URL', plugin_dir_url( __FILE__ ) );
 
@@ -540,6 +540,39 @@ final class Glossary_Tooltips {
 			return;
 		}
 
+		// Prism.js для подсветки кода в попапе (если тема не подключила)
+		wp_enqueue_style(
+			'prism-theme',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css',
+			array(),
+			'1.29.0'
+		);
+		wp_enqueue_script(
+			'prism-core',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js',
+			array(),
+			'1.29.0',
+			true
+		);
+		wp_enqueue_script(
+			'prism-autoloader',
+			'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js',
+			array( 'prism-core' ),
+			'1.29.0',
+			true
+		);
+
+		$terms_for_popup = array();
+		foreach ( $this->get_terms_for_content() as $t ) {
+			$terms_for_popup[] = array(
+				'term'       => $t['term'],
+				'variants'   => $t['variants'],
+				'definition' => $t['definition'],
+				'examples'   => $t['examples'],
+				'use_cases'  => $t['use_cases'],
+			);
+		}
+
 		wp_enqueue_style(
 			'glossary-tooltips',
 			GLOSSARY_TOOLTIPS_URL . 'assets/css/glossary-tooltips.css',
@@ -549,10 +582,11 @@ final class Glossary_Tooltips {
 		wp_enqueue_script(
 			'glossary-tooltips',
 			GLOSSARY_TOOLTIPS_URL . 'assets/js/glossary-tooltips.js',
-			array( 'jquery' ),
+			array( 'jquery', 'prism-autoloader' ),
 			GLOSSARY_TOOLTIPS_VERSION,
 			true
 		);
+		wp_localize_script( 'glossary-tooltips', 'glossaryTermsForPopup', $terms_for_popup );
 	}
 
 	public function add_help_tab_on_list() {
