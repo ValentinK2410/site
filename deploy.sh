@@ -26,6 +26,9 @@ if [ $? -eq 0 ]; then
   echo "Восстановление прав на uploads (www-root — пользователь PHP-FPM)..."
   ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "chown -R www-root:www-root ${REMOTE_PATH}/wp-content/uploads 2>/dev/null || true"
   echo ""
+  echo "Запуск скрипта создания статьи и терминов глоссария..."
+  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-post-analytics-article.php 2>/dev/null || true"
+  echo ""
   echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
 else
   echo ""
