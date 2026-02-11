@@ -88,6 +88,8 @@ if ( ! dekanpro_comments_displayed() ) {
 			/* translators: %1$s opening anchor tag, %2$s closing anchor tag */
 			'must_log_in'   => '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a comment.', 'dekanpro' ), '<a href="' . wp_login_url( apply_filters( 'the_permalink', get_permalink() ) ) . '">', '</a>' ) . '</p>', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			'logged_in_as'  => '<p class="logged-in-as">' . esc_html__( 'Logged in as', 'dekanpro' ) . ' <a href="' . esc_url( admin_url( 'profile.php' ) ) . '">' . $user_identity . '</a> <a href="' . wp_logout_url( get_permalink() ) . '" title="' . esc_html__( 'Log out of this account', 'dekanpro' ) . '">' . esc_html__( 'Log out?', 'dekanpro' ) . '</a></p>',
+			'title_reply'   => esc_html__( 'Leave a Reply', 'dekanpro' ),
+			'label_submit'  => esc_html__( 'Post Comment', 'dekanpro' ),
 			'class_submit'  => 'dekanpro-btn primary-button',
 			'comment_field' => '<p class="comment-textarea"><textarea name="comment" id="comment" cols="44" rows="8" class="textarea-comment" placeholder="' . esc_html__( 'Write a comment&hellip;', 'dekanpro' ) . '" required="required"></textarea></p>',
 			'id_submit'     => 'comment-submit',

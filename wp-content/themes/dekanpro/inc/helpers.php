@@ -573,6 +573,61 @@ function dekanpro_filter_comment_form_submit_button( $submit_button, $args ) {
 add_filter( 'comment_form_submit_button', 'dekanpro_filter_comment_form_submit_button', 10, 2 );
 
 /**
+ * Перевод иностранных строк на русский (для ru_RU).
+ *
+ * @since 1.0.0
+ */
+function dekanpro_translate_strings_to_russian( $translated, $text, $domain ) {
+	if ( get_locale() !== 'ru_RU' ) {
+		return $translated;
+	}
+
+	$translations = array(
+		'Logged in as'           => 'Вы вошли как',
+		'Log out?'               => 'Выйти?',
+		'Log out of this account' => 'Выйти из аккаунта',
+		'Comment'               => 'Комментарий',
+		'Comments'               => 'Комментарии',
+		'Edit'                   => 'Редактировать',
+		'(Edit)'                 => '(Изменить)',
+		'Reply'                  => 'Ответить',
+		'Subscribe'              => 'Подписаться',
+		'Leave a Reply'          => 'Оставить комментарий',
+		'Post Comment'           => 'Отправить',
+		'Search'                 => 'Поиск',
+		'Search for:'            => 'Искать:',
+		'Enter search keywords'   => 'Введите поисковый запрос',
+		'Skip to content'        => 'Перейти к содержимому',
+		'No Comments'            => 'Нет комментариев',
+		'Show %s Comment'        => 'Показать %s комментарий',
+		'Show %s Comments'       => 'Показать %s комментария',
+		'%s Comment'             => '%s комментарий',
+		'%s Comments'            => '%s комментария',
+		'Leave a Comment'        => 'Оставить комментарий',
+		'Hide Comments'          => 'Скрыть комментарии',
+		'Comments are closed'    => 'Комментарии закрыты',
+		'Previous'               => 'Назад',
+		'Next'                   => 'Далее',
+		'Write a comment&hellip;' => 'Напишите комментарий…',
+		'Your comment is awaiting moderation.' => 'Ваш комментарий ожидает модерации.',
+		'The post author'        => 'Автор статьи',
+		'No comments yet. Why don&rsquo;t you start the discussion?' => 'Пока нет комментариев. Станьте первым!',
+		'You must be %1$slogged in%2$s to post a comment.' => 'Чтобы оставить комментарий, необходимо %1$sвойти%2$s.',
+		'Pingback: '             => 'Пингбек: ',
+	);
+
+	if ( isset( $translations[ $text ] ) ) {
+		return $translations[ $text ];
+	}
+
+	return $translated;
+}
+add_filter( 'gettext', 'dekanpro_translate_strings_to_russian', 20, 3 );
+add_filter( 'gettext_with_context', function ( $translated, $text, $context, $domain ) {
+	return dekanpro_translate_strings_to_russian( $translated, $text, $domain );
+}, 20, 4 );
+
+/**
  * Filter excerpt length.
  *
  * @since 1.0.0

@@ -968,6 +968,9 @@ if ( ! function_exists( 'dekanpro_header_widget_button' ) ) :
 		$class = trim( implode( ' ', $class ) );
 
 		$text = empty( $options['text'] ) ? __( 'Add Button Text', 'dekanpro' ) : $options['text'];
+		if ( 'ru_RU' === get_locale() ) {
+			$text = str_replace( array( 'Subscribe', 'subscribe' ), 'Подписаться', $text );
+		}
 
 		$target = 'target="_self"';
 
