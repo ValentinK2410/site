@@ -33,7 +33,7 @@ final class Glossary_Tooltips {
 
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
-		add_action( 'init', array( $this, 'register_post_type' ) );
+		add_action( 'init', array( $this, 'register_post_type' ), 20 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post_glossary_term', array( $this, 'save_term_meta' ), 10, 2 );
 
@@ -70,13 +70,14 @@ final class Glossary_Tooltips {
 			'public'              => false,
 			'publicly_queryable'   => false,
 			'show_ui'             => true,
-			'show_in_menu'        => true,
+			'show_in_menu'        => 'tools.php',
 			'query_var'           => false,
 			'rewrite'             => false,
 			'capability_type'     => 'post',
+			'map_meta_cap'        => true,
 			'has_archive'         => false,
 			'hierarchical'        => false,
-			'menu_position'       => 25,
+			'menu_position'       => 58,
 			'menu_icon'           => 'dashicons-book-alt',
 			'supports'            => array( 'title' ),
 		);
