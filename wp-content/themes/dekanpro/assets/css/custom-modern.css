@@ -466,6 +466,14 @@ article:hover .post-thumbnail img {
     box-shadow: none !important;
 }
 
+/* Скрываем автора и дату в карточках статей */
+.dekanpro-article .post-author,
+.dekanpro-article .posted-on,
+article.post .post-author,
+article.post .posted-on {
+    display: none !important;
+}
+
 /* Без эффектов при наведении */
 .entry-content.dekanpro-entry:hover {
     transform: none !important;
