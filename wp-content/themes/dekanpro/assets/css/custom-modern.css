@@ -466,11 +466,15 @@ article:hover .post-thumbnail img {
     box-shadow: none !important;
 }
 
-/* Скрываем автора и дату в карточках статей */
+/* Скрываем автора поста везде */
+.post-author,
+.posted-by,
+.entry-meta .posted-by,
+.entry-meta-elements .posted-by,
+.entry-meta-elements .post-author,
 .dekanpro-article .post-author,
-.dekanpro-article .posted-on,
 article.post .post-author,
-article.post .posted-on {
+.author-box {
     display: none !important;
 }
 
