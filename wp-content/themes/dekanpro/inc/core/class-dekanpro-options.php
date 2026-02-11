@@ -325,7 +325,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 						'classname' => 'dekanpro_customizer_widget_text',
 						'type'      => 'text',
 						'values'    => array(
-							'content'    => wp_kses( '<i class="far fa-location-arrow fa-lg dekanpro-icon"></i> Subscribe to our dekanproter & never miss our best posts. <a href="#"><strong>Subscribe Now!</strong></a>', dekanpro_get_allowed_html_tags() ),
+							'content'    => wp_kses( '<i class="far fa-location-arrow fa-lg dekanpro-icon"></i> Подпишитесь на рассылку и не пропускайте лучшие публикации. <a href="#"><strong>Подписаться!</strong></a>', dekanpro_get_allowed_html_tags() ),
 							'location'   => 'right',
 							'visibility' => 'all',
 						),
@@ -404,7 +404,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 						'classname' => 'dekanpro_customizer_widget_button',
 						'type'      => 'button',
 						'values'    => array(
-							'text'       => '<i class="far fa-bell mr-1 dekanpro-icon"></i> Subscribe',
+							'text'       => '<i class="far fa-bell mr-1 dekanpro-icon"></i> Подписаться',
 							'url'        => '#',
 							'class'      => 'btn-small',
 							'target'     => '_self',
@@ -634,13 +634,13 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 				'dekanpro_hero_slider_posts'               => false,
 				'dekanpro_hero_slider_post_number'         => 6,
 				'dekanpro_hero_slider_category'            => array(),
-				'dekanpro_hero_slider_read_more'           => esc_html__( 'Continue Reading', 'dekanpro' ),
+				'dekanpro_hero_slider_read_more'           => esc_html__( 'Читать далее', 'dekanpro' ),
 
 				/**
 				 * Featured Links
 				 */
 				'dekanpro_enable_featured_links'           => false,
-				'dekanpro_featured_links_title'            => esc_html__( 'Today Best Trending Topics', 'dekanpro' ),
+				'dekanpro_featured_links_title'            => esc_html__( 'Лучшие темы дня', 'dekanpro' ),
 				'dekanpro_featured_links_enable_on'        => array( 'home' ),
 				'dekanpro_featured_links_style'            => false,
 				'dekanpro_featured_links_type'             => 'one',
@@ -669,7 +669,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 				 * PYML
 				 */
 				'dekanpro_enable_pyml'                     => true,
-				'dekanpro_pyml_title'                      => esc_html__( 'You May Have Missed', 'dekanpro' ),
+				'dekanpro_pyml_title'                      => esc_html__( 'Вы могли пропустить', 'dekanpro' ),
 				'dekanpro_pyml_enable_on'                  => array( 'home' ),
 				'dekanpro_pyml_style'                      => false,
 				'dekanpro_pyml_type'                       => '1',
@@ -692,7 +692,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 				 * Ticker Slider
 				 */
 				'dekanpro_enable_ticker'                   => true,
-				'dekanpro_ticker_title'                    => esc_html__( 'Top Stories', 'dekanpro' ),
+				'dekanpro_ticker_title'                    => esc_html__( 'Главные новости', 'dekanpro' ),
 				'dekanpro_ticker_enable_on'                => array( 'home' ),
 				'dekanpro_ticker_type'                     => 'one-ticker',
 				'dekanpro_ticker_elements'                 => array(
@@ -723,7 +723,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 				),
 				'dekanpro_related_posts'                   => false,
 				'dekanpro_related_posts_enable'            => false,
-				'dekanpro_related_posts_heading'           => esc_html__( 'Related posts', 'dekanpro' ),
+				'dekanpro_related_posts_heading'           => esc_html__( 'Похожие статьи', 'dekanpro' ),
 				'dekanpro_related_post_number'             => 3,
 				'dekanpro_related_posts_column'            => 4,
 				'dekanpro_entry_meta_icons'                => true,
@@ -739,7 +739,7 @@ if ( ! class_exists( 'Dekanpro_Options' ) ) :
 				'dekanpro_blog_card_border'                => true,
 				'dekanpro_blog_card_shadow'                => true,
 				'dekanpro_blog_heading'                    => '',
-				'dekanpro_blog_read_more'                  => esc_html__( 'Read More', 'dekanpro' ),
+				'dekanpro_blog_read_more'                  => esc_html__( 'Читать далее', 'dekanpro' ),
 				'dekanpro_blog_horizontal_post_categories' => true,
 				'dekanpro_blog_horizontal_read_more'       => false,
 

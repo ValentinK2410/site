@@ -1,0 +1,115 @@
+# Russian translation for DekanPro theme
+# Copyright (C) 2021 Dekanpro
+# This file is distributed under the same license as the Dekanpro package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dekanpro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: Manual\n"
+
+#: header.php:27
+msgid "Skip to content"
+msgstr "Перейти к содержимому"
+
+#: inc/compatibility/class-dekanpro-jetpack.php:101
+msgid "Proudly powered by WordPress"
+msgstr "Сайт работает на WordPress"
+
+#: inc/compatibility/class-dekanpro-jetpack.php:112
+msgid "Load More"
+msgstr "Загрузить ещё"
+
+#: inc/core/class-dekanpro-enqueue-scripts.php:164
+msgid "Close"
+msgstr "Закрыть"
+
+#: inc/core/class-dekanpro-enqueue-scripts.php:165
+msgid "No results found"
+msgstr "Ничего не найдено"
+
+#: inc/core/class-dekanpro-enqueue-scripts.php:166
+msgid "More results"
+msgstr "Ещё результаты"
+
+#: template-parts/entry/entry-show-comments.php:16
+msgid "Leave a Comment"
+msgstr "Оставить комментарий"
+
+#: inc/core/class-dekanpro-enqueue-scripts.php:176
+msgid "Hide Comments"
+msgstr "Скрыть комментарии"
+
+#: comments.php:34
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments.php:37
+#, php-format
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] "%s комментарий"
+msgstr[1] "%s комментария"
+msgstr[2] "%s комментариев"
+
+#: comments.php:49
+msgid "No comments yet. Why don&rsquo;t you start the discussion?"
+msgstr "Пока нет комментариев. Станьте первым!"
+
+#: comments.php:63
+msgid "Reply"
+msgstr "Ответить"
+
+#: comments.php:73
+msgid "Comments are closed"
+msgstr "Комментарии закрыты"
+
+#: comments.php:79
+msgid "Previous"
+msgstr "Назад"
+
+#: comments.php:80
+msgid "Next"
+msgstr "Далее"
+
+#: comments.php:89
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a comment."
+msgstr "Чтобы оставить комментарий, необходимо %1$sвойти%2$s."
+
+#: comments.php:90
+msgid "Logged in as"
+msgstr "Вы вошли как"
+
+#: comments.php:90
+msgid "Log out of this account"
+msgstr "Выйти из аккаунта"
+
+#: comments.php:90
+msgid "Log out?"
+msgstr "Выйти?"
+
+#: comments.php:92
+msgid "Write a comment&hellip;"
+msgstr "Напишите комментарий…"
+
+#: inc/core/class-dekanpro-theme-setup.php:123
+msgid "Primary Navigation"
+msgstr "Главное меню"
+
+#: inc/customizer/settings/class-dekanpro-customizer-blog-page.php:99
+msgid "Read More"
+msgstr "Читать далее"
+
+#: inc/customizer/settings/class-dekanpro-customizer-hero.php:220
+msgid "Continue Reading"
+msgstr "Читать далее"

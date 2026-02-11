@@ -1109,3 +1109,30 @@ if ( ! function_exists( 'dekanpro_display_notices' ) ) :
 		return defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG || defined( 'WP_DEBUG' ) && WP_DEBUG;
 	}
 endif;
+
+/**
+ * Перевод сохранённых английских заголовков на русский.
+ *
+ * @param mixed $value Значение опции.
+ * @return mixed
+ */
+function dekanpro_translate_saved_titles_to_russian( $value ) {
+	if ( ! is_string( $value ) ) {
+		return $value;
+	}
+	$translations = array(
+		'You May Have Missed'     => 'Вы могли пропустить',
+		'Top Stories'             => 'Главные новости',
+		'Related posts'           => 'Похожие статьи',
+		'Read More'               => 'Читать далее',
+		'Continue Reading'        => 'Читать далее',
+		'Today Best Trending Topics' => 'Лучшие темы дня',
+	);
+	return isset( $translations[ $value ] ) ? $translations[ $value ] : $value;
+}
+add_filter( 'theme_mod_dekanpro_pyml_title', 'dekanpro_translate_saved_titles_to_russian' );
+add_filter( 'theme_mod_dekanpro_ticker_title', 'dekanpro_translate_saved_titles_to_russian' );
+add_filter( 'theme_mod_dekanpro_related_posts_heading', 'dekanpro_translate_saved_titles_to_russian' );
+add_filter( 'theme_mod_dekanpro_blog_read_more', 'dekanpro_translate_saved_titles_to_russian' );
+add_filter( 'theme_mod_dekanpro_hero_slider_read_more', 'dekanpro_translate_saved_titles_to_russian' );
+add_filter( 'theme_mod_dekanpro_featured_links_title', 'dekanpro_translate_saved_titles_to_russian' );
