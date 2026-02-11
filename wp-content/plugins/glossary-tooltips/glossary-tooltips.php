@@ -34,6 +34,7 @@ final class Glossary_Tooltips {
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'register_post_type' ), 20 );
+		add_action( 'admin_menu', array( $this, 'add_help_submenu' ), 25 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post_glossary_term', array( $this, 'save_term_meta' ), 10, 2 );
 
@@ -41,6 +42,9 @@ final class Glossary_Tooltips {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'load-edit.php', array( $this, 'add_help_tab_on_list' ) );
+		add_action( 'load-post.php', array( $this, 'add_help_tab_on_edit' ) );
+		add_action( 'load-post-new.php', array( $this, 'add_help_tab_on_edit' ) );
 	}
 
 	public function load_textdomain() {
@@ -83,6 +87,68 @@ final class Glossary_Tooltips {
 		);
 
 		register_post_type( 'glossary_term', $args );
+	}
+
+	/**
+	 * Добавление страницы «Справка» в меню глоссария.
+	 */
+	public function add_help_submenu() {
+		add_submenu_page(
+			'edit.php?post_type=glossary_term',
+			'Как пользоваться глоссарием',
+			'Справка',
+			'edit_posts',
+			'glossary-tooltips-help',
+			array( $this, 'render_help_page' )
+		);
+	}
+
+	/**
+	 * Отображение страницы справки.
+	 */
+	public function render_help_page() {
+		?>
+		<div class="wrap glossary-help-wrap" style="max-width: 720px;">
+			<h1><?php esc_html_e( 'Как пользоваться глоссарием', 'glossary-tooltips' ); ?></h1>
+
+			<div class="glossary-help-content" style="line-height: 1.7;">
+				<h2><?php esc_html_e( 'Что это?', 'glossary-tooltips' ); ?></h2>
+				<p><?php esc_html_e( 'Глоссарий — это справочная система для технических терминов в статьях. Когда читатель видит незнакомое слово (например, API, REST, PHP), он может кликнуть по нему — откроется окно с пояснением, примерами и рекомендациями по использованию.', 'glossary-tooltips' ); ?></p>
+
+				<h2><?php esc_html_e( 'Как добавить термин?', 'glossary-tooltips' ); ?></h2>
+				<ol style="margin-left: 1.5em;">
+					<li><?php esc_html_e( 'Перейдите в Инструменты → Термины глоссария → Добавить термин.', 'glossary-tooltips' ); ?></li>
+					<li><?php esc_html_e( 'В поле «Заголовок» введите сам термин (например: API, REST, хуки).', 'glossary-tooltips' ); ?></li>
+					<li>
+						<?php esc_html_e( 'Заполните блок «Содержание термина»:', 'glossary-tooltips' ); ?>
+						<ul style="margin: 0.5em 0 0 1em;">
+							<li><strong>Пояснение</strong> — <?php esc_html_e( 'краткое объяснение для пользователя. Что это такое и зачем нужно.', 'glossary-tooltips' ); ?></li>
+							<li><strong>Примеры использования</strong> — <?php esc_html_e( 'где и как термин применяется. Каждый пример с новой строки.', 'glossary-tooltips' ); ?></li>
+							<li><strong>В каких случаях использовать</strong> — <?php esc_html_e( 'когда уместно применять этот термин или концепцию.', 'glossary-tooltips' ); ?></li>
+							<li><strong>Варианты написания (алиасы)</strong> — <?php esc_html_e( 'через запятую. Например: API, апи, эй-пи-ай. Эти варианты будут подсвечиваться так же, как основной термин.', 'glossary-tooltips' ); ?></li>
+						</ul>
+					</li>
+					<li><?php esc_html_e( 'Нажмите «Опубликовать».', 'glossary-tooltips' ); ?></li>
+				</ol>
+
+				<h2><?php esc_html_e( 'Как это работает для читателя?', 'glossary-tooltips' ); ?></h2>
+				<p><?php esc_html_e( 'В опубликованных статьях (записях блога) технические термины из глоссария автоматически подсвечиваются пунктирной линией. При клике или нажатии Enter/Space открывается всплывающее окно с:', 'glossary-tooltips' ); ?></p>
+				<ul style="margin-left: 1.5em;">
+					<li><?php esc_html_e( 'пояснением термина;', 'glossary-tooltips' ); ?></li>
+					<li><?php esc_html_e( 'примерами использования;', 'glossary-tooltips' ); ?></li>
+					<li><?php esc_html_e( 'рекомендациями, в каких случаях применять.', 'glossary-tooltips' ); ?></li>
+				</ul>
+				<p><?php esc_html_e( 'Термины внутри блоков кода (<code>&lt;code&gt;</code>, <code>&lt;pre&gt;</code>) не подсвечиваются.', 'glossary-tooltips' ); ?></p>
+
+				<h2><?php esc_html_e( 'Советы', 'glossary-tooltips' ); ?></h2>
+				<ul style="margin-left: 1.5em;">
+					<li><?php esc_html_e( 'Длинные фразы обрабатываются первыми: если добавить «REST API» и «API» отдельно, в тексте «REST API» будет подсвечено целиком.', 'glossary-tooltips' ); ?></li>
+					<li><?php esc_html_e( 'Используйте алиасы для разных написаний: API и апи — один термин, несколько вариантов отображения.', 'glossary-tooltips' ); ?></li>
+					<li><?php esc_html_e( 'После добавления или изменения термина изменения видны сразу (кэш обновляется автоматически).', 'glossary-tooltips' ); ?></li>
+				</ul>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -303,14 +369,49 @@ final class Glossary_Tooltips {
 		);
 	}
 
+	public function add_help_tab_on_list() {
+		if ( isset( $_GET['post_type'] ) && 'glossary_term' === $_GET['post_type'] ) {
+			$this->add_help_tab_to_screen();
+		}
+	}
+
+	public function add_help_tab_on_edit() {
+		if ( isset( $_GET['post'] ) ) {
+			$post = get_post( (int) $_GET['post'] );
+		} elseif ( isset( $_GET['post_type'] ) ) {
+			$post = (object) array( 'post_type' => sanitize_key( $_GET['post_type'] ) );
+		} else {
+			return;
+		}
+		if ( $post && 'glossary_term' === $post->post_type ) {
+			$this->add_help_tab_to_screen();
+		}
+	}
+
+	private function add_help_tab_to_screen() {
+		$screen = get_current_screen();
+		if ( ! $screen ) {
+			return;
+		}
+		$help_url = admin_url( 'edit.php?post_type=glossary_term&page=glossary-tooltips-help' );
+		$screen->add_help_tab( array(
+			'id'      => 'glossary-tooltips-help',
+			'title'   => __( 'Как пользоваться', 'glossary-tooltips' ),
+			'content' => '<p><strong>' . __( 'Что такое глоссарий?', 'glossary-tooltips' ) . '</strong></p>
+				<p>' . __( 'Глоссарий подсвечивает технические термины в статьях. При клике читатель видит пояснение, примеры и рекомендации.', 'glossary-tooltips' ) . '</p>
+				<p><strong>' . __( 'Заполните все поля:', 'glossary-tooltips' ) . '</strong></p>
+				<ul>
+					<li><strong>' . __( 'Пояснение', 'glossary-tooltips' ) . '</strong> — ' . __( 'краткое объяснение термина', 'glossary-tooltips' ) . '</li>
+					<li><strong>' . __( 'Примеры использования', 'glossary-tooltips' ) . '</strong> — ' . __( 'каждый пример с новой строки', 'glossary-tooltips' ) . '</li>
+					<li><strong>' . __( 'В каких случаях использовать', 'glossary-tooltips' ) . '</strong> — ' . __( 'когда применять', 'glossary-tooltips' ) . '</li>
+					<li><strong>' . __( 'Алиасы', 'glossary-tooltips' ) . '</strong> — ' . __( 'варианты через запятую (API, апи, эй-пи-ай)', 'glossary-tooltips' ) . '</li>
+				</ul>
+				<p><a href="' . esc_url( $help_url ) . '">' . __( 'Подробная справка', 'glossary-tooltips' ) . ' →</a></p>',
+		) );
+	}
+
 	public function admin_enqueue_scripts( $hook ) {
-		if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
-			return;
-		}
-		global $post;
-		if ( ! $post || 'glossary_term' !== $post->post_type ) {
-			return;
-		}
+		// Placeholder for future admin styles/scripts.
 	}
 
 	public static function on_activate() {
