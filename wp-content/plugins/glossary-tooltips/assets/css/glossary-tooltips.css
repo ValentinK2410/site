@@ -173,8 +173,8 @@
 .glossary-popup-pre::before {
 	content: '';
 	position: absolute;
-	top: 0.75rem;
-	left: 1rem;
+	top: 3px;
+  	left: 6px;
 	width: 8px;
 	height: 8px;
 	background: #ff5f56;
