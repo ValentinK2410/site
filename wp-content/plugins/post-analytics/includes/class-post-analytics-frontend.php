@@ -43,7 +43,7 @@ class Post_Analytics_Frontend {
 	}
 
 	/**
-	 * Добавляет «views» в массив элементов меты (только для главной и архивов).
+	 * Модифицирует элементы меты: на одиночном посте — убираем автора и дату, добавляем просмотры.
 	 *
 	 * @param array $elements Массив имён элементов.
 	 * @return array
@@ -52,8 +52,13 @@ class Post_Analytics_Frontend {
 		if ( ! is_array( $elements ) ) {
 			return $elements;
 		}
-		// Показываем просмотры только в списках: главная, архив, поиск.
-		if ( is_home() || is_archive() || is_search() ) {
+		if ( is_single() ) {
+			// На странице поста: убираем автора и дату, оставляем только просмотры.
+			$elements = array_diff( $elements, array( 'author', 'date' ) );
+			$elements = array_values( $elements );
+			$elements[] = 'views';
+		} elseif ( is_home() || is_archive() || is_search() ) {
+			// В списках: добавляем просмотры к существующим (автор, дата и т.д.).
 			$elements[] = 'views';
 		}
 		return $elements;
@@ -84,10 +89,10 @@ class Post_Analytics_Frontend {
 	}
 
 	/**
-	 * Подключает стили для значка просмотров.
+	 * Подключает стили для значка просмотров (главная, архивы, одиночный пост).
 	 */
 	public function enqueue_styles() {
-		if ( ! is_home() && ! is_archive() && ! is_search() ) {
+		if ( ! is_home() && ! is_archive() && ! is_search() && ! is_singular( 'post' ) ) {
 			return;
 		}
 		wp_enqueue_style(
