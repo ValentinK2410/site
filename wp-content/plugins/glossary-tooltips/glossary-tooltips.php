@@ -42,9 +42,9 @@ final class Glossary_Tooltips {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-		add_action( 'load-edit.php', array( $this, 'add_help_tab_on_list' ) );
-		add_action( 'load-post.php', array( $this, 'add_help_tab_on_edit' ) );
-		add_action( 'load-post-new.php', array( $this, 'add_help_tab_on_edit' ) );
+		add_action( 'load-edit.php', array( $this, 'add_help_tab_on_list' ), 20 );
+		add_action( 'load-post.php', array( $this, 'add_help_tab_on_edit' ), 20 );
+		add_action( 'load-post-new.php', array( $this, 'add_help_tab_on_edit' ), 20 );
 	}
 
 	public function load_textdomain() {
@@ -169,7 +169,7 @@ final class Glossary_Tooltips {
 			array(
 				'title'      => 'callback',
 				'definition' => 'Функция, которая вызывается «позже» — когда произойдёт событие или по запросу. В WordPress передаётся как аргумент в add_action, add_submenu_page и аналогичные функции.',
-				'examples'   => "add_submenu_page( 'tools.php', 'Справка', 'Справка', 'read', 'help', 'render_help_page' ); — render_help_page вызовется при открытии страницы." . "\n" . "add_action( 'admin_menu', array( $this, 'add_menu' ) ); — метод add_menu вызовется при событии admin_menu.",
+				'examples'   => "add_submenu_page( 'tools.php', 'Справка', 'Справка', 'read', 'help', 'render_help_page' ); — render_help_page вызовется при открытии страницы." . "\n" . "add_action( 'admin_menu', array( \$this, 'add_menu' ) ); — метод add_menu вызовется при событии admin_menu.",
 				'use_cases'  => "Когда нужно указать, какую функцию выполнить при наступлении события." . "\n" . "Используется везде: хуки, регистрация страниц, кнопки, AJAX.",
 				'aliases'    => 'callback, колбэк, функция обратного вызова',
 			),
@@ -269,24 +269,32 @@ final class Glossary_Tooltips {
 	}
 
 	/**
+	 * Публичный метод для вызова импорта из скрипта.
+	 */
+	public function do_import_default_terms() {
+		return $this->create_default_glossary_terms();
+	}
+
+	/**
 	 * Отображение страницы справки.
 	 */
 	public function render_help_page() {
-		$this->maybe_import_default_terms();
-
+		if ( ! empty( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['glossary_action'] ) && 'import_defaults' === $_POST['glossary_action'] ) {
+			$this->maybe_import_default_terms();
+		}
 		?>
 		<div class="wrap glossary-help-wrap" style="max-width: 720px;">
 			<h1><?php esc_html_e( 'Как пользоваться глоссарием', 'glossary-tooltips' ); ?></h1>
 
 			<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-			<p>
+			<div style="margin-bottom: 1.5em;">
 				<form method="post" style="display:inline;">
 					<?php wp_nonce_field( 'glossary_import_defaults', 'glossary_import_nonce' ); ?>
 					<input type="hidden" name="glossary_action" value="import_defaults" />
 					<button type="submit" class="button button-secondary"><?php esc_html_e( 'Добавить справочные термины из статьи', 'glossary-tooltips' ); ?></button>
 				</form>
 				<span class="description"><?php esc_html_e( 'Создаст в глоссарии технические термины (add_submenu_page, хук, callback и др.) с пояснениями и примерами.', 'glossary-tooltips' ); ?></span>
-			</p>
+			</div>
 			<?php endif; ?>
 
 			<div class="glossary-help-content" style="line-height: 1.7;">
@@ -548,9 +556,10 @@ final class Glossary_Tooltips {
 	}
 
 	public function add_help_tab_on_list() {
-		if ( isset( $_GET['post_type'] ) && 'glossary_term' === $_GET['post_type'] ) {
-			$this->add_help_tab_to_screen();
+		if ( ! isset( $_GET['post_type'] ) || 'glossary_term' !== sanitize_key( $_GET['post_type'] ) ) {
+			return;
 		}
+		$this->add_help_tab_to_screen();
 	}
 
 	public function add_help_tab_on_edit() {
@@ -561,14 +570,15 @@ final class Glossary_Tooltips {
 		} else {
 			return;
 		}
-		if ( $post && 'glossary_term' === $post->post_type ) {
-			$this->add_help_tab_to_screen();
+		if ( ! $post || 'glossary_term' !== $post->post_type ) {
+			return;
 		}
+		$this->add_help_tab_to_screen();
 	}
 
 	private function add_help_tab_to_screen() {
 		$screen = get_current_screen();
-		if ( ! $screen ) {
+		if ( ! $screen || ! method_exists( $screen, 'add_help_tab' ) ) {
 			return;
 		}
 		$help_url = admin_url( 'tools.php?page=glossary-tooltips-help' );
