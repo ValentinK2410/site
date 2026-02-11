@@ -88,12 +88,12 @@
 		sorted.forEach( function ( t ) {
 			const raw = t.variants || t.term;
 			const variants = Array.isArray( raw ) ? raw : ( raw ? [ raw ] : [] );
-			const skip = excludeTerm && variants.some( function ( v ) {
-				return v.toLowerCase() === String( excludeTerm ).toLowerCase();
+			const skip = excludeTerm && Array.isArray( variants ) && variants.some( function ( v ) {
+				return typeof v === 'string' && v.toLowerCase() === String( excludeTerm ).toLowerCase();
 			} );
 			if ( skip ) return;
-			variants.forEach( function ( v ) {
-				if ( ! v || v.length < 2 ) return;
+			( Array.isArray( variants ) ? variants : [] ).forEach( function ( v ) {
+				if ( typeof v !== 'string' || ! v || v.length < 2 ) return;
 				const escaped = escapeHtml( v );
 				const re = new RegExp( '(?<!["\'>\\w])(' + escaped.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ) + ')(?!["\'<\\w])', 'gi' );
 				const dataDef = attrEscape( t.definition );

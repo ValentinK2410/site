@@ -3,7 +3,7 @@
  * Plugin Name: Glossary Tooltips
  * Plugin URI: https://dekan.pro/
  * Description: Справочная система: технические термины в статьях раскрываются по клику с пояснениями и примерами.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: DekanPro
  * Text Domain: glossary-tooltips
  * Domain Path: /languages
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GLOSSARY_TOOLTIPS_VERSION', '1.0.2' );
+define( 'GLOSSARY_TOOLTIPS_VERSION', '1.0.3' );
 define( 'GLOSSARY_TOOLTIPS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GLOSSARY_TOOLTIPS_URL', plugin_dir_url( __FILE__ ) );
 
