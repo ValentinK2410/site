@@ -45,7 +45,7 @@
 		0 25px 50px -12px rgba(0, 0, 0, 0.2),
 		0 0 0 1px rgba(99, 102, 241, 0.08),
 		inset 0 1px 0 rgba(255, 255, 255, 0.9);
-	font-size: 13px;
+	font-size: 16px;
 	line-height: 1.6;
 	animation: glossary-popup-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
