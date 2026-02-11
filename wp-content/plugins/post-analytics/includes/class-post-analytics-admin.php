@@ -1,18 +1,28 @@
 <?php
 /**
- * Admin UI for Post Analytics.
+ * Админ-интерфейс для Post Analytics.
  *
  * @package Post_Analytics
  */
 
+// Защита от прямого доступа.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Класс страницы статистики в админке WordPress.
+ */
 class Post_Analytics_Admin {
 
+	/** @var Post_Analytics_Admin|null Экземпляр класса (одиночка). */
 	private static $instance = null;
 
+	/**
+	 * Возвращает единственный экземпляр класса.
+	 *
+	 * @return Post_Analytics_Admin
+	 */
 	public static function instance() {
 		if ( null === self::$instance ) {
 			self::$instance = new self();
@@ -20,11 +30,18 @@ class Post_Analytics_Admin {
 		return self::$instance;
 	}
 
+	/**
+	 * Конструктор: добавляет пункт меню и обработчик создания таблицы.
+	 */
 	private function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
+		// Обработчик action для кнопки «Создать таблицу» (если плагин скопирован без активации).
 		add_action( 'admin_post_post_analytics_create_table', array( $this, 'maybe_create_table' ) );
 	}
 
+	/**
+	 * Добавляет пункт «Статистика записей» в боковое меню админки.
+	 */
 	public function add_menu() {
 		add_menu_page(
 			__( 'Статистика записей', 'post-analytics' ),
@@ -37,6 +54,9 @@ class Post_Analytics_Admin {
 		);
 	}
 
+	/**
+	 * Создаёт таблицу по нажатию кнопки (проверка прав и nonce).
+	 */
 	public function maybe_create_table() {
 		if ( ! current_user_can( 'manage_options' ) || ! check_admin_referer( 'post_analytics_create_table' ) ) {
 			wp_die( esc_html__( 'Недостаточно прав.', 'post-analytics' ) );
@@ -46,16 +66,21 @@ class Post_Analytics_Admin {
 		exit;
 	}
 
+	/**
+	 * Выводит страницу статистики: таблица с просмотрами или форма настройки.
+	 */
 	public function render_page() {
 		global $wpdb;
-		$table = Post_Analytics_DB::get_table();
+		$table        = Post_Analytics_DB::get_table();
 		$table_exists = $wpdb->get_var( "SHOW TABLES LIKE '$table'" ) === $table;
 
+		// Если таблицы нет — показываем экран настройки с кнопкой создания.
 		if ( ! $table_exists ) {
 			$this->render_setup( $table );
 			return;
 		}
 
+		// Период: 7, 14, 30 или 90 дней.
 		$days = isset( $_GET['days'] ) ? absint( $_GET['days'] ) : 30;
 		$days = in_array( $days, array( 7, 14, 30, 90 ), true ) ? $days : 30;
 
@@ -107,7 +132,8 @@ class Post_Analytics_Admin {
 								<td><?php echo esc_html( round( $s['avg_time'] ) ); ?></td>
 								<td>
 									<?php
-									$dev = $s['devices'];
+									// Разбивка по устройствам: десктоп, мобильный, планшет.
+									$dev   = $s['devices'];
 									$parts = array();
 									if ( ! empty( $dev['desktop'] ) ) $parts[] = 'Десктоп: ' . $dev['desktop'];
 									if ( ! empty( $dev['mobile'] ) ) $parts[] = 'Мобильный: ' . $dev['mobile'];
@@ -117,7 +143,8 @@ class Post_Analytics_Admin {
 								</td>
 								<td>
 									<?php
-									$p = $s['platforms'];
+									// Разбивка по платформам: iOS, Android, Windows и т.д.
+									$p    = $s['platforms'];
 									$plat = array();
 									foreach ( (array) $p as $name => $cnt ) {
 										$plat[] = $name . ': ' . $cnt;
@@ -134,6 +161,11 @@ class Post_Analytics_Admin {
 		<?php
 	}
 
+	/**
+	 * Выводит экран настройки: сообщение и кнопка создания таблицы.
+	 *
+	 * @param string $table Имя таблицы (для отладки, в шаблоне не используется).
+	 */
 	private function render_setup( $table ) {
 		$create_url = wp_nonce_url( admin_url( 'admin-post.php?action=post_analytics_create_table' ), 'post_analytics_create_table' );
 		?>

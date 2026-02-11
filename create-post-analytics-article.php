@@ -4,18 +4,22 @@
  * Запуск: php create-post-analytics-article.php (из корня WordPress)
  */
 
+// Скрипт только для CLI — защита от запуска через веб.
 if ( php_sapi_name() !== 'cli' ) {
 	die( 'Запускайте только из командной строки: php create-post-analytics-article.php' );
 }
 
 require_once __DIR__ . '/wp-load.php';
 
+// Глоссарий нужен для добавления терминов.
 if ( ! class_exists( 'Glossary_Tooltips' ) ) {
 	echo "Плагин Glossary Tooltips не активен. Термины не будут добавлены.\n";
 }
 
 /**
- * Термины для глоссария (Post Analytics).
+ * Возвращает массив терминов для добавления в глоссарий (Post Analytics).
+ *
+ * @return array
  */
 function get_post_analytics_glossary_terms() {
 	return array(
@@ -113,12 +117,18 @@ function get_post_analytics_glossary_terms() {
 	);
 }
 
+/**
+ * Добавляет термины в глоссарий (пропускает уже существующие).
+ *
+ * @return int Количество добавленных терминов.
+ */
 function add_glossary_terms() {
-	$terms = get_post_analytics_glossary_terms();
+	$terms   = get_post_analytics_glossary_terms();
 	$created = 0;
 
 	foreach ( $terms as $term_data ) {
 		global $wpdb;
+		// Проверяем, есть ли уже такой термин.
 		$exists = $wpdb->get_var( $wpdb->prepare(
 			"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'glossary_term' AND post_title = %s AND post_status != 'trash' LIMIT 1",
 			$term_data['title']
@@ -141,6 +151,7 @@ function add_glossary_terms() {
 		}
 	}
 
+	// Очищаем кэш глоссария, чтобы новые термины подхватились.
 	if ( $created > 0 && class_exists( 'Glossary_Tooltips' ) ) {
 		Glossary_Tooltips::clear_cache();
 	}
@@ -148,7 +159,9 @@ function add_glossary_terms() {
 }
 
 /**
- * Содержимое статьи о плагине Post Analytics.
+ * Возвращает HTML-содержимое статьи о плагине Post Analytics.
+ *
+ * @return string
  */
 function get_post_analytics_article_content() {
 	return '<h2>Введение</h2>
@@ -208,7 +221,7 @@ function get_post_analytics_article_content() {
 <p>Плагин Post Analytics — полноценный пример сбора поведенческой аналитики на WordPress: база данных для хранения, REST API для приёма данных с фронтенда, JavaScript-трекинг с учётом ухода пользователя, админка для просмотра статистики. Структуру можно расширить: добавить экспорт, графики, уведомления о популярных записях.</p>';
 }
 
-// === Выполнение ===
+// === Основное выполнение скрипта ===
 
 echo "=== Добавление терминов в глоссарий ===\n";
 $terms_added = add_glossary_terms();
@@ -216,6 +229,7 @@ echo "Добавлено терминов: $terms_added\n\n";
 
 $title = 'Как создать плагин аналитики просмотров записей в WordPress';
 global $wpdb;
+// Не создаём дубликат, если статья уже есть.
 $existing_id = $wpdb->get_var( $wpdb->prepare(
 	"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'post' AND post_title = %s AND post_status != 'trash' LIMIT 1",
 	$title
