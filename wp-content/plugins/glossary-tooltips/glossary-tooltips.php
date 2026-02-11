@@ -38,7 +38,7 @@ final class Glossary_Tooltips {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post_glossary_term', array( $this, 'save_term_meta' ), 10, 2 );
 
-		add_filter( 'the_content', array( $this, 'filter_content' ), 20 );
+		add_filter( 'the_content', array( $this, 'filter_content' ), 999 );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -451,10 +451,28 @@ final class Glossary_Tooltips {
 	}
 
 	/**
+	 * Определяет, нужно ли обрабатывать контент фильтром глоссария.
+	 * Обрабатываем на одиночных записях, страницах и статической главной.
+	 * Дополнительная проверка in_the_loop() + get_post_type() для страниц с кастомными шаблонами.
+	 */
+	private function should_filter_content() {
+		if ( is_singular() || is_page() ) {
+			return true;
+		}
+		if ( is_front_page() && is_page() ) {
+			return true;
+		}
+		if ( in_the_loop() && get_post_type() === 'page' ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Фильтр контента: оборачивает термины в span с data-атрибутами.
 	 */
 	public function filter_content( $content ) {
-		if ( ! is_singular() ) {
+		if ( ! $this->should_filter_content() ) {
 			return $content;
 		}
 
@@ -536,7 +554,8 @@ final class Glossary_Tooltips {
 	}
 
 	public function enqueue_scripts() {
-		if ( ! is_singular() ) {
+		// Подключаем на одиночных записях и страницах (включая страницы с кастомными шаблонами).
+		if ( ! is_singular() && ! is_page() ) {
 			return;
 		}
 
