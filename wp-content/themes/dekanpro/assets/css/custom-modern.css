@@ -464,6 +464,7 @@ article:hover .post-thumbnail img {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    font-size: 20px;
 }
 
 /* Скрываем автора поста везде */
@@ -1063,5 +1064,11 @@ html {
     background: linear-gradient(90deg, transparent, #f967fb, #6958d5, #53bc28, transparent);
     margin: 3rem 0;
     border-radius: 3px;
+}
+
+/* Скрыть дату публикации (posted-on) на главной странице */
+.home .entry-meta .posted-on,
+.home .entry-meta .entry-meta-elements > span.posted-on {
+    display: none !important;
 }
 
