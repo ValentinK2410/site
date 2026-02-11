@@ -26,6 +26,7 @@ define( 'POST_ANALYTICS_TABLE', 'post_analytics' );
 require_once POST_ANALYTICS_PATH . 'includes/class-post-analytics-db.php';
 require_once POST_ANALYTICS_PATH . 'includes/class-post-analytics-rest.php';
 require_once POST_ANALYTICS_PATH . 'includes/class-post-analytics-admin.php';
+require_once POST_ANALYTICS_PATH . 'includes/class-post-analytics-frontend.php';
 
 /**
  * Главный класс плагина Post Analytics.
@@ -58,9 +59,10 @@ final class Post_Analytics {
 		// Подключение скрипта трекинга на фронтенде.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend' ) );
 
-		// Инициализация REST API и админки.
+		// Инициализация REST API, админки и вывода просмотров на фронте.
 		Post_Analytics_REST::instance();
 		Post_Analytics_Admin::instance();
+		Post_Analytics_Frontend::instance();
 	}
 
 	/**

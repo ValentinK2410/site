@@ -1,0 +1,29 @@
+/**
+ * Стили значка просмотров в карточках постов.
+ *
+ * @package Post_Analytics
+ */
+
+/* Значок просмотров в entry-meta. */
+.entry-meta .post-views.entry-meta-views {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-left: 0.5em;
+}
+
+.entry-meta .post-views.entry-meta-views svg {
+	flex-shrink: 0;
+	opacity: 0.7;
+	vertical-align: middle;
+}
+
+.entry-meta .post-views .views-count {
+	font-size: 0.9em;
+}
+
+/* В тёмной теме. */
+body.dekanpro-dark-mode .entry-meta .post-views.entry-meta-views svg,
+.dark-mode .entry-meta .post-views.entry-meta-views svg {
+	opacity: 0.85;
+}

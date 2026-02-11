@@ -47,6 +47,18 @@ class Post_Analytics_DB {
 	}
 
 	/**
+	 * Возвращает количество просмотров для записи (для вывода в карточке).
+	 *
+	 * @param int $post_id ID записи.
+	 * @param int $days    Период в днях (по умолчанию 30).
+	 * @return int Уникальные просмотры.
+	 */
+	public static function get_view_count( $post_id, $days = 30 ) {
+		$stats = self::get_post_stats( $post_id, $days );
+		return (int) $stats['unique_views'];
+	}
+
+	/**
 	 * Возвращает полное имя таблицы.
 	 *
 	 * @return string
