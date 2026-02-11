@@ -65,22 +65,38 @@
 	position: absolute;
 	top: 0.75rem;
 	right: 0.75rem;
-	width: 2rem;
-	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.25rem;
+	height: 2.25rem;
 	padding: 0;
-	border: none;
-	background: rgba(100, 116, 139, 0.15);
+	border: 1px solid rgba(100, 116, 139, 0.2);
 	border-radius: 0.5rem;
+	background: #fff;
 	color: #64748b;
-	font-size: 1.25rem;
-	line-height: 1;
 	cursor: pointer;
-	transition: color 0.15s, background 0.15s;
+	transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.15s;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.glossary-popup-close svg {
+	display: block;
 }
 
 .glossary-popup-close:hover {
-	color: #1e293b;
-	background: rgba(100, 116, 139, 0.25);
+	color: #dc2626;
+	background: #fef2f2;
+	border-color: rgba(220, 38, 38, 0.3);
+}
+
+.glossary-popup-close:focus {
+	outline: 2px solid var(--dekanpro-primary, #6366f1);
+	outline-offset: 2px;
+}
+
+.glossary-popup-close:active {
+	transform: scale(0.95);
 }
 
 /* Заголовок термина */
@@ -224,14 +240,16 @@
 
 	body.dekanpro-dark-mode .glossary-popup-close,
 	.dark-mode .glossary-popup .glossary-popup-close {
-		background: rgba(148, 163, 184, 0.2);
+		background: rgba(30, 41, 59, 0.8);
+		border-color: rgba(148, 163, 184, 0.2);
 		color: #94a3b8;
 	}
 
 	body.dekanpro-dark-mode .glossary-popup-close:hover,
 	.dark-mode .glossary-popup .glossary-popup-close:hover {
-		background: rgba(148, 163, 184, 0.3);
-		color: #f1f5f9;
+		background: rgba(220, 38, 38, 0.2);
+		border-color: rgba(248, 113, 113, 0.3);
+		color: #f87171;
 	}
 
 	body.dekanpro-dark-mode .glossary-popup-label-def,
