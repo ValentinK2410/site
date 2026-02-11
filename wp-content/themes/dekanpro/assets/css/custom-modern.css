@@ -486,6 +486,15 @@ article.post .post-author,
     background: inherit !important;
 }
 
+/* Убрать эффект у .entry-summary.dekanpro-entry при наведении на article */
+article:hover .entry-summary.dekanpro-entry,
+.dekanpro-article:hover .entry-summary.dekanpro-entry,
+.dekanpro-post-item:hover .entry-summary.dekanpro-entry,
+.entry-summary.dekanpro-entry:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+}
+
 /* ============================================
    CATEGORIES & TAGS - Modern Pills
    ============================================ */
