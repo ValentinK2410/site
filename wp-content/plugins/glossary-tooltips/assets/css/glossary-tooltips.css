@@ -40,7 +40,7 @@
 	background: #fff;
 	border-radius: 0.75rem;
 	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.08);
-	font-size: 0.95rem;
+	font-size: 12px;
 	line-height: 1.5;
 	animation: glossary-popup-in 0.2s ease-out;
 }
@@ -94,7 +94,7 @@
 
 .glossary-popup-label {
 	margin: 0 0 0.35rem;
-	font-size: 0.8rem;
+	font-size: 12px;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
