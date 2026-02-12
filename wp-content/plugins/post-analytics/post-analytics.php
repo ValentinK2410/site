@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Post Analytics — Аналитика просмотров записей
+ * Plugin Name: DekanPro Post Analytics — Аналитика просмотров записей
  * Plugin URI: https://dekan.pro/
  * Description: Статистика просмотров: уникальные пользователи, глубина прокрутки, время на странице, устройства и платформы.
  * Version: 1.0.0
