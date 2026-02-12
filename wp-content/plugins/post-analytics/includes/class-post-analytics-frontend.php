@@ -58,7 +58,9 @@ class Post_Analytics_Frontend {
 			$elements = array_values( $elements );
 			$elements[] = 'views';
 		} elseif ( is_home() || is_archive() || is_search() ) {
-			// В списках: добавляем просмотры к существующим (автор, дата и т.д.).
+			// В списках (главная, категории, архивы): убираем дату, добавляем просмотры.
+			$elements = array_diff( $elements, array( 'date' ) );
+			$elements = array_values( $elements );
 			$elements[] = 'views';
 		}
 		return $elements;
