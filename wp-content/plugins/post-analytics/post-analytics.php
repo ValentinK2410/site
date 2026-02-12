@@ -52,6 +52,8 @@ final class Post_Analytics {
 	 * Конструктор: регистрирует хуки и инициализирует компоненты.
 	 */
 	private function __construct() {
+		// Отключаем проверку обновлений через wordpress.org (чтобы не путать с официальным Post Analytics).
+		add_filter( 'site_transient_update_plugins', array( $this, 'disable_wp_org_update_check' ) );
 		// Хук активации — создание таблицы при первом включении плагина.
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		// Хук инициализации — загрузка переводов.
@@ -70,6 +72,20 @@ final class Post_Analytics {
 	 */
 	public function init() {
 		load_plugin_textdomain( 'post-analytics', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+
+	/**
+	 * Убирает плагин из списка обновлений wordpress.org.
+	 *
+	 * @param object|null $value Объект с данными обновлений.
+	 * @return object|null
+	 */
+	public function disable_wp_org_update_check( $value ) {
+		$plugin_file = plugin_basename( __FILE__ );
+		if ( is_object( $value ) && isset( $value->response[ $plugin_file ] ) ) {
+			unset( $value->response[ $plugin_file ] );
+		}
+		return $value;
 	}
 
 	/**
