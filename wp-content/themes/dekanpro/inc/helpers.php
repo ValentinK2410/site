@@ -614,6 +614,11 @@ function dekanpro_translate_strings_to_russian( $translated, $text, $domain ) {
 		'No comments yet. Why don&rsquo;t you start the discussion?' => 'Пока нет комментариев. Станьте первым!',
 		'You must be %1$slogged in%2$s to post a comment.' => 'Чтобы оставить комментарий, необходимо %1$sвойти%2$s.',
 		'Pingback: '             => 'Пингбек: ',
+		'Home'                   => 'Все рубрики',
+		'Add Button Text'        => 'Текст кнопки',
+		'Close'                  => 'Закрыть',
+		'No results found'       => 'Ничего не найдено',
+		'Search results for: %s' => 'Результаты поиска: %s',
 	);
 
 	if ( isset( $translations[ $text ] ) ) {
@@ -626,6 +631,23 @@ add_filter( 'gettext', 'dekanpro_translate_strings_to_russian', 20, 3 );
 add_filter( 'gettext_with_context', function ( $translated, $text, $context, $domain ) {
 	return dekanpro_translate_strings_to_russian( $translated, $text, $domain );
 }, 20, 4 );
+
+/**
+ * Заменяет «Главная» на «Все рубрики» в пункте меню, ведущем на главную.
+ *
+ * @param string   $title Заголовок пункта меню.
+ * @param WP_Post  $item  Объект пункта меню.
+ * @return string
+ */
+function dekanpro_menu_home_to_all_categories( $title, $item ) {
+	if ( ! empty( $item->url ) && trailingslashit( $item->url ) === trailingslashit( home_url() ) ) {
+		if ( 'Главная' === $title ) {
+			return 'Все рубрики';
+		}
+	}
+	return $title;
+}
+add_filter( 'nav_menu_item_title', 'dekanpro_menu_home_to_all_categories', 10, 2 );
 
 /**
  * Filter excerpt length.
