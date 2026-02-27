@@ -201,7 +201,7 @@ function dekanpro_region_selector_output() {
 					<label for="dekanpro_region_select"><?php esc_html_e( 'Регион', 'dekanpro' ); ?></label>
 					<select id="dekanpro_region_select" name="region">
 						<?php foreach ( $regions as $key => $label ) : ?>
-							<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></option>
+							<option value="<?php echo esc_attr( $key ); ?>"<?php selected( $key, 'saratov' ); ?>><?php echo esc_html( $label ); ?></option>
 						<?php endforeach; ?>
 					</select>
 				</p>
@@ -233,7 +233,7 @@ function dekanpro_region_selector_script() {
 
 		function initFormFromUrl() {
 			var params = new URLSearchParams(window.location.search);
-			var region = params.get('region') || '';
+			var region = params.get('region') || 'saratov';
 			var city = params.get('city') || '';
 			var regionSel = panel.querySelector('[name="region"]');
 			var cityInput = panel.querySelector('[name="city"]');
