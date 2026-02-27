@@ -32,35 +32,36 @@
 			);
 
 		elseif ( is_search() ) :
-
-			printf(
-				'<p>' . wp_kses( __( 'Sorry, no results were found. Please try again with different keywords.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
-			);
+			?>
+			<p><?php esc_html_e( 'К сожалению, по вашему запросу ничего не найдено. Попробуйте другие ключевые слова.', 'dekanpro' ); ?></p>
+			<?php
 			get_search_form();
 
 		elseif ( is_category() ) :
-
-			printf(
-				'<p>' . wp_kses( __( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
-			);
+			$contrib_page = get_page_by_path( 'dobavit-material' );
+			$contrib_url  = $contrib_page ? get_permalink( $contrib_page ) : '';
+			?>
+			<p><?php esc_html_e( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ); ?></p>
+			<p class="no-results-hint"><?php esc_html_e( 'Станьте первым автором — добавьте свой материал!', 'dekanpro' ); ?></p>
+			<?php if ( $contrib_url ) : ?>
+				<p class="no-results-action"><a href="<?php echo esc_url( $contrib_url ); ?>" class="dekanpro-btn primary-button"><?php esc_html_e( 'Добавить материал', 'dekanpro' ); ?></a></p>
+			<?php endif; ?>
+			<?php
 
 		elseif ( is_tax() ) :
-
-			printf(
-				'<p>' . wp_kses( __( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
-			);
+			?>
+			<p><?php esc_html_e( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ); ?></p>
+			<?php
 
 		elseif ( is_tag() ) :
-
-			printf(
-				'<p>' . wp_kses( __( 'По этой метке пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
-			);
+			?>
+			<p><?php esc_html_e( 'По этой метке пока нет опубликованных записей.', 'dekanpro' ); ?></p>
+			<?php
 
 		else :
-
-			printf(
-				'<p>' . wp_kses( __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
-			);
+			?>
+			<p><?php esc_html_e( 'К сожалению, мы не можем найти то, что вы ищете. Попробуйте воспользоваться поиском.', 'dekanpro' ); ?></p>
+			<?php
 			get_search_form();
 
 		endif;

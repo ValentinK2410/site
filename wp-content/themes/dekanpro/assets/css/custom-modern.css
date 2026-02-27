@@ -1206,7 +1206,9 @@ a.button:hover,
     right: 0;
     bottom: 0;
     z-index: 100000;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     align-items: center;
     justify-content: center;
 }
@@ -1215,57 +1217,122 @@ a.button:hover,
 }
 .dekanpro-region-selector-inner {
     background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-    min-width: 300px;
+    padding: 2rem;
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    min-width: 340px;
     max-width: 90vw;
+    animation: fadeInUp 0.3s ease-out;
 }
 .dekanpro-region-selector-title {
-    margin: 0 0 1rem;
-    font-size: 1.1rem;
+    margin: 0 0 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dekanpro-secondary, #0f172a);
 }
 .dekanpro-region-form .dekanpro-region-row {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
 }
 .dekanpro-region-form label {
     display: block;
-    margin-bottom: 0.25rem;
-    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dekanpro-gray-600, #475569);
 }
 .dekanpro-region-form select,
 .dekanpro-region-form input[type="text"] {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.7rem 0.85rem;
+    border: 2px solid var(--dekanpro-gray-200, #e2e8f0);
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: var(--dekanpro-gray-50, #f8fafc);
+}
+.dekanpro-region-form select:focus,
+.dekanpro-region-form input[type="text"]:focus {
+    border-color: var(--dekanpro-primary, #6366f1);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+    background: #fff;
 }
 .dekanpro-region-actions {
-    margin: 1rem 0 0;
+    margin: 1.5rem 0 0;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
+}
+.dekanpro-region-actions .dekanpro-btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    padding: 0.7rem 1.25rem !important;
+    font-size: 0.95rem !important;
+}
+.dekanpro-region-actions .dekanpro-region-clear {
+    background: var(--dekanpro-gray-100, #f1f5f9) !important;
+    color: var(--dekanpro-gray-600, #475569) !important;
+    box-shadow: none !important;
+}
+.dekanpro-region-actions .dekanpro-region-clear:hover {
+    background: var(--dekanpro-gray-200, #e2e8f0) !important;
+    transform: none;
+    box-shadow: none !important;
 }
 
 /* Оглавление */
 .dekanpro-toc {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.06));
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    position: relative;
+}
+.dekanpro-toc::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--dekanpro-gradient-primary);
+    border-radius: 4px 0 0 4px;
 }
 .dekanpro-toc-title {
     font-size: 1.1rem;
-    margin-top: 0;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: var(--dekanpro-primary-dark, #4f46e5);
 }
 .dekanpro-toc-list {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 }
 .dekanpro-toc-item {
-    margin: 0.35rem 0;
+    margin: 0.25rem 0;
+}
+.dekanpro-toc-item a {
+    display: block;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--dekanpro-gray-700, #334155);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+.dekanpro-toc-item a:hover {
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--dekanpro-primary, #6366f1);
+    padding-left: 1rem;
 }
 .dekanpro-toc-h3 {
-    padding-left: 1rem;
+    padding-left: 1.25rem;
+}
+.dekanpro-toc-h3 a {
+    font-size: 0.9rem;
+    color: var(--dekanpro-gray-500, #64748b);
 }
 
 /* Поиск в шапке (fallback) */
@@ -1332,16 +1399,315 @@ a.button:hover,
 /* Кнопка «Добавить материал» на рубриках */
 .dekanpro-contrib-cta {
     margin-bottom: 2rem;
+    text-align: center;
 }
 .dekanpro-contrib-cta .dekanpro-btn {
-    display: inline-block;
-    padding: 0.6rem 1.25rem;
-    background: var(--dekanpro-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    background: var(--dekanpro-gradient-primary) !important;
     color: #fff !important;
-    border-radius: 6px;
+    border-radius: var(--dekanpro-full-radius, 9999px);
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
 }
 .dekanpro-contrib-cta .dekanpro-btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* ============================================
+   ПУСТЫЕ РУБРИКИ — дружелюбная заглушка
+   ============================================ */
+.no-results.not-found {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+.no-results .page-content.dekanpro-entry {
+    max-width: 480px;
+    margin: 0 auto;
+}
+.no-results .page-content p {
+    font-size: 1.1rem;
+    color: var(--dekanpro-gray-500, #64748b);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.no-results .no-results-hint {
+    font-size: 1rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+    margin-bottom: 1.5rem;
+}
+.no-results .no-results-action {
+    margin-top: 0.5rem;
+}
+.no-results .no-results-action .dekanpro-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem !important;
+    font-size: 1rem !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+    font-weight: 600 !important;
+    background: var(--dekanpro-gradient-primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* ============================================
+   ФОРМА ВХОДА (страница «Добавить материал»)
+   ============================================ */
+.dekanpro-contrib-login-prompt {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.06));
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+}
+.dekanpro-contrib-login-prompt p {
+    font-size: 1.05rem;
+    color: var(--dekanpro-gray-600, #475569);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.dekanpro-contrib-login-prompt .contrib-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn {
+    padding: 0.75rem 2rem !important;
+    font-size: 1rem !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+    font-weight: 600 !important;
+}
+.dekanpro-contrib-login-prompt .contrib-actions .primary-button {
+    background: var(--dekanpro-gradient-primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn:not(.primary-button) {
+    background: var(--dekanpro-gray-100, #f1f5f9) !important;
+    color: var(--dekanpro-gray-700, #334155) !important;
+    border: 2px solid var(--dekanpro-gray-200, #e2e8f0) !important;
+    box-shadow: none !important;
+}
+.dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn:not(.primary-button):hover {
+    background: var(--dekanpro-gray-200, #e2e8f0) !important;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ФОРМА ДОБАВЛЕНИЯ МАТЕРИАЛА — улучшения
+   ============================================ */
+.dekanpro-contrib-form-wrapper {
+    max-width: 680px;
+}
+.dekanpro-contrib-form .form-row {
+    margin-bottom: 1.5rem;
+}
+.dekanpro-contrib-form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--dekanpro-gray-700, #334155);
+    margin-bottom: 0.4rem;
+    display: block;
+}
+.dekanpro-contrib-form .form-hint {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+}
+.dekanpro-contrib-form .required {
+    color: #ef4444;
+}
+.dekanpro-contrib-form .form-submit {
+    padding-top: 0.5rem;
+}
+.dekanpro-contrib-success {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(16, 185, 129, 0.08));
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    padding: 1.25rem 1.5rem;
+    color: #166534;
+    font-weight: 500;
+}
+
+/* ============================================
+   КНОПКИ ШАРИНГА — крупнее, заметнее
+   ============================================ */
+.dekanpro-share-buttons {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--dekanpro-gray-50, #f8fafc);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    border: 1px solid var(--dekanpro-gray-100, #f1f5f9);
+}
+.dekanpro-share-buttons .share-label {
+    font-weight: 600;
+    color: var(--dekanpro-gray-600, #475569);
+    font-size: 0.95rem;
+}
+.dekanpro-share-buttons .share-btn {
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--dekanpro-full-radius, 9999px);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+.dekanpro-share-buttons .share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+.dekanpro-share-buttons .share-btn-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============================================
+   МЕТА ЗАПИСЕЙ — аккуратнее
+   ============================================ */
+.entry-meta {
+    font-size: 0.875rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+}
+.entry-meta a {
+    color: var(--dekanpro-gray-500, #64748b);
+    text-decoration: none;
+}
+.entry-meta a:hover {
+    color: var(--dekanpro-primary, #6366f1);
+}
+
+/* ============================================
+   ЛОКАЦИЯ ПОСТА
+   ============================================ */
+.dekanpro-post-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: var(--dekanpro-gray-50, #f8fafc);
+    border: 1px solid var(--dekanpro-gray-200, #e2e8f0);
+    border-radius: var(--dekanpro-full-radius, 9999px);
+    font-size: 0.9rem;
+    color: var(--dekanpro-gray-600, #475569);
+    margin-top: 1rem;
+}
+.dekanpro-post-location .location-label {
+    font-weight: 600;
+    color: var(--dekanpro-gray-700, #334155);
+}
+
+/* ============================================
+   СВЕЖИЕ ЗАПИСИ (виджет) — аккуратнее
+   ============================================ */
+.widget_recent_entries ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.widget_recent_entries li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--dekanpro-gray-100, #f1f5f9);
+}
+.widget_recent_entries li:last-child {
+    border-bottom: none;
+}
+.widget_recent_entries li a {
+    color: var(--dekanpro-gray-700, #334155);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.widget_recent_entries li a:hover {
+    color: var(--dekanpro-primary, #6366f1);
+}
+
+/* ============================================
+   ГРУППА ПОЛЕЙ МЕСТОПОЛОЖЕНИЯ
+   ============================================ */
+.form-row-group-location {
+    background: var(--dekanpro-gray-50, #f8fafc);
+    border: 1px solid var(--dekanpro-gray-200, #e2e8f0);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.form-row-group-location .group-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--dekanpro-gray-700, #334155);
+    margin-bottom: 1rem;
+}
+.form-row-group-location .form-row {
+    margin-bottom: 1rem;
+}
+.form-row-group-location .form-row:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   ЗАГОЛОВОК АРХИВА / РУБРИКИ
+   ============================================ */
+.page-header .page-title,
+.archive-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--dekanpro-secondary, #0f172a);
+    margin-bottom: 0.5rem;
+}
+.archive-description,
+.taxonomy-description {
+    font-size: 1rem;
+    color: var(--dekanpro-gray-500, #64748b);
+    line-height: 1.6;
+    max-width: 640px;
+}
+
+/* ============================================
+   АДАПТИВ: мобильные улучшения
+   ============================================ */
+@media screen and (max-width: 768px) {
+    .dekanpro-share-buttons {
+        padding: 1rem;
+    }
+    .dekanpro-share-buttons .share-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    .dekanpro-region-selector-inner {
+        min-width: auto;
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    .dekanpro-contrib-login-prompt {
+        padding: 1.5rem 1.25rem;
+    }
+    .dekanpro-contrib-login-prompt .contrib-actions {
+        flex-direction: column;
+    }
+    .dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .no-results.not-found {
+        padding: 2rem 1rem;
+    }
+    .form-row-group-location {
+        padding: 1rem;
+    }
 }
 
