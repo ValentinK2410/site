@@ -1645,7 +1645,7 @@ a.button:hover,
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.5;
 }
 .widget_recent_entries li a:hover {
