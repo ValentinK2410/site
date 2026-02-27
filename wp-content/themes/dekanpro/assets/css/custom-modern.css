@@ -1197,6 +1197,55 @@ a.button:hover,
     background: #1c8bc7;
 }
 
+/* Селектор региона и города */
+.dekanpro-region-selector {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+}
+.dekanpro-region-selector.is-open {
+    display: flex;
+}
+.dekanpro-region-selector-inner {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+    max-width: 90vw;
+}
+.dekanpro-region-selector-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+}
+.dekanpro-region-form .dekanpro-region-row {
+    margin: 0 0 1rem;
+}
+.dekanpro-region-form label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+.dekanpro-region-form select,
+.dekanpro-region-form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.dekanpro-region-actions {
+    margin: 1rem 0 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
 /* Оглавление */
 .dekanpro-toc {
     margin-bottom: 1.5rem;

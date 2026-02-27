@@ -49,6 +49,11 @@ $menu_items  = array(
 		'slug'  => 'stati',
 	),
 	array(
+		'title' => 'Выбрать регион и город',
+		'url'   => '#',
+		'type'  => 'region_selector',
+	),
+	array(
 		'title' => 'Добавить материал',
 		'url'   => '',
 		'type'  => 'page',
@@ -137,6 +142,8 @@ foreach ( $menu_items as $item ) {
 			$page = ! empty( $page ) ? $page[0] : null;
 		}
 		$url = $page ? get_permalink( $page ) : home_url( '/' . $item['slug'] . '/' );
+	} elseif ( 'region_selector' === $item['type'] ) {
+		$url = '#';
 	}
 
 	wp_update_nav_menu_item(
