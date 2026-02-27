@@ -17,12 +17,12 @@ $nav_location = has_nav_menu( 'primary' ) ? 'primary' : 'dekanpro-primary';
 if ( has_nav_menu( 'primary' ) || has_nav_menu( 'dekanpro-primary' ) ) {
 	wp_nav_menu(
 		array(
-			'theme_location'  => $nav_location,
-			'menu_id'         => 'dekanpro-primary-nav',
-			'container'       => 'div',
-			'container_class' => 'main-nav',
-			'link_before'     => '<span>',
-			'link_after'      => '</span>',
+			'theme_location' => $nav_location,
+			'menu_id'        => 'dekanpro-primary-nav',
+			'container'      => false,
+			'menu_class'     => '',
+			'link_before'    => '<span>',
+			'link_after'     => '</span>',
 		)
 	);
 } else {

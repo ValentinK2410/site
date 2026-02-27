@@ -1203,3 +1203,51 @@ a.button:hover,
     min-width: 180px;
 }
 
+/* ============================================
+   HEADER NAV: горизонтальное меню без буллетов
+   ============================================ */
+.dekanpro-header-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+.dekanpro-nav,
+.dekanpro-primary-nav {
+    display: flex !important;
+    align-items: center;
+}
+.dekanpro-nav > ul,
+#dekanpro-primary-nav,
+.dekanpro-primary-nav > ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dekanpro-nav ul li,
+#dekanpro-primary-nav li,
+.dekanpro-primary-nav ul li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dekanpro-nav > ul > li > a,
+#dekanpro-primary-nav > li > a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    color: var(--dekanpro-secondary, #0f172a);
+    text-decoration: none;
+    transition: var(--dekanpro-transition-fast);
+}
+.dekanpro-nav > ul > li > a:hover,
+#dekanpro-primary-nav > li > a:hover,
+.dekanpro-nav > ul > li.current-menu-item > a,
+#dekanpro-primary-nav > li.current-menu-item > a {
+    color: var(--dekanpro-primary) !important;
+}
+
