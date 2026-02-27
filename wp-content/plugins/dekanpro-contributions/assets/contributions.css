@@ -1,0 +1,126 @@
+/**
+ * Стили формы отправки материалов.
+ *
+ * @package DekanPro_Contributions
+ */
+
+.dekanpro-contrib-form-wrapper {
+	max-width: 640px;
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dekanpro-contrib-success {
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	background: rgba(34, 197, 94, 0.15);
+	border-left: 4px solid #22c55e;
+	border-radius: 4px;
+	color: #166534;
+}
+
+.dekanpro-contrib-form .form-row {
+	margin-bottom: 1.25rem;
+}
+
+.dekanpro-contrib-form label {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-weight: 500;
+}
+
+.dekanpro-contrib-form .required {
+	color: #dc2626;
+}
+
+.dekanpro-contrib-form input[type="text"],
+.dekanpro-contrib-form select,
+.dekanpro-contrib-form textarea {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.dekanpro-contrib-form textarea {
+	min-height: 180px;
+	resize: vertical;
+}
+
+.dekanpro-contrib-form input[type="file"] {
+	padding: 0.5rem 0;
+}
+
+.dekanpro-contrib-form .form-hint {
+	display: block;
+	margin-top: 0.25rem;
+	font-size: 0.85rem;
+	color: #64748b;
+}
+
+.dekanpro-contrib-form .form-submit {
+	margin-top: 1.5rem;
+	margin-bottom: 0;
+}
+
+.dekanpro-contrib-form .dekanpro-btn {
+	padding: 0.6rem 1.25rem;
+	border-radius: 6px;
+	text-decoration: none;
+	cursor: pointer;
+	border: none;
+	font-size: 1rem;
+}
+
+.dekanpro-contrib-form .primary-button {
+	background: var(--dekanpro-primary, #6366f1);
+	color: #fff;
+}
+
+.dekanpro-contrib-form .primary-button:hover {
+	opacity: 0.9;
+}
+
+/* Блок для неавторизованных */
+.dekanpro-contrib-login-prompt {
+	max-width: 640px;
+	margin: 2rem 0;
+	padding: 2rem;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	text-align: center;
+}
+
+.dekanpro-contrib-login-prompt p {
+	margin-bottom: 1rem;
+}
+
+.dekanpro-contrib-login-prompt .contrib-actions {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.dekanpro-contrib-login-prompt .dekanpro-btn {
+	display: inline-block;
+	padding: 0.6rem 1.25rem;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+.dekanpro-contrib-login-prompt .primary-button {
+	background: var(--dekanpro-primary, #6366f1);
+	color: #fff;
+}
+
+.dekanpro-contrib-login-prompt .dekanpro-btn:not(.primary-button) {
+	background: #f1f5f9;
+	color: #334155;
+}

@@ -32,9 +32,21 @@ $menu_items  = array(
 		'slug'  => 'tvorchestvo',
 	),
 	array(
+		'title' => 'Фотографии',
+		'url'   => '',
+		'type'  => 'category',
+		'slug'  => 'fotografii',
+	),
+	array(
 		'title' => 'Статьи',
 		'url'   => '',
 		'type'  => 'blog',
+	),
+	array(
+		'title' => 'Добавить материал',
+		'url'   => '',
+		'type'  => 'page',
+		'slug'  => 'dobavit-material',
 	),
 );
 
@@ -90,6 +102,13 @@ foreach ( $menu_items as $item ) {
 	} elseif ( 'blog' === $item['type'] ) {
 		$page_for_posts = get_option( 'page_for_posts' );
 		$url            = $page_for_posts ? get_permalink( $page_for_posts ) : home_url( '/' );
+	} elseif ( 'page' === $item['type'] ) {
+		$page = get_page_by_path( $item['slug'] );
+		if ( ! $page ) {
+			$page = get_posts( array( 'post_type' => 'page', 'title' => $item['title'], 'numberposts' => 1 ) );
+			$page = ! empty( $page ) ? $page[0] : null;
+		}
+		$url = $page ? get_permalink( $page ) : home_url( '/' . $item['slug'] . '/' );
 	}
 
 	wp_update_nav_menu_item(

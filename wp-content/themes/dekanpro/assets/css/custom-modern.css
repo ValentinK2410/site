@@ -1251,3 +1251,19 @@ a.button:hover,
     color: var(--dekanpro-primary) !important;
 }
 
+/* Кнопка «Добавить материал» на рубриках */
+.dekanpro-contrib-cta {
+    margin-bottom: 2rem;
+}
+.dekanpro-contrib-cta .dekanpro-btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: var(--dekanpro-primary);
+    color: #fff !important;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.dekanpro-contrib-cta .dekanpro-btn:hover {
+    opacity: 0.9;
+}
+

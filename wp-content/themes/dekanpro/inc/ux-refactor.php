@@ -112,6 +112,27 @@ function dekanpro_add_heading_ids( $content ) {
 add_filter( 'the_content', 'dekanpro_add_heading_ids', 5 );
 
 /**
+ * Кнопка «Добавить материал» на страницах рубрик.
+ */
+function dekanpro_contributions_cta() {
+	if ( ! is_category() || ! class_exists( 'Dekanpro_Contributions' ) ) {
+		return;
+	}
+	$page = get_page_by_path( 'dobavit-material' );
+	if ( ! $page ) {
+		return;
+	}
+	?>
+	<div class="dekanpro-contrib-cta">
+		<a href="<?php echo esc_url( get_permalink( $page ) ); ?>" class="dekanpro-btn primary-button">
+			<?php esc_html_e( 'Добавить свой материал', 'dekanpro' ); ?>
+		</a>
+	</div>
+	<?php
+}
+add_action( 'dekanpro_before_content', 'dekanpro_contributions_cta' );
+
+/**
  * Подписка: добавьте виджет «Текст» в сайдбар через Внешний вид → Виджеты
  * и вставьте код формы из Unisender, SendPulse и т.п. в режиме «Текст».
  * Сайдбар sidebar-1 уже зарегистрирован в inc/widgets.php.
