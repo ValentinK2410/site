@@ -1283,7 +1283,7 @@ a.button:hover,
 /* Оглавление */
 .dekanpro-toc {
     margin-bottom: 2.5rem;
-    padding: 1.75rem 2rem;
+    padding: 2rem 2.25rem;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.06));
     border: 1px solid rgba(99, 102, 241, 0.1);
     border-radius: var(--dekanpro-radius, 1.5rem);
@@ -1300,7 +1300,7 @@ a.button:hover,
     border-radius: 4px 0 0 4px;
 }
 .dekanpro-toc-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0 0 1.25rem;
     color: var(--dekanpro-primary-dark, #4f46e5);
@@ -1311,28 +1311,28 @@ a.button:hover,
     margin: 0;
 }
 .dekanpro-toc-item {
-    margin: 0.35rem 0;
+    margin: 0.4rem 0;
 }
 .dekanpro-toc-item a {
     display: block;
-    padding: 0.55rem 0.85rem;
+    padding: 0.6rem 1rem;
     border-radius: 0.5rem;
     color: var(--dekanpro-gray-700, #334155);
     text-decoration: none;
     transition: all 0.2s ease;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.55;
 }
 .dekanpro-toc-item a:hover {
     background: rgba(99, 102, 241, 0.08);
     color: var(--dekanpro-primary, #6366f1);
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
 }
 .dekanpro-toc-h3 {
     padding-left: 1.5rem;
 }
 .dekanpro-toc-h3 a {
-    font-size: 1rem;
+    font-size: 16px;
     color: var(--dekanpro-gray-500, #64748b);
 }
 
