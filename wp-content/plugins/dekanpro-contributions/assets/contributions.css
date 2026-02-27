@@ -124,3 +124,35 @@
 	background: #f1f5f9;
 	color: #334155;
 }
+
+/* Блок локации (область, город, посёлок) */
+.form-row-group-location {
+	margin-bottom: 1.25rem;
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.02);
+	border-radius: 8px;
+}
+.form-row-group-location .group-label {
+	display: block;
+	margin-bottom: 0.75rem;
+	font-weight: 500;
+}
+.form-row-group-location .form-row {
+	margin-bottom: 0.75rem;
+}
+.form-row-group-location .form-row:last-child {
+	margin-bottom: 0;
+}
+
+/* Вывод локации под статьёй */
+.dekanpro-post-location {
+	margin-top: 1.5rem;
+	padding: 0.75rem 0;
+	border-top: 1px solid #e2e8f0;
+	font-size: 0.95rem;
+	color: #64748b;
+}
+.dekanpro-post-location .location-label {
+	font-weight: 500;
+	color: #475569;
+}
