@@ -41,19 +41,19 @@
 		elseif ( is_category() ) :
 
 			printf(
-				'<p>' . wp_kses( __( 'There aren&rsquo;t any posts currently published in this category.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
+				'<p>' . wp_kses( __( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
 			);
 
 		elseif ( is_tax() ) :
 
 			printf(
-				'<p>' . wp_kses( __( 'There aren&rsquo;t any posts currently published under this taxonomy.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
+				'<p>' . wp_kses( __( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
 			);
 
 		elseif ( is_tag() ) :
 
 			printf(
-				'<p>' . wp_kses( __( 'There aren&rsquo;t any posts currently published under this tag.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
+				'<p>' . wp_kses( __( 'По этой метке пока нет опубликованных записей.', 'dekanpro' ), dekanpro_get_allowed_html_tags() ) . '</p>'
 			);
 
 		else :
