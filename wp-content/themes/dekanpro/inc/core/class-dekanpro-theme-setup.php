@@ -121,6 +121,7 @@ if ( ! class_exists( 'Dekanpro_Theme_Setup' ) ) :
 			register_nav_menus(
 				array(
 					'dekanpro-primary' => esc_html__( 'Primary Navigation', 'dekanpro' ),
+					'primary'          => esc_html__( 'Main Menu (primary)', 'dekanpro' ),
 				)
 			);
 

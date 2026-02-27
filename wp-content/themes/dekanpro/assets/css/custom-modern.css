@@ -1090,3 +1090,116 @@ html {
     display: none !important;
 }
 
+/* ============================================
+   UX REFACTOR: Удобство чтения, вовлечение, перелинковка
+   ============================================ */
+
+/* Межстрочный интервал для статей */
+.entry-content {
+    line-height: 1.7;
+}
+
+/* Карточки постов на главной и в архивах */
+.post-card {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--dekanpro-gray-200, #eee);
+}
+.post-card:hover {
+    transform: translateX(5px);
+    transition: all 0.2s ease;
+}
+
+/* Сайдбар: виджеты */
+#secondary .dekanpro-sidebar-widget,
+#secondary .dekanpro-widget,
+.dekanpro-sidebar-container .widget {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--dekanpro-gray-100, #f9f9f9);
+    border-radius: 5px;
+}
+#secondary .widget-title,
+.dekanpro-sidebar-container .h4.widget-title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    border-left: 3px solid var(--dekanpro-primary, #0073aa);
+    padding-left: 10px;
+}
+
+/* Кнопки CTA (Читать далее и т.п.) */
+a.button,
+.read-more.button,
+.dekanpro-button,
+.entry-summary-footer a {
+    background: var(--dekanpro-primary) !important;
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--dekanpro-transition-fast);
+}
+a.button:hover,
+.read-more.button:hover,
+.dekanpro-button:hover,
+.entry-summary-footer a:hover {
+    opacity: 0.9;
+}
+
+/* Кнопки шаринга */
+.dekanpro-share-buttons {
+    margin: 1.5rem 0;
+}
+.dekanpro-share-buttons .share-label {
+    margin-right: 0.5rem;
+}
+.dekanpro-share-buttons .share-btn {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--dekanpro-primary);
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.dekanpro-share-buttons .share-btn:hover {
+    opacity: 0.9;
+}
+
+/* Оглавление */
+.dekanpro-toc {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+.dekanpro-toc-title {
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+.dekanpro-toc-list {
+    list-style: none;
+    padding-left: 0;
+}
+.dekanpro-toc-item {
+    margin: 0.35rem 0;
+}
+.dekanpro-toc-h3 {
+    padding-left: 1rem;
+}
+
+/* Поиск в шапке (fallback) */
+.dekanpro-header-search-fallback {
+    margin-left: auto;
+}
+.dekanpro-header-search-fallback form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.dekanpro-header-search-fallback input[type="search"] {
+    min-width: 180px;
+}
+

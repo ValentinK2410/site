@@ -115,6 +115,7 @@ final class Dekanpro {
 	public function includes() {
 		require_once DEKANPRO_THEME_PATH . '/inc/common.php';
 		require_once DEKANPRO_THEME_PATH . '/inc/helpers.php';
+		require_once DEKANPRO_THEME_PATH . '/inc/ux-refactor.php';
 		require_once DEKANPRO_THEME_PATH . '/inc/widgets.php';
 		require_once DEKANPRO_THEME_PATH . '/inc/template-tags.php';
 		require_once DEKANPRO_THEME_PATH . '/inc/template-parts.php';

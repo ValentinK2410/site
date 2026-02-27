@@ -1736,5 +1736,22 @@ if ( ! function_exists( 'dekanpro_algorithm_to_push_ads_in_archive' ) ) :
 		);
 	}
 
+endif;
 
- endif;
+/**
+ * Добавляет класс post-card для карточек постов на главной, в архивах и поиске.
+ *
+ * @since 1.0.27
+ * @param array $classes Массив CSS-классов.
+ * @return array
+ */
+function dekanpro_add_post_card_class( $classes ) {
+	if ( is_singular() ) {
+		return $classes;
+	}
+	if ( in_array( get_post_type(), array( 'post' ), true ) ) {
+		$classes[] = 'post-card';
+	}
+	return $classes;
+}
+add_filter( 'post_class', 'dekanpro_add_post_card_class' );
