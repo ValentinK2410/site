@@ -321,3 +321,201 @@ add_action( 'pre_get_posts', 'dekanpro_filter_posts_by_region' );
  * и вставьте код формы из Unisender, SendPulse и т.п. в режиме «Текст».
  * Сайдбар sidebar-1 уже зарегистрирован в inc/widgets.php.
  */
+
+/* ============================================
+   ГАЛЕРЕЯ С ФИЛЬТРАМИ ДЛЯ РУБРИК
+   ============================================ */
+
+/**
+ * Подключаем скрипт и стили для галереи на страницах рубрик.
+ */
+function dekanpro_gallery_enqueue() {
+	if ( ! is_category() ) {
+		return;
+	}
+	wp_enqueue_script(
+		'dekanpro-gallery',
+		get_template_directory_uri() . '/assets/js/gallery-filter.js',
+		array(),
+		'1.0.1',
+		true
+	);
+	wp_localize_script( 'dekanpro-gallery', 'dekanproGallery', array(
+		'ajaxurl'    => admin_url( 'admin-ajax.php' ),
+		'nonce'      => wp_create_nonce( 'dekanpro_gallery' ),
+		'category'   => get_queried_object_id(),
+		'loading'    => __( 'Загрузка...', 'dekanpro' ),
+		'no_results' => __( 'Ничего не найдено. Попробуйте изменить фильтры.', 'dekanpro' ),
+		'load_more'  => __( 'Показать ещё', 'dekanpro' ),
+	) );
+}
+add_action( 'wp_enqueue_scripts', 'dekanpro_gallery_enqueue' );
+
+/**
+ * Панель фильтров перед контентом рубрики.
+ */
+function dekanpro_gallery_filters_output() {
+	if ( ! is_category() ) {
+		return;
+	}
+	$cat_id = get_queried_object_id();
+
+	$tags = get_tags( array(
+		'hide_empty' => true,
+		'orderby'    => 'count',
+		'order'      => 'DESC',
+		'number'     => 30,
+	) );
+	?>
+	<div class="dekanpro-gallery-filters" id="dekanpro-gallery-filters">
+		<div class="gallery-filter-row">
+			<div class="gallery-filter-search">
+				<input type="text" id="gallery-search" placeholder="<?php esc_attr_e( 'Поиск по названию...', 'dekanpro' ); ?>" autocomplete="off">
+			</div>
+			<div class="gallery-filter-sort">
+				<select id="gallery-sort">
+					<option value="date-desc"><?php esc_html_e( 'Сначала новые', 'dekanpro' ); ?></option>
+					<option value="date-asc"><?php esc_html_e( 'Сначала старые', 'dekanpro' ); ?></option>
+					<option value="title-asc"><?php esc_html_e( 'По названию А-Я', 'dekanpro' ); ?></option>
+					<option value="title-desc"><?php esc_html_e( 'По названию Я-А', 'dekanpro' ); ?></option>
+					<option value="popular"><?php esc_html_e( 'Популярные', 'dekanpro' ); ?></option>
+				</select>
+			</div>
+			<div class="gallery-filter-view">
+				<button type="button" class="gallery-view-btn active" data-view="grid" aria-label="<?php esc_attr_e( 'Сетка', 'dekanpro' ); ?>">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+				</button>
+				<button type="button" class="gallery-view-btn" data-view="list" aria-label="<?php esc_attr_e( 'Список', 'dekanpro' ); ?>">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="2" width="16" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="8" width="16" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="14" width="16" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+				</button>
+			</div>
+		</div>
+		<?php if ( ! empty( $tags ) ) : ?>
+		<div class="gallery-filter-tags" id="gallery-tags">
+			<button type="button" class="gallery-tag-btn active" data-tag=""><?php esc_html_e( 'Все', 'dekanpro' ); ?></button>
+			<?php foreach ( $tags as $tag ) : ?>
+				<button type="button" class="gallery-tag-btn" data-tag="<?php echo esc_attr( $tag->term_id ); ?>"><?php echo esc_html( $tag->name ); ?></button>
+			<?php endforeach; ?>
+		</div>
+		<?php endif; ?>
+	</div>
+	<?php
+}
+add_action( 'dekanpro_before_content', 'dekanpro_gallery_filters_output', 20 );
+
+/**
+ * Рендерит одну карточку поста для галереи (используется и в PHP, и в AJAX).
+ */
+function dekanpro_render_gallery_card( $post_id ) {
+	$thumb = get_the_post_thumbnail_url( $post_id, 'medium_large' );
+	$title = get_the_title( $post_id );
+	$link  = get_permalink( $post_id );
+	$date  = get_the_date( 'j F Y', $post_id );
+	$excerpt = get_the_excerpt( $post_id );
+	if ( strlen( $excerpt ) > 120 ) {
+		$excerpt = mb_substr( $excerpt, 0, 120 ) . '…';
+	}
+	$post_tags = get_the_tags( $post_id );
+	?>
+	<article class="gallery-card" data-id="<?php echo esc_attr( $post_id ); ?>">
+		<?php if ( $thumb ) : ?>
+		<a href="<?php echo esc_url( $link ); ?>" class="gallery-card-thumb">
+			<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( $title ); ?>" loading="lazy">
+		</a>
+		<?php endif; ?>
+		<div class="gallery-card-body">
+			<?php if ( $post_tags ) : ?>
+			<div class="gallery-card-tags">
+				<?php foreach ( array_slice( $post_tags, 0, 3 ) as $tag ) : ?>
+					<span class="gallery-card-tag"><?php echo esc_html( $tag->name ); ?></span>
+				<?php endforeach; ?>
+			</div>
+			<?php endif; ?>
+			<h3 class="gallery-card-title"><a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $title ); ?></a></h3>
+			<?php if ( $excerpt ) : ?>
+			<p class="gallery-card-excerpt"><?php echo esc_html( $excerpt ); ?></p>
+			<?php endif; ?>
+			<div class="gallery-card-meta">
+				<time datetime="<?php echo esc_attr( get_the_date( 'c', $post_id ) ); ?>"><?php echo esc_html( $date ); ?></time>
+			</div>
+		</div>
+	</article>
+	<?php
+}
+
+/**
+ * AJAX-обработчик фильтрации галереи.
+ */
+function dekanpro_gallery_ajax() {
+	check_ajax_referer( 'dekanpro_gallery', 'nonce' );
+
+	$category = absint( $_POST['category'] ?? 0 );
+	$search   = sanitize_text_field( wp_unslash( $_POST['search'] ?? '' ) );
+	$tag      = absint( $_POST['tag'] ?? 0 );
+	$sort     = sanitize_text_field( $_POST['sort'] ?? 'date-desc' );
+	$page     = absint( $_POST['page'] ?? 1 );
+	$per_page = 12;
+
+	$args = array(
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'posts_per_page' => $per_page,
+		'paged'          => $page,
+	);
+
+	if ( $category ) {
+		$args['cat'] = $category;
+	}
+
+	if ( $search ) {
+		$args['s'] = $search;
+	}
+
+	if ( $tag ) {
+		$args['tag__in'] = array( $tag );
+	}
+
+	switch ( $sort ) {
+		case 'date-asc':
+			$args['orderby'] = 'date';
+			$args['order']   = 'ASC';
+			break;
+		case 'title-asc':
+			$args['orderby'] = 'title';
+			$args['order']   = 'ASC';
+			break;
+		case 'title-desc':
+			$args['orderby'] = 'title';
+			$args['order']   = 'DESC';
+			break;
+		case 'popular':
+			$args['orderby']  = 'comment_count';
+			$args['order']    = 'DESC';
+			break;
+		default:
+			$args['orderby'] = 'date';
+			$args['order']   = 'DESC';
+			break;
+	}
+
+	$query = new WP_Query( $args );
+
+	ob_start();
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			dekanpro_render_gallery_card( get_the_ID() );
+		}
+		wp_reset_postdata();
+	}
+	$html = ob_get_clean();
+
+	wp_send_json_success( array(
+		'html'      => $html,
+		'found'     => $query->found_posts,
+		'max_pages' => $query->max_num_pages,
+		'page'      => $page,
+	) );
+}
+add_action( 'wp_ajax_dekanpro_gallery_filter', 'dekanpro_gallery_ajax' );
+add_action( 'wp_ajax_nopriv_dekanpro_gallery_filter', 'dekanpro_gallery_ajax' );

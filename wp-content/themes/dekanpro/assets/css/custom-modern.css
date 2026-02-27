@@ -1732,3 +1732,349 @@ a.button:hover,
     }
 }
 
+/* ============================================
+   ГАЛЕРЕЯ С ФИЛЬТРАМИ ДЛЯ РУБРИК
+   ============================================ */
+
+/* Панель фильтров */
+.dekanpro-gallery-filters {
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    border: 1px solid var(--dekanpro-gray-100, #f1f5f9);
+}
+
+.gallery-filter-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.gallery-filter-search {
+    flex: 1;
+    min-width: 200px;
+}
+
+.gallery-filter-search input {
+    width: 100%;
+    padding: 0.7rem 1rem !important;
+    font-size: 15px !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+    border: 2px solid var(--dekanpro-gray-200, #e2e8f0) !important;
+    background: var(--dekanpro-gray-50, #f8fafc) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-filter-search input:focus {
+    border-color: var(--dekanpro-primary, #6366f1) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+    background: #fff !important;
+}
+
+.gallery-filter-sort select {
+    padding: 0.7rem 2.5rem 0.7rem 1rem !important;
+    font-size: 15px !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+    border: 2px solid var(--dekanpro-gray-200, #e2e8f0) !important;
+    background: var(--dekanpro-gray-50, #f8fafc) !important;
+    cursor: pointer;
+    appearance: auto;
+    min-width: 180px;
+}
+
+.gallery-filter-view {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--dekanpro-gray-100, #f1f5f9);
+    border-radius: 0.75rem;
+    padding: 0.25rem;
+}
+
+.gallery-view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    background: transparent !important;
+    color: var(--dekanpro-gray-400, #94a3b8);
+    cursor: pointer;
+    padding: 0 !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.gallery-view-btn:hover {
+    color: var(--dekanpro-gray-600, #475569);
+    background: rgba(255, 255, 255, 0.5) !important;
+    transform: none;
+    box-shadow: none !important;
+}
+
+.gallery-view-btn.active {
+    background: #fff !important;
+    color: var(--dekanpro-primary, #6366f1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Метки-фильтры */
+.gallery-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--dekanpro-gray-100, #f1f5f9);
+}
+
+.gallery-tag-btn {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    border: 1.5px solid var(--dekanpro-gray-200, #e2e8f0) !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+    background: transparent !important;
+    color: var(--dekanpro-gray-500, #64748b) !important;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.gallery-tag-btn:hover {
+    border-color: var(--dekanpro-primary-light, #818cf8) !important;
+    color: var(--dekanpro-primary, #6366f1) !important;
+    background: rgba(99, 102, 241, 0.05) !important;
+    transform: none;
+    box-shadow: none !important;
+}
+
+.gallery-tag-btn.active {
+    background: var(--dekanpro-primary, #6366f1) !important;
+    color: #fff !important;
+    border-color: var(--dekanpro-primary, #6366f1) !important;
+}
+
+/* Сетка галереи */
+.dekanpro-gallery-grid {
+    min-height: 200px;
+    position: relative;
+}
+
+.dekanpro-gallery-grid.is-loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.gallery-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+    font-size: 1.05rem;
+}
+
+.gallery-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+    font-size: 1.1rem;
+}
+
+/* Вид: сетка */
+.gallery-view-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Вид: список */
+.gallery-view-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-view-list .gallery-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.gallery-view-list .gallery-card-thumb {
+    width: 220px;
+    min-width: 220px;
+    border-radius: var(--dekanpro-radius, 1.5rem) 0 0 var(--dekanpro-radius, 1.5rem);
+}
+
+.gallery-view-list .gallery-card-thumb img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--dekanpro-radius, 1.5rem) 0 0 var(--dekanpro-radius, 1.5rem);
+}
+
+.gallery-view-list .gallery-card-body {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+}
+
+/* Карточка */
+.gallery-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: var(--dekanpro-radius, 1.5rem);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.gallery-card.is-visible {
+    animation: galleryFadeIn 0.4s ease forwards;
+}
+
+@keyframes galleryFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card-thumb {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-card-thumb img {
+    transform: scale(1.06);
+}
+
+.gallery-card-body {
+    padding: 1.25rem;
+}
+
+.gallery-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+}
+
+.gallery-card-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--dekanpro-primary, #6366f1);
+    background: rgba(99, 102, 241, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.375rem;
+}
+
+.gallery-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 0.5rem;
+}
+
+.gallery-card-title a {
+    color: var(--dekanpro-secondary, #0f172a);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.gallery-card-title a:hover {
+    color: var(--dekanpro-primary, #6366f1);
+}
+
+.gallery-card-excerpt {
+    font-size: 0.9rem;
+    color: var(--dekanpro-gray-500, #64748b);
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+}
+
+.gallery-card-meta {
+    font-size: 0.8rem;
+    color: var(--dekanpro-gray-400, #94a3b8);
+}
+
+/* Кнопка «Показать ещё» */
+.gallery-load-more-wrap {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.gallery-load-more {
+    padding: 0.75rem 2.5rem !important;
+    font-size: 1rem !important;
+    border-radius: var(--dekanpro-full-radius, 9999px) !important;
+}
+
+/* Адаптив галереи */
+@media screen and (max-width: 1024px) {
+    .gallery-view-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .gallery-filter-search {
+        min-width: auto;
+    }
+    .gallery-filter-sort select {
+        width: 100%;
+    }
+    .gallery-filter-view {
+        align-self: flex-start;
+    }
+    .gallery-view-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .gallery-view-list .gallery-card {
+        flex-direction: column;
+    }
+    .gallery-view-list .gallery-card-thumb {
+        width: 100%;
+        min-width: auto;
+        border-radius: var(--dekanpro-radius, 1.5rem) var(--dekanpro-radius, 1.5rem) 0 0;
+    }
+    .gallery-view-list .gallery-card-thumb img {
+        border-radius: var(--dekanpro-radius, 1.5rem) var(--dekanpro-radius, 1.5rem) 0 0;
+    }
+    .gallery-card-title {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-view-grid {
+        grid-template-columns: 1fr;
+    }
+    .dekanpro-gallery-filters {
+        padding: 1rem;
+    }
+}
+
