@@ -14,6 +14,11 @@ require_once __DIR__ . '/wp-load.php';
 $menu_name   = 'Основное меню';
 $menu_items  = array(
 	array(
+		'title' => 'Все рубрики',
+		'url'   => '',
+		'type'  => 'blog',
+	),
+	array(
 		'title' => 'Живопись',
 		'url'   => '',
 		'type'  => 'category',
@@ -40,7 +45,8 @@ $menu_items  = array(
 	array(
 		'title' => 'Статьи',
 		'url'   => '',
-		'type'  => 'blog',
+		'type'  => 'category',
+		'slug'  => 'stati',
 	),
 	array(
 		'title' => 'Добавить материал',
@@ -80,18 +86,32 @@ if ( ! $menu ) {
 	echo "Меню «{$menu_name}» уже существует (ID: {$menu_id})\n";
 }
 
-// Определяем URL и добавляем пункты (только отсутствующие).
+// Определяем URL и добавляем/обновляем пункты.
 $existing_items  = wp_get_nav_menu_items( $menu_id );
-$existing_titles = array();
+$existing_by_title = array();
 if ( $existing_items ) {
 	foreach ( $existing_items as $obj ) {
-		$existing_titles[] = $obj->title;
+		$existing_by_title[ $obj->title ] = $obj;
 	}
 }
 $position = $existing_items ? count( $existing_items ) : 0;
 
+// Обновление пункта «Статьи»: отдельный раздел /category/stati/
+$stati_term = get_term_by( 'slug', 'stati', 'category' );
+if ( $stati_term && isset( $existing_by_title['Статьи'] ) ) {
+	$obj = $existing_by_title['Статьи'];
+	$new_url = get_category_link( $stati_term->term_id );
+	if ( $obj->url !== $new_url ) {
+		wp_update_nav_menu_item( $menu_id, $obj->ID, array(
+			'menu-item-url' => $new_url,
+		) );
+		echo "Обновлён URL пункта «Статьи» → /category/stati/\n";
+	}
+}
+
+$added_blog_first = false;
 foreach ( $menu_items as $item ) {
-	if ( in_array( $item['title'], $existing_titles, true ) ) {
+	if ( in_array( $item['title'], array_keys( $existing_by_title ), true ) ) {
 		echo "Пункт «{$item['title']}» уже есть, пропуск.\n";
 		continue;
 	}
@@ -102,6 +122,14 @@ foreach ( $menu_items as $item ) {
 	} elseif ( 'blog' === $item['type'] ) {
 		$page_for_posts = get_option( 'page_for_posts' );
 		$url            = $page_for_posts ? get_permalink( $page_for_posts ) : home_url( '/' );
+		// Сдвигаем все пункты, чтобы «Все рубрики» был первым
+		if ( ! $added_blog_first && $existing_items ) {
+			foreach ( $existing_items as $obj ) {
+				wp_update_nav_menu_item( $menu_id, $obj->ID, array( 'menu-item-position' => $obj->menu_order + 1 ) );
+			}
+			$position = 0;
+			$added_blog_first = true;
+		}
 	} elseif ( 'page' === $item['type'] ) {
 		$page = get_page_by_path( $item['slug'] );
 		if ( ! $page ) {
