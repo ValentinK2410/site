@@ -503,9 +503,12 @@ if ( ! function_exists( 'dekanpro_entry_meta_author' ) ) :
 					</span>
 				<?php } ?>
 
+				<?php
+				$author_display = apply_filters( 'dekanpro_author_display_name', get_the_author_meta( 'display_name', $args['user_id'] ), $args['user_id'], get_the_ID() );
+				?>
 				<span>
-					<a class="url fn n" title="<?php /* translators: %1$s Author */ printf( esc_attr__( 'View all posts by %1$s', 'dekanpro' ), esc_attr( get_the_author() ) ); ?>" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID', $args['user_id'] ) ) ); ?>" rel="author" <?php dekanpro_schema_markup( 'url' ); ?>>
-						<span class="author-name" <?php dekanpro_schema_markup( 'name' ); ?>><?php echo esc_html( get_the_author_meta( 'display_name', $args['user_id'] ) ); ?></span>
+					<a class="url fn n" title="<?php /* translators: %1$s Author */ printf( esc_attr__( 'View all posts by %1$s', 'dekanpro' ), esc_attr( $author_display ) ); ?>" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID', $args['user_id'] ) ) ); ?>" rel="author" <?php dekanpro_schema_markup( 'url' ); ?>>
+						<span class="author-name" <?php dekanpro_schema_markup( 'name' ); ?>><?php echo esc_html( $author_display ); ?></span>
 					</a>
 				</span>
 			</span>

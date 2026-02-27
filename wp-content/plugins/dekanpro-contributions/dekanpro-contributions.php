@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DEKANPRO_CONTRIBUTIONS_VERSION', '1.0.1' );
+define( 'DEKANPRO_CONTRIBUTIONS_VERSION', '1.0.2' );
 define( 'DEKANPRO_CONTRIBUTIONS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DEKANPRO_CONTRIBUTIONS_URL', plugin_dir_url( __FILE__ ) );
 
@@ -34,6 +34,8 @@ final class Dekanpro_Contributions {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_shortcode( 'dekanpro_submit', array( $this, 'shortcode_form' ) );
 		add_filter( 'the_content', array( $this, 'append_location_meta' ), 15 );
+		add_filter( 'dekanpro_author_display_name', array( $this, 'filter_author_display_name' ), 10, 3 );
+		add_filter( 'the_author', array( $this, 'filter_author_name' ), 10 );
 		add_action( 'wp_footer', array( $this, 'footer_script' ) );
 	}
 
@@ -55,6 +57,7 @@ final class Dekanpro_Contributions {
 		$title    = isset( $_POST['dekanpro_title'] ) ? sanitize_text_field( wp_unslash( $_POST['dekanpro_title'] ) ) : '';
 		$content  = isset( $_POST['dekanpro_content'] ) ? wp_kses_post( wp_unslash( $_POST['dekanpro_content'] ) ) : '';
 		$category = isset( $_POST['dekanpro_category'] ) ? absint( $_POST['dekanpro_category'] ) : 0;
+		$author_name = isset( $_POST['dekanpro_author_name'] ) ? sanitize_text_field( wp_unslash( $_POST['dekanpro_author_name'] ) ) : '';
 		$region   = isset( $_POST['dekanpro_region'] ) ? sanitize_text_field( wp_unslash( $_POST['dekanpro_region'] ) ) : '';
 		$region_other = isset( $_POST['dekanpro_region_other'] ) ? sanitize_text_field( wp_unslash( $_POST['dekanpro_region_other'] ) ) : '';
 		$city     = isset( $_POST['dekanpro_city'] ) ? sanitize_text_field( wp_unslash( $_POST['dekanpro_city'] ) ) : '';
@@ -118,6 +121,9 @@ final class Dekanpro_Contributions {
 		if ( $settlement ) {
 			update_post_meta( $post_id, 'dekanpro_settlement', $settlement );
 		}
+		if ( $author_name ) {
+			update_post_meta( $post_id, 'dekanpro_contributor_name', $author_name );
+		}
 
 		wp_safe_redirect( add_query_arg( 'submitted', '1', wp_get_referer() ?: home_url( '/' ) ) );
 		exit;
@@ -152,6 +158,16 @@ final class Dekanpro_Contributions {
 				<p class="form-row">
 					<label for="dekanpro_title"><?php esc_html_e( 'Название', 'dekanpro-contributions' ); ?> <span class="required">*</span></label>
 					<input type="text" id="dekanpro_title" name="dekanpro_title" required maxlength="200" value="">
+				</p>
+
+				<p class="form-row">
+					<label for="dekanpro_author_name"><?php esc_html_e( 'Имя автора', 'dekanpro-contributions' ); ?></label>
+					<?php
+					$current_user = wp_get_current_user();
+					$author_placeholder = $current_user->display_name ? $current_user->display_name : __( 'Имя или псевдоним', 'dekanpro-contributions' );
+					?>
+					<input type="text" id="dekanpro_author_name" name="dekanpro_author_name" maxlength="150" placeholder="<?php echo esc_attr( $author_placeholder ); ?>">
+					<span class="form-hint"><?php esc_html_e( 'Как подписать материал (имя или псевдоним). По умолчанию — ваш профиль.', 'dekanpro-contributions' ); ?></span>
 				</p>
 
 				<p class="form-row">
@@ -308,6 +324,29 @@ final class Dekanpro_Contributions {
 			'crimea'      => 'Республика Крым',
 			'other'       => '— Другое —',
 		);
+	}
+
+	/**
+	 * Подмена имени автора на указанное при добавлении материала.
+	 */
+	public function filter_author_display_name( $display_name, $user_id, $post_id ) {
+		if ( ! $post_id ) {
+			return $display_name;
+		}
+		$contributor = get_post_meta( $post_id, 'dekanpro_contributor_name', true );
+		return $contributor ? $contributor : $display_name;
+	}
+
+	/**
+	 * Подмена имени автора для get_the_author() (блок «Об авторе» и др.).
+	 */
+	public function filter_author_name( $display_name ) {
+		$post_id = get_the_ID();
+		if ( ! $post_id ) {
+			return $display_name;
+		}
+		$contributor = get_post_meta( $post_id, 'dekanpro_contributor_name', true );
+		return $contributor ? $contributor : $display_name;
 	}
 
 	/**
