@@ -29,6 +29,8 @@ if [ $? -eq 0 ]; then
   echo "Запуск скриптов создания статей и терминов глоссария..."
   ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-post-analytics-article.php 2>/dev/null || true"
   ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-post-analytics-article-part2.php 2>/dev/null || true"
+  echo "Создание меню (Живопись, Поэзия, Статьи)..."
+  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-menu-items.php 2>/dev/null || true"
   echo ""
   echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
 else
