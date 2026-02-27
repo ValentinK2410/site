@@ -33,6 +33,8 @@ if [ $? -eq 0 ]; then
   ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-contributions-page.php 2>/dev/null || true"
   echo "Создание меню..."
   ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php create-menu-items.php 2>/dev/null || true"
+  echo "Миграция лишних рубрик в метки..."
+  ssh -i ~/.ssh/dekan_key ${USER}@${HOST} "cd ${REMOTE_PATH} && php migrate-categories-to-tags.php 2>/dev/null || true"
   echo ""
   echo "✓ Деплой завершён. Файлы с Git синхронизированы на сервер."
 else

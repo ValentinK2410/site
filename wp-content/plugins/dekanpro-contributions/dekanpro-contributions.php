@@ -44,6 +44,13 @@ final class Dekanpro_Contributions {
 	}
 
 	/**
+	 * Рубрики, доступные для выбора в форме.
+	 */
+	private function get_allowed_category_slugs() {
+		return array( 'zhivopis', 'poeziya', 'tvorchestvo', 'fotografii', 'stati' );
+	}
+
+	/**
 	 * Обработка отправки формы.
 	 */
 	private function handle_submission() {
@@ -76,8 +83,12 @@ final class Dekanpro_Contributions {
 			'post_author'  => get_current_user_id(),
 		);
 
+		$allowed_slugs = $this->get_allowed_category_slugs();
 		if ( $category > 0 ) {
-			$post_data['post_category'] = array( $category );
+			$term = get_term( $category, 'category' );
+			if ( $term && ! is_wp_error( $term ) && in_array( $term->slug, $allowed_slugs, true ) ) {
+				$post_data['post_category'] = array( $category );
+			}
 		}
 
 		$post_id = wp_insert_post( $post_data );
@@ -142,11 +153,17 @@ final class Dekanpro_Contributions {
 			$message = '<p class="dekanpro-contrib-success">' . esc_html__( 'Спасибо! Ваш материал отправлен на модерацию и появится на сайте после проверки.', 'dekanpro-contributions' ) . '</p>';
 		}
 
-		$categories = get_terms( array(
+		$allowed_slugs = $this->get_allowed_category_slugs();
+		$categories   = get_terms( array(
 			'taxonomy'   => 'category',
 			'hide_empty' => false,
-			'exclude'    => get_option( 'default_category' ),
+			'slug__in'   => $allowed_slugs,
 		) );
+		usort( $categories, function( $a, $b ) use ( $allowed_slugs ) {
+			$pos_a = array_search( $a->slug, $allowed_slugs, true );
+			$pos_b = array_search( $b->slug, $allowed_slugs, true );
+			return ( $pos_a < $pos_b ) ? -1 : ( ( $pos_a > $pos_b ) ? 1 : 0 );
+		} );
 
 		ob_start();
 		?>
