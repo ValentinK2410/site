@@ -1150,22 +1150,51 @@ a.button:hover,
 /* Кнопки шаринга */
 .dekanpro-share-buttons {
     margin: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
 }
 .dekanpro-share-buttons .share-label {
-    margin-right: 0.5rem;
+    margin-right: 0.25rem;
 }
 .dekanpro-share-buttons .share-btn {
-    display: inline-block;
-    margin-right: 0.5rem;
-    padding: 0.25rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-right: 0;
+    padding: 0.4rem 0.85rem;
     background: var(--dekanpro-primary);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
     font-size: 0.9em;
 }
 .dekanpro-share-buttons .share-btn:hover {
     opacity: 0.9;
+}
+.dekanpro-share-buttons .share-btn-icon {
+    display: inline-flex;
+}
+.dekanpro-share-buttons .share-btn-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+.dekanpro-share-buttons .share-btn-text {
+    font-weight: 500;
+}
+.dekanpro-share-buttons .share-btn.share-vk {
+    background: #2787f5;
+}
+.dekanpro-share-buttons .share-btn.share-vk:hover {
+    background: #2274d9;
+}
+.dekanpro-share-buttons .share-btn.share-telegram {
+    background: #229ed9;
+}
+.dekanpro-share-buttons .share-btn.share-telegram:hover {
+    background: #1c8bc7;
 }
 
 /* Оглавление */

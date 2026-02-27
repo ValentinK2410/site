@@ -19,11 +19,18 @@ function dekanpro_share_buttons_output() {
 	}
 	$url   = urlencode( get_permalink() );
 	$title = urlencode( get_the_title() );
+	$icons = function_exists( 'dekanpro' ) && isset( dekanpro()->icons ) ? dekanpro()->icons : null;
 	?>
 	<div class="dekanpro-share-buttons">
 		<span class="share-label"><?php esc_html_e( 'Поделиться:', 'dekanpro' ); ?></span>
-		<a class="share-btn share-vk" href="https://vk.com/share.php?url=<?php echo esc_attr( $url ); ?>&title=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'VK', 'dekanpro' ); ?>"><?php esc_html_e( 'VK', 'dekanpro' ); ?></a>
-		<a class="share-btn share-telegram" href="https://t.me/share/url?url=<?php echo esc_attr( $url ); ?>&text=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Telegram', 'dekanpro' ); ?>"><?php esc_html_e( 'Telegram', 'dekanpro' ); ?></a>
+		<a class="share-btn share-vk" href="https://vk.com/share.php?url=<?php echo esc_attr( $url ); ?>&title=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Поделиться в VK', 'dekanpro' ); ?>">
+			<?php if ( $icons ) : ?><span class="share-btn-icon"><?php echo $icons->get_svg( 'vkontakte', array( 'aria-hidden' => 'true' ) ); ?></span><?php endif; ?>
+			<span class="share-btn-text">VK</span>
+		</a>
+		<a class="share-btn share-telegram" href="https://t.me/share/url?url=<?php echo esc_attr( $url ); ?>&text=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Поделиться в Telegram', 'dekanpro' ); ?>">
+			<?php if ( $icons ) : ?><span class="share-btn-icon"><?php echo $icons->get_svg( 'telegram', array( 'aria-hidden' => 'true' ) ); ?></span><?php endif; ?>
+			<span class="share-btn-text">Telegram</span>
+		</a>
 	</div>
 	<?php
 }
