@@ -1121,7 +1121,7 @@ html {
 }
 #secondary .widget-title,
 .dekanpro-sidebar-container .h4.widget-title {
-    font-size: 1.2rem;
+    font-size: 16px !important;
     margin-top: 0;
     border-left: 3px solid var(--dekanpro-primary, #0073aa);
     padding-left: 10px;
