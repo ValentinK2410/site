@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Кнопки шаринга в соцсети (Twitter, VK, Telegram).
+ * Кнопки шаринга: VK, Telegram.
  */
 function dekanpro_share_buttons_output() {
 	if ( ! is_singular( 'post' ) || post_password_required() ) {
@@ -22,7 +22,6 @@ function dekanpro_share_buttons_output() {
 	?>
 	<div class="dekanpro-share-buttons">
 		<span class="share-label"><?php esc_html_e( 'Поделиться:', 'dekanpro' ); ?></span>
-		<a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?url=<?php echo esc_attr( $url ); ?>&text=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Twitter', 'dekanpro' ); ?>"><?php esc_html_e( 'Twitter', 'dekanpro' ); ?></a>
 		<a class="share-btn share-vk" href="https://vk.com/share.php?url=<?php echo esc_attr( $url ); ?>&title=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'VK', 'dekanpro' ); ?>"><?php esc_html_e( 'VK', 'dekanpro' ); ?></a>
 		<a class="share-btn share-telegram" href="https://t.me/share/url?url=<?php echo esc_attr( $url ); ?>&text=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Telegram', 'dekanpro' ); ?>"><?php esc_html_e( 'Telegram', 'dekanpro' ); ?></a>
 	</div>
