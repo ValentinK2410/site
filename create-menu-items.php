@@ -26,6 +26,12 @@ $menu_items  = array(
 		'slug'  => 'poeziya',
 	),
 	array(
+		'title' => 'Творчество',
+		'url'   => '',
+		'type'  => 'category',
+		'slug'  => 'tvorchestvo',
+	),
+	array(
 		'title' => 'Статьи',
 		'url'   => '',
 		'type'  => 'blog',
