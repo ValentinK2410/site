@@ -201,6 +201,11 @@ function dekanpro_region_selector_nav_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'dekanpro_region_selector_nav_class', 10, 2 );
 
 /**
+ * Убрать изображение логотипа — показывать только текст «Деканпро».
+ */
+add_filter( 'dekanpro_logo_img_output', '__return_empty_string', 99 );
+
+/**
  * Добавить пункт «Вход» / «Выход» в основное меню.
  */
 function dekanpro_nav_menu_login_item( $items, $args ) {

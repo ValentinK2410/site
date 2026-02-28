@@ -263,6 +263,14 @@ aside.widget-area,
     letter-spacing: -.02em !important;
     margin: 0 !important;
     line-height: 1 !important;
+    /* Показываем текст даже если тема скрывает через screen-reader-text */
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
 }
 
 .dekanpro-logo .site-title a {
