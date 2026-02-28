@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Newsroom Typography - Точные CSS значения</title>
+    <link rel="stylesheet" href="apple-newsroom-styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #f5f5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 48px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        .header .subtitle {
+            font-size: 21px;
+            color: #6e6e73;
+            margin: 0;
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin: 0 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #0071e3;
+        }
+        
+        .example {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f5f5f7;
+            border-radius: 12px;
+        }
+        
+        .example-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6e6e73;
+            text-transform: uppercase;
+            letter-spacing: .012em;
+            margin: 0 0 15px 0;
+        }
+        
+        .code-block {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid #e8e8ed;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .color-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .color-label {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            color: #1d1d1f;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        
+        .card-example {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #0071e3;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #6e6e73;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎨 Apple Newsroom Typography</h1>
+            <p class="subtitle">Точные CSS значения, извлеченные 28 февраля 2026</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="section">
+            <h2 class="section-title">📊 Быстрая статистика</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Семейства шрифтов</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">17px</div>
+                    <div class="stat-label">Базовый размер</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">600</div>
+                    <div class="stat-label">Основной вес</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">Цветов</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Font Families -->
+        <div class="section">
+            <h2 class="section-title">1️⃣ Семейства шрифтов</h2>
+            
+            <div class="example">
+                <div class="example-title">SF Pro Text (основной текст)</div>
+                <p style="font-family: 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px;">
+                    The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок.
+                </p>
+                <div class="code-block">font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;</div>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">SF Pro Display (заголовки)</div>
+                <h2 style="font-family: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 40px; font-weight: 600; margin: 0;">
+                    The quick brown fox
+                </h2>
+                <div class="code-block">font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;</div>
+            </div>
+        </div>
+
+        <!-- 2. Body Styles -->
+        <div class="section">
+            <h2 class="section-title">2️⃣ Body / Page Styles</h2>
+            
+            <div class="example">
+                <div class="example-title">Основной текст страницы</div>
+                <p style="font-size: 17px; line-height: 1.4705882353; letter-spacing: -0.022em; color: #1d1d1f;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                </p>
+                <div class="code-block">font-size: 17px;
+line-height: 1.4705882353; /* ~25px */
+letter-spacing: -0.022em;
+color: #1d1d1f;
+background-color: #ffffff;</div>
+            </div>
+        </div>
+
+        <!-- 3. Navigation -->
+        <div class="section">
+            <h2 class="section-title">3️⃣ Навигация</h2>
+            
+            <div class="grid-2">
+                <div class="example">
+                    <div class="example-title">Глобальная навигация</div>
+                    <div style="background: #1d1d1f; padding: 15px; border-radius: 8px;">
+                        <a href="#" style="font-size: 12px; font-weight: 400; letter-spacing: -0.01em; color: #f5f5f7; text-decoration: none;">
+                            Store
+                        </a>
+                        <a href="#" style="font-size: 12px; font-weight: 400; letter-spacing: -0.01em; color: #f5f5f7; text-decoration: none; margin-left: 20px;">
+                            Mac
+                        </a>
+                        <a href="#" style="font-size: 12px; font-weight: 400; letter-spacing: -0.01em; color: #f5f5f7; text-decoration: none; margin-left: 20px;">
+                            iPad
+                        </a>
+                    </div>
+                    <div class="code-block">font-size: 12px;
+font-weight: 400;
+letter-spacing: -0.01em;
+color: #f5f5f7;</div>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Локальная навигация</div>
+                    <div style="background: #f5f5f7; padding: 15px; border-radius: 8px;">
+                        <a href="#" style="font-size: 14px; font-weight: 400; letter-spacing: -0.016em; color: #1d1d1f; text-decoration: none;">
+                            Apple Services
+                        </a>
+                        <a href="#" style="font-size: 14px; font-weight: 400; letter-spacing: -0.016em; color: #1d1d1f; text-decoration: none; margin-left: 20px;">
+                            Apple Stories
+                        </a>
+                    </div>
+                    <div class="code-block">font-size: 14px;
+font-weight: 400;
+letter-spacing: -0.016em;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. News Cards -->
+        <div class="section">
+            <h2 class="section-title">4️⃣ Карточки новостей</h2>
+            
+            <div class="grid-2">
+                <div class="card-example">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <div class="tile__category" style="font-size: 14px; font-weight: 600; color: #6e6e73; text-transform: uppercase; letter-spacing: .012em; margin-bottom: 8px;">
+                            PRESS RELEASE
+                        </div>
+                        <h3 class="tile__headline" style="font-size: 21px; font-weight: 600; line-height: 1.2353641176; letter-spacing: .012em; color: #1d1d1f; margin: 0 0 8px 0;">
+                            Apple announces new product lineup
+                        </h3>
+                        <div class="tile__date" style="font-size: 14px; font-weight: 400; color: #6e6e73;">
+                            February 28, 2026
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="example">
+                        <div class="example-title">Заголовок карточки</div>
+                        <div class="code-block">font-size: 21px;
+font-weight: 600;
+line-height: 1.2353641176;
+letter-spacing: .012em;
+color: #1d1d1f;</div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">Категория (Label)</div>
+                        <div class="code-block">font-size: 14px;
+font-weight: 600;
+color: #6e6e73;
+text-transform: uppercase;
+letter-spacing: .012em;</div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">Дата</div>
+                        <div class="code-block">font-size: 14px;
+font-weight: 400;
+color: #6e6e73;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Headings -->
+        <div class="section">
+            <h2 class="section-title">5️⃣ Заголовки</h2>
+            
+            <div class="example">
+                <div class="example-title">H1 - Page Title</div>
+                <h1 style="font-size: 48px; font-weight: 600; line-height: 1.0833333333; letter-spacing: -0.003em; color: #1d1d1f; margin: 0;">
+                    Newsroom
+                </h1>
+                <div class="code-block">font-size: 48px;
+font-weight: 600;
+line-height: 1.0833333333;
+letter-spacing: -0.003em;</div>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">H2 - Section Heading</div>
+                <h2 style="font-size: 40px; font-weight: 600; line-height: 1.1; letter-spacing: 0em; color: #1d1d1f; margin: 0;">
+                    Latest News
+                </h2>
+                <div class="code-block">font-size: 40px;
+font-weight: 600;
+line-height: 1.1;
+letter-spacing: 0em;</div>
+            </div>
+        </div>
+
+        <!-- 6. Colors -->
+        <div class="section">
+            <h2 class="section-title">6️⃣ Цветовая палитра</h2>
+            
+            <div class="example">
+                <div class="example-title">Цвета текста</div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #1d1d1f;"></span>
+                    <span class="color-label">#1d1d1f - Primary Text</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #6e6e73;"></span>
+                    <span class="color-label">#6e6e73 - Secondary Text</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #0071e3;"></span>
+                    <span class="color-label">#0071e3 - Links (Apple Blue)</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #f5f5f7; border: 2px solid #1d1d1f;"></span>
+                    <span class="color-label">#f5f5f7 - White Text</span>
+                </div>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">Цвета фона</div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #ffffff; border: 2px solid #e8e8ed;"></span>
+                    <span class="color-label">#ffffff - White Background</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #f5f5f7;"></span>
+                    <span class="color-label">#f5f5f7 - Light Gray</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #e8e8ed;"></span>
+                    <span class="color-label">#e8e8ed - Medium Gray</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #1d1d1f;"></span>
+                    <span class="color-label">#1d1d1f - Dark Gray</span>
+                </div>
+                <div class="color-info">
+                    <span class="color-swatch" style="background: #000000;"></span>
+                    <span class="color-label">#000000 - Black</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Buttons -->
+        <div class="section">
+            <h2 class="section-title">7️⃣ Кнопки (CTA)</h2>
+            
+            <div class="grid-2">
+                <div class="example">
+                    <div class="example-title">Primary Button</div>
+                    <button class="nr-cta-primary">Learn more</button>
+                    <div class="code-block">font-size: 17px;
+font-weight: 400;
+color: #ffffff;
+background-color: #0071e3;
+border-radius: 980px;
+padding: 12px 24px;</div>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Secondary Button</div>
+                    <button class="nr-cta-secondary">View all</button>
+                    <div class="code-block">font-size: 17px;
+font-weight: 400;
+color: #0071e3;
+background: transparent;
+border: 1px solid #0071e3;
+border-radius: 980px;
+padding: 12px 24px;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Responsive -->
+        <div class="section">
+            <h2 class="section-title">8️⃣ Адаптивные breakpoints</h2>
+            
+            <div class="example">
+                <div class="example-title">Медиа-запросы</div>
+                <div class="code-block">/* Desktop Large */
+@media only screen and (min-width: 1441px) { }
+
+/* Tablet */
+@media only screen and (max-width: 1068px) {
+    .tile__headline { font-size: 19px; }
+    .tile__category { font-size: 12px; }
+}
+
+/* Mobile */
+@media only screen and (max-width: 734px) {
+    .tile__headline { font-size: 17px; }
+}</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="section" style="text-align: center; background: #1d1d1f; color: #f5f5f7;">
+            <p style="margin: 0; font-size: 14px;">
+                Извлечено из <a href="https://www.apple.com/newsroom/" style="color: #0071e3;">Apple Newsroom</a> • 28 февраля 2026
+            </p>
+            <p style="margin: 10px 0 0 0; font-size: 12px; color: #6e6e73;">
+                Файлы: apple-newsroom-typography.md | apple-newsroom-styles.css | apple-newsroom-typography.json
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,351 @@
+/**
+ * Apple Newsroom Typography Styles
+ * Извлечено: 28 февраля 2026
+ * Источник: https://www.apple.com/newsroom/
+ */
+
+/* ========================================
+   1. CSS Variables (Custom Properties)
+   ======================================== */
+
+:root {
+    /* Fonts */
+    --font-family-text: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-family-display: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    
+    /* Font Sizes */
+    --font-size-body: 17px;
+    --font-size-nav: 12px;
+    --font-size-nav-local: 14px;
+    --font-size-category: 14px;
+    --font-size-date: 14px;
+    --font-size-card-title: 21px;
+    --font-size-card-title-big: 40px;
+    --font-size-h1: 48px;
+    --font-size-h2: 40px;
+    
+    /* Font Weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Line Heights */
+    --line-height-body: 1.4705882353;
+    --line-height-card-title: 1.2353641176;
+    --line-height-card-title-big: 1.1;
+    --line-height-category: 1.4285914286;
+    --line-height-h1: 1.0833333333;
+    --line-height-h2: 1.1;
+    
+    /* Letter Spacing */
+    --letter-spacing-body: -0.022em;
+    --letter-spacing-nav: -0.01em;
+    --letter-spacing-nav-local: -0.016em;
+    --letter-spacing-category: .012em;
+    --letter-spacing-card-title: .012em;
+    --letter-spacing-h1: -0.003em;
+    --letter-spacing-h2: 0em;
+    
+    /* Colors - Text */
+    --color-text-primary: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-link: #0071e3;
+    --color-text-white: #f5f5f7;
+    
+    /* Colors - Background */
+    --color-bg-white: #ffffff;
+    --color-bg-light-gray: #f5f5f7;
+    --color-bg-medium-gray: #e8e8ed;
+    --color-bg-dark-gray: #1d1d1f;
+    --color-bg-black: #000000;
+    
+    /* Colors - Accent */
+    --color-apple-blue: #0071e3;
+    --color-focus: #0071e3;
+    --color-hover-gray: #e8e8ed;
+    --color-hover-dark: #333336;
+}
+
+/* ========================================
+   2. Body & Base Styles
+   ======================================== */
+
+body {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-white);
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   3. Navigation Styles
+   ======================================== */
+
+/* Global Navigation */
+nav[aria-label="Global"] a {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-nav);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-nav);
+    color: var(--color-text-white);
+    text-decoration: none;
+}
+
+/* Local Navigation (Newsroom) */
+.ac-ln-menu-link {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-nav-local);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4285914286;
+    letter-spacing: var(--letter-spacing-nav-local);
+    text-decoration: none;
+}
+
+/* ========================================
+   4. News Card Styles
+   ======================================== */
+
+/* Card Title - Standard */
+.tile__headline {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-card-title);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-card-title);
+    letter-spacing: var(--letter-spacing-card-title);
+    color: var(--color-text-primary);
+}
+
+/* Card Title - Big/Featured */
+.tile-big .tile__headline {
+    font-size: var(--font-size-card-title-big);
+    line-height: var(--line-height-card-title-big);
+    letter-spacing: 0em;
+}
+
+/* Category Label */
+.tile__category {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-category);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-category);
+    letter-spacing: var(--letter-spacing-category);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+/* Date */
+.tile__date {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-date);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-category);
+    color: var(--color-text-secondary);
+}
+
+/* Description/Excerpt */
+.tile__description {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-text-primary);
+}
+
+/* Card Background */
+.tile {
+    background-color: var(--color-bg-white);
+}
+
+/* ========================================
+   5. Headings
+   ======================================== */
+
+h1 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-h1);
+    letter-spacing: var(--letter-spacing-h1);
+    color: var(--color-text-primary);
+}
+
+h2 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-h2);
+    letter-spacing: var(--letter-spacing-h2);
+    color: var(--color-text-primary);
+}
+
+/* ========================================
+   6. Links
+   ======================================== */
+
+a {
+    color: var(--color-apple-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   7. Buttons / CTAs
+   ======================================== */
+
+.nr-cta-primary {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.1764805882;
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-text-white);
+    background-color: var(--color-apple-blue);
+    border: none;
+    border-radius: 980px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.nr-cta-secondary {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.1764805882;
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-apple-blue);
+    background-color: transparent;
+    border: 1px solid var(--color-apple-blue);
+    border-radius: 980px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.nr-cta-primary:hover,
+.nr-cta-secondary:hover {
+    opacity: 0.9;
+}
+
+/* ========================================
+   8. Responsive Breakpoints
+   ======================================== */
+
+/* Tablet / Medium Screens */
+@media only screen and (max-width: 1068px) {
+    .tile__headline {
+        font-size: 19px;
+        line-height: 1.2631578947;
+    }
+    
+    .tile-big .tile__headline {
+        font-size: 32px;
+        line-height: 1.125;
+    }
+    
+    .tile__category,
+    .tile__date {
+        font-size: 12px;
+        line-height: 1.3333733333;
+    }
+}
+
+/* Mobile / Small Screens */
+@media only screen and (max-width: 734px) {
+    .tile__headline {
+        font-size: 17px;
+        line-height: 1.2352941176;
+    }
+    
+    .tile-big .tile__headline {
+        font-size: 28px;
+        line-height: 1.1428571429;
+    }
+}
+
+/* ========================================
+   9. Dark Theme Support
+   ======================================== */
+
+.theme-dark {
+    --color-text-primary: #f5f5f7;
+    --color-text-secondary: #a1a1a6;
+    --color-bg-white: #000000;
+    --color-bg-light-gray: #1d1d1f;
+    --color-bg-medium-gray: #2d2d2d;
+}
+
+.theme-dark body {
+    background-color: var(--color-bg-black);
+    color: var(--color-text-white);
+}
+
+.theme-dark .tile {
+    background-color: var(--color-bg-dark-gray);
+}
+
+.theme-dark .tile__headline,
+.theme-dark h1,
+.theme-dark h2 {
+    color: var(--color-text-white);
+}
+
+/* ========================================
+   10. Utility Classes
+   ======================================== */
+
+.text-primary {
+    color: var(--color-text-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-link {
+    color: var(--color-text-link);
+}
+
+.bg-white {
+    background-color: var(--color-bg-white);
+}
+
+.bg-light-gray {
+    background-color: var(--color-bg-light-gray);
+}
+
+.bg-medium-gray {
+    background-color: var(--color-bg-medium-gray);
+}
+
+.font-text {
+    font-family: var(--font-family-text);
+}
+
+.font-display {
+    font-family: var(--font-family-display);
+}
+
+.font-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
