@@ -10,12 +10,17 @@ if ( php_sapi_name() !== 'cli' ) {
 
 require_once __DIR__ . '/wp-load.php';
 
+global $wpdb;
+
 $title = 'ИИ-новости за сутки: Китай бьёт по рукам Америке + ШОК в школе!';
 
-$existing = get_page_by_title( $title, OBJECT, 'post' );
-if ( $existing ) {
-	echo "Статья «{$title}» уже существует (ID: {$existing->ID})\n";
-	echo 'URL: ' . get_permalink( $existing->ID ) . "\n";
+$existing_id = $wpdb->get_var( $wpdb->prepare(
+	"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'post' AND post_title = %s AND post_status != 'trash' LIMIT 1",
+	$title
+) );
+if ( $existing_id ) {
+	echo "Статья «{$title}» уже существует (ID: {$existing_id})\n";
+	echo 'URL: ' . get_permalink( $existing_id ) . "\n";
 	exit( 0 );
 }
 
