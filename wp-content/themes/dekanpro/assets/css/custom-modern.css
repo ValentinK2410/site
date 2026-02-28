@@ -222,7 +222,14 @@ aside.widget-area,
    HEADER — Modern nav bar
    ============================================ */
 :root {
-    --dp-header-height: 52px;
+    --dp-header-height: 58px;
+}
+
+/* Скрыть Custom Header Image (радужная полоса под навигацией) */
+#wp-custom-header,
+.wp-custom-header,
+.custom-header-media {
+    display: none !important;
 }
 
 #masthead,
@@ -678,9 +685,9 @@ button.ac-ln-search-trigger,
 .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
     display: inline-flex !important;
     align-items: center;
-    height: 28px !important;
-    padding: 0 12px !important;
-    font-size: 13px !important;
+    height: 34px !important;
+    padding: 0 16px !important;
+    font-size: 14px !important;
     font-weight: 500 !important;
     line-height: 1 !important;
     border-radius: 980px !important;
