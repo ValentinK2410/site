@@ -274,7 +274,7 @@ aside.widget-area,
     display: none !important;
 }
 
-/* Header container */
+/* Header container — min-width: 0 для сжатия flex-элементов */
 .dekanpro-header-container {
     display: flex !important;
     flex-wrap: nowrap;
@@ -283,6 +283,7 @@ aside.widget-area,
     height: 44px;
     max-width: var(--dp-container);
     margin: 0 auto;
+    min-width: 0;
 }
 
 #dekanpro-primary-nav li:has(a span:empty) {
@@ -366,7 +367,7 @@ aside.widget-area,
     display: flex;
     flex: 1;
     align-items: center;
-    gap: 24px;
+    gap: 12px;
     min-width: 0;
 }
 
@@ -400,12 +401,16 @@ aside.widget-area,
 .ac-ln-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 0;
 }
 
 .ac-ln-menu-tray {
     display: flex;
     align-items: center;
+    min-width: 0;
+    flex-shrink: 1;
 }
 
 .ac-ln-menu-items,
@@ -428,7 +433,7 @@ ul.ac-ln-menu-items {
     align-items: center;
     padding: 0 12px !important;
     height: 44px;
-    font-size: 12px !important;
+    font-size: 16px !important;
     font-weight: 400;
     color: var(--dp-header-text) !important;
     text-decoration: none !important;
@@ -614,6 +619,28 @@ ul.ac-ln-menu-items {
 
 .dekanpro-header-widgets {
     margin-left: auto;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+/* Виджеты шапки: компактнее, шрифт 16px, без переполнения */
+.dekanpro-header-container .dekanpro-header-widget a,
+.dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    white-space: nowrap;
+}
+
+/* На средних экранах — ещё компактнее */
+@media screen and (max-width: 1200px) {
+    .dekanpro-header-container .ac-ln-content { gap: 8px; }
+    .dekanpro-header-container .ac-ln-menu-link { padding: 0 8px !important; }
+    .dekanpro-header-container .ac-ln-search-trigger { padding: 0 8px; }
+    .dekanpro-header-container .dekanpro-header-widget a,
+    .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
+        padding: 6px 10px !important;
+        font-size: 15px !important;
+    }
 }
 
 /* Dark mode toggle */
