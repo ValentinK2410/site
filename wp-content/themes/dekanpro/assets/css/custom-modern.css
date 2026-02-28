@@ -845,8 +845,19 @@ article:hover .entry-summary.dekanpro-entry,
 }
 
 @media screen and (max-width: 734px) {
+    .dekanpro-newsroom-hero {
+        margin-bottom: var(--dp-space-4) !important;
+        padding-bottom: var(--dp-space-4) !important;
+    }
     .dekanpro-newsroom-hero-title {
-        font-size: 40px !important;
+        font-size: 28px !important;
+        margin-bottom: var(--dp-space-1) !important;
+    }
+    .dekanpro-newsroom-hero-tagline {
+        font-size: 16px !important;
+    }
+    #dekanpro-blog-heading {
+        margin-bottom: var(--dp-space-4) !important;
     }
 }
 
@@ -1871,8 +1882,8 @@ footer.site-footer {
         display: none !important;
     }
     #dekanpro-header-inner .site-navigation {
-        min-height: 0px !important;
-        height: 0px !important;
+        min-height: auto !important;
+        height: auto !important;
     }
 }
 
@@ -1942,6 +1953,10 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-content {
     align-items: stretch !important;
 }
 
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-background {
+    display: none !important;
+}
+
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-actions {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -1963,6 +1978,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-title a {
     color: var(--dp-text) !important;
 }
 
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-action-button,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-cta {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger {
     width: 100% !important;
     justify-content: flex-start !important;
@@ -1976,6 +1997,10 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger {
     border: none !important;
     border-bottom: 1px solid var(--dp-border-light) !important;
     border-radius: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-shadow: none !important;
+    text-align: left !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger:hover {
@@ -2076,6 +2101,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     :root { --dp-container: 100%; }
 
+    html, body { overflow-x: hidden; }
+
     .dekanpro-container {
         padding-left: 16px !important;
         padding-right: 16px !important;
@@ -2119,7 +2146,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     .dekanpro-article,
     article.post,
     article.page {
-        padding: 16px 0 20px !important;
+        padding: 12px 0 16px !important;
     }
 
     .entry-media,
@@ -2140,11 +2167,11 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         font-size: 16px !important;
     }
 
-    .entry-meta { font-size: 12px !important; }
+    .entry-meta { font-size: 16px !important; }
 
     .cat-links a,
     .entry-category a {
-        font-size: 12px !important;
+        font-size: 16px !important;
     }
 
     /* Horizontal to vertical */
