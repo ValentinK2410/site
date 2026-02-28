@@ -785,8 +785,6 @@ if ( ! class_exists( 'Dekanpro_Dynamic_Styles' ) ) :
 						position: absolute;
 						top: 100%;
 						width: 100%;
-						height: 100%;
-						min-height: 100vh;
 						left: 0;
 						right: 0;
 						margin: -1px 0 0;
