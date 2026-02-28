@@ -1,56 +1,56 @@
 /**
- * DekanPro — Dark Premium Theme
- * Apple Newsroom-inspired design: elegant typography, dark backgrounds,
- * large news cards with image focus, smooth animations, perfect responsiveness.
+ * DekanPro — Apple Newsroom Style
+ * Flat minimalist design, no borders on cards, clean typography,
+ * compact header, perfect mobile experience.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ============================================
-   CSS VARIABLES — Dark Premium Palette
+   CSS VARIABLES — Apple Newsroom Palette
    ============================================ */
 :root {
-    --dp-bg-primary: #0a0a0b;
-    --dp-bg-secondary: #141416;
-    --dp-bg-card: #1c1c1e;
-    --dp-bg-card-hover: #242426;
-    --dp-bg-elevated: #2c2c2e;
-    --dp-bg-input: #1c1c1e;
+    --dp-bg-primary: #000;
+    --dp-bg-secondary: #111;
+    --dp-bg-card: transparent;
+    --dp-bg-card-hover: transparent;
+    --dp-bg-elevated: #1d1d1f;
+    --dp-bg-input: #1d1d1f;
 
     --dp-text-primary: #f5f5f7;
-    --dp-text-secondary: #a1a1a6;
+    --dp-text-secondary: #86868b;
     --dp-text-tertiary: #6e6e73;
     --dp-text-link: #2997ff;
 
     --dp-accent: #2997ff;
-    --dp-accent-hover: #64b5f6;
-    --dp-accent-subtle: rgba(41, 151, 255, 0.12);
+    --dp-accent-hover: #0077ed;
+    --dp-accent-subtle: transparent;
 
     --dp-border: rgba(255, 255, 255, 0.08);
-    --dp-border-strong: rgba(255, 255, 255, 0.15);
-    --dp-divider: rgba(255, 255, 255, 0.06);
+    --dp-border-strong: rgba(255, 255, 255, 0.12);
+    --dp-divider: rgba(255, 255, 255, 0.08);
 
-    --dp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --dp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-    --dp-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
-    --dp-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.7);
-    --dp-shadow-glow: 0 0 40px rgba(41, 151, 255, 0.15);
+    --dp-shadow-sm: none;
+    --dp-shadow-md: none;
+    --dp-shadow-lg: none;
+    --dp-shadow-xl: none;
+    --dp-shadow-glow: none;
 
-    --dp-radius-sm: 0.5rem;
-    --dp-radius: 0.75rem;
-    --dp-radius-lg: 1rem;
-    --dp-radius-xl: 1.25rem;
-    --dp-radius-2xl: 1.5rem;
+    --dp-radius-sm: 0;
+    --dp-radius: 0;
+    --dp-radius-lg: 12px;
+    --dp-radius-xl: 0;
+    --dp-radius-2xl: 0;
     --dp-radius-full: 9999px;
 
-    --dp-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --dp-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --dp-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --dp-transition-fast: 150ms ease;
+    --dp-transition: 300ms ease;
+    --dp-transition-slow: 500ms ease;
 
-    --dp-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --dp-font: 'SF Pro Display', 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     --dp-font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 
-    --dp-container: 1200px;
+    --dp-container: 980px;
     --dp-content-width: 780px;
 }
 
@@ -90,26 +90,27 @@ body {
 }
 
 /* ============================================
-   TYPOGRAPHY
+   TYPOGRAPHY — Apple sizes
    ============================================ */
 h1, h2, h3, h4, h5, h6,
 .entry-title,
 .widget-title {
     font-family: var(--dp-font);
     font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    letter-spacing: -0.003em;
+    line-height: 1.08;
     color: var(--dp-text-primary);
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
-h4 { font-size: 1.125rem; }
+h1 { font-size: 48px; font-weight: 700; line-height: 1.08; letter-spacing: -0.003em; }
+h2 { font-size: 32px; line-height: 1.125; }
+h3 { font-size: 24px; line-height: 1.17; }
+h4 { font-size: 19px; line-height: 1.21; }
 
 p {
     color: var(--dp-text-secondary);
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.47;
 }
 
 a {
@@ -128,8 +129,8 @@ a:hover {
 .dekanpro-container {
     max-width: var(--dp-container);
     margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 22px;
+    padding-right: 22px;
 }
 
 #primary,
@@ -154,21 +155,22 @@ aside.widget-area {
 }
 
 /* ============================================
-   HEADER — Dark Glassmorphism
+   HEADER — Apple Newsroom Style (compact 44px)
    ============================================ */
 #masthead,
 .site-header,
 #dekanpro-header {
-    background: rgba(10, 10, 11, 0.85) !important;
+    background: rgba(0, 0, 0, 0.92) !important;
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--dp-border);
+    border-bottom: none;
     z-index: 1000 !important;
-    transition: all var(--dp-transition) !important;
+    transition: background var(--dp-transition) !important;
 }
 
 #dekanpro-header-inner {
     background: transparent !important;
+    max-height: 44px;
 }
 
 #masthead.is-sticky,
@@ -178,15 +180,20 @@ aside.widget-area {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    box-shadow: 0 1px 0 var(--dp-border) !important;
+    box-shadow: none !important;
 }
 
-.header-placeholder.is-active {
-    display: block;
+.header-placeholder.is-active { display: block; }
+.header-placeholder { display: none; }
+
+/* Logo — compact */
+.dekanpro-logo {
+    flex-shrink: 0;
 }
 
-.header-placeholder {
-    display: none;
+.dekanpro-logo img {
+    max-height: 22px !important;
+    width: auto !important;
 }
 
 .dekanpro-logo a {
@@ -194,18 +201,32 @@ aside.widget-area {
 }
 
 .dekanpro-logo a:hover {
-    opacity: 0.8;
+    opacity: 0.7;
+}
+
+/* Hide site description in header */
+.dekanpro-logo .site-description,
+.site-header .site-description {
+    display: none !important;
 }
 
 /* Header container */
 .dekanpro-header-container {
     display: flex !important;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 1rem;
+    gap: 0;
+    height: 44px;
+    max-width: var(--dp-container);
+    margin: 0 auto;
 }
 
-/* Navigation */
+/* Hide empty menu items */
+#dekanpro-primary-nav li:has(a span:empty) {
+    display: none !important;
+}
+
+/* Navigation — Apple 12px style */
 .dekanpro-nav,
 .dekanpro-primary-nav {
     display: flex !important;
@@ -217,7 +238,7 @@ aside.widget-area {
 .dekanpro-primary-nav > ul {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0;
     list-style: none !important;
     margin: 0 !important;
@@ -236,51 +257,39 @@ aside.widget-area {
 #dekanpro-primary-nav > li > a {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--dp-text-secondary) !important;
+    padding: 0 10px;
+    height: 44px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #d1d1d6 !important;
     text-decoration: none;
     transition: color var(--dp-transition-fast);
     position: relative;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
 }
 
 .dekanpro-nav > ul > li > a:hover,
 #dekanpro-primary-nav > li > a:hover,
 .dekanpro-nav > ul > li.current-menu-item > a,
 #dekanpro-primary-nav > li.current-menu-item > a {
-    color: var(--dp-text-primary) !important;
+    color: #fff !important;
 }
 
+/* No underline animation — Apple doesn't use it */
 .dekanpro-nav > ul > li > a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0.875rem;
-    right: 0.875rem;
-    height: 2px;
-    background: var(--dp-accent);
-    border-radius: 2px;
-    transform: scaleX(0);
-    transition: transform var(--dp-transition);
-    transform-origin: center;
-}
-
-.dekanpro-nav > ul > li > a:hover::after,
-.dekanpro-nav > ul > li.current-menu-item > a::after {
-    transform: scaleX(1);
+    display: none;
 }
 
 /* Dropdown */
 .dekanpro-nav .sub-menu,
 .dekanpro-nav .children {
-    background: rgba(28, 28, 30, 0.98) !important;
+    background: rgba(29, 29, 31, 0.98) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--dp-border-strong);
-    border-radius: var(--dp-radius-lg) !important;
-    box-shadow: var(--dp-shadow-lg);
+    border-radius: 12px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
@@ -288,33 +297,28 @@ aside.widget-area {
 .dekanpro-nav .children li a {
     color: var(--dp-text-secondary) !important;
     transition: all var(--dp-transition-fast);
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 8px 16px;
+    font-size: 12px;
 }
 
 .dekanpro-nav .sub-menu li a:hover,
 .dekanpro-nav .children li a:hover {
-    background: var(--dp-accent) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     color: #fff !important;
 }
 
-/* Header search fallback */
+/* Header search fallback — hide, Apple uses icon only */
 .dekanpro-header-search-fallback {
+    display: none !important;
+}
+
+/* Header widgets — push to right */
+.dekanpro-header-widgets {
     margin-left: auto;
 }
 
-.dekanpro-header-search-fallback form {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.dekanpro-header-search-fallback input[type="search"] {
-    min-width: 180px;
-}
-
 /* ============================================
-   ARTICLE CARDS — News Grid
+   ARTICLE CARDS — Apple Newsroom flat style
    ============================================ */
 .dekanpro-article,
 .dekanpro-post-item,
@@ -322,24 +326,28 @@ aside.widget-area {
 .entry-content-wrapper,
 article.post,
 article.page {
-    background: var(--dp-bg-card) !important;
-    border: 1px solid var(--dp-border) !important;
-    border-radius: var(--dp-radius-xl) !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--dp-divider) !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    transition: all var(--dp-transition) !important;
-    overflow: hidden;
+    transition: none !important;
+    overflow: visible;
     position: relative;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
 }
 
+/* No hover lift — Apple style */
 .dekanpro-article:hover,
 .dekanpro-post-item:hover,
 article.post:hover {
-    background: var(--dp-bg-card-hover) !important;
-    border-color: var(--dp-border-strong) !important;
-    transform: translateY(-4px);
-    box-shadow: var(--dp-shadow-lg) !important;
+    background: transparent !important;
+    border-color: var(--dp-divider) !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Inner wrappers — transparent */
@@ -352,47 +360,50 @@ article.post:hover {
     backdrop-filter: none !important;
 }
 
-/* Thumbnail */
+/* Thumbnail — Apple rounded corners */
 .entry-media,
 .post-thumbnail {
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 12px;
 }
 
 .entry-media img,
 .post-thumbnail img {
     width: 100%;
-    height: 220px;
+    height: 280px;
     object-fit: cover;
     display: block;
-    transition: transform var(--dp-transition-slow), opacity var(--dp-transition);
+    border-radius: 12px;
+    transition: opacity var(--dp-transition);
 }
 
+/* Hover: only opacity change, no scale */
 .dekanpro-article:hover .entry-media img,
 article:hover .post-thumbnail img {
-    transform: scale(1.05);
+    opacity: 0.85;
+    transform: none;
 }
 
 /* Entry content area */
 .dekanpro-blog-entry-content,
 .entry-content-wrapper {
-    padding: 1.5rem !important;
+    padding: 16px 0 0 0 !important;
 }
 
 .entry-content.dekanpro-entry {
-    padding: 1.25rem;
+    padding: 16px 0 0 0;
 }
 
 .entry-summary.dekanpro-entry {
-    padding: 0.5rem 0;
-    margin: 0;
+    padding: 0;
+    margin: 8px 0 0 0;
     width: 100%;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: 0.9375rem;
+    font-size: 17px;
     color: var(--dp-text-secondary);
-    line-height: 1.6;
+    line-height: 1.47;
 }
 
 .entry-content.dekanpro-entry:hover,
@@ -400,14 +411,14 @@ article:hover .entry-summary.dekanpro-entry,
 .dekanpro-article:hover .entry-summary.dekanpro-entry,
 .entry-summary.dekanpro-entry:hover {
     transform: none !important;
-    box-shadow: inherit !important;
-    background: inherit !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
-/* Entry title */
+/* Entry title — Apple 22px */
 .entry-title {
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 4px;
 }
 
 .entry-title a {
@@ -418,14 +429,15 @@ article:hover .entry-summary.dekanpro-entry,
     background-clip: unset !important;
     text-decoration: none;
     transition: color var(--dp-transition-fast);
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    letter-spacing: 0.009em;
+    line-height: 1.19;
 }
 
 .entry-title a:hover {
-    color: var(--dp-accent) !important;
-    -webkit-text-fill-color: var(--dp-accent) !important;
+    color: var(--dp-text-link) !important;
+    -webkit-text-fill-color: var(--dp-text-link) !important;
     opacity: 1;
     transform: none;
 }
@@ -462,23 +474,23 @@ article.post .post-author,
 }
 
 /* ============================================
-   CATEGORIES & TAGS — Pill Badges
+   CATEGORIES & TAGS — Apple plain text style
    ============================================ */
 .cat-links a,
 .entry-category a,
 .post-categories a,
 .post-category .cat-links a {
-    background: var(--dp-accent-subtle) !important;
-    color: var(--dp-accent) !important;
-    padding: 0.3rem 0.75rem !important;
-    border-radius: var(--dp-radius-full) !important;
-    font-size: 0.6875rem !important;
+    background: transparent !important;
+    color: var(--dp-text-secondary) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.04em !important;
     border: none !important;
     box-shadow: none !important;
-    transition: all var(--dp-transition-fast) !important;
+    transition: color var(--dp-transition-fast) !important;
     display: inline-block;
     text-decoration: none !important;
 }
@@ -486,8 +498,8 @@ article.post .post-author,
 .cat-links a:hover,
 .entry-category a:hover,
 .post-categories a:hover {
-    background: var(--dp-accent) !important;
-    color: #fff !important;
+    background: transparent !important;
+    color: var(--dp-text-primary) !important;
 }
 
 .cat-links,
@@ -501,29 +513,30 @@ article.post .post-author,
 .tagcloud a,
 .wp-block-tag-cloud a,
 .post-tags a {
-    background: var(--dp-bg-elevated) !important;
+    background: transparent !important;
     color: var(--dp-text-secondary) !important;
-    padding: 0.4rem 0.875rem !important;
-    border-radius: var(--dp-radius-full) !important;
-    border: 1px solid var(--dp-border) !important;
-    font-size: 0.8125rem !important;
-    transition: all var(--dp-transition-fast) !important;
+    padding: 4px 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    font-size: 14px !important;
+    transition: color var(--dp-transition-fast) !important;
 }
 
 .tagcloud a:hover,
 .wp-block-tag-cloud a:hover,
 .post-tags a:hover {
-    background: var(--dp-accent) !important;
-    color: #fff !important;
-    border-color: var(--dp-accent) !important;
+    background: transparent !important;
+    color: var(--dp-text-link) !important;
+    border-color: transparent !important;
 }
 
 /* ============================================
-   ENTRY META
+   ENTRY META — Apple 12px
    ============================================ */
 .entry-meta {
-    font-size: 0.8125rem;
+    font-size: 12px;
     color: var(--dp-text-tertiary);
+    line-height: 1.33;
 }
 
 .entry-meta a {
@@ -532,49 +545,43 @@ article.post .post-author,
 }
 
 .entry-meta a:hover {
-    color: var(--dp-accent);
+    color: var(--dp-text-primary);
 }
 
 /* ============================================
-   WIDGETS — Dark Sidebar
+   WIDGETS — Minimal
    ============================================ */
 .widget,
 .sidebar .widget,
 #secondary .widget {
-    background: var(--dp-bg-card) !important;
-    border: 1px solid var(--dp-border) !important;
-    border-radius: var(--dp-radius-xl) !important;
-    padding: 1.5rem !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--dp-divider) !important;
+    border-radius: 0 !important;
+    padding: 24px 0 !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    transition: border-color var(--dp-transition);
 }
 
 .widget:hover {
-    border-color: var(--dp-border-strong) !important;
+    border-color: var(--dp-divider) !important;
 }
 
 .widget-title {
-    font-size: 0.875rem !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: var(--dp-text-tertiary) !important;
-    margin-bottom: 1.25rem !important;
-    padding-bottom: 0.75rem !important;
-    border-bottom: 1px solid var(--dp-divider) !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
     position: relative;
 }
 
 .widget-title::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 2rem;
-    height: 1px;
-    background: var(--dp-accent);
+    display: none;
 }
 
 #secondary .dekanpro-sidebar-widget,
@@ -651,7 +658,7 @@ article.post .post-author,
 }
 
 /* ============================================
-   BUTTONS
+   BUTTONS — Apple minimal
    ============================================ */
 .dekanpro-btn,
 button,
@@ -659,16 +666,16 @@ input[type="submit"],
 .wp-block-button__link {
     background: var(--dp-accent) !important;
     border: none !important;
-    border-radius: var(--dp-radius-full) !important;
-    padding: 0.75rem 1.75rem !important;
+    border-radius: 980px !important;
+    padding: 8px 20px !important;
     font-family: var(--dp-font);
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-    letter-spacing: 0;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em;
     text-transform: none !important;
     color: #fff !important;
     box-shadow: none !important;
-    transition: all var(--dp-transition-fast) !important;
+    transition: background var(--dp-transition-fast) !important;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -679,14 +686,14 @@ button:hover,
 input[type="submit"]:hover,
 .wp-block-button__link:hover {
     background: var(--dp-accent-hover) !important;
-    transform: translateY(-1px);
-    box-shadow: var(--dp-shadow-md), var(--dp-shadow-glow) !important;
+    transform: none;
+    box-shadow: none !important;
 }
 
 .dekanpro-btn:active,
 button:active,
 input[type="submit"]:active {
-    transform: translateY(0);
+    transform: none;
 }
 
 .dekanpro-btn::before,
@@ -695,22 +702,22 @@ input[type="submit"]::before {
     display: none;
 }
 
-/* CTA buttons */
+/* CTA / read-more links — Apple arrow style */
 a.button,
 .read-more.button,
 .dekanpro-button,
 .entry-summary-footer a {
     background: transparent !important;
-    color: var(--dp-accent) !important;
-    padding: 0.5rem 0;
+    color: var(--dp-text-link) !important;
+    padding: 0;
     border-radius: 0;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    transition: gap var(--dp-transition-fast), color var(--dp-transition-fast);
+    gap: 4px;
+    font-weight: 400;
+    font-size: 17px;
+    transition: color var(--dp-transition-fast);
     border: none !important;
     box-shadow: none !important;
 }
@@ -720,7 +727,7 @@ a.button:hover,
 .dekanpro-button:hover,
 .entry-summary-footer a:hover {
     color: var(--dp-accent-hover) !important;
-    gap: 0.625rem;
+    gap: 4px;
     opacity: 1;
     transform: none;
     box-shadow: none !important;
@@ -745,12 +752,12 @@ textarea,
 select {
     background: var(--dp-bg-input) !important;
     border: 1px solid var(--dp-border-strong) !important;
-    border-radius: var(--dp-radius) !important;
-    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
     color: var(--dp-text-primary) !important;
     font-family: var(--dp-font);
-    font-size: 0.9375rem !important;
-    transition: all var(--dp-transition-fast) !important;
+    font-size: 17px !important;
+    transition: border-color var(--dp-transition-fast) !important;
 }
 
 input[type="text"]:focus,
@@ -763,21 +770,22 @@ textarea:focus,
 select:focus {
     background: var(--dp-bg-elevated) !important;
     border-color: var(--dp-accent) !important;
-    box-shadow: 0 0 0 3px var(--dp-accent-subtle) !important;
+    box-shadow: none !important;
     outline: none !important;
 }
 
 /* ============================================
-   FOOTER
+   FOOTER — Apple minimal
    ============================================ */
 #colophon,
 .site-footer,
 footer.site-footer {
-    background: var(--dp-bg-secondary) !important;
-    border-top: 1px solid var(--dp-border) !important;
+    background: #000 !important;
+    border-top: 1px solid var(--dp-divider) !important;
     color: var(--dp-text-tertiary) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    font-size: 12px;
 }
 
 #colophon::before {
@@ -785,12 +793,13 @@ footer.site-footer {
 }
 
 #dekanpro-footer {
-    background: var(--dp-bg-secondary) !important;
+    background: #000 !important;
 }
 
 .site-footer a {
     color: var(--dp-text-secondary) !important;
     transition: color var(--dp-transition-fast);
+    font-size: 12px;
 }
 
 .site-footer a:hover {
@@ -803,266 +812,260 @@ footer.site-footer {
 #dekanpro-scroll-top {
     background: var(--dp-bg-elevated) !important;
     border: 1px solid var(--dp-border-strong);
-    border-radius: var(--dp-radius) !important;
-    box-shadow: var(--dp-shadow-md);
+    border-radius: 50% !important;
+    box-shadow: none;
     color: var(--dp-text-primary);
-    transition: all var(--dp-transition-fast) !important;
+    transition: background var(--dp-transition-fast) !important;
 }
 
 #dekanpro-scroll-top:hover {
     background: var(--dp-accent) !important;
     border-color: var(--dp-accent);
-    transform: translateY(-3px) !important;
-    box-shadow: var(--dp-shadow-lg), var(--dp-shadow-glow) !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* ============================================
-   PAGINATION
+   PAGINATION — Apple minimal
    ============================================ */
 .navigation .nav-links .page-numbers {
-    background: var(--dp-bg-card) !important;
-    border: 1px solid var(--dp-border) !important;
-    border-radius: var(--dp-radius) !important;
-    padding: 0.625rem 1rem !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 8px 12px !important;
     color: var(--dp-text-secondary) !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem;
-    transition: all var(--dp-transition-fast) !important;
+    font-weight: 400 !important;
+    font-size: 14px;
+    transition: color var(--dp-transition-fast) !important;
 }
 
-.navigation .nav-links .page-numbers:hover,
+.navigation .nav-links .page-numbers:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--dp-text-primary) !important;
+    transform: none;
+}
+
 .navigation .nav-links .page-numbers.current {
-    background: var(--dp-accent) !important;
-    border-color: var(--dp-accent) !important;
-    color: #fff !important;
-    transform: translateY(-1px);
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--dp-text-primary) !important;
+    font-weight: 600 !important;
+    transform: none;
 }
 
 /* ============================================
-   COMMENTS
+   COMMENTS — Flat
    ============================================ */
 #comments {
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
-    padding: 2rem;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--dp-divider);
+    border-radius: 0;
+    padding: 32px 0;
 }
 
 .comment-body {
-    background: var(--dp-bg-secondary) !important;
-    border: 1px solid var(--dp-border) !important;
-    border-radius: var(--dp-radius) !important;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    border-left: 3px solid var(--dp-accent) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 16px 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--dp-divider) !important;
+    border-left: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
 }
 
 /* ============================================
-   SINGLE POST — Article Content
+   SINGLE POST — Article Content (Apple style)
    ============================================ */
 .entry-content {
-    line-height: 1.75;
+    line-height: 1.47;
     color: var(--dp-text-secondary);
+    font-size: 17px;
 }
 
 .entry-content h2 {
-    font-size: 1.625rem;
+    font-size: 28px;
     font-weight: 700;
     color: var(--dp-text-primary);
-    margin: 3rem 0 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--dp-divider);
+    margin: 40px 0 16px;
+    padding-bottom: 0;
+    border-bottom: none;
     border-image: none;
 }
 
 .entry-content h3 {
-    font-size: 1.25rem;
+    font-size: 22px;
     font-weight: 600;
     color: var(--dp-text-primary);
-    margin: 2.5rem 0 1rem;
-    padding-left: 1rem;
-    border-left: 3px solid var(--dp-accent);
+    margin: 32px 0 12px;
+    padding-left: 0;
+    border-left: none;
 }
 
 .entry-content h4 {
-    font-size: 1.0625rem;
+    font-size: 19px;
     font-weight: 600;
     color: var(--dp-text-primary);
-    margin: 2rem 0 0.75rem;
+    margin: 24px 0 8px;
 }
 
 .entry-content p {
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    font-size: 17px;
+    line-height: 1.47;
+    margin-bottom: 20px;
     color: var(--dp-text-secondary);
 }
 
-/* Lists */
+/* Lists — clean, no decorations */
 .entry-content ul,
 .entry-content ol {
-    margin: 1.5rem 0;
-    padding-left: 0;
+    margin: 20px 0;
+    padding-left: 24px;
 }
 
 .entry-content ul li,
 .entry-content ol li {
-    font-size: 1rem;
+    font-size: 17px;
     position: relative;
-    padding: 0.625rem 1rem 0.625rem 2.25rem;
-    margin-bottom: 0.375rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--dp-radius-sm);
-    border-left: 2px solid var(--dp-accent);
-    list-style: none;
+    padding: 4px 0;
+    margin-bottom: 4px;
+    background: transparent;
+    border-radius: 0;
+    border-left: none;
+    list-style: disc;
     color: var(--dp-text-secondary);
+    line-height: 1.47;
+}
+
+.entry-content ol li {
+    list-style: decimal;
 }
 
 .entry-content ul li::before {
-    content: '\2192';
-    position: absolute;
-    left: 0.75rem;
-    color: var(--dp-accent);
-    font-weight: 600;
+    display: none;
 }
 
 .entry-content ol {
-    counter-reset: item;
+    counter-reset: none;
 }
 
 .entry-content ol li::before {
-    content: counter(item);
-    counter-increment: item;
-    position: absolute;
-    left: 0.75rem;
-    color: var(--dp-accent);
-    font-weight: 700;
-    font-size: 0.875rem;
+    display: none;
 }
 
-/* Code blocks */
+/* Code blocks — clean dark */
 .entry-content pre {
-    background: #0d1117 !important;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--dp-radius-lg) !important;
-    padding: 2.5rem 1.5rem 1.5rem !important;
-    margin: 2rem 0 !important;
+    background: #1d1d1f !important;
+    border: none;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin: 24px 0 !important;
     overflow-x: auto;
     position: relative;
-    box-shadow: var(--dp-shadow-md);
+    box-shadow: none;
 }
 
 .entry-content pre::before {
-    content: '';
-    position: absolute;
-    top: 0.875rem;
-    left: 1.25rem;
-    width: 10px;
-    height: 10px;
-    background: #ff5f57;
-    border-radius: 50%;
-    box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
+    display: none;
 }
 
 .entry-content pre code {
     background: transparent !important;
     color: #e6edf3 !important;
     font-family: var(--dp-font-mono) !important;
-    font-size: 0.875rem !important;
-    line-height: 1.65 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
     display: block;
     white-space: pre !important;
     overflow-x: auto;
 }
 
 .entry-content code:not(pre code) {
-    background: rgba(41, 151, 255, 0.1) !important;
-    color: var(--dp-accent) !important;
-    padding: 0.15rem 0.4rem !important;
-    border-radius: 0.25rem !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: var(--dp-text-primary) !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
     font-family: var(--dp-font-mono) !important;
-    font-size: 0.875em !important;
-    font-weight: 500;
-    border: 1px solid rgba(41, 151, 255, 0.15);
+    font-size: 0.88em !important;
+    font-weight: 400;
+    border: none;
 }
 
-/* Blockquotes */
+/* Blockquotes — Apple clean */
 .entry-content blockquote {
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 3px solid var(--dp-accent);
-    padding: 1.5rem 2rem;
-    margin: 2rem 0;
-    border-radius: 0 var(--dp-radius) var(--dp-radius) 0;
+    background: transparent;
+    border-left: 3px solid var(--dp-divider);
+    padding: 0 0 0 20px;
+    margin: 24px 0;
+    border-radius: 0;
     font-style: italic;
     color: var(--dp-text-secondary);
     position: relative;
+    font-size: 19px;
+    line-height: 1.42;
 }
 
 .entry-content blockquote::before {
-    content: '\201C';
-    position: absolute;
-    top: -0.25rem;
-    left: 0.75rem;
-    font-size: 3rem;
-    color: rgba(41, 151, 255, 0.2);
-    font-family: Georgia, serif;
-    line-height: 1;
+    display: none;
 }
 
 /* Links in content */
 .entry-content a:not(.wp-block-button__link) {
-    color: var(--dp-accent);
+    color: var(--dp-text-link);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--dp-transition-fast);
+    border-bottom: none;
+    transition: color var(--dp-transition-fast);
 }
 
 .entry-content a:not(.wp-block-button__link):hover {
-    border-bottom-color: var(--dp-accent);
+    text-decoration: underline;
+    border-bottom: none;
     background-size: unset;
 }
 
 /* Images */
 .entry-content img {
-    border-radius: var(--dp-radius-lg);
-    box-shadow: var(--dp-shadow-md);
-    transition: transform var(--dp-transition), box-shadow var(--dp-transition);
+    border-radius: 12px;
+    box-shadow: none;
 }
 
 .entry-content img:hover {
-    transform: scale(1.01);
-    box-shadow: var(--dp-shadow-lg);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Tables */
 .entry-content table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2rem 0;
-    border-radius: var(--dp-radius-lg);
+    margin: 24px 0;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--dp-border);
+    border: none;
+    border-top: 1px solid var(--dp-divider);
 }
 
 .entry-content table th {
-    background: var(--dp-bg-elevated);
+    background: transparent;
     color: var(--dp-text-primary);
-    padding: 0.875rem 1rem;
+    padding: 12px 16px;
     text-align: left;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--dp-divider);
 }
 
 .entry-content table td {
-    padding: 0.875rem 1rem;
+    padding: 12px 16px;
     border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-secondary);
-    font-size: 0.9375rem;
+    font-size: 14px;
 }
 
 .entry-content table tr:hover {
@@ -1074,7 +1077,7 @@ footer.site-footer {
     border: none;
     height: 1px;
     background: var(--dp-divider);
-    margin: 3rem 0;
+    margin: 32px 0;
 }
 
 /* ============================================
@@ -1087,54 +1090,48 @@ footer.site-footer {
 
 #hero::after,
 .dekanpro-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to top, var(--dp-bg-primary), transparent);
-    pointer-events: none;
+    display: none;
 }
 
 /* ============================================
    SHARE BUTTONS
    ============================================ */
 .dekanpro-share-buttons {
-    margin: 2rem 0;
-    padding: 1.25rem 1.5rem;
-    background: var(--dp-bg-secondary);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
+    margin: 24px 0;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--dp-divider);
+    border-radius: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
 .dekanpro-share-buttons .share-label {
     font-weight: 600;
     color: var(--dp-text-tertiary);
-    font-size: 0.8125rem;
-    margin-right: 0.25rem;
+    font-size: 12px;
+    margin-right: 4px;
 }
 
 .dekanpro-share-buttons .share-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--dp-radius-full);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 980px;
+    font-size: 12px;
+    font-weight: 400;
     text-decoration: none;
-    transition: all var(--dp-transition-fast);
+    transition: opacity var(--dp-transition-fast);
     box-shadow: none;
 }
 
 .dekanpro-share-buttons .share-btn:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
+    transform: none;
+    opacity: 0.8;
 }
 
 .dekanpro-share-buttons .share-btn-icon {
@@ -1169,30 +1166,27 @@ footer.site-footer {
    TABLE OF CONTENTS
    ============================================ */
 .dekanpro-toc {
-    margin-bottom: 2.5rem;
-    padding: 1.75rem 2rem;
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
+    margin-bottom: 32px;
+    padding: 20px 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--dp-divider);
+    border-bottom: 1px solid var(--dp-divider);
+    border-radius: 0;
     position: relative;
 }
 
 .dekanpro-toc::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--dp-accent);
-    border-radius: 3px 0 0 3px;
+    display: none;
 }
 
 .dekanpro-toc-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin: 0 0 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 12px;
     color: var(--dp-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .dekanpro-toc-list {
@@ -1202,33 +1196,33 @@ footer.site-footer {
 }
 
 .dekanpro-toc-item {
-    margin: 0.25rem 0;
+    margin: 2px 0;
 }
 
 .dekanpro-toc-item a {
     display: block;
-    padding: 0.5rem 0.875rem;
-    border-radius: var(--dp-radius-sm);
-    color: var(--dp-text-secondary);
+    padding: 4px 0;
+    border-radius: 0;
+    color: var(--dp-text-link);
     text-decoration: none;
-    transition: all var(--dp-transition-fast);
-    font-size: 0.9375rem;
-    line-height: 1.5;
+    transition: color var(--dp-transition-fast);
+    font-size: 15px;
+    line-height: 1.47;
 }
 
 .dekanpro-toc-item a:hover {
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--dp-text-primary);
-    padding-left: 1.25rem;
+    background: transparent;
+    color: var(--dp-accent-hover);
+    padding-left: 0;
 }
 
 .dekanpro-toc-h3 {
-    padding-left: 1.25rem;
+    padding-left: 16px;
 }
 
 .dekanpro-toc-h3 a {
-    font-size: 0.875rem;
-    color: var(--dp-text-tertiary);
+    font-size: 14px;
+    color: var(--dp-text-secondary);
 }
 
 /* ============================================
@@ -1251,11 +1245,11 @@ footer.site-footer {
 }
 
 .dekanpro-region-selector-inner {
-    background: var(--dp-bg-card);
+    background: #1d1d1f;
     border: 1px solid var(--dp-border-strong);
-    padding: 2rem;
-    border-radius: var(--dp-radius-xl);
-    box-shadow: var(--dp-shadow-xl);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
     min-width: 340px;
     max-width: 90vw;
     animation: dpFadeInUp 0.3s ease-out;
@@ -1324,10 +1318,11 @@ footer.site-footer {
 
 .dekanpro-contrib-login-prompt {
     text-align: center;
-    padding: 2.5rem 2rem;
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
+    padding: 32px 24px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--dp-divider);
+    border-radius: 0;
 }
 
 .dekanpro-contrib-login-prompt p {
@@ -1448,11 +1443,12 @@ footer.site-footer {
    GALLERY WITH FILTERS
    ============================================ */
 .dekanpro-gallery-filters {
-    margin-bottom: 2rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
+    margin-bottom: 24px;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--dp-divider);
+    border-radius: 0;
 }
 
 .gallery-filter-row {
@@ -1593,15 +1589,17 @@ footer.site-footer {
     padding: 1.25rem 1.5rem;
 }
 
-/* Gallery card */
+/* Gallery card — flat Apple style */
 .gallery-card {
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
-    overflow: hidden;
-    transition: all var(--dp-transition);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--dp-divider);
+    border-radius: 0;
+    overflow: visible;
+    transition: none;
     opacity: 0;
     transform: translateY(20px);
+    padding-bottom: 24px;
 }
 
 .gallery-card.is-visible {
@@ -1609,15 +1607,16 @@ footer.site-footer {
 }
 
 .gallery-card:hover {
-    border-color: var(--dp-border-strong);
-    transform: translateY(-4px);
-    box-shadow: var(--dp-shadow-lg);
+    border-color: var(--dp-divider);
+    transform: none;
+    box-shadow: none;
 }
 
 .gallery-card-thumb {
     display: block;
     overflow: hidden;
     height: 200px;
+    border-radius: 12px;
 }
 
 .gallery-card-thumb img {
@@ -1625,40 +1624,42 @@ footer.site-footer {
     height: 200px;
     object-fit: cover;
     display: block;
-    transition: transform var(--dp-transition-slow);
+    border-radius: 12px;
+    transition: opacity var(--dp-transition);
 }
 
 .gallery-card:hover .gallery-card-thumb img {
-    transform: scale(1.05);
+    opacity: 0.85;
+    transform: none;
 }
 
 .gallery-card-body {
-    padding: 1.25rem;
+    padding: 12px 0 0 0;
 }
 
 .gallery-card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 0.5rem;
+    gap: 4px;
+    margin-bottom: 4px;
 }
 
 .gallery-card-tag {
-    font-size: 0.6875rem;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--dp-accent);
-    background: var(--dp-accent-subtle);
-    padding: 0.15rem 0.5rem;
-    border-radius: 0.25rem;
+    letter-spacing: 0.04em;
+    color: var(--dp-text-secondary);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
 }
 
 .gallery-card-title {
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 1.4;
-    margin: 0 0 0.5rem;
+    line-height: 1.19;
+    margin: 0 0 4px;
 }
 
 .gallery-card-title a {
@@ -1702,14 +1703,14 @@ footer.site-footer {
 .dekanpro-post-location {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.875rem;
-    background: var(--dp-bg-secondary);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-full);
-    font-size: 0.8125rem;
+    gap: 4px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
     color: var(--dp-text-tertiary);
-    margin-top: 1rem;
+    margin-top: 8px;
 }
 
 .dekanpro-post-location .location-label {
@@ -1721,20 +1722,22 @@ footer.site-footer {
    POST CARD (UX)
    ============================================ */
 .post-card {
-    margin-bottom: 1.5rem;
-    padding-bottom: 0;
-    border-bottom: none;
-    background: var(--dp-bg-card);
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
-    overflow: hidden;
-    transition: all var(--dp-transition);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--dp-divider);
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    overflow: visible;
+    transition: none;
 }
 
 .post-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--dp-border-strong);
-    box-shadow: var(--dp-shadow-lg);
+    transform: none;
+    border-color: var(--dp-divider);
+    box-shadow: none;
 }
 
 /* ============================================
@@ -1781,16 +1784,17 @@ body.dekanpro-is-mobile #dekanpro-header-inner {
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner > .dekanpro-container {
-    padding: 10px 16px !important;
+    padding: 0 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
     gap: 8px !important;
+    height: 44px;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-logo img {
-    max-height: 32px !important;
+    max-height: 18px !important;
     width: auto !important;
 }
 
@@ -1804,7 +1808,7 @@ body.dekanpro-is-mobile .dekanpro-hamburger {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    border-radius: var(--dp-radius) !important;
+    border-radius: 0 !important;
 }
 
 body.dekanpro-is-mobile .dekanpro-hamburger:hover,
@@ -1846,24 +1850,25 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li {
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a {
     padding: 12px 20px !important;
-    font-size: 0.9375rem !important;
-    font-weight: 500 !important;
-    min-height: 48px !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    min-height: 44px !important;
     display: flex !important;
     align-items: center !important;
-    color: var(--dp-text-secondary) !important;
+    color: #d1d1d6 !important;
     border: none !important;
     background: none !important;
-    border-radius: var(--dp-radius-sm) !important;
-    margin: 0 8px !important;
-    width: calc(100% - 16px) !important;
-    transition: background var(--dp-transition-fast), color var(--dp-transition-fast) !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    transition: color var(--dp-transition-fast) !important;
+    border-bottom: 1px solid var(--dp-divider) !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a:hover,
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li.current-menu-item > a {
-    color: var(--dp-text-primary) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    background: transparent !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::after {
@@ -1872,7 +1877,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::afte
 
 body.dekanpro-is-mobile #dekanpro-header:after,
 .is-mobile-menu-active #dekanpro-header:after {
-    background-color: var(--dp-bg-card) !important;
+    background-color: #000 !important;
 }
 
 .is-mobile-menu-active #page:after {
@@ -1912,12 +1917,13 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
 /* ============================================
    RESPONSIVE — MOBILE (max-width: 768px)
+   Apple Newsroom mobile: 20px padding, clean, no clutter
    ============================================ */
 @media screen and (max-width: 768px) {
 
     .dekanpro-container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
     #primary,
@@ -1945,27 +1951,27 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         padding-right: 0 !important;
     }
 
-    /* Header */
+    /* Header — compact 44px */
     #masthead,
     .site-header {
         padding: 0 !important;
     }
 
-    .dekanpro-nav > ul > li > a::after {
-        display: none !important;
+    .dekanpro-logo img {
+        max-height: 18px !important;
     }
 
     .dekanpro-header-container .dekanpro-btn:not(.share-btn):not(.gallery-tag-btn):not(.gallery-view-btn) {
-        padding: 8px 14px !important;
-        font-size: 0.8125rem !important;
+        display: none !important;
     }
 
-    /* Cards */
+    /* Cards — no borders, clean */
     .dekanpro-article,
     article.post,
     article.page {
-        border-radius: var(--dp-radius-lg) !important;
-        margin-bottom: 1rem !important;
+        border-radius: 0 !important;
+        margin-bottom: 24px !important;
+        padding-bottom: 24px;
     }
 
     .dekanpro-article:hover,
@@ -1975,30 +1981,32 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     .dekanpro-blog-entry-content,
     .entry-content-wrapper {
-        padding: 1rem !important;
+        padding: 12px 0 0 0 !important;
     }
 
     .entry-title {
-        font-size: 1.125rem !important;
-        line-height: 1.35 !important;
+        font-size: 19px !important;
+        line-height: 1.21 !important;
     }
 
     .entry-title a {
+        font-size: 19px !important;
         -webkit-text-fill-color: var(--dp-text-primary) !important;
     }
 
     .entry-summary.dekanpro-entry {
-        font-size: 0.875rem !important;
+        font-size: 15px !important;
+        line-height: 1.47 !important;
     }
 
     .entry-meta {
-        font-size: 0.75rem !important;
+        font-size: 11px !important;
     }
 
     .cat-links a,
     .entry-category a {
-        padding: 0.25rem 0.625rem !important;
-        font-size: 0.625rem !important;
+        padding: 0 !important;
+        font-size: 11px !important;
     }
 
     /* Horizontal blog to vertical */
@@ -2015,79 +2023,77 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         min-width: 100% !important;
         flex: 0 0 auto !important;
         height: auto !important;
-        max-height: 200px !important;
+        max-height: 180px !important;
         overflow: hidden !important;
     }
 
     .dekanpro-entry-content-wrapper {
-        padding: 1rem !important;
+        padding: 12px 0 0 0 !important;
         width: 100% !important;
     }
 
     .entry-media,
     .post-thumbnail {
-        border-radius: 0 !important;
-        max-height: 200px !important;
+        border-radius: 8px !important;
+        max-height: 180px !important;
     }
 
     .entry-media img,
     .post-thumbnail img,
     .dekanpro-blog-entry-wrapper img {
         width: 100% !important;
-        height: 200px !important;
-        max-height: 200px !important;
+        height: 180px !important;
+        max-height: 180px !important;
         object-fit: cover !important;
         display: block !important;
-        border-radius: 0 !important;
+        border-radius: 8px !important;
     }
 
-    /* Content typography */
+    /* Content typography — Apple mobile sizes */
     .entry-content p {
-        font-size: 1rem !important;
-        line-height: 1.75 !important;
+        font-size: 17px !important;
+        line-height: 1.47 !important;
     }
 
     .entry-content h2 {
-        font-size: 1.25rem !important;
-        margin: 2rem 0 1rem !important;
+        font-size: 22px !important;
+        margin: 28px 0 12px !important;
     }
 
     .entry-content h3 {
-        font-size: 1.125rem !important;
-        margin: 1.5rem 0 0.75rem !important;
-        padding-left: 0.75rem !important;
+        font-size: 19px !important;
+        margin: 24px 0 8px !important;
+        padding-left: 0 !important;
     }
 
     .entry-content ul li,
     .entry-content ol li {
-        font-size: 0.9375rem !important;
-        padding: 0.5rem 0.75rem 0.5rem 2rem !important;
+        font-size: 17px !important;
+        padding: 4px 0 !important;
     }
 
     .entry-content blockquote {
-        padding: 1rem 1.25rem !important;
-        margin: 1.5rem 0 !important;
+        padding: 0 0 0 16px !important;
+        margin: 20px 0 !important;
+        font-size: 17px !important;
     }
 
     .entry-content blockquote::before {
-        font-size: 2.5rem !important;
+        display: none !important;
     }
 
     .entry-content pre {
-        border-radius: var(--dp-radius) !important;
-        padding: 2.25rem 1rem 1rem !important;
-        margin: 1.5rem -1rem !important;
-        border-radius: 0 !important;
-        border-left: none;
-        border-right: none;
+        border-radius: 8px !important;
+        padding: 16px !important;
+        margin: 20px 0 !important;
     }
 
     .entry-content pre code {
-        font-size: 0.8125rem !important;
+        font-size: 13px !important;
     }
 
     .entry-content img {
-        border-radius: var(--dp-radius) !important;
+        border-radius: 8px !important;
     }
 
     .entry-content table {
@@ -2098,43 +2104,43 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     /* TOC */
     .dekanpro-toc {
-        padding: 1.25rem !important;
+        padding: 16px !important;
     }
 
     .dekanpro-toc-title {
-        font-size: 1rem !important;
+        font-size: 14px !important;
     }
 
     .dekanpro-toc-item a {
-        font-size: 0.875rem !important;
-        padding: 0.4rem 0.5rem !important;
+        font-size: 14px !important;
+        padding: 4px 0 !important;
     }
 
     /* Share buttons */
     .dekanpro-share-buttons {
-        padding: 1rem !important;
-        margin: 1.5rem 0 !important;
+        padding: 12px 0 !important;
+        margin: 20px 0 !important;
     }
 
     .dekanpro-share-buttons .share-label {
         width: 100%;
-        margin-bottom: 0.25rem;
+        margin-bottom: 4px;
     }
 
     .dekanpro-share-buttons .share-btn {
-        padding: 0.4rem 0.875rem !important;
-        font-size: 0.8125rem !important;
+        padding: 4px 10px !important;
+        font-size: 12px !important;
     }
 
     /* Archive header */
     .page-header .page-title {
-        font-size: 1.375rem !important;
+        font-size: 28px !important;
     }
 
     /* Gallery */
     .gallery-view-grid {
         grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+        gap: 16px !important;
     }
 
     .gallery-view-list .gallery-card {
@@ -2144,11 +2150,11 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     .gallery-view-list .gallery-card-thumb {
         width: 100% !important;
         min-width: auto !important;
-        border-radius: var(--dp-radius-xl) var(--dp-radius-xl) 0 0 !important;
+        border-radius: 8px 8px 0 0 !important;
     }
 
     .gallery-view-list .gallery-card-thumb img {
-        border-radius: var(--dp-radius-xl) var(--dp-radius-xl) 0 0 !important;
+        border-radius: 8px 8px 0 0 !important;
     }
 
     .gallery-filter-row {
@@ -2170,21 +2176,21 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .gallery-tag-btn {
-        font-size: 0.8125rem !important;
-        padding: 0.35rem 0.75rem !important;
+        font-size: 12px !important;
+        padding: 4px 10px !important;
     }
 
     /* Pagination */
     .navigation .nav-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0;
         justify-content: center;
     }
 
     .navigation .nav-links .page-numbers {
-        padding: 0.5rem 0.875rem !important;
-        font-size: 0.8125rem !important;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
         min-width: 44px;
         min-height: 44px;
         display: inline-flex;
@@ -2194,12 +2200,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     /* Comments */
     #comments {
-        padding: 1.25rem 1rem !important;
-        border-radius: var(--dp-radius-lg) !important;
+        padding: 20px 0 !important;
+        border-radius: 0 !important;
     }
 
     .comment-body {
-        padding: 1rem !important;
+        padding: 12px 0 !important;
     }
 
     #comments textarea {
@@ -2214,7 +2220,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     /* Post navigation */
     .post-navigation .nav-links {
         flex-direction: column !important;
-        gap: 1rem;
+        gap: 12px;
     }
 
     .post-navigation .nav-previous,
@@ -2225,21 +2231,21 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     /* Footer */
     #colophon,
     .site-footer {
-        padding: 1.5rem 1rem !important;
+        padding: 20px !important;
         text-align: center;
     }
 
     .site-footer,
     .site-footer * {
-        font-size: 0.8125rem !important;
+        font-size: 12px !important;
     }
 
     /* Region modal */
     .dekanpro-region-selector-inner {
         min-width: auto !important;
         margin: 16px !important;
-        padding: 1.5rem !important;
-        border-radius: var(--dp-radius-lg) !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
     }
 
     .dekanpro-region-actions {
@@ -2253,7 +2259,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     /* Contrib form */
     .dekanpro-contrib-login-prompt {
-        padding: 1.5rem 1.25rem !important;
+        padding: 20px !important;
     }
 
     .dekanpro-contrib-login-prompt .contrib-actions {
@@ -2267,13 +2273,13 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .form-row-group-location {
-        padding: 1rem !important;
+        padding: 16px !important;
     }
 
     /* Widgets */
     .widget {
-        padding: 1.25rem !important;
-        border-radius: var(--dp-radius-lg) !important;
+        padding: 16px 0 !important;
+        border-radius: 0 !important;
     }
 
     /* No animations on mobile */
@@ -2290,8 +2296,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     #dekanpro-scroll-top {
         bottom: 16px !important;
         right: 16px !important;
-        width: 44px !important;
-        height: 44px !important;
+        width: 40px !important;
+        height: 40px !important;
     }
 
     /* Touch targets */
@@ -2309,7 +2315,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     input[type="tel"],
     textarea,
     select {
-        font-size: 1rem !important;
+        font-size: 16px !important;
         min-height: 44px;
     }
 }
@@ -2334,8 +2340,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ============================================ */
 .page-header,
 .dekanpro-page-header {
-    background: var(--dp-bg-secondary) !important;
-    border-bottom: 1px solid var(--dp-border);
+    background: transparent !important;
+    border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-primary);
 }
 
@@ -2343,13 +2349,15 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-page-header-title h2,
 .dekanpro-page-header-title .page-title {
     color: var(--dp-text-primary) !important;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: -0.003em;
 }
 
 .dekanpro-page-header-description,
 .dekanpro-page-header-description p {
     color: var(--dp-text-secondary) !important;
+    font-size: 17px;
 }
 
 .dekanpro-page-header-wrapper {
@@ -2361,25 +2369,26 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-breadcrumbs a,
 .dekanpro-breadcrumbs span {
     color: var(--dp-text-tertiary) !important;
-    font-size: 0.8125rem;
+    font-size: 12px;
 }
 
 .dekanpro-breadcrumbs a:hover {
-    color: var(--dp-accent) !important;
+    color: var(--dp-text-primary) !important;
 }
 
 /* ============================================
    COPYRIGHT BAR
    ============================================ */
 #dekanpro-copyright {
-    background: var(--dp-bg-primary) !important;
-    border-top: 1px solid var(--dp-border);
+    background: #000 !important;
+    border-top: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
-    font-size: 0.8125rem;
+    font-size: 12px;
 }
 
 #dekanpro-copyright a {
     color: var(--dp-text-secondary) !important;
+    font-size: 12px;
 }
 
 #dekanpro-copyright a:hover {
@@ -2391,9 +2400,10 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ============================================ */
 .dekanpro-topbar,
 #dekanpro-topbar {
-    background: var(--dp-bg-secondary) !important;
-    border-bottom: 1px solid var(--dp-border);
+    background: #000 !important;
+    border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
+    font-size: 12px;
 }
 
 .dekanpro-topbar a {
@@ -2408,8 +2418,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    TICKER
    ============================================ */
 .dekanpro-ticker {
-    background: var(--dp-bg-card) !important;
-    border-bottom: 1px solid var(--dp-border);
+    background: transparent !important;
+    border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-secondary);
 }
 
@@ -2427,7 +2437,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-slider,
 .dekanpro-main-slider,
 .dekanpro-slider-wrapper {
-    border-radius: var(--dp-radius-xl) !important;
+    border-radius: 12px !important;
     overflow: hidden;
 }
 
@@ -2447,10 +2457,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ABOUT AUTHOR
    ============================================ */
 .entry-about-author {
-    background: var(--dp-bg-card) !important;
-    border: 1px solid var(--dp-border);
-    border-radius: var(--dp-radius-xl);
+    background: transparent !important;
+    border: none;
+    border-top: 1px solid var(--dp-divider);
+    border-radius: 0;
     color: var(--dp-text-secondary);
+    padding: 24px 0;
 }
 
 .entry-about-author .author-name {
@@ -2491,16 +2503,16 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
 .error-404 .page-title {
     color: var(--dp-text-primary) !important;
-    font-size: 6rem;
-    font-weight: 900;
-    letter-spacing: -0.05em;
+    font-size: 96px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
 }
 
 /* ============================================
    PYML (You May Like)
    ============================================ */
 .dekanpro-pyml {
-    background: var(--dp-bg-secondary) !important;
+    background: transparent !important;
 }
 
 .dekanpro-pyml .pyml-title {
@@ -2523,9 +2535,9 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    DARK MODE OVERRIDE (already dark by default)
    ============================================ */
 [data-darkmode="dark"] body {
-    background: var(--dp-bg-primary);
+    background: #000;
 }
 
 [data-darkmode="dark"] #masthead {
-    background: rgba(10, 10, 11, 0.9) !important;
+    background: rgba(0, 0, 0, 0.92) !important;
 }
