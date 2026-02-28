@@ -61,12 +61,6 @@ $dekanpro_search_url = home_url( '/' );
 	<div class="ac-ln-wrapper">
 		<div class="ac-ln-background" aria-hidden="true"></div>
 		<div class="ac-ln-content">
-			<span class="ac-ln-title">
-				<a href="<?php echo esc_url( $dekanpro_home_url ); ?>" aria-current="<?php echo is_front_page() ? 'page' : 'false'; ?>">
-					<?php esc_html_e( 'Свежие записи', 'dekanpro' ); ?>
-				</a>
-			</span>
-
 			<div class="ac-ln-menu">
 				<div class="ac-ln-actions">
 					<?php if ( $dekanpro_has_nav && ! empty( $dekanpro_nav_menus ) ) : ?>
