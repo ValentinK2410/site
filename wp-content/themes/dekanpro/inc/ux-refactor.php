@@ -18,9 +18,37 @@ function dekanpro_apple_newsroom_blog_meta( $elements ) {
 	if ( is_singular() ) {
 		return $elements;
 	}
-	return array( 'date' => true );
+	return array( 'date' );
 }
 add_filter( 'dekanpro_entry_meta_elements', 'dekanpro_apple_newsroom_blog_meta', 999 );
+
+/**
+ * Apple Newsroom: в Hero тоже только дата, без автора.
+ */
+function dekanpro_apple_newsroom_hero_meta( $elements ) {
+	return array( 'date' );
+}
+add_filter( 'dekanpro_hero_entry_meta_elements', 'dekanpro_apple_newsroom_hero_meta', 999 );
+
+/**
+ * Apple Newsroom: Hero-блок с названием сайта (как "Newsroom" у Apple).
+ */
+function dekanpro_apple_newsroom_hero_output() {
+	if ( ! is_home() ) {
+		return;
+	}
+	$site_name = get_bloginfo( 'name' );
+	$tagline   = get_bloginfo( 'description' );
+	?>
+	<div class="dekanpro-newsroom-hero">
+		<h1 class="dekanpro-newsroom-hero-title"><?php echo esc_html( $site_name ); ?></h1>
+		<?php if ( $tagline ) : ?>
+			<p class="dekanpro-newsroom-hero-tagline"><?php echo esc_html( $tagline ); ?></p>
+		<?php endif; ?>
+	</div>
+	<?php
+}
+add_action( 'dekanpro_blog_heading', 'dekanpro_apple_newsroom_hero_output', 5 );
 
 /**
  * Apple Newsroom: заголовок секции «Последние новости» на главной.

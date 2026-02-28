@@ -50,6 +50,43 @@
     /* Layout */
     --dp-container: 980px;
     --dp-content-width: 692px;
+
+    /* Spacing (Design System) */
+    --dp-space-0: 0;
+    --dp-space-1: 4px;
+    --dp-space-2: 8px;
+    --dp-space-3: 12px;
+    --dp-space-4: 16px;
+    --dp-space-5: 20px;
+    --dp-space-6: 24px;
+    --dp-space-8: 32px;
+    --dp-space-10: 40px;
+    --dp-space-11: 44px;
+    --dp-space-12: 48px;
+    --dp-container-padding: 22px;
+
+    /* Typography scale (Design System) */
+    --dp-h1-size: 56px;
+    --dp-h1-weight: 700;
+    --dp-h1-lh: 1.0714;
+    --dp-h1-ls: -0.005em;
+    --dp-h2-size: 28px;
+    --dp-h2-weight: 700;
+    --dp-h2-lh: 1.1071;
+    --dp-h2-ls: 0.004em;
+    --dp-h3-size: 24px;
+    --dp-h3-weight: 600;
+    --dp-h3-lh: 1.1667;
+    --dp-h3-ls: 0.009em;
+    --dp-h4-size: 21px;
+    --dp-h4-weight: 600;
+    --dp-h4-lh: 1.1905;
+    --dp-body-size: 17px;
+    --dp-body-lh: 1.47059;
+    --dp-body-ls: -0.022em;
+    --dp-small-size: 12px;
+    --dp-small-lh: 1.33;
+    --dp-small-ls: -0.01em;
 }
 
 /* ============================================
@@ -104,9 +141,9 @@ body {
     background: var(--dp-bg) !important;
     color: var(--dp-text);
     font-family: var(--dp-font);
-    font-size: 17px;
-    line-height: 1.47059;
-    letter-spacing: -.022em;
+    font-size: var(--dp-body-size);
+    line-height: var(--dp-body-lh);
+    letter-spacing: var(--dp-body-ls);
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -132,16 +169,16 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.1;
 }
 
-h1 { font-size: 56px; font-weight: 700; line-height: 1.0714; letter-spacing: -.005em; }
-h2 { font-size: 28px; font-weight: 700; line-height: 1.1071; letter-spacing: .004em; }
-h3 { font-size: 24px; line-height: 1.1667; letter-spacing: .009em; }
-h4 { font-size: 21px; line-height: 1.1905; }
+h1 { font-size: var(--dp-h1-size); font-weight: var(--dp-h1-weight); line-height: var(--dp-h1-lh); letter-spacing: var(--dp-h1-ls); }
+h2 { font-size: var(--dp-h2-size); font-weight: var(--dp-h2-weight); line-height: var(--dp-h2-lh); letter-spacing: var(--dp-h2-ls); }
+h3 { font-size: var(--dp-h3-size); font-weight: var(--dp-h3-weight); line-height: var(--dp-h3-lh); letter-spacing: var(--dp-h3-ls); }
+h4 { font-size: var(--dp-h4-size); font-weight: var(--dp-h4-weight); line-height: var(--dp-h4-lh); }
 
 p {
     color: var(--dp-text);
-    font-size: 17px;
-    line-height: 1.47059;
-    letter-spacing: -.022em;
+    font-size: var(--dp-body-size);
+    line-height: var(--dp-body-lh);
+    letter-spacing: var(--dp-body-ls);
     margin-bottom: .8em;
 }
 
@@ -161,8 +198,8 @@ a:hover {
 .dekanpro-container {
     max-width: var(--dp-container);
     margin: 0 auto;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-left: var(--dp-container-padding);
+    padding-right: var(--dp-container-padding);
 }
 
 #primary,
@@ -605,7 +642,7 @@ article.page {
     transition: none !important;
     overflow: visible;
     position: relative;
-    padding: 20px 0 24px !important;
+    padding: var(--dp-space-5) 0 var(--dp-space-6) !important;
     margin-bottom: 0 !important;
 }
 
@@ -634,11 +671,11 @@ article.post:hover {
     backdrop-filter: none !important;
 }
 
-/* Thumbnail — rounded corners like Apple */
+/* Thumbnail — Design System: no border-radius (articleCard.borderRadius: 0) */
 .entry-media,
 .post-thumbnail {
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .entry-media img,
@@ -648,8 +685,8 @@ article.post:hover {
     aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
-    border-radius: 12px;
-    transition: opacity .3s ease;
+    border-radius: 0;
+    transition: opacity .32s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .dekanpro-article:hover .entry-media img,
@@ -658,10 +695,10 @@ article:hover .post-thumbnail img {
     transform: none;
 }
 
-/* Entry content area */
+/* Entry content area — Design System spacing */
 .dekanpro-blog-entry-content,
 .entry-content-wrapper {
-    padding: 12px 0 0 !important;
+    padding: var(--dp-space-3) 0 0 !important;
 }
 
 .entry-content.dekanpro-entry {
@@ -670,15 +707,15 @@ article:hover .post-thumbnail img {
 
 .entry-summary.dekanpro-entry {
     padding: 0;
-    margin: 6px 0 0;
+    margin: var(--dp-space-2) 0 0;
     width: 100%;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: 17px;
+    font-size: var(--dp-body-size);
     color: var(--dp-text);
-    line-height: 1.47059;
-    letter-spacing: -.022em;
+    line-height: var(--dp-body-lh);
+    letter-spacing: var(--dp-body-ls);
 }
 
 .entry-content.dekanpro-entry:hover,
@@ -704,10 +741,10 @@ article:hover .entry-summary.dekanpro-entry,
     background-clip: unset !important;
     text-decoration: none !important;
     transition: color .15s ease;
-    font-size: 21px;
-    font-weight: 600;
+    font-size: var(--dp-h4-size);
+    font-weight: var(--dp-h4-weight);
     letter-spacing: .012em;
-    line-height: 1.2381;
+    line-height: var(--dp-h4-lh);
 }
 
 .entry-title a:hover {
@@ -729,13 +766,13 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text) !important;
 }
 
-/* Article grid — 2 columns (Apple Newsroom) */
+/* Article grid — 2 columns, Design System spacing */
 .home #content.site-content .dekanpro-flex-row,
 .archive #content.site-content .dekanpro-flex-row,
 .search #content.site-content .dekanpro-flex-row {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 32px;
+    gap: 0 var(--dp-space-8);
 }
 
 .home #content.site-content > .navigation,
@@ -780,19 +817,49 @@ article:hover .entry-summary.dekanpro-entry,
     }
 }
 
-/* Section title «Последние новости» — Apple style */
+/* Hero — Design System (Apple Newsroom style) */
+.dekanpro-newsroom-hero {
+    margin-bottom: var(--dp-space-6);
+    padding-bottom: var(--dp-space-6);
+    border-bottom: 1px solid var(--dp-border-light);
+}
+
+.dekanpro-newsroom-hero-title {
+    font-size: var(--dp-h1-size) !important;
+    font-weight: var(--dp-h1-weight) !important;
+    line-height: var(--dp-h1-lh) !important;
+    letter-spacing: var(--dp-h1-ls) !important;
+    color: var(--dp-text) !important;
+    margin: 0 0 var(--dp-space-2) !important;
+}
+
+.dekanpro-newsroom-hero-tagline {
+    font-size: var(--dp-body-size);
+    line-height: var(--dp-body-lh);
+    letter-spacing: var(--dp-body-ls);
+    color: var(--dp-text-secondary);
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 734px) {
+    .dekanpro-newsroom-hero-title {
+        font-size: 40px !important;
+    }
+}
+
+/* Section title «Последние новости» — Design System */
 #dekanpro-blog-heading {
-    margin-bottom: 28px;
+    margin-bottom: var(--dp-space-6);
     padding-bottom: 0;
 }
 
 #dekanpro-blog-heading .dekanpro-section-title {
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.1071;
-    letter-spacing: .004em;
+    font-size: var(--dp-h2-size);
+    font-weight: var(--dp-h2-weight);
+    line-height: var(--dp-h2-lh);
+    letter-spacing: var(--dp-h2-ls);
     color: var(--dp-text);
-    margin: 0 0 0;
+    margin: 0;
 }
 
 /* Hide author (Apple Newsroom doesn't show it) */
@@ -820,7 +887,7 @@ article.post .post-author,
     color: var(--dp-text-tertiary) !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    font-size: 14px !important;
+    font-size: var(--dp-small-size) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: .012em !important;
@@ -870,10 +937,10 @@ article.post .post-author,
    ENTRY META — Apple 14px
    ============================================ */
 .entry-meta {
-    font-size: 14px;
+    font-size: var(--dp-small-size);
     color: var(--dp-text-tertiary);
-    line-height: 1.42859;
-    letter-spacing: -.016em;
+    line-height: var(--dp-small-lh);
+    letter-spacing: var(--dp-small-ls);
 }
 
 .entry-meta a {
