@@ -1,0 +1,218 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Design System based on Apple Newsroom (apple.com/uk/newsroom)",
+  "name": "Apple Newsroom Design System",
+  "version": "1.0.0",
+
+  "colors": {
+    "light": {
+      "bg": {
+        "primary": "#ffffff",
+        "secondary": "#f5f5f7",
+        "elevated": "#f5f5f7"
+      },
+      "text": {
+        "primary": "#1d1d1f",
+        "secondary": "#6e6e73",
+        "tertiary": "#86868b"
+      },
+      "link": {
+        "default": "#0066cc",
+        "hover": "#0066cc"
+      },
+      "header": {
+        "bg": "rgba(251, 251, 253, 0.8)",
+        "bgScroll": "rgba(251, 251, 253, 0.92)",
+        "text": "rgba(0, 0, 0, 0.56)",
+        "textHover": "rgba(0, 0, 0, 0.88)",
+        "border": "rgba(0, 0, 0, 0.1)"
+      },
+      "border": {
+        "default": "#d2d2d7",
+        "light": "#e8e8ed"
+      },
+      "input": {
+        "bg": "#ffffff",
+        "border": "#d2d2d7"
+      }
+    },
+    "dark": {
+      "bg": {
+        "primary": "#000000",
+        "secondary": "#1d1d1f",
+        "elevated": "#1d1d1f"
+      },
+      "text": {
+        "primary": "#f5f5f7",
+        "secondary": "#a1a1a6",
+        "tertiary": "#86868b"
+      },
+      "link": {
+        "default": "#2997ff",
+        "hover": "#2997ff"
+      },
+      "header": {
+        "bg": "rgba(29, 29, 31, 0.8)",
+        "bgScroll": "rgba(29, 29, 31, 0.92)",
+        "text": "rgba(255, 255, 255, 0.56)",
+        "textHover": "rgba(255, 255, 255, 0.92)",
+        "border": "rgba(255, 255, 255, 0.1)"
+      },
+      "border": {
+        "default": "#424245",
+        "light": "#333336"
+      },
+      "input": {
+        "bg": "#1d1d1f",
+        "border": "#424245"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "sans": "\"SF Pro Text\", \"SF Pro Icons\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif",
+      "display": "\"SF Pro Display\", \"SF Pro Icons\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif",
+      "mono": "\"SF Mono\", \"Monaco\", \"Consolas\", \"Liberation Mono\", \"Courier New\", monospace"
+    },
+    "scale": {
+      "h1": {
+        "fontSize": "56px",
+        "fontWeight": 700,
+        "lineHeight": 1.0714,
+        "letterSpacing": "-0.005em"
+      },
+      "h2": {
+        "fontSize": "28px",
+        "fontWeight": 700,
+        "lineHeight": 1.1071,
+        "letterSpacing": "0.004em"
+      },
+      "h3": {
+        "fontSize": "24px",
+        "fontWeight": 600,
+        "lineHeight": 1.1667,
+        "letterSpacing": "0.009em"
+      },
+      "h4": {
+        "fontSize": "21px",
+        "fontWeight": 600,
+        "lineHeight": 1.1905
+      },
+      "body": {
+        "fontSize": "17px",
+        "fontWeight": 400,
+        "lineHeight": 1.47059,
+        "letterSpacing": "-0.022em"
+      },
+      "small": {
+        "fontSize": "12px",
+        "fontWeight": 400,
+        "lineHeight": 1.33,
+        "letterSpacing": "-0.01em"
+      }
+    }
+  },
+
+  "spacing": {
+    "unit": "4px",
+    "scale": {
+      "0": "0",
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "8": "32px",
+      "10": "40px",
+      "11": "44px",
+      "12": "48px",
+      "16": "64px",
+      "20": "80px",
+      "22": "88px"
+    }
+  },
+
+  "layout": {
+    "container": {
+      "maxWidth": "980px",
+      "contentWidth": "692px"
+    },
+    "header": {
+      "height": "44px",
+      "paddingX": "22px"
+    },
+    "breakpoints": {
+      "xs": "0",
+      "sm": "734px",
+      "md": "1068px",
+      "lg": "1280px"
+    }
+  },
+
+  "components": {
+    "header": {
+      "height": "44px",
+      "backdropFilter": "saturate(180%) blur(20px)",
+      "borderWidth": "1px"
+    },
+    "localNav": {
+      "titleFontSize": "21px",
+      "titleFontWeight": 600,
+      "menuFontSize": "12px",
+      "itemHeight": "44px",
+      "itemPadding": "0 12px"
+    },
+    "articleCard": {
+      "imagePosition": "top",
+      "borderRadius": "0",
+      "boxShadow": "none",
+      "divider": "border-bottom",
+      "meta": {
+        "showAuthor": false,
+        "showDate": true,
+        "dateFormat": "relative"
+      }
+    },
+    "searchTray": {
+      "transitionDuration": "320ms",
+      "transitionEasing": "cubic-bezier(0.32, 0.72, 0, 1)"
+    }
+  },
+
+  "effects": {
+    "transition": {
+      "fast": "0.15s ease",
+      "medium": "0.2s ease",
+      "slow": "0.32s cubic-bezier(0.32, 0.72, 0, 1)"
+    },
+    "backdropBlur": "20px",
+    "backdropSaturate": "180%"
+  },
+
+  "semantic": {
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero",
+        "description": "Main page title (e.g. Newsroom)"
+      },
+      {
+        "id": "latest-news",
+        "name": "Latest News",
+        "description": "Primary content feed - vertical card grid"
+      },
+      {
+        "id": "featured-stories",
+        "name": "Apple Stories / Featured",
+        "description": "Themed editorial block with categories"
+      }
+    ],
+    "structure": {
+      "header": "Global header + local nav (ac-localnav)",
+      "main": "Hero + content sections",
+      "footer": "Global footer"
+    }
+  }
+}
