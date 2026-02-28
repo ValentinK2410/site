@@ -428,6 +428,10 @@ article.post:hover {
 
 .entry-media img,
 .post-thumbnail img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
     transition: var(--dekanpro-transition-slow);
 }
 
@@ -958,30 +962,52 @@ article {
     /* Горизонтальный layout → вертикальный */
     .dekanpro-blog-entry-wrapper {
         flex-direction: column !important;
+        display: flex !important;
     }
 
     .dekanpro-blog-entry-wrapper .entry-media,
-    .dekanpro-blog-entry-wrapper .post-thumbnail {
+    .dekanpro-blog-entry-wrapper .post-thumbnail,
+    .dekanpro-blog-entry-wrapper > .post-thumbnail,
+    .dekanpro-blog-entry-wrapper > a:first-child {
         width: 100% !important;
         max-width: 100% !important;
+        min-width: 100% !important;
+        flex: 0 0 auto !important;
+        height: auto !important;
+        max-height: 220px !important;
+        overflow: hidden !important;
     }
 
     .dekanpro-entry-content-wrapper {
         padding: 1rem !important;
+        width: 100% !important;
     }
 
-    /* Миниатюры */
+    /* Миниатюры — единый стиль */
     .entry-media,
     .post-thumbnail {
         border-radius: 1rem 1rem 0 0 !important;
+        overflow: hidden !important;
+        max-height: 220px !important;
     }
 
     .entry-media img,
-    .post-thumbnail img {
+    .post-thumbnail img,
+    .dekanpro-blog-entry-wrapper img {
         width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
+        height: 220px !important;
+        max-height: 220px !important;
+        object-fit: cover !important;
+        display: block !important;
+        border-radius: 1rem 1rem 0 0 !important;
+    }
+
+    /* Слайдер — тоже фиксированная высота */
+    .dekanpro-slider img,
+    .dekanpro-main-slider img {
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: cover !important;
     }
 
     /* --- ТИПОГРАФИКА КОНТЕНТА --- */
@@ -2430,13 +2456,14 @@ a.button:hover,
 .gallery-card-thumb {
     display: block;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    height: 200px;
 }
 
 .gallery-card-thumb img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
+    display: block;
     transition: transform 0.4s ease;
 }
 
