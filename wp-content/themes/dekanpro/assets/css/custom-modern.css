@@ -346,11 +346,14 @@ aside.widget-area,
 /* ============================================
    AC-LOCALNAV — Apple Newsroom local nav structure
    ============================================ */
-#ac-localnav.ac-localnav {
-    display: flex !important;
-    flex: 1;
-    min-width: 0;
-    align-items: center;
+/* Только на десктопе — на мобильном скрывается в MOBILE HEADER */
+@media screen and (min-width: 961px) {
+    #ac-localnav.ac-localnav {
+        display: flex !important;
+        flex: 1;
+        min-width: 0;
+        align-items: center;
+    }
 }
 
 .ac-ln-wrapper {
@@ -1860,10 +1863,22 @@ footer.site-footer {
    MOBILE HEADER
    ============================================ */
 @media screen and (max-width: 960px) {
-    #dekanpro-header-inner .site-navigation {
-        min-height: auto !important;
-        height: auto !important;
+    /* Скрыть меню по умолчанию — показывается только по клику на гамбургер.
+       Специфичность выше #ac-localnav.ac-localnav (0,1,1) и .dekanpro-nav (0,0,1). */
+    #dekanpro-header-inner .site-navigation,
+    #dekanpro-header-inner #ac-localnav.ac-localnav {
+        display: none !important;
     }
+    #dekanpro-header-inner .site-navigation {
+        min-height: 0px !important;
+        height: 0px !important;
+    }
+}
+
+/* Показать меню при открытии (клик по гамбургеру). Специфичность выше правила скрытия. */
+.is-mobile-menu-active #dekanpro-header-inner .site-navigation,
+.is-mobile-menu-active #dekanpro-header-inner #ac-localnav.ac-localnav {
+    display: flex !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header {
@@ -2012,9 +2027,10 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item.current-menu-ite
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::after,
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-link::after { display: none !important; }
 
+/* Прозрачный overlay — клик закрывает меню, контент затемняется через #page:after */
 body.dekanpro-is-mobile #dekanpro-header:after,
 .is-mobile-menu-active #dekanpro-header:after {
-    background-color: var(--dp-bg) !important;
+    background-color: transparent !important;
 }
 
 .is-mobile-menu-active #page:after {
