@@ -1928,6 +1928,37 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-action-button {
     margin-left: 0 !important;
 }
 
+/* Мобильный nav: ac-ln-title и кнопка поиска в одном стиле с пунктами меню */
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-title {
+    padding: 12px 20px !important;
+    border-bottom: 1px solid var(--dp-border-light) !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-title a {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--dp-text) !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    padding: 12px 20px !important;
+    height: auto !important;
+    min-height: 44px !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--dp-text) !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--dp-border-light) !important;
+    border-radius: 0 !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger:hover {
+    color: var(--dp-link) !important;
+}
+
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul,
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul,
 body.dekanpro-is-mobile #dekanpro-header-inner #dekanpro-primary-nav,
