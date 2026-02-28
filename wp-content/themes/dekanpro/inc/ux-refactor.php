@@ -201,6 +201,21 @@ function dekanpro_region_selector_nav_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'dekanpro_region_selector_nav_class', 10, 2 );
 
 /**
+ * Добавить пункт «Вход» / «Выход» в основное меню.
+ */
+function dekanpro_nav_menu_login_item( $items, $args ) {
+	$loc = isset( $args->theme_location ) ? $args->theme_location : '';
+	if ( $loc !== 'primary' && $loc !== 'dekanpro-primary' ) {
+		return $items;
+	}
+	$url  = is_user_logged_in() ? wp_logout_url( home_url() ) : wp_login_url();
+	$text = is_user_logged_in() ? __( 'Выход', 'dekanpro' ) : __( 'Вход', 'dekanpro' );
+	$items .= '<li class="menu-item ac-ln-menu-item"><a class="ac-ln-menu-link" href="' . esc_url( $url ) . '"><span>' . esc_html( $text ) . '</span></a></li>';
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'dekanpro_nav_menu_login_item', 10, 2 );
+
+/**
  * Список областей для выбора региона.
  */
 function dekanpro_get_regions_list() {
