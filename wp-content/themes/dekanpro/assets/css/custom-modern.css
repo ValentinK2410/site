@@ -282,15 +282,28 @@ aside.widget-area,
     white-space: normal !important;
 }
 
-.dekanpro-logo .site-title a {
+.dekanpro-logo .site-title a,
+.dekanpro-logo a {
     color: var(--dp-text) !important;
     text-decoration: none !important;
+    border-bottom: none !important;
+    outline: none !important;
     transition: opacity .15s ease;
 }
 
-.dekanpro-logo .site-title a:hover {
+.dekanpro-logo .site-title a::before,
+.dekanpro-logo .site-title a::after,
+.dekanpro-logo a::before,
+.dekanpro-logo a::after {
+    display: none !important;
+    content: none !important;
+}
+
+.dekanpro-logo .site-title a:hover,
+.dekanpro-logo a:hover {
     opacity: .64;
     text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .dekanpro-logo img {
