@@ -861,39 +861,6 @@ article {
         max-height: 36px !important;
     }
 
-    /* Мобильное меню — вертикальный список */
-    .dekanpro-nav > ul,
-    #dekanpro-primary-nav,
-    .dekanpro-primary-nav > ul {
-        flex-direction: column !important;
-        flex-wrap: wrap !important;
-        gap: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .dekanpro-nav > ul > li,
-    #dekanpro-primary-nav > li {
-        width: 100% !important;
-        border-bottom: 1px solid var(--dekanpro-gray-100, #f1f5f9);
-    }
-
-    .dekanpro-nav > ul > li:last-child,
-    #dekanpro-primary-nav > li:last-child {
-        border-bottom: none;
-    }
-
-    .dekanpro-nav > ul > li > a,
-    #dekanpro-primary-nav > li > a {
-        padding: 14px 16px !important;
-        font-size: 16px !important;
-        min-height: 48px;
-        display: flex !important;
-        align-items: center;
-        white-space: normal !important;
-        width: 100%;
-    }
-
     /* Скрываем волну на мобильных */
     .dekanpro-nav > ul > li > a::after {
         display: none !important;
@@ -2540,5 +2507,72 @@ a.button:hover,
         grid-template-columns: repeat(2, 1fr);
     }
 }
-/* Мобильные правила галереи — в основном @media (max-width: 768px) выше */
+
+/* ============================================
+   МОБИЛЬНОЕ МЕНЮ — через класс темы (высокая специфичность)
+   ============================================ */
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul > li {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li:last-child,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul > li:last-child {
+    border-bottom: none;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul > li > a {
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    white-space: normal !important;
+    color: var(--dekanpro-secondary, #0f172a) !important;
+    border: none !important;
+    background: none !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a:hover,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li.current-menu-item > a {
+    color: var(--dekanpro-primary, #6366f1) !important;
+    background: rgba(99, 102, 241, 0.04) !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::after,
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::before {
+    display: none !important;
+}
+
+/* Фон мобильного меню */
+body.dekanpro-is-mobile #dekanpro-header:after,
+.is-mobile-menu-active #dekanpro-header:after {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* Гамбургер кнопка — крупнее */
+body.dekanpro-is-mobile .dekanpro-hamburger {
+    padding: 8px !important;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
 
