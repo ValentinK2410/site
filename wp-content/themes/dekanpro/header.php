@@ -11,10 +11,13 @@
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?><?php dekanpro_schema_markup( 'html' ); ?> <?php echo dekanpro_option( 'dark_mode' ) ? 'data-darkmode="dark"' : ''; ?>>
+<html <?php language_attributes(); ?><?php dekanpro_schema_markup( 'html' ); ?> data-darkmode="<?php echo dekanpro_option( 'dark_mode' ) ? 'dark' : 'light'; ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<script>
+	(function(){var s=localStorage.getItem('darkmode');if(s==='dark'||s==='light'){document.documentElement.setAttribute('data-darkmode',s)}})();
+	</script>
 	<?php wp_head(); ?>
 </head>
 

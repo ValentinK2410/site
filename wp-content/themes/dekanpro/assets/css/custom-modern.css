@@ -1,19 +1,76 @@
 /**
  * DekanPro — Apple Newsroom Style
- * White cards on dark-grey background, rounded corners, soft shadows,
- * compact header, Apple typography, perfect mobile experience.
+ * Light/dark theme with toggle, Apple typography, rounded cards.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ============================================
-   CSS VARIABLES — Apple Newsroom (dark adaptation)
+   CSS VARIABLES — Light theme (default)
    ============================================ */
 :root {
-    --dp-bg-primary: #111113;
-    --dp-bg-secondary: #18181a;
+    --dp-bg-primary: #fff;
+    --dp-bg-secondary: #f5f5f7;
+    --dp-bg-card: #fff;
+    --dp-bg-card-hover: #fafafa;
+    --dp-bg-elevated: #f5f5f7;
+    --dp-bg-input: #fff;
+
+    --dp-text-primary: #1d1d1f;
+    --dp-text-secondary: #6e6e73;
+    --dp-text-tertiary: #86868b;
+    --dp-text-link: #0071e3;
+
+    --dp-accent: #0071e3;
+    --dp-accent-hover: #0077ed;
+    --dp-accent-subtle: rgba(0, 113, 227, 0.06);
+
+    --dp-border: rgba(0, 0, 0, 0.08);
+    --dp-border-strong: rgba(0, 0, 0, 0.12);
+    --dp-divider: rgba(0, 0, 0, 0.08);
+
+    --dp-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --dp-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --dp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --dp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --dp-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --dp-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+    --dp-shadow-glow: none;
+
+    --dp-radius-sm: 8px;
+    --dp-radius: 12px;
+    --dp-radius-lg: 14px;
+    --dp-radius-xl: 18px;
+    --dp-radius-2xl: 20px;
+    --dp-radius-full: 9999px;
+
+    --dp-transition-fast: 150ms ease;
+    --dp-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --dp-transition-slow: 500ms ease;
+
+    --dp-font: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --dp-font-display: "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --dp-font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+    --dp-container: 1024px;
+    --dp-content-width: 780px;
+
+    --dp-header-bg: rgba(251, 251, 253, 0.8);
+    --dp-header-bg-scroll: rgba(251, 251, 253, 0.92);
+    --dp-header-text: #1d1d1f;
+    --dp-header-text-secondary: #6e6e73;
+    --dp-header-border: rgba(0, 0, 0, 0.08);
+    --dp-header-dropdown-bg: rgba(255, 255, 255, 0.98);
+}
+
+/* ============================================
+   CSS VARIABLES — Dark theme
+   ============================================ */
+[data-darkmode="dark"] {
+    --dp-bg-primary: #000;
+    --dp-bg-secondary: #1d1d1f;
     --dp-bg-card: #1c1c1e;
-    --dp-bg-card-hover: #222224;
+    --dp-bg-card-hover: #2c2c2e;
     --dp-bg-elevated: #2c2c2e;
     --dp-bg-input: #1c1c1e;
 
@@ -38,22 +95,12 @@
     --dp-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
     --dp-shadow-glow: none;
 
-    --dp-radius-sm: 8px;
-    --dp-radius: 12px;
-    --dp-radius-lg: 14px;
-    --dp-radius-xl: 18px;
-    --dp-radius-2xl: 20px;
-    --dp-radius-full: 9999px;
-
-    --dp-transition-fast: 150ms ease;
-    --dp-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --dp-transition-slow: 500ms ease;
-
-    --dp-font: 'SF Pro Display', 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-    --dp-font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-
-    --dp-container: 1024px;
-    --dp-content-width: 780px;
+    --dp-header-bg: rgba(29, 29, 31, 0.8);
+    --dp-header-bg-scroll: rgba(29, 29, 31, 0.95);
+    --dp-header-text: #f5f5f7;
+    --dp-header-text-secondary: #a1a1a6;
+    --dp-header-border: rgba(255, 255, 255, 0.06);
+    --dp-header-dropdown-bg: rgba(29, 29, 31, 0.98);
 }
 
 /* ============================================
@@ -78,7 +125,10 @@ body {
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.47;
+    font-size: 17px;
+    letter-spacing: -0.022em;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -92,27 +142,28 @@ body {
 }
 
 /* ============================================
-   TYPOGRAPHY — Apple sizes
+   TYPOGRAPHY — Apple Newsroom exact sizes
    ============================================ */
 h1, h2, h3, h4, h5, h6,
 .entry-title,
 .widget-title {
-    font-family: var(--dp-font);
-    font-weight: 700;
-    letter-spacing: -0.003em;
-    line-height: 1.08;
+    font-family: var(--dp-font-display);
+    font-weight: 600;
+    letter-spacing: 0.012em;
+    line-height: 1.1;
     color: var(--dp-text-primary);
 }
 
-h1 { font-size: 48px; font-weight: 700; line-height: 1.08; letter-spacing: -0.003em; }
-h2 { font-size: 32px; line-height: 1.125; }
-h3 { font-size: 24px; line-height: 1.17; }
-h4 { font-size: 19px; line-height: 1.21; }
+h1 { font-size: 40px; font-weight: 700; line-height: 1.05; letter-spacing: 0em; }
+h2 { font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: 0.007em; }
+h3 { font-size: 24px; line-height: 1.17; letter-spacing: 0.009em; }
+h4 { font-size: 21px; line-height: 1.19; }
 
 p {
-    color: var(--dp-text-secondary);
+    color: var(--dp-text-primary);
     font-size: 17px;
     line-height: 1.47;
+    letter-spacing: -0.022em;
 }
 
 a {
@@ -123,6 +174,7 @@ a {
 
 a:hover {
     color: var(--dp-accent-hover);
+    text-decoration: underline;
 }
 
 /* ============================================
@@ -154,6 +206,7 @@ aside.widget-area {
 
 #page {
     background: var(--dp-bg-primary);
+    transition: background 0.3s ease;
 }
 
 /* ============================================
@@ -162,12 +215,12 @@ aside.widget-area {
 #masthead,
 .site-header,
 #dekanpro-header {
-    background: rgba(17, 17, 19, 0.92) !important;
+    background: var(--dp-header-bg) !important;
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: none;
     z-index: 1000 !important;
-    transition: background var(--dp-transition) !important;
+    transition: background 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 #dekanpro-header-inner {
@@ -188,7 +241,6 @@ aside.widget-area {
 .header-placeholder.is-active { display: block; }
 .header-placeholder { display: none; }
 
-/* Logo — compact */
 .dekanpro-logo {
     flex-shrink: 0;
 }
@@ -204,15 +256,14 @@ aside.widget-area {
 
 .dekanpro-logo a:hover {
     opacity: 0.7;
+    text-decoration: none;
 }
 
-/* Hide site description in header */
 .dekanpro-logo .site-description,
 .site-header .site-description {
     display: none !important;
 }
 
-/* Header container */
 .dekanpro-header-container {
     display: flex !important;
     flex-wrap: nowrap;
@@ -223,12 +274,10 @@ aside.widget-area {
     margin: 0 auto;
 }
 
-/* Hide empty menu items */
 #dekanpro-primary-nav li:has(a span:empty) {
     display: none !important;
 }
 
-/* Navigation — Apple 12px style */
 .dekanpro-nav,
 .dekanpro-primary-nav {
     display: flex !important;
@@ -263,7 +312,7 @@ aside.widget-area {
     height: 44px;
     font-size: 12px;
     font-weight: 400;
-    color: #d1d1d6 !important;
+    color: var(--dp-header-text-secondary) !important;
     text-decoration: none;
     transition: color var(--dp-transition-fast);
     position: relative;
@@ -275,23 +324,22 @@ aside.widget-area {
 #dekanpro-primary-nav > li > a:hover,
 .dekanpro-nav > ul > li.current-menu-item > a,
 #dekanpro-primary-nav > li.current-menu-item > a {
-    color: #fff !important;
+    color: var(--dp-header-text) !important;
+    text-decoration: none;
 }
 
-/* No underline animation — Apple doesn't use it */
 .dekanpro-nav > ul > li > a::after {
     display: none;
 }
 
-/* Dropdown */
 .dekanpro-nav .sub-menu,
 .dekanpro-nav .children {
-    background: rgba(29, 29, 31, 0.98) !important;
+    background: var(--dp-header-dropdown-bg) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--dp-border-strong);
     border-radius: 12px !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--dp-shadow-lg);
     overflow: hidden;
 }
 
@@ -301,27 +349,37 @@ aside.widget-area {
     transition: all var(--dp-transition-fast);
     padding: 8px 16px;
     font-size: 12px;
+    text-decoration: none;
 }
 
 .dekanpro-nav .sub-menu li a:hover,
 .dekanpro-nav .children li a:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    color: #fff !important;
+    background: var(--dp-accent-subtle) !important;
+    color: var(--dp-text-primary) !important;
 }
 
-/* Header search fallback — hide, Apple uses icon only */
 .dekanpro-header-search-fallback {
     display: none !important;
 }
 
-/* Header widgets — push to right */
 .dekanpro-header-widgets {
     margin-left: auto;
 }
 
 /* ============================================
+   DARK MODE TOGGLE BUTTON
+   ============================================ */
+.dekanpro-darkmode {
+    cursor: pointer;
+    transition: opacity var(--dp-transition-fast);
+}
+
+.dekanpro-darkmode:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
    ARTICLE CARDS — Apple Newsroom style
-   White cards, rounded corners, soft shadow
    ============================================ */
 .dekanpro-article,
 .dekanpro-post-item,
@@ -333,7 +391,7 @@ article.page {
     box-shadow: var(--dp-shadow-card) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    transition: box-shadow var(--dp-transition), transform var(--dp-transition) !important;
+    transition: box-shadow var(--dp-transition), transform var(--dp-transition), background 0.3s ease !important;
     overflow: hidden;
     position: relative;
     padding-bottom: 0;
@@ -348,7 +406,6 @@ article.post:hover {
     transform: translateY(-4px);
 }
 
-/* Inner wrappers — transparent */
 .dekanpro-article .dekanpro-blog-entry-wrapper,
 .dekanpro-article .dekanpro-entry-content-wrapper,
 .dekanpro-article .dekanpro-blog-entry-content,
@@ -360,7 +417,6 @@ article.post:hover {
     backdrop-filter: none !important;
 }
 
-/* Thumbnail — full width, no inner radius (card clips) */
 .entry-media,
 .post-thumbnail {
     overflow: hidden;
@@ -382,7 +438,6 @@ article:hover .post-thumbnail img {
     transform: scale(1.03);
 }
 
-/* Entry content area — padding inside card */
 .dekanpro-blog-entry-content,
 .entry-content-wrapper {
     padding: 20px 24px 24px !important;
@@ -399,9 +454,10 @@ article:hover .post-thumbnail img {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: 15px;
+    font-size: 17px;
     color: var(--dp-text-secondary);
     line-height: 1.47;
+    letter-spacing: -0.022em;
 }
 
 .entry-content.dekanpro-entry:hover,
@@ -413,7 +469,7 @@ article:hover .entry-summary.dekanpro-entry,
     background: transparent !important;
 }
 
-/* Entry title — Apple 24px semibold */
+/* Entry title — Apple 21px semibold */
 .entry-title {
     width: 100%;
     margin-bottom: 6px;
@@ -427,10 +483,10 @@ article:hover .entry-summary.dekanpro-entry,
     background-clip: unset !important;
     text-decoration: none;
     transition: color var(--dp-transition-fast);
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
-    letter-spacing: 0;
-    line-height: 1.25;
+    letter-spacing: 0.012em;
+    line-height: 1.24;
 }
 
 .entry-title a:hover {
@@ -438,6 +494,7 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text-link) !important;
     opacity: 1;
     transform: none;
+    text-decoration: none;
 }
 
 .dekanpro-article h4.entry-title,
@@ -453,7 +510,7 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text-primary) !important;
 }
 
-/* Article grid — 2 columns like Apple Newsroom */
+/* Article grid — 2 columns */
 .home #content.site-content,
 .archive #content.site-content,
 .search #content.site-content {
@@ -468,7 +525,7 @@ article:hover .entry-summary.dekanpro-entry,
     grid-column: 1 / -1;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .home #content.site-content,
     .archive #content.site-content,
     .search #content.site-content {
@@ -489,14 +546,13 @@ article.post .post-author,
     display: none !important;
 }
 
-/* Hide date on home */
 .home .entry-meta .posted-on,
 .home .entry-meta .entry-meta-elements > span.posted-on {
     display: none !important;
 }
 
 /* ============================================
-   CATEGORIES & TAGS — Apple uppercase grey label
+   CATEGORIES & TAGS — Apple 14px/600 uppercase
    ============================================ */
 .cat-links a,
 .entry-category a,
@@ -506,10 +562,10 @@ article.post .post-author,
     color: var(--dp-text-tertiary) !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    font-size: 12px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.012em !important;
     border: none !important;
     box-shadow: none !important;
     transition: color var(--dp-transition-fast) !important;
@@ -542,6 +598,7 @@ article.post .post-author,
     border: none !important;
     font-size: 14px !important;
     transition: color var(--dp-transition-fast) !important;
+    text-decoration: none !important;
 }
 
 .tagcloud a:hover,
@@ -553,10 +610,10 @@ article.post .post-author,
 }
 
 /* ============================================
-   ENTRY META — Apple 12px
+   ENTRY META — Apple 14px
    ============================================ */
 .entry-meta {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--dp-text-tertiary);
     line-height: 1.33;
 }
@@ -584,6 +641,7 @@ article.post .post-author,
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     margin-bottom: 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .widget:hover {
@@ -620,7 +678,6 @@ article.post .post-author,
     padding-left: 0;
 }
 
-/* Sticky sidebar */
 #secondary {
     z-index: 999;
 }
@@ -642,15 +699,14 @@ article.post .post-author,
 }
 
 #secondary.is-sticky::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--dp-border-strong);
     border-radius: 3px;
 }
 
 #secondary.is-sticky::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--dp-text-tertiary);
 }
 
-/* Recent entries widget */
 .widget_recent_entries ul {
     list-style: none !important;
     padding: 0 !important;
@@ -680,7 +736,7 @@ article.post .post-author,
 }
 
 /* ============================================
-   BUTTONS — Apple minimal
+   BUTTONS — Apple minimal pill
    ============================================ */
 .dekanpro-btn,
 button,
@@ -724,7 +780,6 @@ input[type="submit"]::before {
     display: none;
 }
 
-/* CTA / read-more links — Apple arrow style */
 a.button,
 .read-more.button,
 .dekanpro-button,
@@ -753,6 +808,7 @@ a.button:hover,
     opacity: 1;
     transform: none;
     box-shadow: none !important;
+    text-decoration: underline;
 }
 
 a.button::after,
@@ -779,7 +835,7 @@ select {
     color: var(--dp-text-primary) !important;
     font-family: var(--dp-font);
     font-size: 17px !important;
-    transition: border-color var(--dp-transition-fast) !important;
+    transition: border-color var(--dp-transition-fast), background 0.3s ease !important;
 }
 
 input[type="text"]:focus,
@@ -808,6 +864,7 @@ footer.site-footer {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     font-size: 12px;
+    transition: background 0.3s ease;
 }
 
 #colophon::before {
@@ -822,10 +879,12 @@ footer.site-footer {
     color: var(--dp-text-secondary) !important;
     transition: color var(--dp-transition-fast);
     font-size: 12px;
+    text-decoration: none;
 }
 
 .site-footer a:hover {
     color: var(--dp-text-primary) !important;
+    text-decoration: underline;
 }
 
 /* ============================================
@@ -835,7 +894,7 @@ footer.site-footer {
     background: var(--dp-bg-elevated) !important;
     border: 1px solid var(--dp-border-strong);
     border-radius: 50% !important;
-    box-shadow: none;
+    box-shadow: var(--dp-shadow-sm);
     color: var(--dp-text-primary);
     transition: background var(--dp-transition-fast) !important;
 }
@@ -845,6 +904,7 @@ footer.site-footer {
     border-color: var(--dp-accent);
     transform: none !important;
     box-shadow: none !important;
+    color: #fff;
 }
 
 /* ============================================
@@ -886,6 +946,7 @@ footer.site-footer {
     padding: 24px 28px;
     box-shadow: var(--dp-shadow-card);
     margin-top: 28px;
+    transition: background 0.3s ease;
 }
 
 .comment-body {
@@ -905,8 +966,9 @@ footer.site-footer {
    ============================================ */
 .entry-content {
     line-height: 1.47;
-    color: var(--dp-text-secondary);
+    color: var(--dp-text-primary);
     font-size: 17px;
+    letter-spacing: -0.022em;
 }
 
 .entry-content h2 {
@@ -917,19 +979,21 @@ footer.site-footer {
     padding-bottom: 0;
     border-bottom: none;
     border-image: none;
+    letter-spacing: 0.007em;
 }
 
 .entry-content h3 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--dp-text-primary);
     margin: 32px 0 12px;
     padding-left: 0;
     border-left: none;
+    letter-spacing: 0.009em;
 }
 
 .entry-content h4 {
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 600;
     color: var(--dp-text-primary);
     margin: 24px 0 8px;
@@ -939,10 +1003,10 @@ footer.site-footer {
     font-size: 17px;
     line-height: 1.47;
     margin-bottom: 20px;
-    color: var(--dp-text-secondary);
+    color: var(--dp-text-primary);
+    letter-spacing: -0.022em;
 }
 
-/* Lists — clean, no decorations */
 .entry-content ul,
 .entry-content ol {
     margin: 20px 0;
@@ -959,8 +1023,9 @@ footer.site-footer {
     border-radius: 0;
     border-left: none;
     list-style: disc;
-    color: var(--dp-text-secondary);
+    color: var(--dp-text-primary);
     line-height: 1.47;
+    letter-spacing: -0.022em;
 }
 
 .entry-content ol li {
@@ -979,7 +1044,7 @@ footer.site-footer {
     display: none;
 }
 
-/* Code blocks — card style */
+/* Code blocks */
 .entry-content pre {
     background: var(--dp-bg-elevated) !important;
     border: none;
@@ -997,7 +1062,7 @@ footer.site-footer {
 
 .entry-content pre code {
     background: transparent !important;
-    color: #e6edf3 !important;
+    color: var(--dp-text-primary) !important;
     font-family: var(--dp-font-mono) !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
@@ -1006,8 +1071,12 @@ footer.site-footer {
     overflow-x: auto;
 }
 
+[data-darkmode="dark"] .entry-content pre code {
+    color: #e6edf3 !important;
+}
+
 .entry-content code:not(pre code) {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: var(--dp-accent-subtle) !important;
     color: var(--dp-text-primary) !important;
     padding: 2px 6px !important;
     border-radius: 4px !important;
@@ -1017,7 +1086,7 @@ footer.site-footer {
     border: none;
 }
 
-/* Blockquotes — Apple clean */
+/* Blockquotes */
 .entry-content blockquote {
     background: transparent;
     border-left: 3px solid var(--dp-divider);
@@ -1091,7 +1160,7 @@ footer.site-footer {
 }
 
 .entry-content table tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--dp-accent-subtle);
 }
 
 /* Horizontal rule */
@@ -1154,6 +1223,7 @@ footer.site-footer {
 .dekanpro-share-buttons .share-btn:hover {
     transform: none;
     opacity: 0.8;
+    text-decoration: none;
 }
 
 .dekanpro-share-buttons .share-btn-icon {
@@ -1235,6 +1305,7 @@ footer.site-footer {
     background: transparent;
     color: var(--dp-accent-hover);
     padding-left: 0;
+    text-decoration: underline;
 }
 
 .dekanpro-toc-h3 {
@@ -1254,11 +1325,15 @@ footer.site-footer {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 100000;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
+}
+
+[data-darkmode="dark"] .dekanpro-region-selector {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .dekanpro-region-selector.is-open {
@@ -1407,7 +1482,6 @@ footer.site-footer {
     font-weight: 500;
 }
 
-/* Location fields group */
 .form-row-group-location {
     background: var(--dp-bg-secondary);
     border: 1px solid var(--dp-border);
@@ -1443,7 +1517,6 @@ footer.site-footer {
     max-width: 640px;
 }
 
-/* Empty category */
 .no-results.not-found {
     text-align: center;
     padding: 3rem 2rem;
@@ -1521,7 +1594,7 @@ footer.site-footer {
 
 .gallery-view-btn:hover {
     color: var(--dp-text-secondary);
-    background: rgba(255, 255, 255, 0.05) !important;
+    background: var(--dp-accent-subtle) !important;
     transform: none;
 }
 
@@ -1564,7 +1637,6 @@ footer.site-footer {
     border-color: var(--dp-accent) !important;
 }
 
-/* Gallery grid */
 .dekanpro-gallery-grid {
     min-height: 200px;
     position: relative;
@@ -1610,7 +1682,6 @@ footer.site-footer {
     padding: 1.25rem 1.5rem;
 }
 
-/* Gallery card — Apple Newsroom card style */
 .gallery-card {
     background: var(--dp-bg-card);
     border: none;
@@ -1746,7 +1817,7 @@ footer.site-footer {
     background: var(--dp-bg-card);
     border-radius: var(--dp-radius-xl);
     overflow: hidden;
-    transition: box-shadow var(--dp-transition), transform var(--dp-transition);
+    transition: box-shadow var(--dp-transition), transform var(--dp-transition), background 0.3s ease;
     box-shadow: var(--dp-shadow-card);
 }
 
@@ -1828,7 +1899,7 @@ body.dekanpro-is-mobile .dekanpro-hamburger {
 
 body.dekanpro-is-mobile .dekanpro-hamburger:hover,
 body.dekanpro-is-mobile .dekanpro-hamburger.is-active {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: var(--dp-accent-subtle) !important;
 }
 
 body.dekanpro-is-mobile .dekanpro-hamburger .hamburger-label {
@@ -1870,7 +1941,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a {
     min-height: 44px !important;
     display: flex !important;
     align-items: center !important;
-    color: #d1d1d6 !important;
+    color: var(--dp-text-secondary) !important;
     border: none !important;
     background: none !important;
     border-radius: 0 !important;
@@ -1878,11 +1949,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a {
     width: 100% !important;
     transition: color var(--dp-transition-fast) !important;
     border-bottom: 1px solid var(--dp-divider) !important;
+    text-decoration: none !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a:hover,
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li.current-menu-item > a {
-    color: #fff !important;
+    color: var(--dp-text-primary) !important;
     background: transparent !important;
 }
 
@@ -1896,11 +1968,15 @@ body.dekanpro-is-mobile #dekanpro-header:after,
 }
 
 .is-mobile-menu-active #page:after {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-darkmode="dark"] .is-mobile-menu-active #page:after {
     background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav .sub-menu {
-    background: rgba(255, 255, 255, 0.03) !important;
+    background: var(--dp-accent-subtle) !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -1913,6 +1989,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav .sub-menu li a {
     padding: 10px 20px !important;
     font-size: 0.875rem !important;
     color: var(--dp-text-tertiary) !important;
+    text-decoration: none !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
@@ -1922,19 +1999,19 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 }
 
 /* ============================================
-   RESPONSIVE — TABLET (max-width: 1024px)
+   RESPONSIVE — TABLET (max-width: 1068px)
    ============================================ */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1068px) {
     .gallery-view-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* ============================================
-   RESPONSIVE — MOBILE (max-width: 768px)
-   Apple Newsroom mobile: 20px padding, clean, no clutter
+   RESPONSIVE — MOBILE (max-width: 734px)
+   Apple Newsroom breakpoint
    ============================================ */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
 
     .dekanpro-container {
         padding-left: 20px !important;
@@ -1966,7 +2043,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         padding-right: 0 !important;
     }
 
-    /* Header — compact 44px */
     #masthead,
     .site-header {
         padding: 0 !important;
@@ -1980,7 +2056,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         display: none !important;
     }
 
-    /* Cards — rounded, smaller radius on mobile */
     .dekanpro-article,
     article.post,
     article.page {
@@ -2015,16 +2090,15 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .entry-meta {
-        font-size: 11px !important;
+        font-size: 12px !important;
     }
 
     .cat-links a,
     .entry-category a {
         padding: 0 !important;
-        font-size: 11px !important;
+        font-size: 12px !important;
     }
 
-    /* Horizontal blog to vertical */
     .dekanpro-blog-entry-wrapper {
         flex-direction: column !important;
         display: flex !important;
@@ -2064,7 +2138,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         border-radius: 0 !important;
     }
 
-    /* Content typography — Apple mobile sizes */
     .entry-content p {
         font-size: 17px !important;
         line-height: 1.47 !important;
@@ -2117,7 +2190,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         -webkit-overflow-scrolling: touch;
     }
 
-    /* TOC */
     .dekanpro-toc {
         padding: 16px !important;
     }
@@ -2131,7 +2203,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         padding: 4px 0 !important;
     }
 
-    /* Share buttons */
     .dekanpro-share-buttons {
         padding: 12px 0 !important;
         margin: 20px 0 !important;
@@ -2147,12 +2218,10 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         font-size: 12px !important;
     }
 
-    /* Archive header */
     .page-header .page-title {
         font-size: 28px !important;
     }
 
-    /* Gallery */
     .gallery-view-grid {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
@@ -2195,7 +2264,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         padding: 4px 10px !important;
     }
 
-    /* Pagination */
     .navigation .nav-links {
         display: flex;
         flex-wrap: wrap;
@@ -2213,7 +2281,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         justify-content: center;
     }
 
-    /* Comments */
     #comments {
         padding: 16px !important;
         border-radius: 14px !important;
@@ -2232,7 +2299,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         min-height: 48px;
     }
 
-    /* Post navigation */
     .post-navigation .nav-links {
         flex-direction: column !important;
         gap: 12px;
@@ -2243,7 +2309,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         width: 100% !important;
     }
 
-    /* Footer */
     #colophon,
     .site-footer {
         padding: 20px !important;
@@ -2255,7 +2320,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         font-size: 12px !important;
     }
 
-    /* Region modal */
     .dekanpro-region-selector-inner {
         min-width: auto !important;
         margin: 16px !important;
@@ -2272,7 +2336,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         justify-content: center !important;
     }
 
-    /* Contrib form */
     .dekanpro-contrib-login-prompt {
         padding: 20px !important;
     }
@@ -2291,13 +2354,11 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         padding: 16px !important;
     }
 
-    /* Widgets */
     .widget {
         padding: 16px !important;
         border-radius: 14px !important;
     }
 
-    /* No animations on mobile */
     .dekanpro-article,
     .widget,
     article,
@@ -2307,7 +2368,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         transform: none !important;
     }
 
-    /* Scroll to top */
     #dekanpro-scroll-top {
         bottom: 16px !important;
         right: 16px !important;
@@ -2315,7 +2375,6 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         height: 40px !important;
     }
 
-    /* Touch targets */
     .dekanpro-btn,
     button,
     input[type="submit"] {
@@ -2358,6 +2417,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     background: var(--dp-bg-secondary) !important;
     border-bottom: none;
     color: var(--dp-text-primary);
+    transition: background 0.3s ease;
 }
 
 .dekanpro-page-header-title h1,
@@ -2365,8 +2425,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-page-header-title .page-title {
     color: var(--dp-text-primary) !important;
     font-weight: 700;
-    font-size: 48px;
-    letter-spacing: -0.003em;
+    font-size: 40px;
+    letter-spacing: 0em;
 }
 
 .dekanpro-page-header-description,
@@ -2399,6 +2459,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     border-top: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
     font-size: 12px;
+    transition: background 0.3s ease;
 }
 
 #dekanpro-copyright a {
@@ -2419,6 +2480,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
     font-size: 12px;
+    transition: background 0.3s ease;
 }
 
 .dekanpro-topbar a {
@@ -2492,6 +2554,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .post-navigation .nav-links a {
     color: var(--dp-text-secondary);
     transition: color var(--dp-transition-fast);
+    text-decoration: none;
 }
 
 .post-navigation .nav-links a:hover {
@@ -2549,12 +2612,40 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 }
 
 /* ============================================
-   DARK MODE OVERRIDE (already dark by default)
+   SMOOTH THEME TRANSITION
    ============================================ */
-[data-darkmode="dark"] body {
-    background: var(--dp-bg-primary);
-}
-
-[data-darkmode="dark"] #masthead {
-    background: rgba(17, 17, 19, 0.92) !important;
+body,
+#page,
+.dekanpro-article,
+article.post,
+article.page,
+.widget,
+#comments,
+.comment-body,
+.dekanpro-share-buttons,
+.dekanpro-toc,
+.gallery-card,
+.post-card,
+.entry-about-author,
+.dekanpro-contrib-login-prompt,
+.dekanpro-gallery-filters,
+.dekanpro-region-selector-inner,
+.form-row-group-location,
+#colophon,
+#dekanpro-footer,
+#dekanpro-copyright,
+.dekanpro-topbar,
+#dekanpro-topbar,
+.page-header,
+.dekanpro-page-header,
+.dekanpro-preloader,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
