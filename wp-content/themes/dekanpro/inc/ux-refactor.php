@@ -378,23 +378,25 @@ add_action( 'pre_get_posts', 'dekanpro_filter_posts_by_region' );
    ============================================ */
 
 /**
- * Подключаем скрипт и стили для галереи на страницах рубрик.
+ * Подключаем скрипт и стили для галереи: на страницах рубрик и на странице каталога (блог/главная).
  */
 function dekanpro_gallery_enqueue() {
-	if ( ! is_category() ) {
+	$show_gallery = is_category() || is_home();
+	if ( ! $show_gallery ) {
 		return;
 	}
 	wp_enqueue_script(
 		'dekanpro-gallery',
 		get_template_directory_uri() . '/assets/js/gallery-filter.js',
 		array(),
-		'1.0.1',
+		'1.0.2',
 		true
 	);
+	$cat_id = is_category() ? get_queried_object_id() : 0;
 	wp_localize_script( 'dekanpro-gallery', 'dekanproGallery', array(
 		'ajaxurl'    => admin_url( 'admin-ajax.php' ),
 		'nonce'      => wp_create_nonce( 'dekanpro_gallery' ),
-		'category'   => get_queried_object_id(),
+		'category'   => $cat_id,
 		'loading'    => __( 'Загрузка...', 'dekanpro' ),
 		'no_results' => __( 'Ничего не найдено. Попробуйте изменить фильтры.', 'dekanpro' ),
 		'load_more'  => __( 'Показать ещё', 'dekanpro' ),
@@ -403,13 +405,13 @@ function dekanpro_gallery_enqueue() {
 add_action( 'wp_enqueue_scripts', 'dekanpro_gallery_enqueue' );
 
 /**
- * Панель фильтров перед контентом рубрики.
+ * Панель фильтров перед контентом: на страницах рубрик и каталога (блог/главная).
  */
 function dekanpro_gallery_filters_output() {
-	if ( ! is_category() ) {
+	$show_filters = is_category() || is_home();
+	if ( ! $show_filters ) {
 		return;
 	}
-	$cat_id = get_queried_object_id();
 
 	$tags = get_tags( array(
 		'hide_empty' => true,
@@ -417,12 +419,23 @@ function dekanpro_gallery_filters_output() {
 		'order'      => 'DESC',
 		'number'     => 30,
 	) );
+	$categories = is_home() ? get_categories( array( 'hide_empty' => true, 'orderby' => 'name' ) ) : array();
 	?>
 	<div class="dekanpro-gallery-filters" id="dekanpro-gallery-filters">
 		<div class="gallery-filter-row">
 			<div class="gallery-filter-search">
 				<input type="text" id="gallery-search" placeholder="<?php esc_attr_e( 'Поиск по названию...', 'dekanpro' ); ?>" autocomplete="off">
 			</div>
+			<?php if ( ! empty( $categories ) ) : ?>
+			<div class="gallery-filter-category">
+				<select id="gallery-category">
+					<option value=""><?php esc_html_e( 'Все рубрики', 'dekanpro' ); ?></option>
+					<?php foreach ( $categories as $cat ) : ?>
+						<option value="<?php echo esc_attr( $cat->term_id ); ?>"><?php echo esc_html( $cat->name ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+			<?php endif; ?>
 			<div class="gallery-filter-sort">
 				<select id="gallery-sort">
 					<option value="date-desc"><?php esc_html_e( 'Сначала новые', 'dekanpro' ); ?></option>

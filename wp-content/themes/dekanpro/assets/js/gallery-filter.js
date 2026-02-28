@@ -6,9 +6,17 @@
   if (!filtersEl) return;
 
   var searchInput = document.getElementById('gallery-search');
+  var categorySelect = document.getElementById('gallery-category');
   var sortSelect = document.getElementById('gallery-sort');
   var tagsWrap = document.getElementById('gallery-tags');
   var viewBtns = filtersEl.querySelectorAll('.gallery-view-btn');
+
+  function getCategory() {
+    if (categorySelect && categorySelect.value) {
+      return categorySelect.value;
+    }
+    return cfg.category || 0;
+  }
 
   var container = document.querySelector('.dekanpro-gallery-grid');
   if (!container) {
@@ -64,7 +72,7 @@
     var data = new FormData();
     data.append('action', 'dekanpro_gallery_filter');
     data.append('nonce', cfg.nonce);
-    data.append('category', cfg.category);
+    data.append('category', getCategory());
     data.append('search', state.search);
     data.append('tag', state.tag);
     data.append('sort', state.sort);
@@ -129,6 +137,10 @@
         resetAndFetch();
       }, 350);
     });
+  }
+
+  if (categorySelect) {
+    categorySelect.addEventListener('change', resetAndFetch);
   }
 
   if (sortSelect) {
