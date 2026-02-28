@@ -1,0 +1,9 @@
+.aft-wrap { max-width: 900px; }
+.aft-description { color: #646970; margin-bottom: 1.5em; }
+.aft-wrap textarea#aft_raw_text { font-family: inherit; font-size: 14px; line-height: 1.6; }
+.aft-preview-area { margin-top: 2em; padding: 1.5em; background: #f6f7f7; border: 1px solid #c3c4c7; border-radius: 4px; }
+.aft-preview-content { padding: 1em; background: #fff; border: 1px solid #dcdcde; border-radius: 4px; }
+.aft-preview-content h2 { margin-top: 0; font-size: 1.5em; }
+.aft-preview-content h3 { font-size: 1.2em; margin: 1.2em 0 0.5em; }
+.aft-preview-content blockquote { margin: 1em 0; padding: 0.5em 1em; border-left: 4px solid #2271b1; background: #f0f6fc; }
+.aft-preview-content p { margin: 0.5em 0; }
