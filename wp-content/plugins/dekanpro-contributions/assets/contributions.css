@@ -1,158 +1,188 @@
 /**
- * Стили формы отправки материалов.
- *
- * @package DekanPro_Contributions
+ * DekanPro Contributions — Apple Newsroom dark style
  */
 
 .dekanpro-contrib-form-wrapper {
 	max-width: 640px;
-	margin: 2rem 0;
-	padding: 1.5rem;
-	background: rgba(255, 255, 255, 0.9);
-	border-radius: 12px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	margin: 2rem auto;
+	padding: 28px;
+	background: var(--dp-bg-card, #1c1c1e);
+	border-radius: 18px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dekanpro-contrib-intro {
+	margin-bottom: 24px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dekanpro-contrib-intro p {
+	font-size: 15px;
+	color: var(--dp-text-secondary, #86868b);
+	line-height: 1.47;
+	margin: 0;
 }
 
 .dekanpro-contrib-success {
-	padding: 1rem;
-	margin-bottom: 1.5rem;
-	background: rgba(34, 197, 94, 0.15);
-	border-left: 4px solid #22c55e;
-	border-radius: 4px;
-	color: #166534;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+	background: rgba(52, 199, 89, 0.12);
+	border: none;
+	border-radius: 12px;
+	color: #34c759;
+	font-size: 15px;
+}
+
+.dekanpro-contrib-success p {
+	margin: 0;
+	color: inherit;
 }
 
 .dekanpro-contrib-form .form-row {
-	margin-bottom: 1.25rem;
+	margin-bottom: 20px;
 }
 
 .dekanpro-contrib-form label {
 	display: block;
-	margin-bottom: 0.35rem;
+	margin-bottom: 6px;
 	font-weight: 500;
+	font-size: 14px;
+	color: var(--dp-text-primary, #f5f5f7);
 }
 
 .dekanpro-contrib-form .required {
-	color: #dc2626;
+	color: #ff453a;
 }
 
 .dekanpro-contrib-form input[type="text"],
+.dekanpro-contrib-form input[type="email"],
 .dekanpro-contrib-form select,
 .dekanpro-contrib-form textarea {
 	width: 100%;
 	max-width: 100%;
-	padding: 0.5rem 0.75rem;
-	border: 1px solid #e2e8f0;
-	border-radius: 6px;
-	font-size: 1rem;
+	padding: 10px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	font-size: 17px;
+	background: var(--dp-bg-elevated, #2c2c2e);
+	color: var(--dp-text-primary, #f5f5f7);
+	font-family: inherit;
+	transition: border-color 150ms ease;
+}
+
+.dekanpro-contrib-form input[type="text"]:focus,
+.dekanpro-contrib-form input[type="email"]:focus,
+.dekanpro-contrib-form select:focus,
+.dekanpro-contrib-form textarea:focus {
+	border-color: var(--dp-accent, #2997ff);
+	outline: none;
 }
 
 .dekanpro-contrib-form textarea {
-	min-height: 180px;
+	min-height: 200px;
 	resize: vertical;
+	line-height: 1.47;
 }
 
 .dekanpro-contrib-form input[type="file"] {
-	padding: 0.5rem 0;
+	padding: 8px 0;
+	font-size: 14px;
+	color: var(--dp-text-secondary, #86868b);
 }
 
 .dekanpro-contrib-form .form-hint {
 	display: block;
-	margin-top: 0.25rem;
-	font-size: 0.85rem;
-	color: #64748b;
+	margin-top: 4px;
+	font-size: 12px;
+	color: var(--dp-text-tertiary, #6e6e73);
 }
 
 .dekanpro-contrib-form .form-submit {
-	margin-top: 1.5rem;
+	margin-top: 24px;
 	margin-bottom: 0;
 }
 
 .dekanpro-contrib-form .dekanpro-btn {
-	padding: 0.6rem 1.25rem;
-	border-radius: 6px;
+	padding: 12px 24px;
+	border-radius: 980px;
 	text-decoration: none;
 	cursor: pointer;
 	border: none;
-	font-size: 1rem;
+	font-size: 17px;
+	font-weight: 400;
+	font-family: inherit;
+	transition: background 150ms ease;
 }
 
 .dekanpro-contrib-form .primary-button {
-	background: var(--dekanpro-primary, #6366f1);
+	background: var(--dp-accent, #2997ff);
 	color: #fff;
 }
 
 .dekanpro-contrib-form .primary-button:hover {
-	opacity: 0.9;
+	background: var(--dp-accent-hover, #0077ed);
 }
 
-/* Блок для неавторизованных */
-.dekanpro-contrib-login-prompt {
-	max-width: 640px;
-	margin: 2rem 0;
-	padding: 2rem;
-	background: rgba(255, 255, 255, 0.9);
-	border-radius: 12px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-	text-align: center;
+.dekanpro-contrib-form .form-notice {
+	margin-top: 12px;
+	margin-bottom: 0;
 }
 
-.dekanpro-contrib-login-prompt p {
-	margin-bottom: 1rem;
+.dekanpro-contrib-form .form-notice small {
+	font-size: 12px;
+	color: var(--dp-text-tertiary, #6e6e73);
 }
 
-.dekanpro-contrib-login-prompt .contrib-actions {
-	display: flex;
-	gap: 1rem;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.dekanpro-contrib-login-prompt .dekanpro-btn {
-	display: inline-block;
-	padding: 0.6rem 1.25rem;
-	border-radius: 6px;
-	text-decoration: none;
-}
-
-.dekanpro-contrib-login-prompt .primary-button {
-	background: var(--dekanpro-primary, #6366f1);
-	color: #fff;
-}
-
-.dekanpro-contrib-login-prompt .dekanpro-btn:not(.primary-button) {
-	background: #f1f5f9;
-	color: #334155;
-}
-
-/* Блок локации (область, город, посёлок) */
+/* Location group */
 .form-row-group-location {
-	margin-bottom: 1.25rem;
-	padding: 1rem;
-	background: rgba(0, 0, 0, 0.02);
-	border-radius: 8px;
+	margin-bottom: 20px;
+	padding: 16px 20px;
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.04);
 }
+
 .form-row-group-location .group-label {
 	display: block;
-	margin-bottom: 0.75rem;
+	margin-bottom: 12px;
 	font-weight: 500;
+	font-size: 14px;
+	color: var(--dp-text-primary, #f5f5f7);
 }
+
 .form-row-group-location .form-row {
-	margin-bottom: 0.75rem;
+	margin-bottom: 12px;
 }
+
 .form-row-group-location .form-row:last-child {
 	margin-bottom: 0;
 }
 
-/* Вывод локации под статьёй */
+/* Post location display */
 .dekanpro-post-location {
-	margin-top: 1.5rem;
-	padding: 0.75rem 0;
-	border-top: 1px solid #e2e8f0;
-	font-size: 0.95rem;
-	color: #64748b;
+	margin-top: 20px;
+	padding: 0;
+	border-top: none;
+	font-size: 12px;
+	color: var(--dp-text-tertiary, #6e6e73);
 }
+
 .dekanpro-post-location .location-label {
-	font-weight: 500;
-	color: #475569;
+	font-weight: 600;
+	color: var(--dp-text-secondary, #86868b);
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+	.dekanpro-contrib-form-wrapper {
+		margin: 16px 0;
+		padding: 20px;
+		border-radius: 14px;
+	}
+
+	.dekanpro-contrib-form .dekanpro-btn {
+		width: 100%;
+		text-align: center;
+	}
 }

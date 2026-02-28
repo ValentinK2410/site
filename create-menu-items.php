@@ -1,7 +1,7 @@
 <?php
 /**
- * Создаёт меню с пунктами: Живопись, Поэзия, Статьи.
- * Создаёт рубрики при отсутствии.
+ * Создаёт минимальное меню: «Каталог» и «Добавить».
+ * Удаляет все старые пункты меню.
  * Запуск: php create-menu-items.php (из корня WordPress)
  */
 
@@ -11,68 +11,21 @@ if ( php_sapi_name() !== 'cli' ) {
 
 require_once __DIR__ . '/wp-load.php';
 
-$menu_name   = 'Основное меню';
-$menu_items  = array(
-	array(
-		'title' => 'Все рубрики',
-		'url'   => '',
-		'type'  => 'blog',
-	),
-	array(
-		'title' => 'Живопись',
-		'url'   => '',
-		'type'  => 'category',
-		'slug'  => 'zhivopis',
-	),
-	array(
-		'title' => 'Поэзия',
-		'url'   => '',
-		'type'  => 'category',
-		'slug'  => 'poeziya',
-	),
-	array(
-		'title' => 'Творчество',
-		'url'   => '',
-		'type'  => 'category',
-		'slug'  => 'tvorchestvo',
-	),
-	array(
-		'title' => 'Фотографии',
-		'url'   => '',
-		'type'  => 'category',
-		'slug'  => 'fotografii',
-	),
-	array(
-		'title' => 'Статьи',
-		'url'   => '',
-		'type'  => 'category',
-		'slug'  => 'stati',
-	),
-	array(
-		'title' => 'Выбрать регион и город',
-		'url'   => '#',
-		'type'  => 'region_selector',
-	),
-	array(
-		'title' => 'Добавить материал',
-		'url'   => '',
-		'type'  => 'page',
-		'slug'  => 'dobavit-material',
-	),
-);
+$menu_name = 'Основное меню';
 
 // Создаём рубрики при отсутствии.
-foreach ( $menu_items as $item ) {
-	if ( 'category' !== $item['type'] ) {
-		continue;
-	}
-	$term = get_term_by( 'slug', $item['slug'], 'category' );
-	if ( ! $term ) {
-		$result = wp_insert_term( $item['title'], 'category', array( 'slug' => $item['slug'] ) );
+$category_slugs = array(
+	'zhivopis'    => 'Живопись',
+	'poeziya'     => 'Поэзия',
+	'tvorchestvo' => 'Творчество',
+	'fotografii'  => 'Фотографии',
+	'stati'       => 'Статьи',
+);
+foreach ( $category_slugs as $slug => $name ) {
+	if ( ! get_term_by( 'slug', $slug, 'category' ) ) {
+		$result = wp_insert_term( $name, 'category', array( 'slug' => $slug ) );
 		if ( ! is_wp_error( $result ) ) {
-			echo "Создана рубрика: {$item['title']}\n";
-		} else {
-			echo "Ошибка создания рубрики {$item['title']}: " . $result->get_error_message() . "\n";
+			echo "Создана рубрика: {$name}\n";
 		}
 	}
 }
@@ -91,77 +44,44 @@ if ( ! $menu ) {
 	echo "Меню «{$menu_name}» уже существует (ID: {$menu_id})\n";
 }
 
-// Определяем URL и добавляем/обновляем пункты.
-$existing_items  = wp_get_nav_menu_items( $menu_id );
-$existing_by_title = array();
+// Удаляем ВСЕ старые пункты меню.
+$existing_items = wp_get_nav_menu_items( $menu_id );
 if ( $existing_items ) {
-	foreach ( $existing_items as $obj ) {
-		$existing_by_title[ $obj->title ] = $obj;
+	foreach ( $existing_items as $item ) {
+		wp_delete_post( $item->ID, true );
 	}
-}
-$position = $existing_items ? count( $existing_items ) : 0;
-
-// Обновление пункта «Статьи»: отдельный раздел /category/stati/
-$stati_term = get_term_by( 'slug', 'stati', 'category' );
-if ( $stati_term && isset( $existing_by_title['Статьи'] ) ) {
-	$obj = $existing_by_title['Статьи'];
-	$new_url = get_category_link( $stati_term->term_id );
-	if ( $obj->url !== $new_url ) {
-		wp_update_nav_menu_item( $menu_id, $obj->ID, array(
-			'menu-item-url' => $new_url,
-		) );
-		echo "Обновлён URL пункта «Статьи» → /category/stati/\n";
-	}
+	echo "Удалено старых пунктов: " . count( $existing_items ) . "\n";
 }
 
-$added_blog_first = false;
-foreach ( $menu_items as $item ) {
-	if ( in_array( $item['title'], array_keys( $existing_by_title ), true ) ) {
-		echo "Пункт «{$item['title']}» уже есть, пропуск.\n";
-		continue;
-	}
-	$url = '';
-	if ( 'category' === $item['type'] ) {
-		$term = get_term_by( 'slug', $item['slug'], 'category' );
-		$url  = $term ? get_category_link( $term->term_id ) : home_url( '/category/' . $item['slug'] . '/' );
-	} elseif ( 'blog' === $item['type'] ) {
-		$page_for_posts = get_option( 'page_for_posts' );
-		$url            = $page_for_posts ? get_permalink( $page_for_posts ) : home_url( '/' );
-		// Сдвигаем все пункты, чтобы «Все рубрики» был первым
-		if ( ! $added_blog_first && $existing_items ) {
-			foreach ( $existing_items as $obj ) {
-				wp_update_nav_menu_item( $menu_id, $obj->ID, array( 'menu-item-position' => $obj->menu_order + 1 ) );
-			}
-			$position = 0;
-			$added_blog_first = true;
-		}
-	} elseif ( 'page' === $item['type'] ) {
-		$page = get_page_by_path( $item['slug'] );
-		if ( ! $page ) {
-			$page = get_posts( array( 'post_type' => 'page', 'title' => $item['title'], 'numberposts' => 1 ) );
-			$page = ! empty( $page ) ? $page[0] : null;
-		}
-		$url = $page ? get_permalink( $page ) : home_url( '/' . $item['slug'] . '/' );
-	} elseif ( 'region_selector' === $item['type'] ) {
-		$url = '#';
-	}
-
-	wp_update_nav_menu_item(
-		$menu_id,
-		0,
-		array(
-			'menu-item-title'     => $item['title'],
-			'menu-item-url'       => $url,
-			'menu-item-status'    => 'publish',
-			'menu-item-position'  => $position,
-			'menu-item-type'      => 'custom',
-		)
-	);
-	$position++;
-	echo "Добавлен пункт: {$item['title']}\n";
+// Добавляем только 2 пункта: «Каталог» и «Добавить».
+$blog_url = home_url( '/' );
+$page_for_posts = get_option( 'page_for_posts' );
+if ( $page_for_posts ) {
+	$blog_url = get_permalink( $page_for_posts );
 }
 
-// Привязываем меню к локации primary и dekanpro-primary.
+wp_update_nav_menu_item( $menu_id, 0, array(
+	'menu-item-title'    => 'Каталог',
+	'menu-item-url'      => $blog_url,
+	'menu-item-status'   => 'publish',
+	'menu-item-position' => 1,
+	'menu-item-type'     => 'custom',
+) );
+echo "Добавлен пункт: Каталог\n";
+
+$submit_page = get_page_by_path( 'dobavit-material' );
+$submit_url  = $submit_page ? get_permalink( $submit_page ) : home_url( '/dobavit-material/' );
+
+wp_update_nav_menu_item( $menu_id, 0, array(
+	'menu-item-title'    => 'Добавить',
+	'menu-item-url'      => $submit_url,
+	'menu-item-status'   => 'publish',
+	'menu-item-position' => 2,
+	'menu-item-type'     => 'custom',
+) );
+echo "Добавлен пункт: Добавить\n";
+
+// Привязываем меню к локациям.
 $locations = get_theme_mod( 'nav_menu_locations', array() );
 $locations['primary']          = $menu_id;
 $locations['dekanpro-primary'] = $menu_id;
