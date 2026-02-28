@@ -306,6 +306,236 @@ aside.widget-area,
     display: none;
 }
 
+/* ============================================
+   AC-LOCALNAV — Apple Newsroom local nav structure
+   ============================================ */
+#ac-localnav.ac-localnav {
+    display: flex !important;
+    flex: 1;
+    min-width: 0;
+    align-items: center;
+}
+
+.ac-ln-wrapper {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.ac-ln-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 24px;
+    min-width: 0;
+}
+
+.ac-ln-title {
+    flex-shrink: 0;
+}
+
+.ac-ln-title a {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--dp-header-text) !important;
+    text-decoration: none !important;
+    letter-spacing: .011em;
+    white-space: nowrap;
+}
+
+.ac-ln-title a:hover {
+    color: var(--dp-header-text-hover) !important;
+}
+
+.ac-ln-title a[aria-current="page"] {
+    color: var(--dp-header-text-hover) !important;
+}
+
+.ac-ln-menu {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.ac-ln-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ac-ln-menu-tray {
+    display: flex;
+    align-items: center;
+}
+
+.ac-ln-menu-items,
+ul.ac-ln-menu-items {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ac-ln-menu-item {
+    list-style: none !important;
+}
+
+.ac-ln-menu-link {
+    display: inline-flex !important;
+    align-items: center;
+    padding: 0 12px !important;
+    height: 44px;
+    font-size: 12px !important;
+    font-weight: 400;
+    color: var(--dp-header-text) !important;
+    text-decoration: none !important;
+    transition: color .15s ease;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+}
+
+.ac-ln-menu-link:hover,
+.ac-ln-menu-item.current-menu-item .ac-ln-menu-link {
+    color: var(--dp-header-text-hover) !important;
+}
+
+.ac-ln-action-button {
+    margin-left: auto;
+}
+
+.ac-ln-search-trigger {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dp-header-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: -.01em;
+    font-family: inherit;
+    transition: color .15s ease;
+}
+
+.ac-ln-search-trigger:hover {
+    color: var(--dp-header-text-hover);
+}
+
+.ac-ln-search-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--dp-header-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color .15s ease;
+}
+
+.ac-ln-search-close:hover {
+    color: var(--dp-header-text-hover);
+}
+
+/* Search tray — expandable panel (full viewport width like Apple) */
+.ac-ln-search-tray.search-tray {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    overflow: hidden;
+    background: var(--dp-header-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--dp-header-border);
+    transition: max-height .32s cubic-bezier(0.32, 0.72, 0, 1), opacity .2s ease;
+}
+
+#ac-localnav {
+    position: relative;
+}
+
+.ac-ln-search-tray.search-tray[aria-hidden="false"],
+.ac-ln-search-tray.search-tray.is-open {
+    max-height: 120px !important;
+}
+
+.ac-ln-search-tray .search-wrapper {
+    padding: 12px 22px 16px;
+}
+
+.ac-ln-search-tray .search-form-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: var(--dp-container);
+    margin: 0 auto;
+    padding: 8px 12px;
+    background: var(--dp-input-bg);
+    border: 1px solid var(--dp-input-border);
+    border-radius: 8px;
+}
+
+.ac-ln-search-tray .search-form-input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 0;
+    font-size: 17px;
+    font-family: inherit;
+    color: var(--dp-text);
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.ac-ln-search-tray .search-form-input::placeholder {
+    color: var(--dp-text-tertiary);
+}
+
+.ac-ln-search-tray .icon-search {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dp-text-tertiary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: 18px 18px;
+    mask-size: 18px 18px;
+    background-color: currentColor;
+}
+
+.ac-ln-search-tray .search-form-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 18px;
+    color: var(--dp-text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.ac-ln-search-tray .search-form-close:hover {
+    color: var(--dp-text);
+}
+
 /* Dropdown */
 .dekanpro-nav .sub-menu,
 .dekanpro-nav .children {
@@ -1617,20 +1847,40 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-widget-wrapper {
     display: none !important;
 }
 
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-content {
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-action-button {
+    margin-left: 0 !important;
+}
+
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul,
-body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul {
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-primary-nav > ul,
+body.dekanpro-is-mobile #dekanpro-header-inner #dekanpro-primary-nav,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-items {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
     padding: 8px 0 !important;
 }
 
-body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li {
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item,
+body.dekanpro-is-mobile #dekanpro-header-inner #dekanpro-primary-nav > li {
     width: 100% !important;
     display: block !important;
 }
 
-body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a {
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item .ac-ln-menu-link,
+body.dekanpro-is-mobile #dekanpro-header-inner #dekanpro-primary-nav > li > a {
     padding: 12px 20px !important;
     font-size: 17px !important;
     font-weight: 600 !important;
@@ -1648,11 +1898,14 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a {
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a:hover,
-body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li.current-menu-item > a {
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li.current-menu-item > a,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item .ac-ln-menu-link:hover,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item.current-menu-item .ac-ln-menu-link {
     color: var(--dp-link) !important;
 }
 
-body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::after { display: none !important; }
+body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::after,
+body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-link::after { display: none !important; }
 
 body.dekanpro-is-mobile #dekanpro-header:after,
 .is-mobile-menu-active #dekanpro-header:after {

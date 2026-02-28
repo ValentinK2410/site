@@ -1620,6 +1620,43 @@ var dekanproTriggerEvent = function( el, typeArg ) {
 				}
 			}
 		}
+
+		// AC-localnav search tray toggle (Apple Newsroom style)
+		var searchOpen = document.getElementById('ac-ln-search-open');
+		var searchClose = document.getElementById('ac-ln-search-close');
+		var searchCloseBtn = document.querySelector('.ac-ln-search-tray .search-form-close');
+		var searchTray = document.getElementById('dekanpro-search-tray');
+		if ( searchOpen && searchTray ) {
+			searchOpen.addEventListener('click', function() {
+				searchTray.setAttribute('aria-hidden', 'false');
+				searchTray.removeAttribute('inert');
+				searchTray.classList.add('is-open');
+				searchOpen.setAttribute('aria-expanded', 'true');
+				searchOpen.style.display = 'none';
+				if ( searchClose ) searchClose.style.display = 'inline-flex';
+				var input = searchTray.querySelector('.search-form-input');
+				if ( input ) {
+					setTimeout(function() { input.focus(); }, 100);
+				}
+			});
+		}
+		if ( searchClose && searchTray ) {
+			searchClose.addEventListener('click', closeSearchTray);
+		}
+		if ( searchCloseBtn && searchTray ) {
+			searchCloseBtn.addEventListener('click', closeSearchTray);
+		}
+		function closeSearchTray() {
+			if ( ! searchTray ) return;
+			searchTray.setAttribute('aria-hidden', 'true');
+			searchTray.setAttribute('inert', '');
+			searchTray.classList.remove('is-open');
+			if ( searchOpen ) {
+				searchOpen.setAttribute('aria-expanded', 'false');
+				searchOpen.style.display = '';
+			}
+			if ( searchClose ) searchClose.style.display = 'none';
+		}
 	});
 
 }() );
