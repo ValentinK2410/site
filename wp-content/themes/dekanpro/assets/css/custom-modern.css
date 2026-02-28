@@ -1859,6 +1859,13 @@ footer.site-footer {
 /* ============================================
    MOBILE HEADER
    ============================================ */
+@media screen and (max-width: 960px) {
+    #dekanpro-header-inner .site-navigation {
+        min-height: auto !important;
+        height: auto !important;
+    }
+}
+
 body.dekanpro-is-mobile #dekanpro-header {
     position: relative !important;
     z-index: 1000 !important;
