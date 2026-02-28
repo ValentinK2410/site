@@ -219,8 +219,12 @@ aside.widget-area,
 }
 
 /* ============================================
-   HEADER — Apple global nav (44px)
+   HEADER — Modern nav bar
    ============================================ */
+:root {
+    --dp-header-height: 52px;
+}
+
 #masthead,
 .site-header,
 #dekanpro-header {
@@ -229,12 +233,12 @@ aside.widget-area,
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid var(--dp-header-border) !important;
     z-index: 1000 !important;
-    transition: background .3s ease !important;
+    transition: background .3s ease, border-color .3s ease !important;
 }
 
 #dekanpro-header-inner {
     background: transparent !important;
-    max-height: 44px;
+    max-height: var(--dp-header-height);
 }
 
 #masthead.is-sticky,
@@ -250,13 +254,31 @@ aside.widget-area,
 .header-placeholder.is-active { display: block; }
 .header-placeholder { display: none; }
 
-/* Logo */
+/* ---- Logo ---- */
 .dekanpro-logo { flex-shrink: 0; }
 
+.dekanpro-logo .site-title {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    letter-spacing: -.02em !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.dekanpro-logo .site-title a {
+    color: var(--dp-text) !important;
+    text-decoration: none !important;
+    transition: opacity .15s ease;
+}
+
+.dekanpro-logo .site-title a:hover {
+    opacity: .64;
+    text-decoration: none !important;
+}
+
 .dekanpro-logo img {
-    max-height: 18px !important;
+    max-height: 20px !important;
     width: auto !important;
-    opacity: .8;
 }
 
 .dekanpro-logo a {
@@ -274,13 +296,13 @@ aside.widget-area,
     display: none !important;
 }
 
-/* Header container — min-width: 0 для сжатия flex-элементов */
+/* ---- Header container ---- */
 .dekanpro-header-container {
     display: flex !important;
     flex-wrap: nowrap;
     align-items: center;
     gap: 0;
-    height: 44px;
+    height: var(--dp-header-height);
     max-width: var(--dp-container);
     margin: 0 auto;
     min-width: 0;
@@ -290,7 +312,7 @@ aside.widget-area,
     display: none !important;
 }
 
-/* Navigation */
+/* ---- Navigation (generic) ---- */
 .dekanpro-nav,
 .dekanpro-primary-nav {
     display: flex !important;
@@ -321,9 +343,9 @@ aside.widget-area,
 #dekanpro-primary-nav > li > a {
     display: inline-flex;
     align-items: center;
-    padding: 0 12px;
-    height: 44px;
-    font-size: 16px;
+    padding: 0 11px;
+    height: var(--dp-header-height);
+    font-size: 15px;
     font-weight: 400;
     color: var(--dp-header-text) !important;
     text-decoration: none !important;
@@ -345,9 +367,8 @@ aside.widget-area,
 }
 
 /* ============================================
-   AC-LOCALNAV — Apple Newsroom local nav structure
+   AC-LOCALNAV — nav structure
    ============================================ */
-/* Только на десктопе — на мобильном скрывается в MOBILE HEADER */
 @media screen and (min-width: 961px) {
     #ac-localnav.ac-localnav {
         display: flex !important;
@@ -367,42 +388,35 @@ aside.widget-area,
     display: flex;
     flex: 1;
     align-items: center;
-    gap: 12px;
+    gap: 4px;
     min-width: 0;
 }
 
-.ac-ln-title {
-    flex-shrink: 0;
-}
+.ac-ln-title { flex-shrink: 0; }
 
 .ac-ln-title a {
-    font-size: 21px;
-    font-weight: 600;
-    color: var(--dp-header-text) !important;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dp-text) !important;
     text-decoration: none !important;
-    letter-spacing: .011em;
+    letter-spacing: -.02em;
     white-space: nowrap;
 }
 
-.ac-ln-title a:hover {
-    color: var(--dp-header-text-hover) !important;
-}
-
-.ac-ln-title a[aria-current="page"] {
-    color: var(--dp-header-text-hover) !important;
-}
+.ac-ln-title a:hover { color: var(--dp-text-secondary) !important; }
+.ac-ln-title a[aria-current="page"] { color: var(--dp-text) !important; }
 
 .ac-ln-menu {
     display: flex;
     flex: 1;
     min-width: 0;
+    align-items: center;
 }
 
 .ac-ln-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
-    min-width: 0;
+    gap: 4px;
     flex-shrink: 0;
 }
 
@@ -424,16 +438,15 @@ ul.ac-ln-menu-items {
     padding: 0 !important;
 }
 
-.ac-ln-menu-item {
-    list-style: none !important;
-}
+.ac-ln-menu-item { list-style: none !important; }
 
+/* Пункты меню */
 .ac-ln-menu-link {
     display: inline-flex !important;
     align-items: center;
-    padding: 0 12px !important;
-    height: 44px;
-    font-size: 16px !important;
+    padding: 0 11px !important;
+    height: var(--dp-header-height);
+    font-size: 15px !important;
     font-weight: 400;
     color: var(--dp-header-text) !important;
     text-decoration: none !important;
@@ -447,37 +460,56 @@ ul.ac-ln-menu-items {
     color: var(--dp-header-text-hover) !important;
 }
 
-.ac-ln-action-button {
-    margin-left: auto;
-}
+/* Search trigger как иконка */
+.ac-ln-action-button { margin-left: 4px; }
 
 .ac-ln-search-trigger {
     display: inline-flex;
     align-items: center;
-    height: 44px;
-    padding: 0 12px;
-    font-size: 16px;
-    font-weight: 400;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 0;
     color: var(--dp-header-text);
     background: none;
     border: none;
     cursor: pointer;
-    letter-spacing: -.01em;
-    font-family: inherit;
-    transition: color .15s ease;
+    border-radius: 50%;
+    transition: background .15s ease, color .15s ease;
+}
+
+/* Иконка лупы через mask */
+.ac-ln-search-trigger::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7.5'/%3E%3Cline x1='16.5' y1='16.5' x2='21' y2='21'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7.5'/%3E%3Cline x1='16.5' y1='16.5' x2='21' y2='21'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: 18px;
+    mask-size: 18px;
+    background-color: var(--dp-header-text);
+    transition: background-color .15s ease;
+}
+
+.ac-ln-search-trigger-label { display: none; }
+
+.ac-ln-search-trigger:hover::before {
+    background-color: var(--dp-header-text-hover);
 }
 
 .ac-ln-search-trigger:hover {
-    color: var(--dp-header-text-hover);
+    background: var(--dp-bg-elevated);
 }
 
 .ac-ln-search-close {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
     line-height: 1;
     color: var(--dp-header-text);
     background: none;
@@ -485,13 +517,15 @@ ul.ac-ln-menu-items {
     cursor: pointer;
     font-family: inherit;
     transition: color .15s ease;
+    border-radius: 50%;
 }
 
 .ac-ln-search-close:hover {
     color: var(--dp-header-text-hover);
+    background: var(--dp-bg-elevated);
 }
 
-/* Search tray — expandable panel (full viewport width like Apple) */
+/* Search tray */
 .ac-ln-search-tray.search-tray {
     position: absolute;
     top: 100%;
@@ -506,18 +540,14 @@ ul.ac-ln-menu-items {
     transition: max-height .32s cubic-bezier(0.32, 0.72, 0, 1), opacity .2s ease;
 }
 
-#ac-localnav {
-    position: relative;
-}
+#ac-localnav { position: relative; }
 
 .ac-ln-search-tray.search-tray[aria-hidden="false"],
 .ac-ln-search-tray.search-tray.is-open {
     max-height: 120px !important;
 }
 
-.ac-ln-search-tray .search-wrapper {
-    padding: 12px 22px 16px;
-}
+.ac-ln-search-tray .search-wrapper { padding: 10px 22px 14px; }
 
 .ac-ln-search-tray .search-form-wrapper {
     display: flex;
@@ -528,13 +558,13 @@ ul.ac-ln-menu-items {
     padding: 8px 12px;
     background: var(--dp-input-bg);
     border: 1px solid var(--dp-input-border);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .ac-ln-search-tray .search-form-input {
     flex: 1;
     min-width: 0;
-    padding: 8px 0;
+    padding: 6px 0;
     font-size: 16px;
     font-family: inherit;
     color: var(--dp-text);
@@ -543,45 +573,43 @@ ul.ac-ln-menu-items {
     outline: none;
 }
 
-.ac-ln-search-tray .search-form-input::placeholder {
-    color: var(--dp-text-tertiary);
-}
+.ac-ln-search-tray .search-form-input::placeholder { color: var(--dp-text-tertiary); }
 
 .ac-ln-search-tray .icon-search {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--dp-text-tertiary);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-    -webkit-mask-size: 18px 18px;
-    mask-size: 18px 18px;
-    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center / 18px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center / 18px;
+    background-color: var(--dp-text-tertiary);
 }
 
 .ac-ln-search-tray .search-form-close {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     padding: 0;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--dp-text-secondary);
     background: none;
     border: none;
     cursor: pointer;
     font-family: inherit;
+    border-radius: 50%;
+    transition: color .15s, background .15s;
 }
 
 .ac-ln-search-tray .search-form-close:hover {
     color: var(--dp-text);
+    background: var(--dp-bg-elevated);
 }
 
-/* Dropdown */
+/* ---- Dropdown ---- */
 .dekanpro-nav .sub-menu,
 .dekanpro-nav .children {
     background: var(--dp-bg) !important;
@@ -589,20 +617,20 @@ ul.ac-ln-menu-items {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--dp-border-light);
     border-radius: 12px !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.06);
     overflow: hidden;
 }
 
 [data-darkmode="dark"] .dekanpro-nav .sub-menu,
 [data-darkmode="dark"] .dekanpro-nav .children {
-    box-shadow: 0 4px 16px rgba(0,0,0,.5);
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
 }
 
 .dekanpro-nav .sub-menu li a,
 .dekanpro-nav .children li a {
     color: var(--dp-text-secondary) !important;
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 9px 16px;
+    font-size: 15px;
     text-decoration: none !important;
     transition: all .15s ease;
 }
@@ -613,34 +641,54 @@ ul.ac-ln-menu-items {
     color: var(--dp-text) !important;
 }
 
-.dekanpro-header-search-fallback {
-    display: none !important;
-}
+/* ---- Header widgets (Подписаться и др.) ---- */
+.dekanpro-header-search-fallback { display: none !important; }
 
 .dekanpro-header-widgets {
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
     flex-shrink: 0;
-    min-width: 0;
 }
 
-/* Виджеты шапки: компактнее, шрифт 16px, без переполнения */
-.dekanpro-header-container .dekanpro-header-widget a,
+/* Кнопки виджетов как компактные pill-кнопки */
+.dekanpro-header-container .dekanpro-header-widget a.dekanpro-btn,
 .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
-    font-size: 16px !important;
-    padding: 8px 12px !important;
+    display: inline-flex !important;
+    align-items: center;
+    height: 30px !important;
+    padding: 0 14px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    border-radius: 980px !important;
+    white-space: nowrap;
+    letter-spacing: -.01em;
+}
+
+/* Иконочные кнопки (тёмная тема и др.) */
+.dekanpro-header-container .dekanpro-header-widget a:not(.dekanpro-btn),
+.dekanpro-header-container .dekanpro-header-widget button:not(.dekanpro-btn) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    border-radius: 50% !important;
+    background: none !important;
+    border: none !important;
+    color: var(--dp-header-text) !important;
+    transition: background .15s, color .15s;
     white-space: nowrap;
 }
 
-/* На средних экранах — ещё компактнее */
-@media screen and (max-width: 1200px) {
-    .dekanpro-header-container .ac-ln-content { gap: 8px; }
-    .dekanpro-header-container .ac-ln-menu-link { padding: 0 8px !important; }
-    .dekanpro-header-container .ac-ln-search-trigger { padding: 0 8px; }
-    .dekanpro-header-container .dekanpro-header-widget a,
-    .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
-        padding: 6px 10px !important;
-        font-size: 15px !important;
-    }
+.dekanpro-header-container .dekanpro-header-widget a:not(.dekanpro-btn):hover,
+.dekanpro-header-container .dekanpro-header-widget button:not(.dekanpro-btn):hover {
+    background: var(--dp-bg-elevated) !important;
+    color: var(--dp-header-text-hover) !important;
 }
 
 /* Dark mode toggle */
@@ -1937,7 +1985,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner > .dekanpro-container {
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
     gap: 8px !important;
-    height: 44px;
+    height: var(--dp-header-height);
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-logo img {
