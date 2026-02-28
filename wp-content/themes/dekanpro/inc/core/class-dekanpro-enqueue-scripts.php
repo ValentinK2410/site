@@ -64,11 +64,11 @@ class Dekanpro_Enqueue_Scripts {
 			'all'
 		);
 
-		// Enqueue custom modern styles.
+		// Enqueue custom modern styles (after dynamic-styles to override min-height: 100vh etc).
 		wp_enqueue_style(
 			'dekanpro-custom-modern',
 			DEKANPRO_THEME_URI . '/assets/css/custom-modern.css',
-			array( 'dekanpro-styles' ),
+			array( 'dekanpro-styles', 'dekanpro-dynamic-styles' ),
 			DEKANPRO_THEME_VERSION,
 			'all'
 		);
