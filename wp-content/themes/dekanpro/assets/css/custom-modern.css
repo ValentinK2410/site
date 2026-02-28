@@ -695,19 +695,11 @@ button.ac-ln-search-trigger,
     flex-shrink: 0;
 }
 
-/* Кнопка «Подписаться» — компактный pill */
+/* Кнопка «Подписаться» скрыта */
+.dekanpro-header-container .dekanpro-header-widget__button,
 .dekanpro-header-container .dekanpro-header-widget a.dekanpro-btn,
 .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
-    display: inline-flex !important;
-    align-items: center;
-    height: 34px !important;
-    padding: 0 16px !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    line-height: 1 !important;
-    border-radius: 980px !important;
-    white-space: nowrap;
-    letter-spacing: -.01em;
+    display: none !important;
 }
 
 /* Иконочные кнопки (тёмная тема, поиск и др.) */
