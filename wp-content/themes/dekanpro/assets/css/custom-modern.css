@@ -81,10 +81,10 @@
     --dp-h4-size: 21px;
     --dp-h4-weight: 600;
     --dp-h4-lh: 1.1905;
-    --dp-body-size: 17px;
+    --dp-body-size: 16px;
     --dp-body-lh: 1.47059;
     --dp-body-ls: -0.022em;
-    --dp-small-size: 12px;
+    --dp-small-size: 16px;
     --dp-small-lh: 1.33;
     --dp-small-ls: -0.01em;
 }
@@ -322,7 +322,7 @@ aside.widget-area,
     align-items: center;
     padding: 0 12px;
     height: 44px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--dp-header-text) !important;
     text-decoration: none !important;
@@ -451,7 +451,7 @@ ul.ac-ln-menu-items {
     align-items: center;
     height: 44px;
     padding: 0 12px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--dp-header-text);
     background: none;
@@ -530,7 +530,7 @@ ul.ac-ln-menu-items {
     flex: 1;
     min-width: 0;
     padding: 8px 0;
-    font-size: 17px;
+    font-size: 16px;
     font-family: inherit;
     color: var(--dp-text);
     background: transparent;
@@ -564,7 +564,7 @@ ul.ac-ln-menu-items {
     width: 32px;
     height: 32px;
     padding: 0;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--dp-text-secondary);
     background: none;
     border: none;
@@ -597,7 +597,7 @@ ul.ac-ln-menu-items {
 .dekanpro-nav .children li a {
     color: var(--dp-text-secondary) !important;
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: 16px;
     text-decoration: none !important;
     transition: all .15s ease;
 }
@@ -925,7 +925,7 @@ article.post .post-author,
     padding: 4px 0 !important;
     border-radius: 0 !important;
     border: none !important;
-    font-size: 14px !important;
+    font-size: 16px !important;
     text-decoration: none !important;
     transition: color .15s ease !important;
 }
@@ -999,7 +999,7 @@ article.post .post-author,
 
 #secondary .widget-title,
 .dekanpro-sidebar-container .h4.widget-title {
-    font-size: .8125rem !important;
+    font-size: 16px !important;
     margin-top: 0;
     border-left: none;
     padding-left: 0;
@@ -1036,7 +1036,7 @@ article.post .post-author,
     color: var(--dp-text-secondary);
     text-decoration: none;
     font-weight: 500;
-    font-size: .875rem;
+    font-size: 16px;
     line-height: 1.5;
     transition: color .15s ease;
 }
@@ -1058,7 +1058,7 @@ input[type="submit"],
     padding: 8px 20px !important;
     font-family: var(--dp-font);
     font-weight: 400 !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     letter-spacing: -.022em;
     text-transform: none !important;
     color: #fff !important;
@@ -1103,7 +1103,7 @@ a.button,
     align-items: center;
     gap: 2px;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     border: none !important;
     box-shadow: none !important;
     letter-spacing: -.022em;
@@ -1141,7 +1141,7 @@ select {
     padding: 10px 14px !important;
     color: var(--dp-text) !important;
     font-family: var(--dp-font);
-    font-size: 17px !important;
+    font-size: 16px !important;
     transition: border-color .15s ease !important;
 }
 
@@ -1169,7 +1169,7 @@ footer.site-footer {
     color: var(--dp-text-tertiary) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.33337;
     letter-spacing: -.01em;
     transition: background .3s ease;
@@ -1183,7 +1183,7 @@ footer.site-footer {
 
 .site-footer a {
     color: var(--dp-text-secondary) !important;
-    font-size: 12px;
+    font-size: 16px;
     text-decoration: none;
     transition: color .15s ease;
 }
@@ -1221,7 +1221,7 @@ footer.site-footer {
     padding: 8px 12px !important;
     color: var(--dp-text-secondary) !important;
     font-weight: 400 !important;
-    font-size: 14px;
+    font-size: 16px;
     transition: color .15s ease !important;
 }
 
@@ -1263,7 +1263,7 @@ footer.site-footer {
 .entry-content {
     line-height: 1.47059;
     color: var(--dp-text);
-    font-size: 17px;
+    font-size: 16px;
     letter-spacing: -.022em;
 }
 
@@ -1296,7 +1296,7 @@ footer.site-footer {
 }
 
 .entry-content p {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.47059;
     margin-bottom: 1em;
     color: var(--dp-text);
@@ -1311,7 +1311,7 @@ footer.site-footer {
 
 .entry-content ul li,
 .entry-content ol li {
-    font-size: 17px;
+    font-size: 16px;
     padding: 4px 0;
     margin-bottom: 4px;
     background: transparent;
@@ -1345,7 +1345,7 @@ footer.site-footer {
     background: transparent !important;
     color: var(--dp-text) !important;
     font-family: var(--dp-font-mono) !important;
-    font-size: 14px !important;
+    font-size: 16px !important;
     line-height: 1.5 !important;
     display: block;
     white-space: pre !important;
@@ -1357,7 +1357,7 @@ footer.site-footer {
     padding: 2px 6px !important;
     border-radius: 4px !important;
     font-family: var(--dp-font-mono) !important;
-    font-size: .88em !important;
+    font-size: 16px !important;
     border: none;
 }
 
@@ -1370,7 +1370,7 @@ footer.site-footer {
     border-radius: 0;
     font-style: italic;
     color: var(--dp-text-secondary);
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.42;
 }
 
@@ -1412,7 +1412,7 @@ footer.site-footer {
     padding: 12px 16px;
     text-align: left;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: .04em;
     border-bottom: 1px solid var(--dp-border-light);
@@ -1422,7 +1422,7 @@ footer.site-footer {
     padding: 12px 16px;
     border-bottom: 1px solid var(--dp-border-light);
     color: var(--dp-text-secondary);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .entry-content table tr:hover {
@@ -1464,7 +1464,7 @@ footer.site-footer {
 .dekanpro-share-buttons .share-label {
     font-weight: 600;
     color: var(--dp-text-tertiary);
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: .04em;
     margin-right: 4px;
@@ -1476,7 +1476,7 @@ footer.site-footer {
     gap: 4px;
     padding: 6px 12px;
     border-radius: 980px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     text-decoration: none !important;
     transition: opacity .15s ease;
@@ -1508,7 +1508,7 @@ footer.site-footer {
 .dekanpro-toc::before { display: none; }
 
 .dekanpro-toc-title {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     margin: 0 0 12px;
     color: var(--dp-text-tertiary);
@@ -1524,13 +1524,13 @@ footer.site-footer {
     padding: 4px 0;
     color: var(--dp-link);
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.47;
 }
 
 .dekanpro-toc-item a:hover { text-decoration: underline; }
 .dekanpro-toc-h3 { padding-left: 16px; }
-.dekanpro-toc-h3 a { font-size: 14px; color: var(--dp-text-secondary); }
+.dekanpro-toc-h3 a { font-size: 16px; color: var(--dp-text-secondary); }
 
 /* ============================================
    REGION SELECTOR
@@ -1562,7 +1562,7 @@ footer.site-footer {
 
 .dekanpro-region-selector-title {
     margin: 0 0 1.25rem;
-    font-size: 1.125rem;
+    font-size: 16px;
     font-weight: 700;
     color: var(--dp-text);
 }
@@ -1573,7 +1573,7 @@ footer.site-footer {
     display: block;
     margin-bottom: .4rem;
     font-weight: 600;
-    font-size: .8125rem;
+    font-size: 16px;
     color: var(--dp-text-tertiary);
 }
 
@@ -1608,7 +1608,7 @@ footer.site-footer {
 
 .dekanpro-contrib-form label {
     font-weight: 600;
-    font-size: .9375rem;
+    font-size: 16px;
     color: var(--dp-text-secondary);
     margin-bottom: .5rem;
     display: block;
@@ -1617,7 +1617,7 @@ footer.site-footer {
 .dekanpro-contrib-form .form-hint {
     display: block;
     margin-top: .5rem;
-    font-size: .8125rem;
+    font-size: 16px;
     color: var(--dp-text-tertiary);
     line-height: 1.5;
 }
@@ -1644,7 +1644,7 @@ footer.site-footer {
 .form-row-group-location .group-label {
     display: block;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 16px;
     color: var(--dp-text);
     margin-bottom: 1.25rem;
 }
@@ -1663,7 +1663,7 @@ footer.site-footer {
 
 .archive-description,
 .taxonomy-description {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--dp-text-secondary);
     line-height: 1.47059;
     max-width: 640px;
@@ -1671,7 +1671,7 @@ footer.site-footer {
 
 .no-results.not-found { text-align: center; padding: 3rem 2rem; }
 .no-results .page-content.dekanpro-entry { max-width: 480px; margin: 0 auto; }
-.no-results .page-content p { font-size: 1rem; color: var(--dp-text-tertiary); line-height: 1.7; }
+.no-results .page-content p { font-size: 16px; color: var(--dp-text-tertiary); line-height: 1.7; }
 
 /* ============================================
    GALLERY
@@ -1729,7 +1729,7 @@ footer.site-footer {
 
 .gallery-tag-btn {
     padding: .4rem 1rem !important;
-    font-size: .8125rem !important;
+    font-size: 16px !important;
     font-weight: 500 !important;
     border: 1px solid var(--dp-border) !important;
     border-radius: 980px !important;
@@ -1783,7 +1783,7 @@ footer.site-footer {
 .gallery-card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 
 .gallery-card-tag {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .04em;
@@ -1792,11 +1792,11 @@ footer.site-footer {
     padding: 0;
 }
 
-.gallery-card-title { font-size: 17px; font-weight: 600; line-height: 1.24; margin: 0 0 6px; }
+.gallery-card-title { font-size: 16px; font-weight: 600; line-height: 1.24; margin: 0 0 6px; }
 .gallery-card-title a { color: var(--dp-text); text-decoration: none; }
 .gallery-card-title a:hover { color: var(--dp-link); }
-.gallery-card-excerpt { font-size: .8125rem; color: var(--dp-text-tertiary); line-height: 1.6; margin: 0 0 .75rem; }
-.gallery-card-meta { font-size: .75rem; color: var(--dp-text-tertiary); }
+.gallery-card-excerpt { font-size: 16px; color: var(--dp-text-tertiary); line-height: 1.6; margin: 0 0 .75rem; }
+.gallery-card-meta { font-size: 16px; color: var(--dp-text-tertiary); }
 .gallery-load-more-wrap { text-align: center; margin-top: 2rem; }
 .gallery-loading, .gallery-empty { text-align: center; padding: 3rem 1rem; color: var(--dp-text-tertiary); }
 
@@ -1810,7 +1810,7 @@ footer.site-footer {
     padding: 0;
     background: transparent;
     border: none;
-    font-size: 12px;
+    font-size: 16px;
     color: var(--dp-text-tertiary);
     margin-top: 8px;
 }
@@ -1958,7 +1958,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-title {
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-title a {
-    font-size: 17px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
     color: var(--dp-text) !important;
 }
@@ -1969,7 +1969,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-search-trigger {
     padding: 12px 20px !important;
     height: auto !important;
     min-height: 44px !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
     color: var(--dp-text) !important;
     background: none !important;
@@ -2003,7 +2003,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a,
 body.dekanpro-is-mobile #dekanpro-header-inner .ac-ln-menu-item .ac-ln-menu-link,
 body.dekanpro-is-mobile #dekanpro-header-inner #dekanpro-primary-nav > li > a {
     padding: 12px 20px !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
     min-height: 44px !important;
     display: flex !important;
@@ -2050,14 +2050,14 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav .sub-menu {
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav .sub-menu li a {
     padding: 10px 20px !important;
-    font-size: 15px !important;
+    font-size: 16px !important;
     color: var(--dp-text-secondary) !important;
     text-decoration: none !important;
 }
 
 body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     padding: 8px 16px !important;
-    font-size: .8125rem !important;
+    font-size: 16px !important;
     min-height: 40px !important;
 }
 
@@ -2137,7 +2137,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .entry-summary.dekanpro-entry {
-        font-size: 15px !important;
+        font-size: 16px !important;
     }
 
     .entry-meta { font-size: 12px !important; }
@@ -2166,12 +2166,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         width: 100% !important;
     }
 
-    .entry-content p { font-size: 17px !important; }
+    .entry-content p { font-size: 16px !important; }
     .entry-content h2 { font-size: 24px !important; margin: 28px 0 12px !important; }
     .entry-content h3 { font-size: 21px !important; margin: 24px 0 8px !important; }
-    .entry-content blockquote { font-size: 17px !important; }
+    .entry-content blockquote { font-size: 16px !important; }
     .entry-content pre { border-radius: 10px !important; padding: 16px !important; }
-    .entry-content pre code { font-size: 13px !important; }
+    .entry-content pre code { font-size: 16px !important; }
     .entry-content img { border-radius: 10px !important; }
 
     .dekanpro-toc { padding: 16px 0 !important; }
@@ -2293,7 +2293,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-page-header-description,
 .dekanpro-page-header-description p {
     color: var(--dp-text-secondary) !important;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .dekanpro-page-header-wrapper { position: relative; }
@@ -2302,7 +2302,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-breadcrumbs a,
 .dekanpro-breadcrumbs span {
     color: var(--dp-text-tertiary) !important;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .dekanpro-breadcrumbs a:hover { color: var(--dp-text) !important; }
@@ -2314,7 +2314,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     background: var(--dp-bg-secondary) !important;
     border-top: 1px solid var(--dp-border-light);
     color: var(--dp-text-tertiary);
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #dekanpro-copyright a { color: var(--dp-text-secondary) !important; font-size: 12px; }
@@ -2328,7 +2328,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     background: var(--dp-bg-secondary) !important;
     border-bottom: 1px solid var(--dp-border-light);
     color: var(--dp-text-tertiary);
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .dekanpro-topbar a { color: var(--dp-text-secondary) !important; }
