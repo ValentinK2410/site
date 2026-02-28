@@ -130,6 +130,15 @@ class Dekanpro_Enqueue_Scripts {
 			true
 		);
 
+		// Enqueue Premium Interactions (scroll-reveal, lazy-load fade-in).
+		wp_enqueue_script(
+			'dekanpro-premium-interactions',
+			DEKANPRO_THEME_URI . '/assets/js/premium-interactions.js',
+			array(),
+			DEKANPRO_THEME_VERSION,
+			true
+		);
+
 		// Enqueue Prism.js for syntax highlighting.
 		wp_enqueue_style(
 			'prism-theme',

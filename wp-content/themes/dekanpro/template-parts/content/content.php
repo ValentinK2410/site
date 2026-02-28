@@ -13,7 +13,7 @@
 
 <?php do_action( 'dekanpro_before_article' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'dekanpro-article' ); ?><?php dekanpro_schema_markup( 'article' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'dekanpro-article dp-reveal' ); ?><?php dekanpro_schema_markup( 'article' ); ?>>
 
 	<?php
 	$dekanpro_blog_entry_format = get_post_format();

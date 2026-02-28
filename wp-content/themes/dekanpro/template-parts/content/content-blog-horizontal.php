@@ -13,7 +13,7 @@ $class_no_media = ! has_post_thumbnail() ? 'no-entry-media' : '';
 
 <?php do_action( 'dekanpro_before_article' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'dekanpro-article', esc_attr( $class_no_media ) ) ); ?><?php dekanpro_schema_markup( 'article' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'dekanpro-article', 'dp-reveal', esc_attr( $class_no_media ) ) ); ?><?php dekanpro_schema_markup( 'article' ); ?>>
 
 	<?php
 	$dekanpro_blog_entry_format = get_post_format();
@@ -42,7 +42,6 @@ $class_no_media = ! has_post_thumbnail() ? 'no-entry-media' : '';
 
 				get_template_part( 'template-parts/entry/entry-header' );
 				get_template_part( 'template-parts/entry/entry-summary' );
-
 
 				if ( dekanpro_option( 'blog_horizontal_read_more' ) ) {
 					get_template_part( 'template-parts/entry/entry-summary-footer' );
