@@ -175,7 +175,7 @@ function dekanpro_contributions_cta() {
 	if ( ! is_category() || ! class_exists( 'Dekanpro_Contributions' ) ) {
 		return;
 	}
-	$page = get_page_by_path( 'dobavit-material' );
+	$page = get_page_by_path( 'create' ) ?: get_page_by_path( 'dobavit-material' );
 	if ( ! $page ) {
 		return;
 	}

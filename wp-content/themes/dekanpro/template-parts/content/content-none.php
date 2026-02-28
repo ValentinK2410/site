@@ -38,7 +38,7 @@
 			get_search_form();
 
 		elseif ( is_category() ) :
-			$contrib_page = get_page_by_path( 'dobavit-material' );
+			$contrib_page = get_page_by_path( 'create' ) ?: get_page_by_path( 'dobavit-material' );
 			$contrib_url  = $contrib_page ? get_permalink( $contrib_page ) : '';
 			?>
 			<p><?php esc_html_e( 'В этой рубрике пока нет опубликованных записей.', 'dekanpro' ); ?></p>

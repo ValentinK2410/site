@@ -22,12 +22,17 @@ $existing = $wpdb->get_var( $wpdb->prepare(
 ) );
 
 if ( $existing ) {
+	$existing_post = get_post( $existing );
+	if ( $existing_post && $existing_post->post_name !== 'create' ) {
+		wp_update_post( array( 'ID' => $existing, 'post_name' => 'create' ) );
+		echo "Слаг страницы обновлён на create\n";
+	}
 	echo "Страница «{$page_title}» уже существует (ID: {$existing})\n";
 	echo "URL: " . get_permalink( $existing ) . "\n";
 } else {
 	$post_id = wp_insert_post( array(
 		'post_title'   => $page_title,
-		'post_name'    => 'dobavit-material',
+		'post_name'    => 'create',
 		'post_content' => $content,
 		'post_status'  => 'publish',
 		'post_type'    => 'page',

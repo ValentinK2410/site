@@ -69,8 +69,8 @@ wp_update_nav_menu_item( $menu_id, 0, array(
 ) );
 echo "Добавлен пункт: Каталог\n";
 
-$submit_page = get_page_by_path( 'dobavit-material' );
-$submit_url  = $submit_page ? get_permalink( $submit_page ) : home_url( '/dobavit-material/' );
+$submit_page = get_page_by_path( 'create' ) ?: get_page_by_path( 'dobavit-material' );
+$submit_url  = $submit_page ? get_permalink( $submit_page ) : home_url( '/create/' );
 
 wp_update_nav_menu_item( $menu_id, 0, array(
 	'menu-item-title'    => 'Добавить',
