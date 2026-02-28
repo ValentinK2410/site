@@ -499,11 +499,11 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text) !important;
 }
 
-/* Article grid — 2 columns */
-.home #content.site-content,
-.archive #content.site-content,
-.search #content.site-content {
-    display: grid;
+/* Article grid — 2 columns (Apple Newsroom) */
+.home #content.site-content .dekanpro-flex-row,
+.archive #content.site-content .dekanpro-flex-row,
+.search #content.site-content .dekanpro-flex-row {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 32px;
 }
@@ -514,16 +514,58 @@ article:hover .entry-summary.dekanpro-entry,
     grid-column: 1 / -1;
 }
 
+/* Vertical cards: image on top (Apple Newsroom) */
+.home .dekanpro-blog-entry-wrapper,
+.archive .dekanpro-blog-entry-wrapper,
+.search .dekanpro-blog-entry-wrapper {
+    flex-direction: column !important;
+    display: flex !important;
+}
+
+.home .dekanpro-blog-entry-wrapper .entry-media,
+.home .dekanpro-blog-entry-wrapper .post-thumbnail,
+.archive .dekanpro-blog-entry-wrapper .entry-media,
+.archive .dekanpro-blog-entry-wrapper .post-thumbnail,
+.search .dekanpro-blog-entry-wrapper .entry-media,
+.search .dekanpro-blog-entry-wrapper .post-thumbnail {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+.home .dekanpro-blog-entry-wrapper .dekanpro-entry-content-wrapper,
+.archive .dekanpro-blog-entry-wrapper .dekanpro-entry-content-wrapper,
+.search .dekanpro-blog-entry-wrapper .dekanpro-entry-content-wrapper {
+    width: 100% !important;
+    flex: 1 1 auto !important;
+}
+
 @media screen and (max-width: 734px) {
-    .home #content.site-content,
-    .archive #content.site-content,
-    .search #content.site-content {
+    .home #content.site-content .dekanpro-flex-row,
+    .archive #content.site-content .dekanpro-flex-row,
+    .search #content.site-content .dekanpro-flex-row {
         grid-template-columns: 1fr;
         gap: 0;
     }
 }
 
-/* Hide author & date on home */
+/* Section title «Последние новости» — Apple style */
+#dekanpro-blog-heading {
+    margin-bottom: 28px;
+    padding-bottom: 0;
+}
+
+#dekanpro-blog-heading .dekanpro-section-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1071;
+    letter-spacing: .004em;
+    color: var(--dp-text);
+    margin: 0 0 0;
+}
+
+/* Hide author (Apple Newsroom doesn't show it) */
 .post-author,
 .posted-by,
 .entry-meta .posted-by,
@@ -535,10 +577,7 @@ article.post .post-author,
     display: none !important;
 }
 
-.home .entry-meta .posted-on,
-.home .entry-meta .entry-meta-elements > span.posted-on {
-    display: none !important;
-}
+/* Apple shows date, not author. Date stays visible via meta filter. */
 
 /* ============================================
    CATEGORIES — Apple 14px/600 uppercase

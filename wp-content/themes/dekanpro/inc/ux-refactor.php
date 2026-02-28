@@ -1,6 +1,7 @@
 <?php
 /**
  * UX-улучшения: перелинковка, вовлечение, сбор контактов.
+ * Apple Newsroom style overrides.
  *
  * @package DekanPro
  * @since 1.0.27
@@ -9,6 +10,28 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/**
+ * Apple Newsroom: скрыть автора в карточках, показывать только дату.
+ */
+function dekanpro_apple_newsroom_blog_meta( $elements ) {
+	if ( is_singular() ) {
+		return $elements;
+	}
+	return array( 'date' => true );
+}
+add_filter( 'dekanpro_entry_meta_elements', 'dekanpro_apple_newsroom_blog_meta', 999 );
+
+/**
+ * Apple Newsroom: заголовок секции «Последние новости» на главной.
+ */
+function dekanpro_apple_newsroom_blog_heading( $value ) {
+	if ( is_home() && ( empty( $value ) || ! is_string( $value ) ) ) {
+		return '<h2 class="dekanpro-section-title">' . esc_html__( 'Последние новости', 'dekanpro' ) . '</h2>';
+	}
+	return $value;
+}
+add_filter( 'theme_mod_dekanpro_blog_heading', 'dekanpro_apple_newsroom_blog_heading' );
 
 /**
  * Кнопки шаринга: VK, Telegram.
