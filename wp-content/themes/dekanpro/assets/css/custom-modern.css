@@ -651,21 +651,27 @@ button.ac-ln-search-trigger,
 /* ---- Header widgets (Подписаться и др.) ---- */
 .dekanpro-header-search-fallback { display: none !important; }
 
+/* Соцсети в шапке скрываем — они создают цветные полосы и не вписываются в минимализм */
+.dekanpro-header-container .dekanpro-header-widget__socials,
+#dekanpro-header-inner .dekanpro-header-widget__socials {
+    display: none !important;
+}
+
 .dekanpro-header-widgets {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-left: 8px;
+    gap: 4px;
+    margin-left: 6px;
     flex-shrink: 0;
 }
 
-/* Кнопки виджетов как компактные pill-кнопки */
+/* Кнопка «Подписаться» — компактный pill */
 .dekanpro-header-container .dekanpro-header-widget a.dekanpro-btn,
 .dekanpro-header-container .dekanpro-header-widget .dekanpro-btn {
     display: inline-flex !important;
     align-items: center;
-    height: 30px !important;
-    padding: 0 14px !important;
+    height: 28px !important;
+    padding: 0 12px !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     line-height: 1 !important;
@@ -674,14 +680,14 @@ button.ac-ln-search-trigger,
     letter-spacing: -.01em;
 }
 
-/* Иконочные кнопки (тёмная тема и др.) */
+/* Иконочные кнопки (тёмная тема, поиск и др.) */
 .dekanpro-header-container .dekanpro-header-widget a:not(.dekanpro-btn),
 .dekanpro-header-container .dekanpro-header-widget button:not(.dekanpro-btn) {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 32px !important;
-    height: 32px !important;
+    width: 30px !important;
+    height: 30px !important;
     padding: 0 !important;
     font-size: 14px !important;
     border-radius: 50% !important;
@@ -696,6 +702,11 @@ button.ac-ln-search-trigger,
 .dekanpro-header-container .dekanpro-header-widget button:not(.dekanpro-btn):hover {
     background: var(--dp-bg-elevated) !important;
     color: var(--dp-header-text-hover) !important;
+}
+
+/* Виджет поиска из header-widgets убираем — у нас есть свой в nav */
+.dekanpro-header-container .dekanpro-header-widget__search {
+    display: none !important;
 }
 
 /* Dark mode toggle */
