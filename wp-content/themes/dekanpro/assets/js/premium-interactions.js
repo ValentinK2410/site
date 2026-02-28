@@ -74,10 +74,10 @@
         function updateHeader() {
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollY > 50) {
-                header.style.background = 'rgba(0, 0, 0, 0.96)';
+                header.style.background = 'rgba(17, 17, 19, 0.96)';
                 header.style.boxShadow = '0 1px 0 rgba(255,255,255,0.04)';
             } else {
-                header.style.background = 'rgba(0, 0, 0, 0.92)';
+                header.style.background = 'rgba(17, 17, 19, 0.92)';
                 header.style.boxShadow = 'none';
             }
             ticking = false;

@@ -1,21 +1,21 @@
 /**
  * DekanPro — Apple Newsroom Style
- * Flat minimalist design, no borders on cards, clean typography,
- * compact header, perfect mobile experience.
+ * White cards on dark-grey background, rounded corners, soft shadows,
+ * compact header, Apple typography, perfect mobile experience.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ============================================
-   CSS VARIABLES — Apple Newsroom Palette
+   CSS VARIABLES — Apple Newsroom (dark adaptation)
    ============================================ */
 :root {
-    --dp-bg-primary: #000;
-    --dp-bg-secondary: #111;
-    --dp-bg-card: transparent;
-    --dp-bg-card-hover: transparent;
-    --dp-bg-elevated: #1d1d1f;
-    --dp-bg-input: #1d1d1f;
+    --dp-bg-primary: #111113;
+    --dp-bg-secondary: #18181a;
+    --dp-bg-card: #1c1c1e;
+    --dp-bg-card-hover: #222224;
+    --dp-bg-elevated: #2c2c2e;
+    --dp-bg-input: #1c1c1e;
 
     --dp-text-primary: #f5f5f7;
     --dp-text-secondary: #86868b;
@@ -24,33 +24,35 @@
 
     --dp-accent: #2997ff;
     --dp-accent-hover: #0077ed;
-    --dp-accent-subtle: transparent;
+    --dp-accent-subtle: rgba(41, 151, 255, 0.08);
 
-    --dp-border: rgba(255, 255, 255, 0.08);
-    --dp-border-strong: rgba(255, 255, 255, 0.12);
-    --dp-divider: rgba(255, 255, 255, 0.08);
+    --dp-border: rgba(255, 255, 255, 0.06);
+    --dp-border-strong: rgba(255, 255, 255, 0.1);
+    --dp-divider: rgba(255, 255, 255, 0.06);
 
-    --dp-shadow-sm: none;
-    --dp-shadow-md: none;
-    --dp-shadow-lg: none;
-    --dp-shadow-xl: none;
+    --dp-shadow-card: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --dp-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --dp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --dp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --dp-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --dp-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
     --dp-shadow-glow: none;
 
-    --dp-radius-sm: 0;
-    --dp-radius: 0;
-    --dp-radius-lg: 12px;
-    --dp-radius-xl: 0;
-    --dp-radius-2xl: 0;
+    --dp-radius-sm: 8px;
+    --dp-radius: 12px;
+    --dp-radius-lg: 14px;
+    --dp-radius-xl: 18px;
+    --dp-radius-2xl: 20px;
     --dp-radius-full: 9999px;
 
     --dp-transition-fast: 150ms ease;
-    --dp-transition: 300ms ease;
+    --dp-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --dp-transition-slow: 500ms ease;
 
     --dp-font: 'SF Pro Display', 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     --dp-font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 
-    --dp-container: 980px;
+    --dp-container: 1024px;
     --dp-content-width: 780px;
 }
 
@@ -160,7 +162,7 @@ aside.widget-area {
 #masthead,
 .site-header,
 #dekanpro-header {
-    background: rgba(0, 0, 0, 0.92) !important;
+    background: rgba(17, 17, 19, 0.92) !important;
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: none;
@@ -318,80 +320,76 @@ aside.widget-area {
 }
 
 /* ============================================
-   ARTICLE CARDS — Apple Newsroom flat style
+   ARTICLE CARDS — Apple Newsroom style
+   White cards, rounded corners, soft shadow
    ============================================ */
 .dekanpro-article,
 .dekanpro-post-item,
-.dekanpro-blog-entry-wrapper,
-.entry-content-wrapper,
 article.post,
 article.page {
-    background: transparent !important;
+    background: var(--dp-bg-card) !important;
     border: none !important;
-    border-bottom: 1px solid var(--dp-divider) !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    border-radius: var(--dp-radius-xl) !important;
+    box-shadow: var(--dp-shadow-card) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    transition: none !important;
-    overflow: visible;
+    transition: box-shadow var(--dp-transition), transform var(--dp-transition) !important;
+    overflow: hidden;
     position: relative;
-    padding-bottom: 32px;
-    margin-bottom: 32px;
+    padding-bottom: 0;
+    margin-bottom: 28px;
 }
 
-/* No hover lift — Apple style */
 .dekanpro-article:hover,
 .dekanpro-post-item:hover,
 article.post:hover {
-    background: transparent !important;
-    border-color: var(--dp-divider) !important;
-    transform: none !important;
-    box-shadow: none !important;
+    background: var(--dp-bg-card-hover) !important;
+    box-shadow: var(--dp-shadow-card-hover) !important;
+    transform: translateY(-4px);
 }
 
 /* Inner wrappers — transparent */
 .dekanpro-article .dekanpro-blog-entry-wrapper,
 .dekanpro-article .dekanpro-entry-content-wrapper,
-.dekanpro-article .dekanpro-blog-entry-content {
+.dekanpro-article .dekanpro-blog-entry-content,
+.dekanpro-blog-entry-wrapper,
+.entry-content-wrapper {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
 }
 
-/* Thumbnail — Apple rounded corners */
+/* Thumbnail — full width, no inner radius (card clips) */
 .entry-media,
 .post-thumbnail {
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .entry-media img,
 .post-thumbnail img {
     width: 100%;
-    height: 280px;
+    height: 260px;
     object-fit: cover;
     display: block;
-    border-radius: 12px;
-    transition: opacity var(--dp-transition);
+    border-radius: 0;
+    transition: transform var(--dp-transition-slow);
 }
 
-/* Hover: only opacity change, no scale */
 .dekanpro-article:hover .entry-media img,
 article:hover .post-thumbnail img {
-    opacity: 0.85;
-    transform: none;
+    transform: scale(1.03);
 }
 
-/* Entry content area */
+/* Entry content area — padding inside card */
 .dekanpro-blog-entry-content,
 .entry-content-wrapper {
-    padding: 16px 0 0 0 !important;
+    padding: 20px 24px 24px !important;
 }
 
 .entry-content.dekanpro-entry {
-    padding: 16px 0 0 0;
+    padding: 20px 24px 24px;
 }
 
 .entry-summary.dekanpro-entry {
@@ -401,7 +399,7 @@ article:hover .post-thumbnail img {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: 17px;
+    font-size: 15px;
     color: var(--dp-text-secondary);
     line-height: 1.47;
 }
@@ -415,10 +413,10 @@ article:hover .entry-summary.dekanpro-entry,
     background: transparent !important;
 }
 
-/* Entry title — Apple 22px */
+/* Entry title — Apple 24px semibold */
 .entry-title {
     width: 100%;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .entry-title a {
@@ -430,9 +428,9 @@ article:hover .entry-summary.dekanpro-entry,
     text-decoration: none;
     transition: color var(--dp-transition-fast);
     font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.009em;
-    line-height: 1.19;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.25;
 }
 
 .entry-title a:hover {
@@ -455,6 +453,30 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text-primary) !important;
 }
 
+/* Article grid — 2 columns like Apple Newsroom */
+.home #content.site-content,
+.archive #content.site-content,
+.search #content.site-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.home #content.site-content > .navigation,
+.archive #content.site-content > .navigation,
+.search #content.site-content > .navigation {
+    grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 768px) {
+    .home #content.site-content,
+    .archive #content.site-content,
+    .search #content.site-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
 /* Hide author */
 .post-author,
 .posted-by,
@@ -474,20 +496,20 @@ article.post .post-author,
 }
 
 /* ============================================
-   CATEGORIES & TAGS — Apple plain text style
+   CATEGORIES & TAGS — Apple uppercase grey label
    ============================================ */
 .cat-links a,
 .entry-category a,
 .post-categories a,
 .post-category .cat-links a {
     background: transparent !important;
-    color: var(--dp-text-secondary) !important;
+    color: var(--dp-text-tertiary) !important;
     padding: 0 !important;
     border-radius: 0 !important;
     font-size: 12px !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    letter-spacing: 0.06em !important;
     border: none !important;
     box-shadow: none !important;
     transition: color var(--dp-transition-fast) !important;
@@ -549,23 +571,23 @@ article.post .post-author,
 }
 
 /* ============================================
-   WIDGETS — Minimal
+   WIDGETS — Card style
    ============================================ */
 .widget,
 .sidebar .widget,
 #secondary .widget {
-    background: transparent !important;
+    background: var(--dp-bg-card) !important;
     border: none !important;
-    border-bottom: 1px solid var(--dp-divider) !important;
-    border-radius: 0 !important;
-    padding: 24px 0 !important;
-    box-shadow: none !important;
+    border-radius: var(--dp-radius-xl) !important;
+    padding: 20px 24px !important;
+    box-shadow: var(--dp-shadow-card) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    margin-bottom: 20px;
 }
 
 .widget:hover {
-    border-color: var(--dp-divider) !important;
+    box-shadow: var(--dp-shadow-card-hover) !important;
 }
 
 .widget-title {
@@ -780,7 +802,7 @@ select:focus {
 #colophon,
 .site-footer,
 footer.site-footer {
-    background: #000 !important;
+    background: var(--dp-bg-secondary) !important;
     border-top: 1px solid var(--dp-divider) !important;
     color: var(--dp-text-tertiary) !important;
     backdrop-filter: none !important;
@@ -793,7 +815,7 @@ footer.site-footer {
 }
 
 #dekanpro-footer {
-    background: #000 !important;
+    background: var(--dp-bg-secondary) !important;
 }
 
 .site-footer a {
@@ -855,23 +877,23 @@ footer.site-footer {
 }
 
 /* ============================================
-   COMMENTS — Flat
+   COMMENTS — Card style
    ============================================ */
 #comments {
-    background: transparent;
+    background: var(--dp-bg-card);
     border: none;
-    border-top: 1px solid var(--dp-divider);
-    border-radius: 0;
-    padding: 32px 0;
+    border-radius: var(--dp-radius-xl);
+    padding: 24px 28px;
+    box-shadow: var(--dp-shadow-card);
+    margin-top: 28px;
 }
 
 .comment-body {
-    background: transparent !important;
+    background: var(--dp-bg-secondary) !important;
     border: none !important;
-    border-radius: 0 !important;
-    padding: 16px 0;
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--dp-divider) !important;
+    border-radius: var(--dp-radius) !important;
+    padding: 16px 20px;
+    margin-bottom: 12px;
     border-left: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -957,16 +979,16 @@ footer.site-footer {
     display: none;
 }
 
-/* Code blocks — clean dark */
+/* Code blocks — card style */
 .entry-content pre {
-    background: #1d1d1f !important;
+    background: var(--dp-bg-elevated) !important;
     border: none;
-    border-radius: 12px !important;
+    border-radius: var(--dp-radius) !important;
     padding: 20px !important;
     margin: 24px 0 !important;
     overflow-x: auto;
     position: relative;
-    box-shadow: none;
+    box-shadow: var(--dp-shadow-sm);
 }
 
 .entry-content pre::before {
@@ -1029,13 +1051,13 @@ footer.site-footer {
 
 /* Images */
 .entry-content img {
-    border-radius: 12px;
-    box-shadow: none;
+    border-radius: var(--dp-radius);
+    box-shadow: var(--dp-shadow-sm);
 }
 
 .entry-content img:hover {
     transform: none;
-    box-shadow: none;
+    box-shadow: var(--dp-shadow-sm);
 }
 
 /* Tables */
@@ -1098,11 +1120,11 @@ footer.site-footer {
    ============================================ */
 .dekanpro-share-buttons {
     margin: 24px 0;
-    padding: 16px 0;
-    background: transparent;
+    padding: 16px 20px;
+    background: var(--dp-bg-card);
     border: none;
-    border-top: 1px solid var(--dp-divider);
-    border-radius: 0;
+    border-radius: var(--dp-radius-xl);
+    box-shadow: var(--dp-shadow-card);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1167,12 +1189,11 @@ footer.site-footer {
    ============================================ */
 .dekanpro-toc {
     margin-bottom: 32px;
-    padding: 20px 0;
-    background: transparent;
+    padding: 20px 24px;
+    background: var(--dp-bg-card);
     border: none;
-    border-top: 1px solid var(--dp-divider);
-    border-bottom: 1px solid var(--dp-divider);
-    border-radius: 0;
+    border-radius: var(--dp-radius-xl);
+    box-shadow: var(--dp-shadow-card);
     position: relative;
 }
 
@@ -1245,11 +1266,11 @@ footer.site-footer {
 }
 
 .dekanpro-region-selector-inner {
-    background: #1d1d1f;
-    border: 1px solid var(--dp-border-strong);
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    background: var(--dp-bg-card);
+    border: none;
+    padding: 28px;
+    border-radius: var(--dp-radius-2xl);
+    box-shadow: var(--dp-shadow-xl);
     min-width: 340px;
     max-width: 90vw;
     animation: dpFadeInUp 0.3s ease-out;
@@ -1319,10 +1340,10 @@ footer.site-footer {
 .dekanpro-contrib-login-prompt {
     text-align: center;
     padding: 32px 24px;
-    background: transparent;
+    background: var(--dp-bg-card);
     border: none;
-    border-top: 1px solid var(--dp-divider);
-    border-radius: 0;
+    border-radius: var(--dp-radius-xl);
+    box-shadow: var(--dp-shadow-card);
 }
 
 .dekanpro-contrib-login-prompt p {
@@ -1444,11 +1465,11 @@ footer.site-footer {
    ============================================ */
 .dekanpro-gallery-filters {
     margin-bottom: 24px;
-    padding: 16px 0;
-    background: transparent;
+    padding: 16px 20px;
+    background: var(--dp-bg-card);
     border: none;
-    border-bottom: 1px solid var(--dp-divider);
-    border-radius: 0;
+    border-radius: var(--dp-radius-xl);
+    box-shadow: var(--dp-shadow-card);
 }
 
 .gallery-filter-row {
@@ -1575,13 +1596,13 @@ footer.site-footer {
 .gallery-view-list .gallery-card-thumb {
     width: 220px;
     min-width: 220px;
-    border-radius: var(--dp-radius-xl) 0 0 var(--dp-radius-xl);
+    border-radius: 0;
 }
 
 .gallery-view-list .gallery-card-thumb img {
     height: 100%;
     object-fit: cover;
-    border-radius: var(--dp-radius-xl) 0 0 var(--dp-radius-xl);
+    border-radius: 0;
 }
 
 .gallery-view-list .gallery-card-body {
@@ -1589,17 +1610,16 @@ footer.site-footer {
     padding: 1.25rem 1.5rem;
 }
 
-/* Gallery card — flat Apple style */
+/* Gallery card — Apple Newsroom card style */
 .gallery-card {
-    background: transparent;
+    background: var(--dp-bg-card);
     border: none;
-    border-bottom: 1px solid var(--dp-divider);
-    border-radius: 0;
-    overflow: visible;
-    transition: none;
+    border-radius: var(--dp-radius-xl);
+    overflow: hidden;
+    transition: box-shadow var(--dp-transition), transform var(--dp-transition);
+    box-shadow: var(--dp-shadow-card);
     opacity: 0;
     transform: translateY(20px);
-    padding-bottom: 24px;
 }
 
 .gallery-card.is-visible {
@@ -1607,16 +1627,15 @@ footer.site-footer {
 }
 
 .gallery-card:hover {
-    border-color: var(--dp-divider);
-    transform: none;
-    box-shadow: none;
+    box-shadow: var(--dp-shadow-card-hover);
+    transform: translateY(-4px);
 }
 
 .gallery-card-thumb {
     display: block;
     overflow: hidden;
     height: 200px;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .gallery-card-thumb img {
@@ -1624,32 +1643,31 @@ footer.site-footer {
     height: 200px;
     object-fit: cover;
     display: block;
-    border-radius: 12px;
-    transition: opacity var(--dp-transition);
+    border-radius: 0;
+    transition: transform var(--dp-transition-slow);
 }
 
 .gallery-card:hover .gallery-card-thumb img {
-    opacity: 0.85;
-    transform: none;
+    transform: scale(1.03);
 }
 
 .gallery-card-body {
-    padding: 12px 0 0 0;
+    padding: 16px 20px 20px;
 }
 
 .gallery-card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .gallery-card-tag {
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--dp-text-secondary);
+    letter-spacing: 0.06em;
+    color: var(--dp-text-tertiary);
     background: transparent;
     padding: 0;
     border-radius: 0;
@@ -1657,9 +1675,9 @@ footer.site-footer {
 
 .gallery-card-title {
     font-size: 17px;
-    font-weight: 700;
-    line-height: 1.19;
-    margin: 0 0 4px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 6px;
 }
 
 .gallery-card-title a {
@@ -1722,22 +1740,19 @@ footer.site-footer {
    POST CARD (UX)
    ============================================ */
 .post-card {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--dp-divider);
-    background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    overflow: visible;
-    transition: none;
+    margin-bottom: 28px;
+    padding-bottom: 0;
+    border: none;
+    background: var(--dp-bg-card);
+    border-radius: var(--dp-radius-xl);
+    overflow: hidden;
+    transition: box-shadow var(--dp-transition), transform var(--dp-transition);
+    box-shadow: var(--dp-shadow-card);
 }
 
 .post-card:hover {
-    transform: none;
-    border-color: var(--dp-divider);
-    box-shadow: none;
+    transform: translateY(-4px);
+    box-shadow: var(--dp-shadow-card-hover);
 }
 
 /* ============================================
@@ -1877,7 +1892,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-nav > ul > li > a::afte
 
 body.dekanpro-is-mobile #dekanpro-header:after,
 .is-mobile-menu-active #dekanpro-header:after {
-    background-color: #000 !important;
+    background-color: var(--dp-bg-card) !important;
 }
 
 .is-mobile-menu-active #page:after {
@@ -1965,13 +1980,13 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         display: none !important;
     }
 
-    /* Cards — no borders, clean */
+    /* Cards — rounded, smaller radius on mobile */
     .dekanpro-article,
     article.post,
     article.page {
-        border-radius: 0 !important;
-        margin-bottom: 24px !important;
-        padding-bottom: 24px;
+        border-radius: 14px !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 0;
     }
 
     .dekanpro-article:hover,
@@ -1981,7 +1996,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     .dekanpro-blog-entry-content,
     .entry-content-wrapper {
-        padding: 12px 0 0 0 !important;
+        padding: 16px 16px 20px !important;
     }
 
     .entry-title {
@@ -1995,7 +2010,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .entry-summary.dekanpro-entry {
-        font-size: 15px !important;
+        font-size: 14px !important;
         line-height: 1.47 !important;
     }
 
@@ -2028,13 +2043,13 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     }
 
     .dekanpro-entry-content-wrapper {
-        padding: 12px 0 0 0 !important;
+        padding: 16px 16px 20px !important;
         width: 100% !important;
     }
 
     .entry-media,
     .post-thumbnail {
-        border-radius: 8px !important;
+        border-radius: 0 !important;
         max-height: 180px !important;
     }
 
@@ -2046,7 +2061,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         max-height: 180px !important;
         object-fit: cover !important;
         display: block !important;
-        border-radius: 8px !important;
+        border-radius: 0 !important;
     }
 
     /* Content typography — Apple mobile sizes */
@@ -2150,11 +2165,11 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
     .gallery-view-list .gallery-card-thumb {
         width: 100% !important;
         min-width: auto !important;
-        border-radius: 8px 8px 0 0 !important;
+        border-radius: 0 !important;
     }
 
     .gallery-view-list .gallery-card-thumb img {
-        border-radius: 8px 8px 0 0 !important;
+        border-radius: 0 !important;
     }
 
     .gallery-filter-row {
@@ -2200,12 +2215,12 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     /* Comments */
     #comments {
-        padding: 20px 0 !important;
-        border-radius: 0 !important;
+        padding: 16px !important;
+        border-radius: 14px !important;
     }
 
     .comment-body {
-        padding: 12px 0 !important;
+        padding: 12px 16px !important;
     }
 
     #comments textarea {
@@ -2245,7 +2260,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
         min-width: auto !important;
         margin: 16px !important;
         padding: 20px !important;
-        border-radius: 12px !important;
+        border-radius: 18px !important;
     }
 
     .dekanpro-region-actions {
@@ -2278,8 +2293,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 
     /* Widgets */
     .widget {
-        padding: 16px 0 !important;
-        border-radius: 0 !important;
+        padding: 16px !important;
+        border-radius: 14px !important;
     }
 
     /* No animations on mobile */
@@ -2340,8 +2355,8 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ============================================ */
 .page-header,
 .dekanpro-page-header {
-    background: transparent !important;
-    border-bottom: 1px solid var(--dp-divider);
+    background: var(--dp-bg-secondary) !important;
+    border-bottom: none;
     color: var(--dp-text-primary);
 }
 
@@ -2380,7 +2395,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    COPYRIGHT BAR
    ============================================ */
 #dekanpro-copyright {
-    background: #000 !important;
+    background: var(--dp-bg-primary) !important;
     border-top: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
     font-size: 12px;
@@ -2400,7 +2415,7 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ============================================ */
 .dekanpro-topbar,
 #dekanpro-topbar {
-    background: #000 !important;
+    background: var(--dp-bg-secondary) !important;
     border-bottom: 1px solid var(--dp-divider);
     color: var(--dp-text-tertiary);
     font-size: 12px;
@@ -2437,8 +2452,9 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
 .dekanpro-slider,
 .dekanpro-main-slider,
 .dekanpro-slider-wrapper {
-    border-radius: 12px !important;
+    border-radius: var(--dp-radius-xl) !important;
     overflow: hidden;
+    box-shadow: var(--dp-shadow-card);
 }
 
 /* ============================================
@@ -2457,12 +2473,13 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    ABOUT AUTHOR
    ============================================ */
 .entry-about-author {
-    background: transparent !important;
+    background: var(--dp-bg-card) !important;
     border: none;
-    border-top: 1px solid var(--dp-divider);
-    border-radius: 0;
+    border-radius: var(--dp-radius-xl);
+    box-shadow: var(--dp-shadow-card);
     color: var(--dp-text-secondary);
-    padding: 24px 0;
+    padding: 20px 24px;
+    margin-top: 24px;
 }
 
 .entry-about-author .author-name {
@@ -2535,9 +2552,9 @@ body.dekanpro-is-mobile #dekanpro-header-inner .dekanpro-btn {
    DARK MODE OVERRIDE (already dark by default)
    ============================================ */
 [data-darkmode="dark"] body {
-    background: #000;
+    background: var(--dp-bg-primary);
 }
 
 [data-darkmode="dark"] #masthead {
-    background: rgba(0, 0, 0, 0.92) !important;
+    background: rgba(17, 17, 19, 0.92) !important;
 }
