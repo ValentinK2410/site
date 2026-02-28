@@ -805,34 +805,546 @@ article {
 /* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
+/* ============================================
+   МОБИЛЬНАЯ ВЕРСИЯ — ПОЛНАЯ ПЕРЕРАБОТКА
+   ============================================ */
 @media screen and (max-width: 768px) {
-    /* Скрываем сайдбар на мобильных — не загораживает контент */
+
+    /* --- LAYOUT: одна колонка --- */
+    .dekanpro-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    #primary,
+    .content-area {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+        padding: 0 !important;
+    }
+
     #secondary,
     .dekanpro-sidebar-container {
         display: none !important;
     }
 
-    .dekanpro-article,
-    .widget {
-        border-radius: var(--dekanpro-radius) !important;
-    }
-    
-    .dekanpro-blog-entry-content,
-    .entry-content-wrapper {
-        padding: 1.5rem !important;
-    }
-    
-    .widget {
-        padding: 1.5rem !important;
+    .dekanpro-flex-row {
+        flex-direction: column !important;
     }
 
-    /* Размеры шрифтов в контенте на мобильных */
+    .dekanpro-flex-row > [class*="col-"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* --- ШАПКА --- */
+    #masthead,
+    .site-header,
+    #dekanpro-header {
+        padding: 10px 16px !important;
+    }
+
+    .dekanpro-header-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .dekanpro-logo img {
+        max-height: 36px !important;
+    }
+
+    /* Навигация: горизонтальная прокрутка */
+    .dekanpro-nav,
+    .dekanpro-primary-nav {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .dekanpro-nav::-webkit-scrollbar,
+    .dekanpro-primary-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dekanpro-nav > ul,
+    #dekanpro-primary-nav,
+    .dekanpro-primary-nav > ul {
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        white-space: nowrap;
+        padding-bottom: 4px !important;
+    }
+
+    .dekanpro-nav > ul > li > a,
+    #dekanpro-primary-nav > li > a {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+        white-space: nowrap;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Скрываем волну на мобильных */
+    .dekanpro-nav > ul > li > a::after {
+        display: none !important;
+    }
+
+    /* Кнопка «Подписаться» — компактнее */
+    .dekanpro-header-container .dekanpro-btn,
+    .dekanpro-header-container button {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+    }
+
+    /* --- СЛАЙДЕР --- */
+    .dekanpro-slider,
+    .dekanpro-main-slider,
+    .dekanpro-slider-wrapper {
+        border-radius: 1rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    /* --- КАРТОЧКИ ПОСТОВ --- */
+    .dekanpro-article,
+    article.post,
+    article.page {
+        border-radius: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .dekanpro-article:hover,
+    article.post:hover {
+        transform: none !important;
+    }
+
+    .dekanpro-blog-entry-content,
+    .entry-content-wrapper {
+        padding: 1rem !important;
+    }
+
+    .entry-title {
+        width: 100% !important;
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+    }
+
+    .entry-title a {
+        -webkit-text-fill-color: var(--dekanpro-secondary, #0f172a) !important;
+    }
+
+    .entry-summary.dekanpro-entry {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    .entry-meta {
+        font-size: 13px !important;
+    }
+
+    /* Категории-пилюли */
+    .cat-links a,
+    .entry-category a,
+    .post-categories a {
+        padding: 0.35rem 0.85rem !important;
+        font-size: 11px !important;
+    }
+
+    /* Горизонтальный layout → вертикальный */
+    .dekanpro-blog-entry-wrapper {
+        flex-direction: column !important;
+    }
+
+    .dekanpro-blog-entry-wrapper .entry-media,
+    .dekanpro-blog-entry-wrapper .post-thumbnail {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .dekanpro-entry-content-wrapper {
+        padding: 1rem !important;
+    }
+
+    /* Миниатюры */
+    .entry-media,
+    .post-thumbnail {
+        border-radius: 1rem 1rem 0 0 !important;
+    }
+
+    .entry-media img,
+    .post-thumbnail img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    /* --- ТИПОГРАФИКА КОНТЕНТА --- */
+    .entry-content {
+        padding: 0 !important;
+    }
+
     .entry-content p {
+        font-size: 16px !important;
+        line-height: 1.75 !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    .entry-content h2 {
+        font-size: 20px !important;
+        margin: 2rem 0 1rem !important;
+    }
+
+    .entry-content h3 {
+        font-size: 18px !important;
+        margin: 1.5rem 0 0.75rem !important;
+        padding-left: 0.75rem !important;
+    }
+
+    .entry-content h4 {
         font-size: 16px !important;
     }
 
+    /* Списки */
+    .entry-content ul li,
+    .entry-content ol li {
+        font-size: 15px !important;
+        padding: 0.6rem 0.75rem 0.6rem 2rem !important;
+        border-radius: 0.5rem !important;
+    }
+
+    /* Цитаты */
+    .entry-content blockquote {
+        padding: 1rem 1.25rem !important;
+        margin: 1.5rem 0 !important;
+        border-radius: 0 0.75rem 0.75rem 0 !important;
+    }
+
+    .entry-content blockquote::before {
+        font-size: 2.5rem !important;
+        top: -0.25rem !important;
+        left: 0.5rem !important;
+    }
+
+    /* Код */
+    .entry-content pre {
+        border-radius: 0.75rem !important;
+        padding: 2.5rem 1rem 1rem !important;
+        margin: 1.5rem -16px !important;
+        border-radius: 0 !important;
+    }
+
     .entry-content pre code {
-        font-size: 12px !important;
+        font-size: 13px !important;
+    }
+
+    /* Изображения */
+    .entry-content img {
+        border-radius: 0.75rem !important;
+    }
+
+    /* Таблицы */
+    .entry-content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* --- ОГЛАВЛЕНИЕ --- */
+    .dekanpro-toc {
+        padding: 1.25rem 1.25rem 1.25rem 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .dekanpro-toc-title {
+        font-size: 1.2rem !important;
+    }
+
+    .dekanpro-toc-item a {
+        font-size: 15px !important;
+        padding: 0.5rem 0.6rem !important;
+    }
+
+    .dekanpro-toc-h3 a {
+        font-size: 14px !important;
+    }
+
+    /* --- КНОПКИ ШАРИНГА --- */
+    .dekanpro-share-buttons {
+        padding: 1rem !important;
+        margin: 1.5rem 0 !important;
+        flex-wrap: wrap;
+    }
+
+    .dekanpro-share-buttons .share-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    .dekanpro-share-buttons .share-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 14px !important;
+    }
+
+    /* --- ЗАГОЛОВОК РУБРИКИ --- */
+    .page-header .page-title,
+    .archive-title {
+        font-size: 1.5rem !important;
+    }
+
+    /* --- ПУСТАЯ РУБРИКА --- */
+    .no-results.not-found {
+        padding: 2rem 1rem !important;
+    }
+
+    .no-results .page-content p {
+        font-size: 16px !important;
+    }
+
+    /* --- ФОРМА ДОБАВЛЕНИЯ --- */
+    .dekanpro-contrib-form-wrapper {
+        max-width: 100% !important;
+    }
+
+    .dekanpro-contrib-login-prompt {
+        padding: 1.5rem 1.25rem !important;
+    }
+
+    .dekanpro-contrib-login-prompt p {
+        font-size: 15px !important;
+    }
+
+    .dekanpro-contrib-login-prompt .contrib-actions {
+        flex-direction: column !important;
+    }
+
+    .dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    .form-row-group-location {
+        padding: 1rem !important;
+    }
+
+    /* --- ГАЛЕРЕЯ ФИЛЬТРЫ --- */
+    .dekanpro-gallery-filters {
+        padding: 1rem !important;
+    }
+
+    .gallery-filter-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .gallery-filter-search {
+        min-width: auto !important;
+    }
+
+    .gallery-filter-search input {
+        font-size: 16px !important;
+    }
+
+    .gallery-filter-sort {
+        width: 100%;
+    }
+
+    .gallery-filter-sort select {
+        width: 100% !important;
+        font-size: 16px !important;
+        min-width: auto !important;
+    }
+
+    .gallery-filter-view {
+        align-self: flex-start !important;
+    }
+
+    .gallery-filter-tags {
+        gap: 0.4rem !important;
+    }
+
+    .gallery-tag-btn {
+        font-size: 14px !important;
+        padding: 0.4rem 0.9rem !important;
+    }
+
+    /* Галерея сетка */
+    .gallery-view-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .gallery-card-title {
+        font-size: 17px !important;
+    }
+
+    .gallery-card-excerpt {
+        font-size: 14px !important;
+    }
+
+    .gallery-view-list .gallery-card {
+        flex-direction: column !important;
+    }
+
+    .gallery-view-list .gallery-card-thumb {
+        width: 100% !important;
+        min-width: auto !important;
+        border-radius: 1rem 1rem 0 0 !important;
+    }
+
+    .gallery-view-list .gallery-card-thumb img {
+        border-radius: 1rem 1rem 0 0 !important;
+    }
+
+    /* --- ПАГИНАЦИЯ --- */
+    .navigation .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .navigation .nav-links .page-numbers {
+        padding: 0.6rem 1rem !important;
+        font-size: 14px !important;
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* --- КОММЕНТАРИИ --- */
+    #comments {
+        padding: 1.5rem 1rem !important;
+        border-radius: 1rem !important;
+    }
+
+    .comment-body {
+        padding: 1rem !important;
+    }
+
+    #comments input[type="text"],
+    #comments input[type="email"],
+    #comments input[type="url"],
+    #comments textarea {
+        font-size: 16px !important;
+        padding: 0.75rem !important;
+    }
+
+    #comments textarea {
+        min-height: 120px;
+    }
+
+    #comments .form-submit input[type="submit"] {
+        width: 100% !important;
+        padding: 0.85rem 1.5rem !important;
+        font-size: 16px !important;
+        min-height: 48px;
+    }
+
+    /* --- НАВИГАЦИЯ МЕЖДУ ПОСТАМИ --- */
+    .post-navigation .nav-links {
+        flex-direction: column !important;
+        gap: 1rem;
+    }
+
+    .post-navigation .nav-previous,
+    .post-navigation .nav-next {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- ФУТЕР --- */
+    #colophon,
+    .site-footer {
+        padding: 1.5rem 16px !important;
+        text-align: center;
+    }
+
+    .site-footer,
+    .site-footer * {
+        font-size: 14px !important;
+    }
+
+    /* --- МОДАЛКА РЕГИОНА --- */
+    .dekanpro-region-selector-inner {
+        min-width: auto !important;
+        margin: 16px !important;
+        padding: 1.5rem !important;
+        border-radius: 1rem !important;
+    }
+
+    .dekanpro-region-selector-title {
+        font-size: 1.1rem !important;
+    }
+
+    .dekanpro-region-form select,
+    .dekanpro-region-form input[type="text"] {
+        font-size: 16px !important;
+    }
+
+    .dekanpro-region-actions {
+        flex-direction: column !important;
+    }
+
+    .dekanpro-region-actions .dekanpro-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* --- КНОПКА CTA --- */
+    .dekanpro-contrib-cta .dekanpro-btn {
+        font-size: 15px !important;
+        padding: 0.75rem 1.5rem !important;
+    }
+
+    /* --- ВИДЖЕТЫ (если показываются) --- */
+    .widget {
+        padding: 1.25rem !important;
+        border-radius: 1rem !important;
+    }
+
+    /* --- УБИРАЕМ ЛИШНИЕ АНИМАЦИИ --- */
+    .dekanpro-article,
+    .widget,
+    article {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    /* --- КНОПКА НАВЕРХ --- */
+    #dekanpro-scroll-top {
+        bottom: 16px !important;
+        right: 16px !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    /* --- ГЛОБАЛЬНЫЕ КНОПКИ --- */
+    .dekanpro-btn,
+    button,
+    input[type="submit"] {
+        min-height: 44px;
+    }
+
+    /* --- ФОРМЫ --- */
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        min-height: 44px;
     }
 }
 
@@ -1697,40 +2209,7 @@ a.button:hover,
     max-width: 640px;
 }
 
-/* ============================================
-   АДАПТИВ: мобильные улучшения
-   ============================================ */
-@media screen and (max-width: 768px) {
-    .dekanpro-share-buttons {
-        padding: 1rem;
-    }
-    .dekanpro-share-buttons .share-btn {
-        padding: 0.5rem 0.9rem;
-        font-size: 0.85rem;
-    }
-    .dekanpro-region-selector-inner {
-        min-width: auto;
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-    .dekanpro-contrib-login-prompt {
-        padding: 1.5rem 1.25rem;
-    }
-    .dekanpro-contrib-login-prompt .contrib-actions {
-        flex-direction: column;
-    }
-    .dekanpro-contrib-login-prompt .contrib-actions .dekanpro-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-    }
-    .no-results.not-found {
-        padding: 2rem 1rem;
-    }
-    .form-row-group-location {
-        padding: 1rem;
-    }
-}
+/* Дублирующий мобильный блок удалён — всё в основном @media (max-width: 768px) выше */
 
 /* ============================================
    ГАЛЕРЕЯ С ФИЛЬТРАМИ ДЛЯ РУБРИК
@@ -2028,53 +2507,11 @@ a.button:hover,
     border-radius: var(--dekanpro-full-radius, 9999px) !important;
 }
 
-/* Адаптив галереи */
+/* Адаптив галереи — планшеты */
 @media screen and (max-width: 1024px) {
     .gallery-view-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-@media screen and (max-width: 768px) {
-    .gallery-filter-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .gallery-filter-search {
-        min-width: auto;
-    }
-    .gallery-filter-sort select {
-        width: 100%;
-    }
-    .gallery-filter-view {
-        align-self: flex-start;
-    }
-    .gallery-view-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    .gallery-view-list .gallery-card {
-        flex-direction: column;
-    }
-    .gallery-view-list .gallery-card-thumb {
-        width: 100%;
-        min-width: auto;
-        border-radius: var(--dekanpro-radius, 1.5rem) var(--dekanpro-radius, 1.5rem) 0 0;
-    }
-    .gallery-view-list .gallery-card-thumb img {
-        border-radius: var(--dekanpro-radius, 1.5rem) var(--dekanpro-radius, 1.5rem) 0 0;
-    }
-    .gallery-card-title {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .gallery-view-grid {
-        grid-template-columns: 1fr;
-    }
-    .dekanpro-gallery-filters {
-        padding: 1rem;
-    }
-}
+/* Мобильные правила галереи — в основном @media (max-width: 768px) выше */
 
