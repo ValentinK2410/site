@@ -789,11 +789,11 @@ article.post:hover {
     backdrop-filter: none !important;
 }
 
-/* Thumbnail — Design System: no border-radius (articleCard.borderRadius: 0) */
+/* Thumbnail — скруглённые углы как у Apple Newsroom */
 .entry-media,
 .post-thumbnail {
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 16px;
 }
 
 .entry-media img,
@@ -803,7 +803,7 @@ article.post:hover {
     aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
-    border-radius: 0;
+    border-radius: 16px;
     transition: opacity .32s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
@@ -884,7 +884,12 @@ article:hover .entry-summary.dekanpro-entry,
     -webkit-text-fill-color: var(--dp-text) !important;
 }
 
-/* Article grid — 2 columns, Design System spacing */
+/* ============================================
+   ARTICLE GRID — Apple Newsroom layout
+   1-й пост: на всю ширину (hero), картинка справа + текст слева
+   2–5 посты: 2 колонки
+   6+ посты: 3 колонки (компактные)
+   ============================================ */
 .home #content.site-content .dekanpro-flex-row,
 .archive #content.site-content .dekanpro-flex-row,
 .search #content.site-content .dekanpro-flex-row {
@@ -899,7 +904,58 @@ article:hover .entry-summary.dekanpro-entry,
     grid-column: 1 / -1;
 }
 
-/* Vertical cards: image on top (Apple Newsroom) */
+/* 1-й пост — featured hero на всю ширину */
+.home .dekanpro-flex-row > article:first-child,
+.archive .dekanpro-flex-row > article:first-child {
+    grid-column: 1 / -1;
+    padding: 0 0 var(--dp-space-8) !important;
+    margin-bottom: var(--dp-space-6) !important;
+    border-bottom: 1px solid var(--dp-border-light) !important;
+}
+
+.home .dekanpro-flex-row > article:first-child .dekanpro-blog-entry-wrapper,
+.archive .dekanpro-flex-row > article:first-child .dekanpro-blog-entry-wrapper {
+    flex-direction: row !important;
+    display: flex !important;
+    gap: var(--dp-space-8);
+    align-items: flex-start;
+}
+
+.home .dekanpro-flex-row > article:first-child .entry-media,
+.home .dekanpro-flex-row > article:first-child .post-thumbnail,
+.archive .dekanpro-flex-row > article:first-child .entry-media,
+.archive .dekanpro-flex-row > article:first-child .post-thumbnail {
+    width: 60% !important;
+    max-width: 60% !important;
+    min-width: 60% !important;
+    flex: 0 0 60% !important;
+    order: 2;
+}
+
+.home .dekanpro-flex-row > article:first-child .dekanpro-entry-content-wrapper,
+.archive .dekanpro-flex-row > article:first-child .dekanpro-entry-content-wrapper {
+    width: 40% !important;
+    flex: 0 0 40% !important;
+    order: 1;
+    padding-top: var(--dp-space-4) !important;
+}
+
+.home .dekanpro-flex-row > article:first-child .entry-title a,
+.archive .dekanpro-flex-row > article:first-child .entry-title a {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.01em !important;
+}
+
+.home .dekanpro-flex-row > article:first-child .entry-summary,
+.archive .dekanpro-flex-row > article:first-child .entry-summary {
+    font-size: 17px !important;
+    line-height: 1.47 !important;
+    color: var(--dp-text-secondary) !important;
+}
+
+/* 2–5 посты: стандартные 2 колонки, вертикальные карточки */
 .home .dekanpro-blog-entry-wrapper,
 .archive .dekanpro-blog-entry-wrapper,
 .search .dekanpro-blog-entry-wrapper {
@@ -926,6 +982,52 @@ article:hover .entry-summary.dekanpro-entry,
     flex: 1 1 auto !important;
 }
 
+/* 6+ посты: 3 колонки, компактные */
+.home .dekanpro-flex-row > article:nth-child(n+6),
+.archive .dekanpro-flex-row > article:nth-child(n+6) {
+    grid-column: auto;
+}
+
+@media screen and (min-width: 735px) {
+    .home .dekanpro-flex-row > article:nth-child(5),
+    .archive .dekanpro-flex-row > article:nth-child(5) {
+        grid-column: 1 / -1;
+        border-bottom: 1px solid var(--dp-border-light) !important;
+        padding-bottom: var(--dp-space-6) !important;
+        margin-bottom: var(--dp-space-4) !important;
+    }
+
+    /* Переключаем на 3 колонки начиная с 6-го поста */
+    .home #content.site-content .dekanpro-flex-row,
+    .archive #content.site-content .dekanpro-flex-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* CSS subgrid не поддерживается, используем трюк: 6+ посты в 3 колонки через grid-column */
+    .home .dekanpro-flex-row > article:nth-child(3n+6),
+    .archive .dekanpro-flex-row > article:nth-child(3n+6) {
+        grid-column: 1 / 2;
+    }
+}
+
+/* 6+ посты — компактнее */
+.home .dekanpro-flex-row > article:nth-child(n+6) .entry-title a,
+.archive .dekanpro-flex-row > article:nth-child(n+6) .entry-title a {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    line-height: 1.23 !important;
+}
+
+.home .dekanpro-flex-row > article:nth-child(n+6) .entry-summary,
+.archive .dekanpro-flex-row > article:nth-child(n+6) .entry-summary {
+    display: none !important;
+}
+
+.home .dekanpro-flex-row > article:nth-child(n+6) .entry-media img,
+.archive .dekanpro-flex-row > article:nth-child(n+6) .entry-media img {
+    aspect-ratio: 4/3;
+}
+
 @media screen and (max-width: 734px) {
     .home #content.site-content .dekanpro-flex-row,
     .archive #content.site-content .dekanpro-flex-row,
@@ -933,44 +1035,38 @@ article:hover .entry-summary.dekanpro-entry,
         grid-template-columns: 1fr;
         gap: 0;
     }
+    .home .dekanpro-flex-row > article:first-child .dekanpro-blog-entry-wrapper,
+    .archive .dekanpro-flex-row > article:first-child .dekanpro-blog-entry-wrapper {
+        flex-direction: column !important;
+    }
+    .home .dekanpro-flex-row > article:first-child .entry-media,
+    .home .dekanpro-flex-row > article:first-child .post-thumbnail,
+    .archive .dekanpro-flex-row > article:first-child .entry-media,
+    .archive .dekanpro-flex-row > article:first-child .post-thumbnail {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        flex: 0 0 100% !important;
+        order: 1;
+    }
+    .home .dekanpro-flex-row > article:first-child .dekanpro-entry-content-wrapper,
+    .archive .dekanpro-flex-row > article:first-child .dekanpro-entry-content-wrapper {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        order: 2;
+    }
+    .home .dekanpro-flex-row > article:first-child .entry-title a,
+    .archive .dekanpro-flex-row > article:first-child .entry-title a {
+        font-size: 24px !important;
+    }
 }
 
-/* Hero — Design System (Apple Newsroom style) */
+/* Hero — скрыт, Apple Newsroom показывает сразу «Последние новости» */
 .dekanpro-newsroom-hero {
-    margin-bottom: var(--dp-space-6);
-    padding-bottom: var(--dp-space-6);
-    border-bottom: 1px solid var(--dp-border-light);
-}
-
-.dekanpro-newsroom-hero-title {
-    font-size: var(--dp-h1-size) !important;
-    font-weight: var(--dp-h1-weight) !important;
-    line-height: var(--dp-h1-lh) !important;
-    letter-spacing: var(--dp-h1-ls) !important;
-    color: var(--dp-text) !important;
-    margin: 0 0 var(--dp-space-2) !important;
-}
-
-.dekanpro-newsroom-hero-tagline {
-    font-size: var(--dp-body-size);
-    line-height: var(--dp-body-lh);
-    letter-spacing: var(--dp-body-ls);
-    color: var(--dp-text-secondary);
-    margin: 0 !important;
+    display: none !important;
 }
 
 @media screen and (max-width: 734px) {
-    .dekanpro-newsroom-hero {
-        margin-bottom: var(--dp-space-4) !important;
-        padding-bottom: var(--dp-space-4) !important;
-    }
-    .dekanpro-newsroom-hero-title {
-        font-size: 28px !important;
-        margin-bottom: var(--dp-space-1) !important;
-    }
-    .dekanpro-newsroom-hero-tagline {
-        font-size: 16px !important;
-    }
     #dekanpro-blog-heading {
         margin-bottom: var(--dp-space-4) !important;
     }
@@ -1016,10 +1112,10 @@ article.post .post-author,
     color: var(--dp-text-tertiary) !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    font-size: var(--dp-small-size) !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
-    letter-spacing: .012em !important;
+    letter-spacing: .04em !important;
     border: none !important;
     box-shadow: none !important;
     transition: color .15s ease !important;
